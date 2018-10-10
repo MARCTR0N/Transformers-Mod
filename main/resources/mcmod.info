@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tm",
+  "name": "Transformers Mod",
+  "description": "A revived experience of the Transformers Mod",
+  "version": "1.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Marctron"],
+  "credits": "Smellyblast",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
