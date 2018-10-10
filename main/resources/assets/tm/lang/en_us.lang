@@ -1,0 +1,14 @@
+
+
+item.energon_shard.name=Energon Shard
+item.transformium.name=Transformium
+item.mug.name=Mug
+item.energon_mug.name=Energon Mug
+
+tile.energon_cube_block.name=Energon Cube
+tile.energon_ore_block.name=Energon Ore
+tile.transformium_block.name=Block of Transformium
+tile.transformium_ore_block.name=Transformium Ore
+
+itemGroup.tabTransformersMod=Transformers
+
