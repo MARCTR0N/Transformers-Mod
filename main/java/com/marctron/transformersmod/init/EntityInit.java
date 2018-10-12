@@ -20,5 +20,5 @@ public class EntityInit
 	{
 		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, range, 1, true, color1, color2);
 	}
-
+	
 }

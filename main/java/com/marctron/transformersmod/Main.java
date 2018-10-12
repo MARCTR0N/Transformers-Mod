@@ -4,6 +4,7 @@ import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.init.ModRecipes;
 import com.marctron.transformersmod.proxy.CommonProxy;
 import com.marctron.transformersmod.util.Reference;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.world.ModWorldGen;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -31,12 +32,15 @@ public class Main {
 	public static void PreInit(FMLPreInitializationEvent event)
 	{
 		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+		RegistryHandler.preInitRegistriesSide();
 	}
+	
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event)
 	{
 		ModRecipes.init();
+		RegistryHandler.initRegistries();
 		
 	}
 	

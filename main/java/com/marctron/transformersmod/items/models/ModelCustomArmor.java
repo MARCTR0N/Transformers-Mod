@@ -1,15 +1,15 @@
-package com.marctron.transformersmod.entity.model;
+package com.marctron.transformersmod.items.models;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 /**
  * ModelSkeleton - Either Mojang or a mod author
  * Created using Tabula 7.0.0
  */
-public class ModelVehicon extends ModelBase {
+public class ModelCustomArmor extends ModelBiped {
     public ModelRenderer RightArm;
     public ModelRenderer Right_Leg;
     public ModelRenderer Head;
@@ -95,7 +95,7 @@ public class ModelVehicon extends ModelBase {
     public ModelRenderer Left_Lower_Leg_2;
     public ModelRenderer Left_Leg_2;
 
-    public ModelVehicon() {
+    public ModelCustomArmor() {
         this.textureWidth = 64;
         this.textureHeight = 32;
         this.Head_11 = new ModelRenderer(this, 0, 0);
@@ -497,41 +497,27 @@ public class ModelVehicon extends ModelBase {
         this.Head.addChild(this.Head_10);
         this.Left_Arm.addChild(this.Left_Shoulder_3);
         this.Right_Leg.addChild(this.Right_Lower_Leg_2);
+        
+        this.bipedHead.addChild(Head);
+        this.bipedBody.addChild(Chest);
+        this.bipedLeftArm.addChild(Left_Arm);
+        this.bipedLeftLeg.addChild(Left_Leg);
+        this.bipedRightArm.addChild(Left_Arm);
+        this.bipedRightLeg.addChild(Right_Leg);
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        this.Right_Leg.render(f5);
-        this.Head.render(f5);
-        this.Left_Leg.render(f5);
-        this.Left_Arm.render(f5);
-        this.RightArm.render(f5);
-        this.Chest.render(f5);
+        super.render(entity, f, f1, f2, f3, f4, f5);
+    	
     }
 
     /**
      * This is a helper function from Tabula to set the rotation of model parts
      */
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) 
-    {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
-    }
-    
-    @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
-    		float headPitch, float scaleFactor, Entity entityIn) {
-    		this.Right_Leg.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F) * 1.4F * limbSwingAmount;
-    		this.Left_Leg.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-    		
-    		this.Head.rotateAngleY = netHeadYaw * 0.017453292F;
-    		this.Head.rotateAngleX = headPitch * 0.017453292F;
-    		
-    		this.RightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F) * 1.3F * limbSwingAmount;
-    		this.Left_Arm.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F + (float)Math.PI) * 1.3F * limbSwingAmount;
-    		
-
-    	super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
     }
 }

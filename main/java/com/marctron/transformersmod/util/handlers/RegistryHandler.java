@@ -52,4 +52,15 @@ public class RegistryHandler
 		EntityInit.registerEntities();
 		RenderHandler.registerEntityRenders();
 	}
+
+	public static void preInitRegistriesSide() 
+	{
+		EntityInit.registerEntities();
+		RenderHandler.registerEntityRenders();
+		
+	}
+	public static void initRegistries() 
+	{
+		SoundsHandler.registerSounds();
+	}
 }
