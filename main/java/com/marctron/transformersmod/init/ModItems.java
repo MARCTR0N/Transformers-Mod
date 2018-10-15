@@ -33,9 +33,9 @@ public class ModItems
 	//Armor
 	public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
-	public static final Item CUSTOM_HELMET = new ArmorModel("custom_helmet", Main.tabTransformers, CUSTOM_MODEL_MATERIAL, EntityEquipmentSlot.HEAD);
-	public static final Item CUSTOM_CHESTPLATE = new ArmorModel("custom_chestplate", Main.tabTransformers, CUSTOM_MODEL_MATERIAL, EntityEquipmentSlot.CHEST);
-	public static final Item CUSTOM_LEGGINGS = new ArmorModel("custom_leggings", Main.tabTransformers, CUSTOM_MODEL_MATERIAL, EntityEquipmentSlot.LEGS);
-	public static final Item CUSTOM_BOOTS = new ArmorModel("custom_boots", Main.tabTransformers, CUSTOM_MODEL_MATERIAL, EntityEquipmentSlot.FEET);
+	public static final Item CUSTOM_HELMET = new ArmorModel("custom_helmet", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item CUSTOM_CHESTPLATE = new ArmorModel("custom_chestplate", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item CUSTOM_LEGGINGS = new ArmorModel("custom_leggings", CUSTOM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item CUSTOM_BOOTS = new ArmorModel("custom_boots", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 }
