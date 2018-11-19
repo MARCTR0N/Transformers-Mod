@@ -34,7 +34,7 @@ public class RegistryHandler
 		{
 			if(item instanceof IHasModel)
 			{
-				((IHasModel)item).registerModel();
+				((IHasModel)item).registerModels();
 			}
 		}
 		
@@ -42,7 +42,7 @@ public class RegistryHandler
 		{
 			if(block instanceof IHasModel)
 			{
-				((IHasModel)block).registerModel();
+				((IHasModel)block).registerModels();
 			}
 		}
 		
