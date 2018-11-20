@@ -9,6 +9,7 @@ import com.marctron.transformersmod.world.ModWorldGen;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -27,7 +28,7 @@ public class Main {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
-
+	
 
 	
 	@EventHandler
@@ -35,6 +36,8 @@ public class Main {
 	{
 		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 		RegistryHandler.preInitRegistriesSide();
+	
+	  
 	}
 	
 	
@@ -43,6 +46,7 @@ public class Main {
 	{
 		ModRecipes.init();
 		RegistryHandler.initRegistries();
+		proxy.register();
 		
 	}
 	

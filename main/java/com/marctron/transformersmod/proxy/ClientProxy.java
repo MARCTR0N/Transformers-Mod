@@ -1,13 +1,27 @@
 package com.marctron.transformersmod.proxy;
 
+import org.lwjgl.input.Keyboard;
+
+import com.marctron.transformersmod.events.ClientEvents;
 import com.marctron.transformersmod.util.Reference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraft.util.ResourceLocation;
 
 public class ClientProxy extends CommonProxy 
 {
+	
+	public static final KeyBinding MY_KEYBINDING = new KeyBinding ("key.transform", Keyboard.KEY_X, "category.transformers");
+	@Override
+	public void register()
+    {
+		MinecraftForge.EVENT_BUS.register(new ClientEvents() );
+        ClientRegistry.registerKeyBinding(MY_KEYBINDING);
+    }
 	
 	
 	@Override
