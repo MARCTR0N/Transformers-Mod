@@ -2,15 +2,20 @@ package com.marctron.transformersmod.items.gun;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemBasic;
 import com.marctron.transformersmod.util.NBTHelper;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 public class AmmoClip extends ItemBase implements IShootable
 {
@@ -26,14 +31,12 @@ public class AmmoClip extends ItemBase implements IShootable
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems)
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
     {
-        //Add empty and full clips
-        ItemStack clip = new ItemStack(itemIn);
-        setBulletsAmount(clip, 0);
-        subItems.add(clip.copy());
-        setBulletsAmount(clip, clipSize);
-        subItems.add(clip);
+        if (this.isInCreativeTab(tab))
+        {
+            items.add(new ItemStack(this));
+        }
     }
 
     public static void setBulletsAmount(ItemStack stack, int amount)
@@ -48,8 +51,9 @@ public class AmmoClip extends ItemBase implements IShootable
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
+    
         tooltip.add("Bullets: " + getBulletsAmount(stack) + "/" + clipSize);
     }
 

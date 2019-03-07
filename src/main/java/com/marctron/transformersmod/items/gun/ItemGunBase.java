@@ -5,7 +5,8 @@ package com.marctron.transformersmod.items.gun;
 	import com.marctron.transformersmod.util.LogHelper;
 	import com.marctron.transformersmod.util.NBTHelper;
 
-	import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
 	import net.minecraft.init.SoundEvents;
 	import net.minecraft.item.ItemStack;
 	import net.minecraft.util.EnumHand;
@@ -16,6 +17,8 @@ package com.marctron.transformersmod.items.gun;
 	import net.minecraftforge.items.ItemStackHandler;
 
 	import java.util.List;
+
+import javax.annotation.Nullable;
 
 	public abstract class ItemGunBase extends ItemCooldown implements IGun
 	{
@@ -191,7 +194,7 @@ package com.marctron.transformersmod.items.gun;
 
 	    @Override
 	    @SideOnly(Side.CLIENT)
-	    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+	    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
 	    {
 	        tooltip.add("Ammo: " + getAmmoAmount(stack) + "/" + getMaxAmmo());
 	    }

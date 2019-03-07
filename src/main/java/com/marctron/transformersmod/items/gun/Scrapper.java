@@ -1,4 +1,5 @@
 package com.marctron.transformersmod.items.gun;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +14,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.entity.EntityBullet;
@@ -187,7 +190,7 @@ public class Scrapper extends ItemBase implements IGun
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
         tooltip.add("Ammo: " + getAmmoAmount(stack) + "/" + getMaxAmmo());
     }

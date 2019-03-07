@@ -35,16 +35,7 @@ public class ItemBase extends Item implements IHasModel{
 	}
 
 
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 	
-		
-	}
-
-
-	public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-		
-		
-	}
 
 
 	

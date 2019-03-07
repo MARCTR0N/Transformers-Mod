@@ -23,13 +23,12 @@ public class ItemBasicMeta extends ItemBase
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems)
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
     {
-        if(hasSubtypes)
-            for(int i = 0; i < getSubNames().length; i++)
-                subItems.add(new ItemStack(itemIn, 1, i));
-        else
-            subItems.add(new ItemStack(itemIn));
+        if (this.isInCreativeTab(tab))
+        {
+            items.add(new ItemStack(this));
+        }
     }
 
     /**
