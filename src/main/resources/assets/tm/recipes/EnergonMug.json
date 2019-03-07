@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " E ",
+        " M ",
+        "   "
+    ],
+    "key": {
+        "M": {
+            "item": "tm:mug"
+       },
+           
+          
+        "E": {
+            "item": "tm:energon_shard"
+        }
+    },
+    "result": {
+        "item": "tm:energon_mug",
+        "count": 1
+    }
+}
