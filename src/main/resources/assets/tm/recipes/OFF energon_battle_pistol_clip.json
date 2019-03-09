@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " E ",
+        " M ",
+        "   "
+    ],
+    "key": {
+        "M": {
+            "item": "tm:energon_battle_pistol_clip",
+            "data": 32767
+       },
+           
+          
+        "E": {
+            "item": "tm:energon_shard"
+        }
+    },
+    "result": {
+        "item": "tm:energon_battle_pistol_clip",
+         "data": 1,
+         "count": 1
+       
+    }
+}

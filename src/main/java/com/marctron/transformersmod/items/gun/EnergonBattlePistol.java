@@ -10,7 +10,7 @@ public class EnergonBattlePistol extends ItemGunBase
 {
     public EnergonBattlePistol()
     {
-        super("energon_pistol", 10);
+        super("energon_pistol", 9);
     }
 
     @Override

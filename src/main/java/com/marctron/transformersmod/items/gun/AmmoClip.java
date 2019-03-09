@@ -35,7 +35,12 @@ public class AmmoClip extends ItemBase implements IShootable
     {
         if (this.isInCreativeTab(tab))
         {
-            items.add(new ItemStack(this));
+        	 //Add empty and full clips
+            ItemStack clip = new ItemStack(this);
+            setBulletsAmount(clip, 0);
+            items.add(clip.copy());
+            setBulletsAmount(clip, clipSize);
+            items.add(clip);
         }
     }
 

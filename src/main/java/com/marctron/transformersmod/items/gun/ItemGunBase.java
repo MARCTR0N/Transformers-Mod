@@ -5,8 +5,8 @@ package com.marctron.transformersmod.items.gun;
 	import com.marctron.transformersmod.util.LogHelper;
 	import com.marctron.transformersmod.util.NBTHelper;
 
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
+	import net.minecraft.client.util.ITooltipFlag;
+	import net.minecraft.entity.player.EntityPlayer;
 	import net.minecraft.init.SoundEvents;
 	import net.minecraft.item.ItemStack;
 	import net.minecraft.util.EnumHand;
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
 	        {
 	            if(!player.capabilities.isCreativeMode && ammo == 0)
 	            {
-	                //TODO: Play gun out of ammo sound
+	            	player.world.playSound(null, player.getPosition(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
 	                return false;
 	            }
 	            //Shoot

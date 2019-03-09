@@ -74,7 +74,7 @@ public class ModItems
 	public static final Item AJ_LEGGINGS = new ArmorModelAJ("aj_leggings", AJ_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item AJ_BOOTS = new ArmorModelAJ("aj_boots", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
-	//public static  ItemBase = new ItemBaseMeta("basic", EItemBasic.allNames);
+	public static Item ItemBase = new ItemBasicMeta("basic", EItemBasic.allNames);
 	
 	//Guns
 	public static final Item PHOTON_BURST_RIFLE = new ModdedBow("modded_bow");
@@ -92,13 +92,13 @@ public class ModItems
 	
 	
 	
-	//public static ItemStack getBasicItem(EItemBasic basicName)
+	public static ItemStack getBasicItem(EItemBasic basicName)
     {
-      //  return getBasicItem(basicName, 1);
+        return getBasicItem(basicName, 1);
     }
     
-    //public static ItemStack getBasicItem(EItemBasic basicName, int stackSize)
+    public static ItemStack getBasicItem(EItemBasic basicName, int stackSize)
     {
-     //   return new ItemStack(ItemBase, stackSize, basicName.ordinal());
+        return new ItemStack(ItemBase, stackSize, basicName.ordinal());
     }
 }
