@@ -85,7 +85,7 @@ public class ModItems
 	//Ammo
 	public static final Item PRIMARY_AMMO = new PrimaryAmmo();
 	
-	public static final IShootable Energon_Battle_Pistol_CLip = new AmmoClip("Energon_Battle_Pistol_Clip", 10);
+	public static final IShootable Energon_Battle_Pistol_Clip = new AmmoClip("Energon_Battle_Pistol_Clip", 10);
 	public static final IShootable Scrapper_Clip = new AmmoClip("Scrapper_Clip", 100);
 	public static final IShootable EMP_Shotgun_Shell = new AmmoClip("EMP_Shotgun_Shell", 16);
 	
@@ -101,4 +101,17 @@ public class ModItems
     {
         return new ItemStack(ItemBase, stackSize, basicName.ordinal());
     }
+    /*
+    public static ItemStack getBaseItem(IShootable basicName)
+    {
+        return getBaseItem(basicName);
+    }
+    /*
+    public static ItemStack getBaseItem(ItemBase basicName, int stackSize)
+    {
+        return new ItemStack(ItemBase, stackSize, basicName.);
+    }
+    */
+
+	
 }

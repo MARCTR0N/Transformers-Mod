@@ -16,7 +16,7 @@ public class EnergonBattlePistol extends ItemGunBase
     @Override
     public IShootable getAmmoItem()
     {
-        return ModItems.Energon_Battle_Pistol_CLip;
+        return ModItems.Energon_Battle_Pistol_Clip;
     }
     
     @Override
