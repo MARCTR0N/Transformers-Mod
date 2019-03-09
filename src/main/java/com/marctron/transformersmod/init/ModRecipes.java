@@ -30,7 +30,7 @@ public class ModRecipes {
 		
 		
 	
-	 RecipeSorter.register("ShapelessNBTRecipe", ShapelessNBTRecipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
+	 
 	/*
 	//Empty Bullet Clip
 		 ItemStack emptyClip = new ItemStack((Block) ModItems.Energon_Battle_Pistol_Clip);
@@ -54,7 +54,7 @@ public class ModRecipes {
 				 ItemStack outputClip = new ItemStack((Block) ModItems.Energon_Battle_Pistol_Clip);
 				 AmmoClip.setBulletsAmount(outputClip, clipSize + numBullets);
 
-				 GameRegistry.addShapelessRecipe(new ResourceLocation(Reference.MOD_ID, "energon_battle_pistol_clip"), null, outputClip, (Ingredient[]) bullets);
+				 GameRegistry.addShapelessRecipe(new ResourceLocation(Reference.MOD_ID, "pistol_clip"), null, outputClip, (Ingredient[]) bullets);
 				 
 				 
 				 
