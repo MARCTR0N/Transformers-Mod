@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.init;
 
 import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.util.Reference;
 
@@ -13,6 +14,8 @@ public class EntityInit
 	public static void registerEntities()
 	{
 		registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 50, 000000, 660066);
+		
+		registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 50, 8983288, 16043109);
 	}
 	
 	

@@ -21,3 +21,19 @@ item.custom_leggings.name=Vehicon Legs
 item.custom_helmet.name=Vehicon Head
 item.custom_boots.name=Vehicon Feet
 item.custom_chestplate.name=Vehicon Torso
+
+item.EMP_Shotgun_Shell.name=EMP Shotgun Shell
+item.Energon_Battle_Pistol_Clip.name=Energon Battle Pistol Clip
+item.Scrapper_Clip.name=X12 Scrapmaker Clip
+item.Scatter_Blaster_Shell.name=Scatter Blaster Shell
+item.Neutron_Repeater_Clip.name=Neutron Repeater Clip
+item.basic.bullet.name=Bullet
+
+item.energon_pistol.name=Energon Battle Pistol
+item.empshotgun.name=EMP Shotgun
+item.scrapper.name=X12 Scrapmaker
+item.neutron_repeater.name=Neutron Repeater
+item.scatterblaster.name=Scatter Blaster
+
+container.energon_crate=Energon Crate
+tile.energon_crate_block.name=Energon Crate

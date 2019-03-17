@@ -13,6 +13,7 @@ public class ModConfiguration
 	public static Configuration config;
 	
 	public static int ENTITY_VEHICON_ID = 201;
+	public static int ENTITY_SWINDLE_ID = 202;
 	
 	
 	public static int DIMENSION_CYBERTRON_ID = 2;

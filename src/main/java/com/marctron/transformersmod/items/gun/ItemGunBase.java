@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
 	            }
 	            //Shoot
 	            spawnBullet(world, player);
-	            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+	            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
 	            if(!player.capabilities.isCreativeMode)
 	            setAmmoAmount(stack, --ammo);
 	            return true;

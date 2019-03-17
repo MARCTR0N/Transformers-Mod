@@ -13,12 +13,12 @@
            
           
         "E": {
-            "item": "tm:energon_shard"
+            "item": "tm:bullet"
         }
     },
     "result": {
-        "item": "tm:energon_battle_pistol_clip",
-         "data": 1,
+        "item": "tm:pistol_clip",
+         
          "count": 1
        
     }

@@ -10,4 +10,7 @@ public class Reference {
 	public static final String COMMON_PROXY_CLASS = "com.marctron.transformersmod.proxy.CommonProxy";
 	
 	public static final int ENTITY_VEHICON = 120;
+	public static final int ENTITY_SWINDLE = 120;
+	
+	public static final int GUI_ENERGON_CRATE = 2;
 }

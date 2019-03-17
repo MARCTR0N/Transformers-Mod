@@ -22,4 +22,7 @@ public interface IShootable
     
     
     int clipSize = 0;
+
+
+	Object getRegistryName();
 }

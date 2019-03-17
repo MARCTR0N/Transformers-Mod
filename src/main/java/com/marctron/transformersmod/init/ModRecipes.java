@@ -54,10 +54,15 @@ public class ModRecipes {
 				 ItemStack outputClip = new ItemStack((Block) ModItems.Energon_Battle_Pistol_Clip);
 				 AmmoClip.setBulletsAmount(outputClip, clipSize + numBullets);
 
-				 GameRegistry.addShapelessRecipe(new ResourceLocation(Reference.MOD_ID, "pistol_clip"), null, outputClip, (Ingredient[]) bullets);
+				// GameRegistry.addShapelessRecipe(new ResourceLocation(Reference.MOD_ID, "pistol_clip"), null, outputClip, (Ingredient[]) bullets);
+				 for(int i = 0; i < 10; i++)
+				 {
+				     ItemStack stack = new ItemStack((Block) ModItems.Energon_Battle_Pistol_Clip, 1, i);
+				     GameRegistry.addShapelessRecipe(new ResourceLocation(Reference.MOD_ID, "pistol_clip" + i), null, outputClip, (Ingredient[]) bullets);
+				 }
 				 
-				 
-				 
+				// ItemStack stack = new ItemStack((Block) ModItems.Energon_Battle_Pistol_Clip, 1, i);
+				    // GameRegistry.addShapelessRecipe(new ResourceLocation(Reference.MOD_ID, ((Object) ModItems.Energon_Battle_Pistol_Clip.getRegistryName()).getPath() + i), null, outputClip, (Ingredient[]) bullets);
             
 			
           

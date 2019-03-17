@@ -15,7 +15,7 @@ public class RenderVehicon extends RenderLiving<EntityVehicon>
 	public static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/entity/vehicon.png");
 	
 	public RenderVehicon(RenderManager manager) {
-		super(manager, new ModelVehicon(), 0.5F);
+		super(manager, new ModelVehicon(), 0.25F);
 	}
 	
 		@Override

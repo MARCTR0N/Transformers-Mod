@@ -6,24 +6,23 @@ import com.marctron.transformersmod.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EMPShotgun extends ItemGunBase
+public class ScatterBlaster extends ItemGunBase
 {
-    public EMPShotgun()
+    public ScatterBlaster()
     {
-        super("empshotgun", 11);
+        super("scatterblaster", 6);
     }
 
     @Override
     public IShootable getAmmoItem()
     {
-        return ModItems.EMP_Shotgun_Shell;
+        return ModItems.Scatter_Blaster_Shell;
     }
 
     @Override
     protected void spawnBullet(World world, EntityPlayer player)
     {
         for(int i = 0; i < 6; i++)
-            world.spawnEntity(new EntityBullet(world, player, 10f).setDamage(2f));
+            world.spawnEntity(new EntityBullet(world, player, 35f));
     }
 }
-

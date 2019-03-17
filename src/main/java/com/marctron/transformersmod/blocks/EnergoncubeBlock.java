@@ -11,7 +11,7 @@ public class EnergoncubeBlock extends BlockBase
 		this.setSoundType(SoundType.METAL);
 		this.setHardness(5.0F);
 		this.setHarvestLevel("pickaxe", 2);
-		this.setLightLevel(0.8F);
+		this.setLightLevel(0.6F);
 	}
 
 

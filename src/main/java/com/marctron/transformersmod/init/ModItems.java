@@ -81,6 +81,8 @@ public class ModItems
 	public static final Item Energon_Battle_Pistol = new EnergonBattlePistol();
 	public static final IGun Scrapper = new Scrapper();
 	public static final Item EMPShotgun = new EMPShotgun();
+	public static final Item ScatterBlaster = new ScatterBlaster();
+	public static final Item NeutronRepeater = new NeutronRepeater();
 	
 	//Ammo
 	public static final Item PRIMARY_AMMO = new PrimaryAmmo();
@@ -88,6 +90,8 @@ public class ModItems
 	public static final IShootable Energon_Battle_Pistol_Clip = new AmmoClip("Energon_Battle_Pistol_Clip", 10);
 	public static final IShootable Scrapper_Clip = new AmmoClip("Scrapper_Clip", 100);
 	public static final IShootable EMP_Shotgun_Shell = new AmmoClip("EMP_Shotgun_Shell", 16);
+	public static final IShootable Scatter_Blaster_Shell = new AmmoClip("Scatter_Blaster_Shell", 16);
+	public static final IShootable Neutron_Repeater_Clip = new AmmoClip("Neutron_Repeater_Clip", 100);
 	
 	
 	
@@ -112,6 +116,8 @@ public class ModItems
         return new ItemStack(ItemBase, stackSize, basicName.);
     }
     */
+
+	
 
 	
 }

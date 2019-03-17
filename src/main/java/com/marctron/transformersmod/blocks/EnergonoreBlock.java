@@ -21,7 +21,7 @@ public class EnergonoreBlock extends BlockBase
 		setSoundType(SoundType.METAL);
 		setHardness(5.0F);
 		setHarvestLevel("pickaxe", 2);
-		setLightLevel(0.7F);
+		setLightLevel(0.4F);
 	}
 
 	@Override
