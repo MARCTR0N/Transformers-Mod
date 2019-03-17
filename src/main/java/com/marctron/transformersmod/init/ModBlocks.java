@@ -8,6 +8,7 @@ import com.marctron.transformersmod.blocks.BlockEnergonCrate;
 import com.marctron.transformersmod.blocks.DarkEnergonoreBlock;
 import com.marctron.transformersmod.blocks.EnergoncubeBlock;
 import com.marctron.transformersmod.blocks.EnergonoreBlock;
+import com.marctron.transformersmod.blocks.ItemSpawner;
 import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 
@@ -34,6 +35,7 @@ public class ModBlocks
 	
 	public static final Block ENERGON_CRATE_BLOCK = new BlockEnergonCrate("energon_crate_block");
 	
+	public static final Block ITEM_SPAWNER = new ItemSpawner("item_spawner");
 	
 	public static final Block SPACE_BRIDGE_BLOCK = new BlockBase("space_bridge_block",Material.IRON);
 

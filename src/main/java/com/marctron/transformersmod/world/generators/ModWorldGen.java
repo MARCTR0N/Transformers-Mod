@@ -31,17 +31,7 @@ public class ModWorldGen implements IWorldGenerator {
 					generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 					break;
 				}
-		/*
-		if (world.provider.getDimension() == 0) {
-			generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-		}
-		if (world.provider.getDimension() == -1) {
-			generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-		}
-		if (world.provider.getDimension() == 1) {
-			generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
-		}
-		*/
+		
 	}
 	
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)

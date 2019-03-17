@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "facing=down":  { "model": "item_spawner_vertical", "x": 180 },
+        "facing=up":    { "model": "item_spawner_vertical" },
+        "facing=north": { "model": "item_spawner" },
+        "facing=south": { "model": "item_spawner", "y": 180 },
+        "facing=west":  { "model": "item_spawner", "y": 270 },
+        "facing=east":  { "model": "item_spawner", "y": 90 }
+    }
+}
+}

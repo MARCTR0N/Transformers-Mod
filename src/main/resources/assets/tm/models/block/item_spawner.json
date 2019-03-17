@@ -1,0 +1,9 @@
+{
+   "parent": "block/orientable",
+   "textures": {
+       
+       "top": "blocks/furnace_top",
+       "front": "tm:blocks/item_spawner",
+       "side": "blocks/furnace_side"
+   }
+}
