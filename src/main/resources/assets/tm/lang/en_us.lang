@@ -6,7 +6,14 @@ item.mug.name=Mug
 item.energon_mug.name=Energon Mug
 
 tile.energon_cube_block.name=Energon Cube
+tile.red_energon_cube_block.name=Red Energon Cube
+tile.dark_energon_cube_block.name=Dark Energon Cube
+tile.synthetic_energon_cube_block.name=Synthetic Energon Cube
+
 tile.energon_ore_block.name=Energon Ore
+tile.red_energon_ore_block.name=Red Energon Ore
+tile.dark_nergon_ore_block.name=Dark Energon Ore
+
 tile.transformium_block.name=Block of Transformium
 tile.transformium_ore_block.name=Transformium Ore
 

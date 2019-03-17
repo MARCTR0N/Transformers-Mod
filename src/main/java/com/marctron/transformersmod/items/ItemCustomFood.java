@@ -35,6 +35,7 @@ public class ItemCustomFood extends ItemFood implements IHasModel
     public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.DRINK;
+        
     }
 		
 	

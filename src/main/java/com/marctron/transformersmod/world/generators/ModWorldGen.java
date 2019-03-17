@@ -17,15 +17,51 @@ public class ModWorldGen implements IWorldGenerator {
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) 
 	{
+		switch(world.provider.getDimension())
+				{
+				case -1:
+					generateNether(random, chunkX * 16, chunkZ * 16, world, chunkGenerator, chunkProvider);
+					break;
+					
+				case 0:
+					generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+					break;
+					
+				case 1:
+					generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+					break;
+				}
+		/*
 		if (world.provider.getDimension() == 0) {
 			generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		}
+		if (world.provider.getDimension() == -1) {
+			generateNether(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+		}
+		if (world.provider.getDimension() == 1) {
+			generateEnd(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+		}
+		*/
 	}
 	
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		generateOre(ModBlocks.ENERGON_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 100, random.nextInt(8) + 4, 10);
-		generateOre(ModBlocks.TRANSFORMIUM_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 70, random.nextInt(6) + 2, 9);
+		generateOre(ModBlocks.ENERGON_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 100, random.nextInt(8) + 4, 8);
+		generateOre(ModBlocks.RED_ENERGON_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 66, random.nextInt(8) + 5, 7);
+		generateOre(ModBlocks.DARK_ENERGON_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 33, random.nextInt(8) + 4, 6);
+		generateOre(ModBlocks.TRANSFORMIUM_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 70, random.nextInt(6) + 2, 8);
+	}
+	
+	private void generateNether(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	{
+		generateOre(ModBlocks.RED_ENERGON_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 100, random.nextInt(8) + 4, 8);
+		
+	}
+	
+	private void generateEnd(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	{
+		generateOre(ModBlocks.DARK_ENERGON_ORE_BLOCK.getDefaultState(), world, random, chunkX * 16, chunkZ * 16, 1, 100, random.nextInt(8) + 4, 8);
+		
 	}
 	
 	private void generateOre(IBlockState ore, World world, Random random, int x, int z, int minY, int maxY, int size, int chances) 

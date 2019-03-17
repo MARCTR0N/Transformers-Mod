@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.marctron.transformersmod.blocks.BlockBase;
 import com.marctron.transformersmod.blocks.BlockEnergonCrate;
+import com.marctron.transformersmod.blocks.DarkEnergonoreBlock;
 import com.marctron.transformersmod.blocks.EnergoncubeBlock;
 import com.marctron.transformersmod.blocks.EnergonoreBlock;
+import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 
 import net.minecraft.block.Block;
@@ -19,7 +21,14 @@ public class ModBlocks
 	
 	
 	public static final Block ENERGON_CUBE_BLOCK = new EnergoncubeBlock("energon_cube_block", Material.IRON).setHardness(3);
+	public static final Block RED_ENERGON_CUBE_BLOCK = new EnergoncubeBlock("red_energon_cube_block", Material.IRON).setHardness(3);
+	public static final Block DARK_ENERGON_CUBE_BLOCK = new EnergoncubeBlock("dark_energon_cube_block", Material.IRON).setHardness(3);
+	public static final Block SYNTHETIC_ENERGON_CUBE_BLOCK = new EnergoncubeBlock("synthetic_energon_cube_block", Material.IRON).setHardness(3);
+	
 	public static final Block ENERGON_ORE_BLOCK = new EnergonoreBlock("energon_ore_block", Material.IRON);
+	public static final Block RED_ENERGON_ORE_BLOCK = new RedEnergonoreBlock("red_energon_ore_block", Material.IRON);
+	public static final Block DARK_ENERGON_ORE_BLOCK = new DarkEnergonoreBlock("dark_energon_ore_block", Material.IRON);
+	
 	public static final Block TRANSFORMIUM_BLOCK = new BlockBase("transformium_block", Material.IRON).setHardness(3);
 	public static final Block TRANSFORMIUM_ORE_BLOCK = new TransformiumoreBlock("transformium_ore_block", Material.IRON);
 	

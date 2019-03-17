@@ -41,6 +41,10 @@ public class ModItems
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	//Items
 	public static final Item ENERGON_SHARD = new ItemBase("energon_shard");
+	public static final Item RED_ENERGON_SHARD = new ItemBase("red_energon_shard");
+	public static final Item DARK_ENERGON_SHARD = new ItemBase("dark_energon_shard");
+	public static final Item SYNTHETIC_ENERGON_SHARD = new ItemBase("synthetic_energon_shard");
+	
 	public static final Item MUG = new ItemBase("mug");
 	public static final Item ENERGON_MUG = new ItemCustomFood("energon_mug", 4, false);
 	public static final Item TRANSFORMIUM = new ItemBase("transformium");
@@ -74,6 +78,9 @@ public class ModItems
 	public static final Item AJ_LEGGINGS = new ArmorModelAJ("aj_leggings", AJ_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item AJ_BOOTS = new ArmorModelAJ("aj_boots", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
+	
+	
+	
 	public static Item ItemBase = new ItemBasicMeta("basic", EItemBasic.allNames);
 	
 	//Guns
@@ -92,6 +99,35 @@ public class ModItems
 	public static final IShootable EMP_Shotgun_Shell = new AmmoClip("EMP_Shotgun_Shell", 16);
 	public static final IShootable Scatter_Blaster_Shell = new AmmoClip("Scatter_Blaster_Shell", 16);
 	public static final IShootable Neutron_Repeater_Clip = new AmmoClip("Neutron_Repeater_Clip", 100);
+	
+	//Recipe Components
+	public static final Item PROTOFORM = new ItemBase("protoform");
+	public static final Item PROTOFORM_HEAD = new ItemBase("protoform_head");
+	public static final Item PROTOFORM_CHEST = new ItemBase("protoform_chest");
+	public static final Item PROTOFORM_LEGS = new ItemBase("protoform_legs");
+	public static final Item PROTOFORM_FEET = new ItemBase("protoform_feet");
+	
+	public static final Item SPARK = new ItemBase("spark");
+	public static final Item OPTICS = new ItemBase("optics");
+	public static final Item VOICEBOX = new ItemBase("voicebox");
+	public static final Item BRAIN = new ItemBase("brain");
+	public static final Item HAND = new ItemBase("hand");
+	public static final Item ARM = new ItemBase("arm");
+	public static final Item LEG = new ItemBase("leg");
+	public static final Item SPARK_CHAMBER = new ItemBase("spark_chamber");
+	
+	
+	public static final Item AUTOBOT_INSGINIA = new ItemBase("autobot_insignia");
+	public static final Item DECEPTICON_INSGINIA = new ItemBase("decepticon_insignia");
+	
+	public static final Item WHEEL = new ItemBase("wheel");
+	public static final Item WING = new ItemBase("wing");
+	public static final Item TREAD = new ItemBase("tread");
+	public static final Item TIRE = new ItemBase("tire");
+	public static final Item HUBCAP = new ItemBase("hubcap");
+	public static final Item THRUSTER = new ItemBase("thruster");
+	
+	
 	
 	
 	
