@@ -23,6 +23,8 @@ import com.marctron.transformersmod.items.gun.*;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -47,7 +49,13 @@ public class ModItems
 	
 	public static final Item MUG = new ItemBase("mug");
 	public static final Item ENERGON_MUG = new ItemCustomFood("energon_mug", 4, false);
+	public static final Item RED_ENERGON_MUG = new ItemCustomFood("red_energon_mug", 4, false, new PotionEffect(Potion.getPotionById(1), 2400, 10), new PotionEffect(Potion.getPotionById(3), 2400, 2));
+	public static final Item DARK_ENERGON_MUG = new ItemCustomFood("dark_energon_mug", 4, false);
+	public static final Item SYNTHETIC_ENERGON_MUG = new ItemCustomFood("synthetic_energon_mug", 4, false);
+	
 	public static final Item TRANSFORMIUM = new ItemBase("transformium");
+	public static final Item SILICON = new ItemBase("silicon");
+	
 	
 	//Tools
 	public static final ToolMaterial GUN_MATERIAL = EnumHelper.addToolMaterial("gun", 0, 1000, 2.0F, 0, 0);
@@ -112,24 +120,29 @@ public class ModItems
 	public static final Item VOICEBOX = new ItemBase("voicebox");
 	public static final Item BRAIN = new ItemBase("brain");
 	public static final Item HAND = new ItemBase("hand");
-	public static final Item ARM = new ItemBase("arm");
-	public static final Item LEG = new ItemBase("leg");
+	public static final Item LIMB = new ItemBase("limb");
 	public static final Item SPARK_CHAMBER = new ItemBase("spark_chamber");
+	public static final Item TRANSFORMATION_COG = new ItemBase("transformation_cog");
 	
 	
 	public static final Item AUTOBOT_INSGINIA = new ItemBase("autobot_insignia");
 	public static final Item DECEPTICON_INSGINIA = new ItemBase("decepticon_insignia");
 	
-	public static final Item WHEEL = new ItemBase("wheel");
+	
 	public static final Item WING = new ItemBase("wing");
 	public static final Item TREAD = new ItemBase("tread");
 	public static final Item TIRE = new ItemBase("tire");
+	public static final Item WHEEL = new ItemBase("wheel");
 	public static final Item HUBCAP = new ItemBase("hubcap");
 	public static final Item THRUSTER = new ItemBase("thruster");
 	
-	
-	
-	
+	public static final Item CREDIT1 = new ItemBase("credit1");
+	public static final Item CREDIT5 = new ItemBase("credit5");
+	public static final Item CREDIT10 = new ItemBase("credit10");
+	public static final Item CREDIT50 = new ItemBase("credit50");
+	public static final Item CREDIT100 = new ItemBase("credit100");
+	public static final Item CREDIT500 = new ItemBase("credit500");
+	public static final Item BOTCOIN = new ItemBase("botcoin");
 	
 	
 	public static ItemStack getBasicItem(EItemBasic basicName)

@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.BlockSourceImpl;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.IBehaviorDispenseItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,6 +30,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,6 +40,8 @@ import net.minecraft.server.MinecraftServer;
 
 public class ItemSpawner extends BlockDispenser implements IHasModel {
 
+	public static final PropertyBool TRIGGERED = PropertyBool.create("triggered");
+	
 	public ItemSpawner(String name) 
 	{
 		
@@ -45,10 +49,12 @@ public class ItemSpawner extends BlockDispenser implements IHasModel {
 		setRegistryName(name);
 		setCreativeTab(Main.tabTransformers);
 		this.setLightLevel(0.3F);
-
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(TRIGGERED, Boolean.valueOf(false)));
 		
 		ModBlocks.BLOCKS.add(this);
 		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		
+		
 	}
 
 	@Override

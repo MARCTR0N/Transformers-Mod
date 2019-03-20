@@ -32,7 +32,7 @@ public class BlockEnergonCrate extends BlockContainer implements IHasModel
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.tabTransformers);
-		this.setLightLevel(0.3F);
+		this.setLightLevel(0.15F);
 
 		
 		ModBlocks.BLOCKS.add(this);

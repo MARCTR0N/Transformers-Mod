@@ -12,10 +12,12 @@ tile.synthetic_energon_cube_block.name=Synthetic Energon Cube
 
 tile.energon_ore_block.name=Energon Ore
 tile.red_energon_ore_block.name=Red Energon Ore
-tile.dark_nergon_ore_block.name=Dark Energon Ore
+tile.dark_energon_ore_block.name=Dark Energon Ore
 
 tile.transformium_block.name=Block of Transformium
 tile.transformium_ore_block.name=Transformium Ore
+
+tile.item_spawner.name=Item Spawner
 
 itemGroup.tabTransformersMod=Transformers
 
@@ -44,3 +46,32 @@ item.scatterblaster.name=Scatter Blaster
 
 container.energon_crate=Energon Crate
 tile.energon_crate_block.name=Energon Crate
+
+item.wheel.name=Wheel
+item.tire.name=Tire
+item.hubcap.name=Hubcap
+item.wing.name=Wing
+item.hand.name=Hand
+item.limb.name=Limb
+item.tread.name=Tank Tread
+item.decepticon_insignia.name=Decepticon Insignia
+item.autobot_insignia.name=Autobot Insignia
+item.spark.name=Spark
+item.spark_chamber.name=Spark Chamber
+item.voicebox.name=Voice Box
+item.optics.name=Optics
+item.brain.name=Brain
+
+item.protoform.name=Protoform
+item.protoform_head.name=Protoform Head
+item.protoform_chest.name=Protoform Chest
+item.protoform_legs.name=Protoform Legs
+item.protoform_feet.name=Protoform Feet
+
+item.credit1.name=Credit
+item.credit10.name=10 Credits
+item.credit100.name=100 Credits
+item.credit5.name=5 Credits
+item.credit50.name=50 Credits
+item.credit500.name=500 Credits
+item.botcoin.name=Botcoin
