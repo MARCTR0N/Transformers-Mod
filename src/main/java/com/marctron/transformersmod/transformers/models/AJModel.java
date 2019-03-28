@@ -1,6 +1,6 @@
-package com.marctron.transformersmod.items.models;
+package com.marctron.transformersmod.transformers.models;
 
-import com.marctron.transformersmod.items.models.altmodes.AJModelAlt;
+import com.marctron.transformersmod.transformers.models.altmodes.AJModelAlt;
 
 
 

@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.items.models.altmodes;
+package com.marctron.transformersmod.transformers.models.altmodes;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

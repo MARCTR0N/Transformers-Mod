@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.items.models;
+package com.marctron.transformersmod.transformers.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;

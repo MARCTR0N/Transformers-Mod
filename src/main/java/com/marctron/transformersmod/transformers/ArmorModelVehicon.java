@@ -1,9 +1,8 @@
-package com.marctron.transformersmod.items;
+package com.marctron.transformersmod.transformers;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-import com.marctron.transformersmod.items.models.ModelCustomArmor;
-import com.marctron.transformersmod.items.models.TarnModel;
+import com.marctron.transformersmod.transformers.models.ModelCustomArmor;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
@@ -22,9 +21,9 @@ import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ArmorModelTarn extends ItemArmor implements IHasModel {
+public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 
-	public ArmorModelTarn(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+	public ArmorModelVehicon(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -34,6 +33,11 @@ public class ArmorModelTarn extends ItemArmor implements IHasModel {
 		
 	}
 
+	@Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
+			super.onArmorTick(world, player, itemStack);
+		}
 	
 	@Override
 	public void registerModels() 
@@ -42,14 +46,7 @@ public class ArmorModelTarn extends ItemArmor implements IHasModel {
 	}
 	
 	
-	 
-		
 	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
-			super.onArmorTick(world, player, itemStack);
-		}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -63,30 +60,33 @@ public class ArmorModelTarn extends ItemArmor implements IHasModel {
 				{
 					
 					
-					TarnModel model = new TarnModel();
-				
+					ModelCustomArmor model = new ModelCustomArmor();
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
 					model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-					model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+					model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
 					model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
 					model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-					model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-					model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-
+					model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+					model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+							
+			
+					
 					model.isSneak = _default.isSneak;
 					model.isRiding = _default.isRiding;
 					model.isChild = _default.isChild;
 					model.rightArmPose = _default.rightArmPose;
 					model.leftArmPose = _default.leftArmPose;
+					
+					
 
+					
+					
 					return model;
 				}
-			}
-			
-			return null;
 		}
+		return null;
 	}
 	
 	
@@ -94,4 +94,4 @@ public class ArmorModelTarn extends ItemArmor implements IHasModel {
 
 	
 
-
+}

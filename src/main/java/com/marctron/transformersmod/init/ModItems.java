@@ -3,21 +3,16 @@ package com.marctron.transformersmod.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.marctron.transformersmod.items.ArmorModelAJ;
-import com.marctron.transformersmod.items.ArmorModelTarn;
-import com.marctron.transformersmod.items.ArmorModelVehicon;
-import com.marctron.transformersmod.items.ItemBase;
-import com.marctron.transformersmod.items.ItemBasicMeta;
-import com.marctron.transformersmod.items.ItemCustomFood;
-import com.marctron.transformersmod.items.ModdedBow;
-import com.marctron.transformersmod.items.PrimaryAmmo;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
 import com.marctron.transformersmod.items.gun.IShootable;
 import com.marctron.transformersmod.items.gun.Scrapper;
+import com.marctron.transformersmod.transformers.ArmorModelAJ;
+import com.marctron.transformersmod.transformers.ArmorModelSideswipe;
+import com.marctron.transformersmod.transformers.ArmorModelTarn;
+import com.marctron.transformersmod.transformers.ArmorModelVehicon;
 import com.marctron.transformersmod.util.Reference;
-import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.*;
 import com.marctron.transformersmod.items.gun.*;
 
@@ -67,6 +62,8 @@ public class ModItems
 	
 	public static final ArmorMaterial AJ_MODEL_MATERIAL = EnumHelper.addArmorMaterial("aj_model", Reference.MOD_ID + ":aj_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
+	public static final ArmorMaterial SIDESWIPE_MODEL_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_model", Reference.MOD_ID + ":sideswipe_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
 	//Vehicon
 	public static final Item CUSTOM_HELMET = new ArmorModelVehicon("custom_helmet", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
 	public static final Item CUSTOM_CHESTPLATE = new ArmorModelVehicon("custom_chestplate", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
@@ -86,6 +83,11 @@ public class ModItems
 	public static final Item AJ_LEGGINGS = new ArmorModelAJ("aj_leggings", AJ_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item AJ_BOOTS = new ArmorModelAJ("aj_boots", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
+	//Sideswipe
+	public static final Item SIDESWIPE_HELMET = new ArmorModelSideswipe("sideswipe_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SIDESWIPE_CHESTPLATE = new ArmorModelSideswipe("sideswipe_chestplate", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SIDESWIPE_LEGGINGS = new ArmorModelSideswipe("sideswipe_leggings", SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SIDESWIPE_BOOTS = new ArmorModelSideswipe("sideswipe_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	
 	
