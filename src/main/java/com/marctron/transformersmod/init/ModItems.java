@@ -3,30 +3,41 @@ package com.marctron.transformersmod.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.marctron.transformersmod.items.ItemBase;
+import com.marctron.transformersmod.items.ItemBasicMeta;
+import com.marctron.transformersmod.items.ItemCustomFood;
+import com.marctron.transformersmod.items.ModdedBow;
+import com.marctron.transformersmod.items.PrimaryAmmo;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
+import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.items.gun.IShootable;
+import com.marctron.transformersmod.items.gun.NeutronRepeater;
+import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
-import com.marctron.transformersmod.transformers.ArmorModelAJ;
-import com.marctron.transformersmod.transformers.ArmorModelSideswipe;
 import com.marctron.transformersmod.transformers.ArmorModelTarn;
-import com.marctron.transformersmod.transformers.ArmorModelVehicon;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid2;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid3;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid4;
+import com.marctron.transformersmod.transformers.transformer.starscream.Starscream;
+import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
+import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
+import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
+import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid2;
 import com.marctron.transformersmod.util.Reference;
-import com.marctron.transformersmod.items.*;
-import com.marctron.transformersmod.items.gun.*;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems 
@@ -64,11 +75,33 @@ public class ModItems
 	
 	public static final ArmorMaterial SIDESWIPE_MODEL_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_model", Reference.MOD_ID + ":sideswipe_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
+	//Armor Altmode
+	public static final ArmorMaterial VEHICON_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("vehicon_altmode_model", Reference.MOD_ID + ":vehicon_altmode_model", 20, new int[] {5, 5, 5, 5}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+	public static final ArmorMaterial SIDESWIPE_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_altmode_model", Reference.MOD_ID + ":sideswipe_altmode_model", 20, new int[] {5, 5, 5, 5}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
 	//Vehicon
 	public static final Item CUSTOM_HELMET = new ArmorModelVehicon("custom_helmet", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
 	public static final Item CUSTOM_CHESTPLATE = new ArmorModelVehicon("custom_chestplate", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
 	public static final Item CUSTOM_LEGGINGS = new ArmorModelVehicon("custom_leggings", CUSTOM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item CUSTOM_BOOTS = new ArmorModelVehicon("custom_boots", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item VEHICON_MID_HELMET = new VehiconMid("vehicon_mid_helmet", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item VEHICON_MID_CHESTPLATE = new VehiconMid("vehicon_mid_chestplate", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item VEHICON_MID_LEGGINGS = new VehiconMid("vehicon_mid_leggings", VEHICON_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item VEHICON_MID_BOOTS = new VehiconMid("vehicon_mid_boots", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item VEHICON_MID_2_HELMET = new VehiconMid2("vehicon_mid_2_helmet", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item VEHICON_MID_2_CHESTPLATE = new VehiconMid2("vehicon_mid_2_chestplate", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item VEHICON_MID_2_LEGGINGS = new VehiconMid2("vehicon_mid_2_leggings", VEHICON_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item VEHICON_MID_2_BOOTS = new VehiconMid2("vehicon_mid_2_boots", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item VEHICON_ALTMODE_HELMET = new VehiconAltmode("vehicon_altmode_helmet", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item VEHICON_ALTMODE_CHESTPLATE = new VehiconAltmode("vehicon_altmode_chestplate", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item VEHICON_ALTMODE_LEGGINGS = new VehiconAltmode("vehicon_altmode_leggings", VEHICON_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item VEHICON_ALTMODE_BOOTS = new VehiconAltmode("vehicon_altmode_boots", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	
 	
 	
 	//Tarn
@@ -78,10 +111,10 @@ public class ModItems
 	public static final Item TARN_BOOTS = new ArmorModelTarn("tarn_boots", TARN_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	//Autobot Johnson
-	public static final Item AJ_HELMET = new ArmorModelAJ("aj_helmet", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
-	public static final Item AJ_CHESTPLATE = new ArmorModelAJ("aj_chestplate", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
-	public static final Item AJ_LEGGINGS = new ArmorModelAJ("aj_leggings", AJ_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
-	public static final Item AJ_BOOTS = new ArmorModelAJ("aj_boots", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	public static final Item AJ_HELMET = new Starscream("aj_helmet", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item AJ_CHESTPLATE = new Starscream("aj_chestplate", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item AJ_LEGGINGS = new Starscream("aj_leggings", AJ_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item AJ_BOOTS = new Starscream("aj_boots", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	//Sideswipe
 	public static final Item SIDESWIPE_HELMET = new ArmorModelSideswipe("sideswipe_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
@@ -89,6 +122,30 @@ public class ModItems
 	public static final Item SIDESWIPE_LEGGINGS = new ArmorModelSideswipe("sideswipe_leggings", SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item SIDESWIPE_BOOTS = new ArmorModelSideswipe("sideswipe_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
+	public static final Item SIDESWIPE_MID_HELMET = new SideswipeMid("sideswipe_mid_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SIDESWIPE_MID_CHESTPLATE = new SideswipeMid("sideswipe_mid_chestplate", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SIDESWIPE_MID_LEGGINGS = new SideswipeMid("sideswipe_mid_leggings", SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SIDESWIPE_MID_BOOTS = new SideswipeMid("sideswipe_mid_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SIDESWIPE_MID2_HELMET = new SideswipeMid2("sideswipe_mid2_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SIDESWIPE_MID2_CHESTPLATE = new SideswipeMid2("sideswipe_mid2_chestplate", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SIDESWIPE_MID2_LEGGINGS = new SideswipeMid2("sideswipe_mid2_leggings", SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SIDESWIPE_MID2_BOOTS = new SideswipeMid2("sideswipe_mid2_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SIDESWIPE_MID3_HELMET = new SideswipeMid3("sideswipe_mid3_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SIDESWIPE_MID3_CHESTPLATE = new SideswipeMid3("sideswipe_mid3_chestplate", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SIDESWIPE_MID3_LEGGINGS = new SideswipeMid3("sideswipe_mid3_leggings", SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SIDESWIPE_MID3_BOOTS = new SideswipeMid3("sideswipe_mid3_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SIDESWIPE_MID4_HELMET = new SideswipeMid4("sideswipe_mid4_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SIDESWIPE_MID4_CHESTPLATE = new SideswipeMid4("sideswipe_mid4_chestplate", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SIDESWIPE_MID4_LEGGINGS = new SideswipeMid4("sideswipe_mid4_leggings", SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SIDESWIPE_MID4_BOOTS = new SideswipeMid4("sideswipe_mid4_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SIDESWIPE_ALTMODE_HELMET = new SideswipeAltmode("sideswipe_altmode_helmet", SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SIDESWIPE_ALTMODE_CHESTPLATE = new SideswipeAltmode("sideswipe_altmode_chestplate", SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SIDESWIPE_ALTMODE_LEGGINGS = new SideswipeAltmode("sideswipe_altmode_leggings", SIDESWIPE_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SIDESWIPE_ALTMODE_BOOTS = new SideswipeAltmode("sideswipe_altmode_boots", SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	
 	public static Item ItemBase = new ItemBasicMeta("basic", EItemBasic.allNames);

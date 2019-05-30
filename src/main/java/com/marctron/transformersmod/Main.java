@@ -36,6 +36,8 @@ public class Main {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
+	
+	
 	public static File config;
 
 	
@@ -83,7 +85,7 @@ public class Main {
 
 			@Override
 			public ItemStack getTabIconItem() {
-				return new ItemStack(ModItems.ENERGON_SHARD);
+				return new ItemStack(ModItems.AUTOBOT_INSGINIA);
 			};
 			
 			@Override

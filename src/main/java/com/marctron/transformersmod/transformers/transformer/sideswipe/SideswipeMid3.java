@@ -1,9 +1,10 @@
-package com.marctron.transformersmod.transformers;
+package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-
-import com.marctron.transformersmod.transformers.models.SideswipeModel;
+import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
+import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
@@ -23,13 +24,13 @@ import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ArmorModelSideswipe extends ItemArmor implements IHasModel {
+public class SideswipeMid3 extends ItemArmor implements IHasModel {
 
-	public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+	public SideswipeMid3(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabTransformers);
+		
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -41,18 +42,46 @@ public class ArmorModelSideswipe extends ItemArmor implements IHasModel {
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
 			
-			if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) 
-			{
+			player.eyeHeight = 1.25F;
+			
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_HELMET) {
 				if (world.isRemote) 
 				{
-			
-			player.width = 0.6F; 
-			player.height = 1.5F;
-			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 1.5F, player.getEntityBoundingBox().minZ + 0.6F));
-		
+						player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_HELMET));
+				}	
+			} 
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_CHESTPLATE) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_CHESTPLATE));
 				}
 			} 
-	}
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_LEGGINGS) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_LEGGINGS));
+				}
+			} 
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_BOOTS) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_BOOTS));
+				}
+			} 
+		}
+			
+//			if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) 
+//			{
+//				if (world.isRemote) 
+//				{
+//			
+//			player.width = 0.6F; 
+//			player.height = 1.5F;
+//			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 1.5F, player.getEntityBoundingBox().minZ + 0.6F));
+//		
+//				}
+//			} 
+	
 				
 	
 	@Override
@@ -76,7 +105,7 @@ public class ArmorModelSideswipe extends ItemArmor implements IHasModel {
 				{
 					
 					
-					SideswipeModel model = new SideswipeModel();
+					ModelSideswipeMid model = new ModelSideswipeMid();
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

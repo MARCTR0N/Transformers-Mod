@@ -8,21 +8,38 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class SoundsHandler 
 {
-	public static SoundEvent ENTITY_VEHICON_AMBIENT, ENTITY_VEHICON_HURT, ENTITY_VEHICON_DEATH;
+//	public static SoundEvent ENTITY_VEHICON_AMBIENT, ENTITY_VEHICON_HURT, ENTITY_VEHICON_DEATH;
+//	
+//	public static void init()
+//	{
+//		ENTITY_VEHICON_AMBIENT = registerSound("entity.vehicon.ambient");
+//		ENTITY_VEHICON_HURT = registerSound("entity.vehicon.hurt");
+//		ENTITY_VEHICON_DEATH = registerSound("entity.vehicon.death");
+//	}
 	
-	public static void registerSounds()
+	//private static int size = 0;
+	
+	public static SoundEvent TRANSFORMONE;
+	public static SoundEvent TRANSFORMTWO;
+	
+	public static void init()
 	{
-		ENTITY_VEHICON_AMBIENT = registerSound("entity.vehicon.ambient");
-		ENTITY_VEHICON_HURT = registerSound("entity.vehicon.hurt");
-		ENTITY_VEHICON_DEATH = registerSound("entity.vehicon.death");
+		//size = SoundEvent.REGISTRY.getKeys().size();
+		
+		TRANSFORMONE = registerSound("transformation.transformone");
+		TRANSFORMTWO = registerSound("transformation.transformtwo");
 	}
 	
-	private static SoundEvent registerSound(String name)
+	
+	public static SoundEvent registerSound(String name) 
 	{
 		ResourceLocation location = new ResourceLocation(Reference.MOD_ID, name);
 		SoundEvent event = new SoundEvent(location);
 		event.setRegistryName(name);
 		ForgeRegistries.SOUND_EVENTS.register(event);
+		//SoundEvent.REGISTRY.register(size, location, event);
+		//size++;
 		return event;
 	}
+	
 }

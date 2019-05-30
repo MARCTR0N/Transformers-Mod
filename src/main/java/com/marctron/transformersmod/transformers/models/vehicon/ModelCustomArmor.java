@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.models;
+package com.marctron.transformersmod.transformers.models.vehicon;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -10,7 +10,7 @@ import net.minecraft.entity.item.EntityArmorStand;
  * ModelSkeleton - Either Mojang or a mod author
  * Created using Tabula 7.0.0
  */
-public class ModelCustomArmor extends ModelBiped {
+public final class ModelCustomArmor extends ModelBiped {
     public ModelRenderer Head1;
     public ModelRenderer Right_Arm;
     public ModelRenderer Chest;

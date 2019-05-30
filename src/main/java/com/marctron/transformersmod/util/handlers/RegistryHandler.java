@@ -69,11 +69,11 @@ public class RegistryHandler
 	{
 		EntityInit.registerEntities();
 		RenderHandler.registerEntityRenders();
-		
+		SoundsHandler.init();
 	}
 	public static void initRegistries() 
 	{
-		SoundsHandler.registerSounds();
+		SoundsHandler.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
 	}
 	public static void serverRegistries(FMLServerStartingEvent event) 

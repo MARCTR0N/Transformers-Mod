@@ -2,8 +2,8 @@ package com.marctron.transformersmod.transformers;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-import com.marctron.transformersmod.transformers.models.ModelCustomArmor;
 import com.marctron.transformersmod.transformers.models.TarnModel;
+import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;

@@ -1,11 +1,11 @@
-package com.marctron.transformersmod.transformers.models;
+package com.marctron.transformersmod.transformers.models.sideswipe;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 
-public class SideswipeModel extends ModelBiped
+public final class SideswipeModel extends ModelBiped
 {
     public ModelRenderer shape190;
     public ModelRenderer shape20_1;
@@ -897,5 +897,6 @@ public class SideswipeModel extends ModelBiped
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
+    
 }
 

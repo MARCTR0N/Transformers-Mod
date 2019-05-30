@@ -16,12 +16,19 @@ public class ClientProxy extends CommonProxy
 {
 	
 	public static final KeyBinding MY_KEYBINDING = new KeyBinding ("key.transform", Keyboard.KEY_X, "category.transformers");
+	public static final KeyBinding ROBOT_MODE = new KeyBinding ("key.robotmode", Keyboard.KEY_Y, "category.transformers");
 	@Override
 	public void register()
     {
-		MinecraftForge.EVENT_BUS.register(new ClientEvents() );
+		MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(MY_KEYBINDING);
+        MinecraftForge.EVENT_BUS.register(new ClientEvents());
+        ClientRegistry.registerKeyBinding(ROBOT_MODE);
     }
+	
+	
+		
+    
 	
 	
 	@Override

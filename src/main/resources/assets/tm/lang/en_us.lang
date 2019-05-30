@@ -1,9 +1,16 @@
 
 
 item.energon_shard.name=Energon Shard
+item.red_energon_shard.name=Red Energon Shard
+item.dark_energon_shard.name=Dark Energon Shard
+item.synthetic_energon_shard.name=Synthetic Energon Shard
 item.transformium.name=Transformium
+item.silicon.name=Silicon
 item.mug.name=Mug
+item.dark_energon_mug.name=Dark Energon Mug
 item.energon_mug.name=Energon Mug
+item.synthetic_energon_mug.name=Synthetic Energon Mug
+item.red_energon_mug.name=Red Energon Mug
 
 tile.energon_cube_block.name=Energon Cube
 tile.red_energon_cube_block.name=Red Energon Cube
@@ -30,6 +37,13 @@ item.custom_leggings.name=Vehicon Legs
 item.custom_helmet.name=Vehicon Head
 item.custom_boots.name=Vehicon Feet
 item.custom_chestplate.name=Vehicon Torso
+
+item.sideswipe_leggings.name=Sideswipe Legs
+item.sideswipe_helmet.name=Sideswipe Head
+item.sideswipe_boots.name=Sideswipe Feet
+item.sideswipe_chestplate.name=Sideswipe Torso
+
+
 
 item.EMP_Shotgun_Shell.name=EMP Shotgun Shell
 item.Energon_Battle_Pistol_Clip.name=Energon Battle Pistol Clip
@@ -61,6 +75,9 @@ item.spark_chamber.name=Spark Chamber
 item.voicebox.name=Voice Box
 item.optics.name=Optics
 item.brain.name=Brain
+item.thruster.name=Thruster
+item.transformation_cog.name=Transformation Cog
+
 
 item.protoform.name=Protoform
 item.protoform_head.name=Protoform Head
@@ -75,3 +92,8 @@ item.credit5.name=5 Credits
 item.credit50.name=50 Credits
 item.credit500.name=500 Credits
 item.botcoin.name=Botcoin
+
+category.transformers=Transformers Unlimited
+key.robotmode=Robot mode
+key.transform=Alt mode 1
+key.transform2=Alt mode 2

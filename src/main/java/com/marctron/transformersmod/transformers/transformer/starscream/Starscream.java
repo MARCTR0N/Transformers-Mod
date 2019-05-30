@@ -1,15 +1,16 @@
-package com.marctron.transformersmod.transformers;
+package com.marctron.transformersmod.transformers.transformer.starscream;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-import com.marctron.transformersmod.transformers.models.AJModel;
-import com.marctron.transformersmod.transformers.models.TarnModel;
+import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
@@ -21,14 +22,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ArmorModelAJ extends ItemArmor implements IHasModel {
+public class Starscream extends ItemArmor implements IHasModel {
 	
 
 	private static final float f1 = 2.9f;
 	private static final float f = 0.6f;
 
 
-	public ArmorModelAJ(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+	public Starscream(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -64,26 +65,37 @@ public class ArmorModelAJ extends ItemArmor implements IHasModel {
 			
 			if (itemStack.getItem() == ModItems.AJ_CHESTPLATE) {
 				if (world.isRemote) {
+					if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
+					{
+						player.setSprinting(true);
+						player.moveRelative(0F, 0F, 0.035F, 3F);
+					}
+					
 					if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) {
 						player.limbSwing = 0F;
 						player.limbSwingAmount = 0F;
 						player.eyeHeight = 1.9F;
 												
-						player.motionY += 0.065;
-						player.motionY = Math.min(1, player.motionY);
+						player.motionY += 0.2;
+						player.motionY = Math.min(0.5, player.motionY);
 						
-						player.motionX *= 1.1;
-						player.motionX = Math.min(3, player.motionX);
-						player.motionZ *= 1.1;
-						player.motionZ = Math.min(3, player.motionZ);
+						//player.motionX *= 1.1;
+						//player.motionX = Math.min(3, player.motionX);
+						//player.motionZ *= 1.1;
+						//player.motionZ = Math.min(3, player.motionZ);
 						
+						
+						
+						
+						//world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0., -0.3, 0);
+						world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, 0, 0);
+						world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0., -0.3, 0);
+						world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, 0, 0);
 					
-						world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0, 0, 0);
-						world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, 0, 0);
-						world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0, 0, 0);
-						world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, 0, 0);
 						
-						
+						}
+					if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
+						player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
 				
 					}
 				}
@@ -118,7 +130,7 @@ public class ArmorModelAJ extends ItemArmor implements IHasModel {
 				{
 					
 					
-					AJModel model = new AJModel();
+					ModelStarscream model = new ModelStarscream();
 				
 					
 			

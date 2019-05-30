@@ -1,43 +1,81 @@
-package com.marctron.transformersmod.transformers;
+package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-import com.marctron.transformersmod.transformers.models.ModelCustomArmor;
+import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid2;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ArmorModelVehicon extends ItemArmor implements IHasModel {
+public class SideswipeMid4 extends ItemArmor implements IHasModel {
 
-	public ArmorModelVehicon(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+	public SideswipeMid4(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabTransformers);
+		
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
 	}
 
 	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
-			super.onArmorTick(world, player, itemStack);
+	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
+	{
+			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
+			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
+			
+			player.eyeHeight = 1.25F;
+			
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_HELMET) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_MID3_HELMET));
+				}	
+			} 
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_CHESTPLATE) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_MID3_CHESTPLATE));
+				}
+			} 
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_LEGGINGS) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_MID3_LEGGINGS));
+				}
+			} 
+			if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_BOOTS) {
+				if (world.isRemote) 
+				{
+						player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_MID3_BOOTS));
+				}
+			} 
 		}
+			
+//			if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) 
+//			{
+//				if (world.isRemote) 
+//				{
+//			
+//			player.width = 0.6F; 
+//			player.height = 1.5F;
+//			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 1.5F, player.getEntityBoundingBox().minZ + 0.6F));
+//		
+//				}
+//			} 
+	
+				
 	
 	@Override
 	public void registerModels() 
@@ -60,7 +98,7 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelCustomArmor model = new ModelCustomArmor();
+					ModelSideswipeMid2 model = new ModelSideswipeMid2();
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

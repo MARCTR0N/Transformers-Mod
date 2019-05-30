@@ -1,22 +1,14 @@
 {
-    "entity.vehicon.ambient"
+    "transformation.transformone": 
     {
-        "category": "entity",
-        "subtitle": "entity.vehicon.ambient",
-        "sounds": [{ "name": "hm.entity/vehicon/ambient", "stream" : true}]
+        "category": "player",
+        "subtitle": "transformation.transformone",
+        "sounds": [{ "name": "tm:transformation/transformone", "stream": true}]
     },
-    
-    "entity.vehicon.hurt"
+    "transformation.transformtwo": 
     {
-        "category": "entity",
-        "subtitle": "entity.vehicon.hurt",
-        "sounds": [{ "name": "hm.entity/vehicon/hurt", "stream" : true}]
-    },
-    
-    "entity.vehicon.death"
-    {
-        "category": "entity",
-        "subtitle": "entity.vehicon.death",
-        "sounds": [{ "name": "hm.entity/vehicon/death", "stream" : true}]
-    },
+        "category": "player",
+        "subtitle": "transformation.transformtwo",
+        "sounds": [{ "name": "tm:transformation/transformtwo", "stream": true}]
+    }
 }
