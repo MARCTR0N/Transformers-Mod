@@ -4,12 +4,15 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
+import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -25,9 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class Starscream extends ItemArmor implements IHasModel {
 	
 
-	private static final float f1 = 2.9f;
-	private static final float f = 0.6f;
-
+	
 
 	public Starscream(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -41,7 +42,7 @@ public class Starscream extends ItemArmor implements IHasModel {
 	
 	
 	@Override
-	public void registerModels() 
+	public final void registerModels() 
 	{
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
@@ -53,31 +54,33 @@ public class Starscream extends ItemArmor implements IHasModel {
 	@Override
 	
 	
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
+	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
 			player.fallDistance = 0;
 			//player.capabilities.allowFlying = true;
 			
-			player.width = 0.6F; 
-			player.height = 2.8F;
-			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 2.8F, player.getEntityBoundingBox().minZ + 0.6F));
-		    
+	    
 			
-			if (itemStack.getItem() == ModItems.AJ_CHESTPLATE) {
+			if (itemStack.getItem() == ModItems.STARSCREAM_CHESTPLATE) {
 				if (world.isRemote) {
-					if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
-					{
-						player.setSprinting(true);
-						player.moveRelative(0F, 0F, 0.035F, 3F);
-					}
 					
+
 					if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) {
-						player.limbSwing = 0F;
-						player.limbSwingAmount = 0F;
-						player.eyeHeight = 1.9F;
-												
-						player.motionY += 0.2;
-						player.motionY = Math.min(0.5, player.motionY);
+						//player.limbSwing = 0F;
+						//player.limbSwingAmount = 20F;
+						player.resetPositionToBB();
+						
+						player.eyeHeight = 1.7F;
+										
+					
+						
+						player.motionY += 0.1F;
+						player.motionY = Math.min(0.25F, player.motionY);
+						if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
+					{
+						player.setSprinting(false);
+						player.moveRelative(0F, 0F, 0.015F, 3F);
+					}
 						
 						//player.motionX *= 1.1;
 						//player.motionX = Math.min(3, player.motionX);
@@ -88,15 +91,29 @@ public class Starscream extends ItemArmor implements IHasModel {
 						
 						
 						//world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0., -0.3, 0);
-						world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, 0, 0);
-						world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0., -0.3, 0);
-						world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, 0, 0);
+//						world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX, player.posY, player.posZ, 0, -0.3, 0);
+//						world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX + 0.2, player.posY, player.posZ, 0, -0.3, 0);
+//						world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX - 0.2, player.posY, player.posZ, 0, -0.3, 0);
+//						world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX, player.posY, player.posZ + 0.2, 0, -0.3, 0);
+//						world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX, player.posY, player.posZ - 0.2, 0, -0.3, 0);
+						
+						world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ, 0.6D, 0.D, 0.85D);
+						world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX + 0.2, player.posY + 0.15, player.posZ, 0.6D, 0.0D, 0.85D);
+						world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX - 0.2, player.posY + 0.15, player.posZ, 0.6D, 0.0D, 0.85D);
+						world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ + 0.2, 0.6D, 0.0D, 0.85D);
+						world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ - 0.2, 0.6D, 0.0D, 0.85D);
+						
+						world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, player.posX, player.posY, player.posZ, 0., -0.1, 0);
+						//world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, -0.1, 0);
 					
 						
 						}
 					if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-						player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
-				
+						player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID1_BOOTS));
+						player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID1_LEGGINGS));
+						player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID1_CHESTPLATE));
+						player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID1_HELMET));
+						Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 0.3F, 1.85F);
 					}
 				}
 			} 
@@ -120,7 +137,7 @@ public class Starscream extends ItemArmor implements IHasModel {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+	public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 	
 		if(!itemStack.isEmpty())
 		{
@@ -130,7 +147,7 @@ public class Starscream extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelStarscream model = new ModelStarscream();
+					final ModelStarscream model = new ModelStarscream();
 				
 					
 			

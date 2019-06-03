@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "A A",
+        "E E"
+    ],
+    "key": 
+    {
+        "E": {
+                "item": "tm:alloy"
+        },
+        "A": {
+                "item": "tm:transformium"
+        }
+    },
+    "result": {
+        "item": "tm:protoform_feet",
+        "count": 1
+    }
+}

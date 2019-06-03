@@ -29,7 +29,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-	public class VehiconAltmode extends ItemArmor implements IHasModel {
+	public final class VehiconAltmode extends ItemArmor implements IHasModel {
 
 		public VehiconAltmode(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 			super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -48,7 +48,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 		@Override
 		
 		public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-				//((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
+				((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
 				 //System.out.println("Ooga Booga");
 				 
 				 
@@ -77,11 +77,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 				//player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.8F, player.getEntityBoundingBox().minZ + 0.6F));
 				
 				
-				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.01F, player.getEntityBoundingBox().minZ + 0.6F));
-				player.width = 0F; 
-				player.height = 0F;
+//				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.01F, player.getEntityBoundingBox().minZ + 0.6F));
+//				player.width = 0F; 
+//				player.height = 0F;
 				
-				player.entityCollisionReduction = 0F ;
+//				player.entityCollisionReduction = 0F ;
 				
 				if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
 				{
@@ -144,7 +144,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 			}
 		
 		@Override
-		public void registerModels() 
+		public final void registerModels() 
 		{
 			Main.proxy.registerItemRenderer(this, 0, "inventory");
 		}
@@ -154,6 +154,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 		
 		@Override
 		@SideOnly(Side.CLIENT)
+		@Nullable
 		public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 		
 			if(!itemStack.isEmpty())
@@ -164,7 +165,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 					{
 						
 						
-						ModelVehiconAltmode model = new ModelVehiconAltmode();
+						final ModelVehiconAltmode model = new ModelVehiconAltmode();
 						
 				
 						model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

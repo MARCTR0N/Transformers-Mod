@@ -24,6 +24,10 @@ import com.marctron.transformersmod.transformers.transformer.sideswipe.Sideswipe
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid3;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid4;
 import com.marctron.transformersmod.transformers.transformer.starscream.Starscream;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamAltmode;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid1;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid2;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid3;
 import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
@@ -49,6 +53,7 @@ public class ModItems
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	//Items
 	public static final Item ENERGON_SHARD = new ItemBase("energon_shard");
+	public static final Item BLUE_ENERGON_SHARD = new ItemBase("blue_energon_shard");
 	public static final Item RED_ENERGON_SHARD = new ItemBase("red_energon_shard");
 	public static final Item DARK_ENERGON_SHARD = new ItemBase("dark_energon_shard");
 	public static final Item SYNTHETIC_ENERGON_SHARD = new ItemBase("synthetic_energon_shard");
@@ -62,16 +67,22 @@ public class ModItems
 	public static final Item TRANSFORMIUM = new ItemBase("transformium");
 	public static final Item SILICON = new ItemBase("silicon");
 	
+	//Dyes
+	public static final Item PALE_GREEN_DYE = new ItemBase("pale_green_dye");
+	public static final Item PALE_BROWN_DYE = new ItemBase("pale_brown_dye");
+	public static final Item DARK_RED_DYE = new ItemBase("dark_red_dye");
+	public static final Item DARK_GRAY_DYE = new ItemBase("dark_gray_dye");
+	public static final Item BEIGE_DYE = new ItemBase("beige_dye");
 	
 	//Tools
 	public static final ToolMaterial GUN_MATERIAL = EnumHelper.addToolMaterial("gun", 0, 1000, 2.0F, 0, 0);
 	
 	//Armor
-	public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 10, new int[] {3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
 	public static final ArmorMaterial TARN_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn_model", Reference.MOD_ID + ":tarn_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
-	public static final ArmorMaterial AJ_MODEL_MATERIAL = EnumHelper.addArmorMaterial("aj_model", Reference.MOD_ID + ":aj_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	public static final ArmorMaterial STARSCREAM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("starscream_model", Reference.MOD_ID + ":starscream_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
 	public static final ArmorMaterial SIDESWIPE_MODEL_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_model", Reference.MOD_ID + ":sideswipe_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
@@ -110,11 +121,31 @@ public class ModItems
 	public static final Item TARN_LEGGINGS = new ArmorModelTarn("tarn_leggings", TARN_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item TARN_BOOTS = new ArmorModelTarn("tarn_boots", TARN_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
-	//Autobot Johnson
-	public static final Item AJ_HELMET = new Starscream("aj_helmet", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
-	public static final Item AJ_CHESTPLATE = new Starscream("aj_chestplate", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
-	public static final Item AJ_LEGGINGS = new Starscream("aj_leggings", AJ_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
-	public static final Item AJ_BOOTS = new Starscream("aj_boots", AJ_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	//Starscream
+	public static final Item STARSCREAM_HELMET = new Starscream("starscream_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_CHESTPLATE = new Starscream("starscream_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_LEGGINGS = new Starscream("starscream_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_BOOTS = new Starscream("starscream_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_MID1_HELMET = new StarscreamMid1("starscream_mid1_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_MID1_CHESTPLATE = new StarscreamMid1("starscream_mid1_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_MID1_LEGGINGS = new StarscreamMid1("starscream_mid1_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_MID1_BOOTS = new StarscreamMid1("starscream_mid1_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_MID2_HELMET = new StarscreamMid2("starscream_mid2_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_MID2_CHESTPLATE = new StarscreamMid2("starscream_mid2_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_MID2_LEGGINGS = new StarscreamMid2("starscream_mid2_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_MID2_BOOTS = new StarscreamMid2("starscream_mid2_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_MID3_HELMET = new StarscreamMid3("starscream_mid3_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_MID3_CHESTPLATE = new StarscreamMid3("starscream_mid3_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_MID3_LEGGINGS = new StarscreamMid3("starscream_mid3_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_MID3_BOOTS = new StarscreamMid3("starscream_mid3_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_ALTMODE_HELMET = new StarscreamAltmode("starscream_altmode_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_ALTMODE_CHESTPLATE = new StarscreamAltmode("starscream_altmode_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_ALTMODE_LEGGINGS = new StarscreamAltmode("starscream_altmode_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_ALTMODE_BOOTS = new StarscreamAltmode("starscream_altmode_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	//Sideswipe
 	public static final Item SIDESWIPE_HELMET = new ArmorModelSideswipe("sideswipe_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
@@ -188,6 +219,12 @@ public class ModItems
 	public static final Item DECEPTICON_INSGINIA = new ItemBase("decepticon_insignia");
 	
 	
+	public static final Item ADVANCED_CIRCUIT = new ItemBase("advanced_circuit");
+	public static final Item BASIC_CIRCUIT = new ItemBase("basic_circuit");
+	public static final Item ALLOY = new ItemBase("alloy");
+	
+	
+	public static final Item COCKPIT = new ItemBase("cockpit");
 	public static final Item WING = new ItemBase("wing");
 	public static final Item TREAD = new ItemBase("tread");
 	public static final Item TIRE = new ItemBase("tire");

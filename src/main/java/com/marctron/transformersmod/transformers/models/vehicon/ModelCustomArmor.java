@@ -517,7 +517,7 @@ public final class ModelCustomArmor extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+    public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
     { 
       super.render(entity, f, f1, f2, f3, f4, f5);
       setRotationAngles(f, f1, f2, f3, f4, f5, entity);
@@ -525,7 +525,7 @@ public final class ModelCustomArmor extends ModelBiped {
     
 
     @Override
-   	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+   	public final void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
    		// this prevents helmets from always facing south, and the armor "breathing" on the stand
    		if (entityIn instanceof EntityArmorStand) {
    			EntityArmorStand entityarmorstand = (EntityArmorStand) entityIn;
@@ -562,7 +562,7 @@ public final class ModelCustomArmor extends ModelBiped {
     /**
      * This is a helper function from Tabula to set the rotation of model parts
      */
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public final void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

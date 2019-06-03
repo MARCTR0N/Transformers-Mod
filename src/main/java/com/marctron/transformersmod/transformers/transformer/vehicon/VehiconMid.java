@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class VehiconMid extends ItemArmor implements IHasModel {
+public final class VehiconMid extends ItemArmor implements IHasModel {
 
 	public VehiconMid(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -31,7 +31,7 @@ public class VehiconMid extends ItemArmor implements IHasModel {
 	}
 
 	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
 			
 			
@@ -91,7 +91,7 @@ public class VehiconMid extends ItemArmor implements IHasModel {
 		}
 	
 	@Override
-	public void registerModels() 
+	public final void registerModels() 
 	{
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
@@ -101,7 +101,7 @@ public class VehiconMid extends ItemArmor implements IHasModel {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+	public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 	
 		if(!itemStack.isEmpty())
 		{

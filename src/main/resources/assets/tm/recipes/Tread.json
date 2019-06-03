@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "AAA",
+        "EEE",
+        "AAA"
+    ],
+    "key": 
+    {
+        "E": {
+                "item": "tm:hubcap"
+        },
+        "A": {
+                "item": "tm:transformium"
+        }
+    },
+    "result": {
+        "item": "tm:tread",
+        "count": 1
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "tm:blue_energon_ore_block" }
+    }
+}

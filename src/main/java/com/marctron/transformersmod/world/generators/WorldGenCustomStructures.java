@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenCustomStructures implements IWorldGenerator
 {
-	public static final WorldGenStructure ENERGONMINE = new WorldGenStructure("energonmine");
+//	public static final WorldGenStructure ENERGONMINE = new WorldGenStructure("energonmine");
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) 
@@ -37,7 +37,7 @@ public class WorldGenCustomStructures implements IWorldGenerator
 			
 		case 0:
 			
-			generateStructure(ENERGONMINE, world, random, chunkX, chunkZ, 3, Blocks.DIRT , BiomePlains .class);
+//			generateStructure(ENERGONMINE, world, random, chunkX, chunkZ, 3, Blocks.DIRT , BiomePlains .class);
 			
 			break;
 			

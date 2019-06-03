@@ -42,8 +42,8 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
+			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
+//			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
 			
 			
 			
@@ -58,11 +58,11 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 				player.moveRelative(0F, -0.1F, 0.035F, 3F);
 			}
 			
-			
-			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.01F, player.getEntityBoundingBox().minZ + 0.6F));
-			player.width = 0F; 
-			player.height = 0F;
-			
+//			if (world.isRemote){ 
+//			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.01F, player.getEntityBoundingBox().minZ + 0.6F));
+//			player.width = 0F; 
+//			player.height = 0F;
+//			}
 			
 			
 			player.entityCollisionReduction = 10F ;

@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "EEE",
+        "RAR",
+        "EEE"
+    ],
+    "key": 
+    {
+        "E": {
+                "item": "tm:alloy"
+        },
+        "R": {
+                "item": "tm:transformium"
+        },
+        "A": {
+                "item": "tm:basic_ciruit"
+        }
+    },
+    "result": {
+        "item": "tm:voicebox",
+        "count": 1
+    }
+}

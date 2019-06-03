@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "tm:blocks/stained_hardened_clay_dark_gray"
+   }
+}

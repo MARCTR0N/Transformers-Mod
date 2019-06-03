@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  E",
+        " EE",
+        "EEE"
+    ],
+    "key": {
+        "E": {
+            "item": "tm:alloy"
+       }
+           
+          
+       
+    },
+    "result": {
+        "item": "tm:wing",
+        "count": 1
+    }
+}

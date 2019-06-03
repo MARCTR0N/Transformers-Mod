@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "tm:blocks/blue_energon_ore_block"
+   }
+}

@@ -34,7 +34,7 @@ public  class EntityBullet extends Entity implements IProjectile, IThrowableEnti
 
     private float damage = 4f;
     private int knockbackStrength = 1;
-    private Entity shooter;
+    public Entity shooter;
     private int ticksInAir = 0;
 
     public EntityBullet(World world)
@@ -137,6 +137,10 @@ public  class EntityBullet extends Entity implements IProjectile, IThrowableEnti
             else
                 damageSource = CommonUtils.causeBulletDamage(this, shooter);
 
+            if (this.isBurning() && !(entityHit instanceof EntityEnderman))
+            {
+                entityHit.setFire(5);
+            }
             //Hit entity
             if(entityHit.attackEntityFrom(damageSource, damage))
             {
@@ -167,7 +171,7 @@ public  class EntityBullet extends Entity implements IProjectile, IThrowableEnti
                 }
 
                 //Play hit sound
-                playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));
+                playSound(SoundEvents.BLOCK_ANVIL_BREAK, 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));
 
                 if(!(entityHit instanceof EntityEnderman))
                     setDead();
@@ -181,7 +185,7 @@ public  class EntityBullet extends Entity implements IProjectile, IThrowableEnti
         else
         {
             //Hit a block
-            playSound(SoundEvents.ENTITY_ARROW_HIT, 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));
+            playSound(SoundEvents.BLOCK_ANVIL_BREAK, 1.0F, 1.2F / (rand.nextFloat() * 0.7F + 0.9F));
             BlockPos pos = ray.getBlockPos();
             IBlockState state = world.getBlockState(pos);
             if(state.getMaterial() != Material.AIR)

@@ -44,13 +44,13 @@ public class GunEntities
        // regEntity(EntityGrenade.class, "Grenade");
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void regRenders()
-    {
-       
-        regRender(EntityBullet.class, RenderBullet.FACTORY);
-        
-       // regRender(EntityGrenade.class, manager -> new RenderSnowball<>(manager, Items.GUNPOWDER, Minecraft.getMinecraft().getRenderItem()));
-    }
+//    @SideOnly(Side.CLIENT)
+//    public static void regRenders()
+//    {
+//       
+//        regRender(EntityBullet.class, RenderBullet.FACTORY);
+//        
+//       // regRender(EntityGrenade.class, manager -> new RenderSnowball<>(manager, Items.GUNPOWDER, Minecraft.getMinecraft().getRenderItem()));
+//    }
     
 }

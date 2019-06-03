@@ -57,10 +57,12 @@ public class ItemCooldown extends ItemBase
         boolean startCooldown = doRightClickAction(stack, world, player, hand);
 
         //Set cooldown
-        if(!player.isCreative() && startCooldown)
+        if(!player.isCreative() && startCooldown && player.isCreative())
             NBTHelper.setInteger(stack, KEY_COOLDOWN, MAX_COOLDOWN);
 
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+        
+        
     }
 
     @Override

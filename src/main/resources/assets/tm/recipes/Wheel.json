@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    
+        
+        
+        
+    
+    "ingredients": [
+    {
+      "item": "tm:tire"
+    },
+    {
+      "item": "tm:hubcap"
+    }
+  ],
+    "result": {
+        "item": "tm:wheel",
+        "count": 1
+    }
+}

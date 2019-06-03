@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "R",
+        "A",
+        "R"
+    ],
+    "key": 
+    {
+        
+        "R": {
+                "item": "tm:transformium"
+        },
+        "A": {
+                "item": "tm:alloy"
+        }
+    },
+    "result": {
+        "item": "tm:limb",
+        "count": 1
+    }
+}

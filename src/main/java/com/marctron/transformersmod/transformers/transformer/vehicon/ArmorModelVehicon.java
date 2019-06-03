@@ -40,12 +40,12 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 	}
 
 	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
 			
 			
 			
-			player.fallDistance = 0;
+			//player.fallDistance = 0;
 			//player.capabilities.setPlayerWalkSpeed(0.15F);
 			player.eyeHeight = 1.65F;
 			//player.width = 0.6F; 
@@ -100,7 +100,7 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 		}
 	
 	@Override
-	public void registerModels() 
+	public final void registerModels() 
 	{
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
@@ -110,7 +110,7 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+	public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 	
 		if(!itemStack.isEmpty())
 		{

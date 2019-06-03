@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "EOE",
+        "AEA",
+        "EHE"
+    ],
+    "key": 
+    {
+        "E": {
+                "item": "tm:alloy"
+        },
+        "A": {
+                "item": "tm:optics"
+        },
+        "H": {
+                "item": "tm:voicebox"
+        },
+        "O": {
+                "item": "tm:brain"
+        }
+    },
+    "result": {
+        "item": "tm:protoform_head",
+        "count": 1
+    }
+}

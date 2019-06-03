@@ -71,7 +71,7 @@ public class Scrapper extends ItemBase implements IGun
         }
         else
         {
-            if(!playerIn.capabilities.isCreativeMode && ammo == 0)
+            if(playerIn.capabilities.isCreativeMode && ammo == 0)
             {
                 //TODO: Play gun out of ammo sound
                 return new ActionResult<>(EnumActionResult.PASS, stack);

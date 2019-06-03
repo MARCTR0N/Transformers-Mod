@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "ERE",
+        "RAR",
+        "ERE"
+    ],
+    "key": 
+    {
+        
+        "R": {
+                "item": "tm:transformium"
+        },
+        "E": {
+                "item": "minecraft:redstone"
+        },
+        "A": {
+                "item": "minecraft:redstone_block"
+        }
+    },
+    "result": {
+        "item": "tm:basic_circuit",
+        "count": 1
+    }
+}

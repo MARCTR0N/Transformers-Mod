@@ -1,8 +1,10 @@
 package com.marctron.transformersmod.util.handlers;
 
 import com.marctron.transformersmod.blocks.BlockEnergonCrate;
+import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
+import com.marctron.transformersmod.entity.render.RenderBullet;
 import com.marctron.transformersmod.entity.render.RenderSwindle;
 import com.marctron.transformersmod.entity.render.RenderVehicon;
 
@@ -33,6 +35,15 @@ public class RenderHandler
 			}
 		});
 		
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new IRenderFactory<EntityBullet>()
+		{
+			@Override
+			public Render<? super EntityBullet> createRenderFor(RenderManager manager) 
+			{
+				return new RenderBullet(manager);
+			}
+		});
 		
 	}
 
