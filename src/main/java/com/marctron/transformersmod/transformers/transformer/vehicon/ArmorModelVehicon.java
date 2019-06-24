@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
+import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
@@ -106,7 +107,8 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 	}
 	
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static ModelCustomArmor model = new ModelCustomArmor();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -120,7 +122,7 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelCustomArmor model = new ModelCustomArmor();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

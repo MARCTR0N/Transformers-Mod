@@ -24,7 +24,7 @@ public final class VehiconMid2 extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -97,7 +97,8 @@ public final class VehiconMid2 extends ItemArmor implements IHasModel {
 	}
 	
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static ModelVehiconMid model = new ModelVehiconMid();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -111,7 +112,7 @@ public final class VehiconMid2 extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelVehiconMid model = new ModelVehiconMid();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

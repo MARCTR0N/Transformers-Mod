@@ -30,7 +30,7 @@ public class SideswipeMid3 extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -40,7 +40,7 @@ public class SideswipeMid3 extends ItemArmor implements IHasModel {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
+			
 			
 			player.eyeHeight = 1.25F;
 			
@@ -91,7 +91,8 @@ public class SideswipeMid3 extends ItemArmor implements IHasModel {
 	}
 	
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static ModelSideswipeMid model = new ModelSideswipeMid();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -105,7 +106,7 @@ public class SideswipeMid3 extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelSideswipeMid model = new ModelSideswipeMid();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

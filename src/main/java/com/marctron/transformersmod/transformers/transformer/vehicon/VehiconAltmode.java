@@ -31,11 +31,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 	public final class VehiconAltmode extends ItemArmor implements IHasModel {
 
+		private Object ModelVehiconAltmode = 1f;
+
+
+
+
 		public VehiconAltmode(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 			super(materialIn, renderIndexIn, equipmentSlotIn);
 			setUnlocalizedName(name);
 			setRegistryName(name);
-			
+			setCreativeTab(null);
 			setMaxStackSize(1);
 			ModItems.ITEMS.add(this);
 			
@@ -51,7 +56,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 				((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
 				 //System.out.println("Ooga Booga");
 				 
-				 
+				player.dropItem(true);
 					
 				 
 				 
@@ -152,10 +157,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 		
 		
 		
+		@SideOnly(Side.CLIENT)
+		private static ModelVehiconAltmode model = new ModelVehiconAltmode();
+
 		@Override
 		@SideOnly(Side.CLIENT)
 		@Nullable
-		public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+		public  ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 		
 			if(!itemStack.isEmpty())
 			{
@@ -163,9 +171,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 				
 				if(itemStack.getItem() instanceof ItemArmor) 
 					{
+					
+					
+					
 						
-						
-						final ModelVehiconAltmode model = new ModelVehiconAltmode();
+						 
 						
 				
 						model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
@@ -194,10 +204,5 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 			return null;
 		}
 		
-		
-
-
-		
-
 	}
 

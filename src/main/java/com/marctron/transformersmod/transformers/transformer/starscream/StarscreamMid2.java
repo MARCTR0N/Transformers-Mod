@@ -3,7 +3,9 @@ package com.marctron.transformersmod.transformers.transformer.starscream;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid1;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid2;
+import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.Minecraft;
@@ -30,7 +32,7 @@ public class StarscreamMid2 extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabTransformers);
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -53,17 +55,94 @@ public class StarscreamMid2 extends ItemArmor implements IHasModel {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
 			player.fallDistance = 0;
-			//player.capabilities.allowFlying = true;
+
+	//Starscream
+			if (itemStack.getItem() == ModItems.STARSCREAM_MID2_BOOTS) {
+				if (world.isRemote)
+				{
 			player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID3_BOOTS));
-			player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID3_LEGGINGS));
-			player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID3_CHESTPLATE));
-			player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID3_HELMET));
-//			player.width = 0.6F; 
-//			player.height = 2.8F;
-//			player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 2.8F, player.getEntityBoundingBox().minZ + 0.6F));
-//		    
+				}
+			}
 			
-			if (itemStack.getItem() == ModItems.STARSCREAM_CHESTPLATE) {
+			if (itemStack.getItem() == ModItems.STARSCREAM_MID2_LEGGINGS) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID3_LEGGINGS));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.STARSCREAM_MID2_CHESTPLATE) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID3_CHESTPLATE));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.STARSCREAM_MID2_HELMET) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID3_HELMET));
+				}
+			}
+			
+	//Skywarp
+			if (itemStack.getItem() == ModItems.SKYWARP_MID2_BOOTS) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(0, new ItemStack(ModItems.SKYWARP_MID3_BOOTS));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.SKYWARP_MID2_LEGGINGS) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(1, new ItemStack(ModItems.SKYWARP_MID3_LEGGINGS));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.SKYWARP_MID2_CHESTPLATE) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(2, new ItemStack(ModItems.SKYWARP_MID3_CHESTPLATE));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.SKYWARP_MID2_HELMET) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(3, new ItemStack(ModItems.SKYWARP_MID3_HELMET));
+				}
+			}
+	//THUNDERCRACKER
+			if (itemStack.getItem() == ModItems.THUNDERCRACKER_MID2_BOOTS) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(0, new ItemStack(ModItems.THUNDERCRACKER_MID3_BOOTS));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.THUNDERCRACKER_MID2_LEGGINGS) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(1, new ItemStack(ModItems.THUNDERCRACKER_MID3_LEGGINGS));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.THUNDERCRACKER_MID2_CHESTPLATE) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(2, new ItemStack(ModItems.THUNDERCRACKER_MID3_CHESTPLATE));
+				}
+			}
+			
+			if (itemStack.getItem() == ModItems.THUNDERCRACKER_MID2_HELMET) {
+				if (world.isRemote)
+				{
+			player.inventory.armorInventory.set(3, new ItemStack(ModItems.THUNDERCRACKER_MID3_HELMET));
+				}
+			}
+			
+			
 				if (world.isRemote) {
 					
 //					if(player.onGround)	{
@@ -112,17 +191,14 @@ public class StarscreamMid2 extends ItemArmor implements IHasModel {
 					
 						
 						}
-					if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-						player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
-				
-					}
+					
 				}
 			} 
 			
 			
 			
 			
-		}
+		
 	
 	
 	
@@ -134,6 +210,9 @@ public class StarscreamMid2 extends ItemArmor implements IHasModel {
 		f1 = 2.9f;
 		
 	}
+
+	@SideOnly(Side.CLIENT)
+	private static ModelStarscreamMid2 model = new ModelStarscreamMid2();
 
 
 	@Override
@@ -148,7 +227,7 @@ public class StarscreamMid2 extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelStarscreamMid2 model = new ModelStarscreamMid2();
+					
 				
 					
 			

@@ -51,7 +51,7 @@ public class Main {
 		
 		GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
 		
-		ModBiomes.registerBiomes();
+		//ModBiomes.registerBiomes();
 		
 		RegistryHandler.preInitRegistries(event);
 		

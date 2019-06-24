@@ -32,7 +32,7 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -43,10 +43,10 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
-//			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
+
 			
 			
-			
+			player.dropItem(true);
 			
 			player.cameraPitch = 0F;
 			player.cameraYaw = 0F;
@@ -65,7 +65,7 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 //			}
 			
 			
-			player.entityCollisionReduction = 10F ;
+			
 		    
 		    
 			if (itemStack.getItem() == ModItems.SIDESWIPE_ALTMODE_HELMET) {
@@ -135,7 +135,8 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 	}
 	
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static ModelSideswipeAltmode model = new ModelSideswipeAltmode();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -149,7 +150,7 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelSideswipeAltmode model = new ModelSideswipeAltmode();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

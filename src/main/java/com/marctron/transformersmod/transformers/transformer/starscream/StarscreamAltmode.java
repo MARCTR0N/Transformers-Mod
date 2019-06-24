@@ -3,6 +3,7 @@ package com.marctron.transformersmod.transformers.transformer.starscream;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamAltmode;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
@@ -31,7 +32,7 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabTransformers);
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -55,14 +56,115 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
 			player.fallDistance = 0;
 		    
+			player.dropItem(true);
 			
-			if (ClientProxy.ROBOT_MODE.isKeyDown()) {
-				player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_BOOTS));
-				player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_LEGGINGS));
-				player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_CHESTPLATE));
-				player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_HELMET));
+			if (ClientProxy.ROBOT_MODE.isKeyDown())
+		{
+		//Starscream
+				if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_BOOTS) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID4_BOOTS));
 				Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMONE, 0.3F, 1.9F);	
-			}
+					}
+				}
+				
+				
+				if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_LEGGINGS) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID4_LEGGINGS));
+					}
+				}
+				
+				if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_CHESTPLATE) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID4_CHESTPLATE));
+					}
+				}
+				
+				if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_HELMET) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID4_HELMET));
+					}
+				}
+				
+		//Skywarp
+				if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_BOOTS) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(0, new ItemStack(ModItems.SKYWARP_MID4_BOOTS));
+				Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMONE, 0.3F, 1.9F);	
+					}
+					
+				}
+				
+				if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_LEGGINGS) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(1, new ItemStack(ModItems.SKYWARP_MID4_LEGGINGS));
+					}
+				}
+				
+				if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_CHESTPLATE) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(2, new ItemStack(ModItems.SKYWARP_MID4_CHESTPLATE));
+					}
+				}
+				
+				if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_HELMET) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(3, new ItemStack(ModItems.SKYWARP_MID4_HELMET));
+					}
+				}
+				
+		//THUNDERCRACKER
+				if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_BOOTS) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(0, new ItemStack(ModItems.THUNDERCRACKER_MID4_BOOTS));
+				Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMONE, 0.3F, 1.9F);	
+					}
+					
+				}
+				
+				if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_LEGGINGS) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(1, new ItemStack(ModItems.THUNDERCRACKER_MID4_LEGGINGS));
+					}
+				}
+				
+				if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_CHESTPLATE) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(2, new ItemStack(ModItems.THUNDERCRACKER_MID4_CHESTPLATE));
+					}
+				}
+				
+				if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_HELMET) 
+				{
+					if (world.isRemote)
+					{
+				player.inventory.armorInventory.set(3, new ItemStack(ModItems.THUNDERCRACKER_MID4_HELMET));
+					}
+				}
+				
 			if (!player.onGround) {
 				if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
 				{
@@ -70,7 +172,7 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 					player.moveRelative(0F, 0F, 0.01F, 3F);
 				}
 			}
-			
+		}
 			
 			if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
 				
@@ -81,6 +183,8 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 //			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ - 0.2, 0.6D, 0.0D, 0.85D);
 //			
 //			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, player.posX, player.posY, player.posZ, 0., -0.1, 0);
+				player.setSprinting(false);
+				player.moveRelative(0F, 0F, 0.01F, 3F);
 			}
 			
 			
@@ -128,6 +232,7 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 					
 				}
 			} 
+		
 			
 			
 			
@@ -145,7 +250,10 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 		
 	}
 
+	@SideOnly(Side.CLIENT)
+	private static ModelStarscreamAltmode model = new ModelStarscreamAltmode();
 
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -158,7 +266,7 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 				{
 					
 					
-					final ModelStarscreamAltmode model = new ModelStarscreamAltmode();
+					
 				
 					
 			

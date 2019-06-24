@@ -3,6 +3,7 @@ package com.marctron.transformersmod.transformers.transformer.vehicon;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
@@ -24,7 +25,7 @@ public final class VehiconMid extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -39,9 +40,6 @@ public final class VehiconMid extends ItemArmor implements IHasModel {
 			player.fallDistance = 0;
 			//player.capabilities.allowFlying = true;
 			player.eyeHeight = 1.25F;
-			//player.width = 0.6F; 
-			//player.height = 1.8F;
-			//player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 1.8F, player.getEntityBoundingBox().minZ + 0.6F));
 			
 			
 			if (itemStack.getItem() == ModItems.VEHICON_MID_HELMET) {
@@ -97,7 +95,8 @@ public final class VehiconMid extends ItemArmor implements IHasModel {
 	}
 	
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static ModelVehiconMid model = new ModelVehiconMid();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -111,7 +110,7 @@ public final class VehiconMid extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelVehiconMid model = new ModelVehiconMid();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

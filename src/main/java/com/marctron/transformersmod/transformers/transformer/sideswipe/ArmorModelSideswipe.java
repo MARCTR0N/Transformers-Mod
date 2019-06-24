@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
+import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid1;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
@@ -41,7 +42,7 @@ public class ArmorModelSideswipe extends ItemArmor implements IHasModel {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
+			
 			
 			player.eyeHeight = 1.65F;
 			
@@ -114,7 +115,9 @@ public class ArmorModelSideswipe extends ItemArmor implements IHasModel {
 	}
 	
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static SideswipeModel model = new SideswipeModel();
+
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -128,7 +131,7 @@ public class ArmorModelSideswipe extends ItemArmor implements IHasModel {
 				{
 					
 					
-					SideswipeModel model = new SideswipeModel();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

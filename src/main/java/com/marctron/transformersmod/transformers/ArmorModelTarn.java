@@ -3,7 +3,10 @@ package com.marctron.transformersmod.transformers;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.transformers.models.TarnModel;
+import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2;
+import com.marctron.transformersmod.transformers.models.tarn.TarnChest;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
+import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
@@ -51,6 +54,11 @@ public class ArmorModelTarn extends ItemArmor implements IHasModel {
 			super.onArmorTick(world, player, itemStack);
 		}
 	
+	@SideOnly(Side.CLIENT)
+	private static TarnChest model = new TarnChest();
+	
+	
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -63,7 +71,7 @@ public class ArmorModelTarn extends ItemArmor implements IHasModel {
 				{
 					
 					
-					TarnModel model = new TarnModel();
+					
 				
 					
 			

@@ -2,6 +2,7 @@ package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid2;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
@@ -23,7 +24,7 @@ public class SideswipeMid2 extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
@@ -33,7 +34,7 @@ public class SideswipeMid2 extends ItemArmor implements IHasModel {
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
 			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
+			
 			
 			player.eyeHeight = 1F;
 			
@@ -83,7 +84,8 @@ public class SideswipeMid2 extends ItemArmor implements IHasModel {
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
 	
-	
+	@SideOnly(Side.CLIENT)
+	private static ModelSideswipeMid2 model = new ModelSideswipeMid2();
 	
 	
 	@Override
@@ -98,7 +100,7 @@ public class SideswipeMid2 extends ItemArmor implements IHasModel {
 				{
 					
 					
-					ModelSideswipeMid2 model = new ModelSideswipeMid2();
+					
 					
 			
 					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;

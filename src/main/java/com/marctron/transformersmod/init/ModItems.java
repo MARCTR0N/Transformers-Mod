@@ -17,6 +17,9 @@ import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
 import com.marctron.transformersmod.transformers.ArmorModelTarn;
+import com.marctron.transformersmod.transformers.transformer.Tarn2;
+import com.marctron.transformersmod.transformers.transformer.ironhide.Ironhide;
+import com.marctron.transformersmod.transformers.transformer.ironhide.IronhideAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
@@ -28,6 +31,9 @@ import com.marctron.transformersmod.transformers.transformer.starscream.Starscre
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid1;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid2;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid3;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid4;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid5;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid6;
 import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
@@ -81,15 +87,36 @@ public class ModItems
 	public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 10, new int[] {3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
 	public static final ArmorMaterial TARN_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn_model", Reference.MOD_ID + ":tarn_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	public static final ArmorMaterial TARN2_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn2_model", Reference.MOD_ID + ":tarn2_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
 	
 	public static final ArmorMaterial STARSCREAM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("starscream_model", Reference.MOD_ID + ":starscream_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
+	public static final ArmorMaterial MOVIE_OPTIMUS_PRIME_MATERIAL = EnumHelper.addArmorMaterial("movie_optimus_prime_model", Reference.MOD_ID + ":movie_optimus_prime_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+	
+	public static final ArmorMaterial SKYWARP_MODEL_MATERIAL = EnumHelper.addArmorMaterial("skywarp_model", Reference.MOD_ID + ":skywarp_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
+	public static final ArmorMaterial THUNDERCRACKER_MODEL_MATERIAL = EnumHelper.addArmorMaterial("thundercracker_model", Reference.MOD_ID + ":thundercracker_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
 	public static final ArmorMaterial SIDESWIPE_MODEL_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_model", Reference.MOD_ID + ":sideswipe_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
+	public static final ArmorMaterial IRONHIDE_MATERIAL = EnumHelper.addArmorMaterial("ironhide_model", Reference.MOD_ID + ":ironhide_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
 	
 	//Armor Altmode
 	public static final ArmorMaterial VEHICON_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("vehicon_altmode_model", Reference.MOD_ID + ":vehicon_altmode_model", 20, new int[] {5, 5, 5, 5}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
 	public static final ArmorMaterial SIDESWIPE_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_altmode_model", Reference.MOD_ID + ":sideswipe_altmode_model", 20, new int[] {5, 5, 5, 5}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
+	public static final ArmorMaterial SKYWARP_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("skywarp_altmode_model", Reference.MOD_ID + ":skywarp_altmode_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
+	//Movie Optimus Prime
+		public static final Item MOVIE_OPTIMUS_PRIME_HELMET = new MovieOptimusPrime("movie_optimus_prime_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_CHESTPLATE = new MovieOptimusPrime("movie_optimus_prime_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_LEGGINGS = new MovieOptimusPrime("movie_optimus_prime_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_BOOTS = new MovieOptimusPrime("movie_optimus_prime_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
 	
 	//Vehicon
 	public static final Item CUSTOM_HELMET = new ArmorModelVehicon("custom_helmet", CUSTOM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
@@ -116,10 +143,10 @@ public class ModItems
 	
 	
 	//Tarn
-	public static final Item TARN_HELMET = new ArmorModelTarn("tarn_helmet", TARN_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
-	public static final Item TARN_CHESTPLATE = new ArmorModelTarn("tarn_chestplate", TARN_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
-	public static final Item TARN_LEGGINGS = new ArmorModelTarn("tarn_leggings", TARN_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
-	public static final Item TARN_BOOTS = new ArmorModelTarn("tarn_boots", TARN_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	public static final Item TARN_HELMET = new Tarn2("tarn_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_CHESTPLATE = new ArmorModelTarn("tarn_chestplate", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_LEGGINGS = new Tarn2("tarn_leggings", TARN2_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_BOOTS = new Tarn2("tarn_boots", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	//Starscream
 	public static final Item STARSCREAM_HELMET = new Starscream("starscream_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
@@ -146,6 +173,103 @@ public class ModItems
 	public static final Item STARSCREAM_ALTMODE_CHESTPLATE = new StarscreamAltmode("starscream_altmode_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
 	public static final Item STARSCREAM_ALTMODE_LEGGINGS = new StarscreamAltmode("starscream_altmode_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item STARSCREAM_ALTMODE_BOOTS = new StarscreamAltmode("starscream_altmode_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_MID4_HELMET = new StarscreamMid4("starscream_mid4_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_MID4_CHESTPLATE = new StarscreamMid4("starscream_mid4_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_MID4_LEGGINGS = new StarscreamMid4("starscream_mid4_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_MID4_BOOTS = new StarscreamMid4("starscream_mid4_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_MID5_HELMET = new StarscreamMid5("starscream_mid5_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_MID5_CHESTPLATE = new StarscreamMid5("starscream_mid5_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_MID5_LEGGINGS = new StarscreamMid5("starscream_mid5_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_MID5_BOOTS = new StarscreamMid5("starscream_mid5_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item STARSCREAM_MID6_HELMET = new StarscreamMid6("starscream_mid6_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item STARSCREAM_MID6_CHESTPLATE = new StarscreamMid6("starscream_mid6_chestplate", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item STARSCREAM_MID6_LEGGINGS = new StarscreamMid6("starscream_mid6_leggings", STARSCREAM_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item STARSCREAM_MID6_BOOTS = new StarscreamMid6("starscream_mid6_boots", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	//Skywarp
+	public static final Item SKYWARP_HELMET = new Starscream("skywarp_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_CHESTPLATE = new Starscream("skywarp_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_LEGGINGS = new Starscream("skywarp_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_BOOTS = new Starscream("skywarp_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_MID1_HELMET = new StarscreamMid1("skywarp_mid1_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_MID1_CHESTPLATE = new StarscreamMid1("skywarp_mid1_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_MID1_LEGGINGS = new StarscreamMid1("skywarp_mid1_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_MID1_BOOTS = new StarscreamMid1("skywarp_mid1_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_MID2_HELMET = new StarscreamMid2("skywarp_mid2_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_MID2_CHESTPLATE = new StarscreamMid2("skywarp_mid2_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_MID2_LEGGINGS = new StarscreamMid2("skywarp_mid2_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_MID2_BOOTS = new StarscreamMid2("skywarp_mid2_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_MID3_HELMET = new StarscreamMid3("skywarp_mid3_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_MID3_CHESTPLATE = new StarscreamMid3("skywarp_mid3_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_MID3_LEGGINGS = new StarscreamMid3("skywarp_mid3_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_MID3_BOOTS = new StarscreamMid3("skywarp_mid3_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_ALTMODE_HELMET = new StarscreamAltmode("skywarp_altmode_helmet", SKYWARP_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_ALTMODE_CHESTPLATE = new StarscreamAltmode("skywarp_altmode_chestplate", SKYWARP_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_ALTMODE_LEGGINGS = new StarscreamAltmode("skywarp_altmode_leggings", SKYWARP_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_ALTMODE_BOOTS = new StarscreamAltmode("skywarp_altmode_boots", SKYWARP_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_MID4_HELMET = new StarscreamMid4("skywarp_mid4_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_MID4_CHESTPLATE = new StarscreamMid4("skywarp_mid4_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_MID4_LEGGINGS = new StarscreamMid4("skywarp_mid4_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_MID4_BOOTS = new StarscreamMid4("skywarp_mid4_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_MID5_HELMET = new StarscreamMid5("skywarp_mid5_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_MID5_CHESTPLATE = new StarscreamMid5("skywarp_mid5_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_MID5_LEGGINGS = new StarscreamMid5("skywarp_mid5_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_MID5_BOOTS = new StarscreamMid5("skywarp_mid5_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item SKYWARP_MID6_HELMET = new StarscreamMid6("skywarp_mid6_helmet", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item SKYWARP_MID6_CHESTPLATE = new StarscreamMid6("skywarp_mid6_chestplate", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item SKYWARP_MID6_LEGGINGS = new StarscreamMid6("skywarp_mid6_leggings", SKYWARP_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item SKYWARP_MID6_BOOTS = new StarscreamMid6("skywarp_mid6_boots", SKYWARP_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	//Thundercracker
+	public static final Item THUNDERCRACKER_HELMET = new Starscream("thundercracker_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_CHESTPLATE = new Starscream("thundercracker_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_LEGGINGS = new Starscream("thundercracker_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_BOOTS = new Starscream("thundercracker_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_MID1_HELMET = new StarscreamMid1("thundercracker_mid1_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_MID1_CHESTPLATE = new StarscreamMid1("thundercracker_mid1_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_MID1_LEGGINGS = new StarscreamMid1("thundercracker_mid1_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_MID1_BOOTS = new StarscreamMid1("thundercracker_mid1_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_MID2_HELMET = new StarscreamMid2("thundercracker_mid2_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_MID2_CHESTPLATE = new StarscreamMid2("thundercracker_mid2_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_MID2_LEGGINGS = new StarscreamMid2("thundercracker_mid2_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_MID2_BOOTS = new StarscreamMid2("thundercracker_mid2_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_MID3_HELMET = new StarscreamMid3("thundercracker_mid3_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_MID3_CHESTPLATE = new StarscreamMid3("thundercracker_mid3_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_MID3_LEGGINGS = new StarscreamMid3("thundercracker_mid3_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_MID3_BOOTS = new StarscreamMid3("thundercracker_mid3_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_ALTMODE_HELMET = new StarscreamAltmode("thundercracker_altmode_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_ALTMODE_CHESTPLATE = new StarscreamAltmode("thundercracker_altmode_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_ALTMODE_LEGGINGS = new StarscreamAltmode("thundercracker_altmode_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_ALTMODE_BOOTS = new StarscreamAltmode("thundercracker_altmode_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_MID4_HELMET = new StarscreamMid4("thundercracker_mid4_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_MID4_CHESTPLATE = new StarscreamMid4("thundercracker_mid4_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_MID4_LEGGINGS = new StarscreamMid4("thundercracker_mid4_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_MID4_BOOTS = new StarscreamMid4("thundercracker_mid4_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_MID5_HELMET = new StarscreamMid5("thundercracker_mid5_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_MID5_CHESTPLATE = new StarscreamMid5("thundercracker_mid5_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_MID5_LEGGINGS = new StarscreamMid5("thundercracker_mid5_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_MID5_BOOTS = new StarscreamMid5("thundercracker_mid5_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item THUNDERCRACKER_MID6_HELMET = new StarscreamMid6("thundercracker_mid6_helmet", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item THUNDERCRACKER_MID6_CHESTPLATE = new StarscreamMid6("thundercracker_mid6_chestplate", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item THUNDERCRACKER_MID6_LEGGINGS = new StarscreamMid6("thundercracker_mid6_leggings", THUNDERCRACKER_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item THUNDERCRACKER_MID6_BOOTS = new StarscreamMid6("thundercracker_mid6_boots", THUNDERCRACKER_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	//Sideswipe
 	public static final Item SIDESWIPE_HELMET = new ArmorModelSideswipe("sideswipe_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
@@ -178,6 +302,19 @@ public class ModItems
 	public static final Item SIDESWIPE_ALTMODE_LEGGINGS = new SideswipeAltmode("sideswipe_altmode_leggings", SIDESWIPE_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item SIDESWIPE_ALTMODE_BOOTS = new SideswipeAltmode("sideswipe_altmode_boots", SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
+	//Ironhide
+	public static final Item IRONHIDE_HELMET = new Ironhide("ironhide_helmet", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item IRONHIDE_CHESTPLATE = new Ironhide("ironhide_chestplate", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item IRONHIDE_LEGGINGS = new Ironhide("ironhide_leggings", IRONHIDE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item IRONHIDE_BOOTS = new Ironhide("ironhide_boots", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item IRONHIDE_ALTMODE_HELMET = new IronhideAltmode("ironhide_altmode_helmet", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item IRONHIDE_ALTMODE_CHESTPLATE = new IronhideAltmode("ironhide_altmode_chestplate", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item IRONHIDE_ALTMODE_LEGGINGS = new IronhideAltmode("ironhide_altmode_leggings", IRONHIDE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item IRONHIDE_ALTMODE_BOOTS = new IronhideAltmode("ironhide_altmode_boots", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	
+	public static final Item NIBBA = new ItemBase("nibba");
 	
 	public static Item ItemBase = new ItemBasicMeta("basic", EItemBasic.allNames);
 	
