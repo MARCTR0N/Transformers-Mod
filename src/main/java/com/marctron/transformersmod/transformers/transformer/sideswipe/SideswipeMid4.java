@@ -1,8 +1,10 @@
 package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid2;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
@@ -33,7 +35,44 @@ public class SideswipeMid4 extends ItemArmor implements IHasModel {
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
+			
+			
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				
+				@Override
+				public void run() {
+			
+					player.eyeHeight = 1.25F;
+					
+					if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_HELMET) {
+						if (world.isRemote) 
+						{
+								player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_MID3_HELMET));
+						}	
+					} 
+					if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_CHESTPLATE) {
+						if (world.isRemote) 
+						{
+								player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_MID3_CHESTPLATE));
+						}
+					} 
+					if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_LEGGINGS) {
+						if (world.isRemote) 
+						{
+								player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_MID3_LEGGINGS));
+						}
+					} 
+					if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_BOOTS) {
+						if (world.isRemote) 
+						{
+								player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_MID3_BOOTS));
+						}
+					} 
+				}
+					
+				}, 60);
 			
 			
 			player.eyeHeight = 1.25F;

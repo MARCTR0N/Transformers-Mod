@@ -1,14 +1,17 @@
 package com.marctron.transformersmod.items.gun;
+import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemBasic;
 import com.marctron.transformersmod.util.NBTHelper;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -27,6 +30,7 @@ public class AmmoClip extends ItemBase implements IShootable
         super(itemName);
         setMaxStackSize(1);
         this.clipSize = clipSize;
+        setCreativeTab(Main.tabWeapons);
     }
 
     @Override
@@ -58,8 +62,9 @@ public class AmmoClip extends ItemBase implements IShootable
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-    
+    	tooltip.add(TextFormatting.YELLOW + I18n.format("Ammo"));
         tooltip.add("Bullets: " + getBulletsAmount(stack) + "/" + clipSize);
+        
     }
 
     @Override

@@ -1,26 +1,22 @@
 package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
-import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
-import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -39,10 +35,15 @@ public class SideswipeMid3 extends ItemArmor implements IHasModel {
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 			
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				
+				@Override
+				public void run() {
 			
-			player.eyeHeight = 1.25F;
+					player.eyeHeight = 1.25F;
 			
 			if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_HELMET) {
 				if (world.isRemote) 
@@ -69,6 +70,12 @@ public class SideswipeMid3 extends ItemArmor implements IHasModel {
 				}
 			} 
 		}
+					
+				}, 60);
+			}
+			
+			
+			
 			
 //			if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) 
 //			{

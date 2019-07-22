@@ -1,5 +1,8 @@
 package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
@@ -33,8 +36,17 @@ public class SideswipeMid2 extends ItemArmor implements IHasModel {
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 			
+			
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				
+				@Override
+				public void run() {
+			
+					
+					
 			
 			player.eyeHeight = 1F;
 			
@@ -63,6 +75,8 @@ public class SideswipeMid2 extends ItemArmor implements IHasModel {
 				}
 			} 
 		}
+			}, 60);
+			}
 			
 //			if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) 
 //			{

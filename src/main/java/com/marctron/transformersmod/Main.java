@@ -88,7 +88,7 @@ public class Main {
 
 			@Override
 			public ItemStack getTabIconItem() {
-				return new ItemStack(ModItems.AUTOBOT_INSGINIA);
+				return new ItemStack(ModItems.ENERGON_SHARD);
 			};
 			
 			@Override
@@ -97,6 +97,48 @@ public class Main {
 			}
 			
 		}.setBackgroundImageName("item_search.png");
+		
+		public static CreativeTabs tabWeapons = new CreativeTabs("tabWeapons") {
+
+			@Override
+			public ItemStack getTabIconItem() {
+				return new ItemStack(ModItems.AMMO);
+			};
+			
+			@Override
+			public boolean hasSearchBar() {
+				return false;
+			}
+			
+		};
+		
+		public static CreativeTabs tabDecepticon = new CreativeTabs("tabDecepticon") {
+
+			@Override
+			public ItemStack getTabIconItem() {
+				return new ItemStack(ModItems.DECEPTICON_INSGINIA);
+			};
+			
+			@Override
+			public boolean hasSearchBar() {
+				return false;
+			}
+			
+		};
+		
+		public static CreativeTabs tabAutobot = new CreativeTabs("tabAutobot") {
+
+			@Override
+			public ItemStack getTabIconItem() {
+				return new ItemStack(ModItems.AUTOBOT_INSGINIA);
+			};
+			
+			@Override
+			public boolean hasSearchBar() {
+				return false;
+			}
+			
+		};
 		
 		@EventHandler
 		public static void serverInit(FMLServerStartingEvent event)

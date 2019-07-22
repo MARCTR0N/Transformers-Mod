@@ -2,6 +2,7 @@ package com.marctron.transformersmod.transformers.models.starscream;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 
@@ -1491,8 +1492,8 @@ public class ModelStarscream extends ModelBiped
     @Override
     public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
     { 
-      super.render(entity, f, f1, f2, f3, f4, f5);
-      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
     
     @Override

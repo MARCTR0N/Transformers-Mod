@@ -42,7 +42,7 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 
 			
 			
@@ -54,8 +54,9 @@ public class SideswipeAltmode extends ItemArmor implements IHasModel {
 			player.eyeHeight = 0.4F;
 			if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
 			{
-				//player.setSprinting(true);
-				player.moveRelative(0F, -0.1F, 0.035F, 3F);
+				if (player.onGround){
+				player.moveRelative(0F, 0F, 0.035F, 3F);
+				}
 			}
 			
 //			if (world.isRemote){ 

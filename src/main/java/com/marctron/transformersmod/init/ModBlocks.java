@@ -13,6 +13,8 @@ import com.marctron.transformersmod.blocks.EnergonoreBlock;
 import com.marctron.transformersmod.blocks.ItemSpawner;
 import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
+import com.marctron.transformersmod.blocks.energonengine.BlockEnergonEngine;
+import com.marctron.transformersmod.blocks.energonstorage.BlockEnergonStorage;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -44,6 +46,9 @@ public class ModBlocks
 	
 	public static final Block SPACE_BRIDGE_BLOCK = new BlockBase("space_bridge_block",Material.IRON);
 
+	//Machinery
+	public static final Block ENERGON_ENGINE = new BlockEnergonEngine("energon_engine", Material.IRON);
+	public static final Block ENERGON_STORAGE = new BlockEnergonStorage("energon_storage", Material.IRON);
 
 	//Dyed Stuff
 	

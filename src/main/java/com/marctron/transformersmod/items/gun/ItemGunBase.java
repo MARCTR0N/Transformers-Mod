@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.items.gun;
 
-	import com.marctron.transformersmod.init.ModItems;
+	import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.init.ModItems;
 	import com.marctron.transformersmod.items.PrimaryAmmo;
 	import com.marctron.transformersmod.util.LogHelper;
 	import com.marctron.transformersmod.util.NBTHelper;
@@ -9,6 +10,7 @@ package com.marctron.transformersmod.items.gun;
 	import net.minecraft.entity.player.EntityPlayer;
 	import net.minecraft.init.SoundEvents;
 	import net.minecraft.item.ItemStack;
+
 	import net.minecraft.util.EnumHand;
 	import net.minecraft.util.SoundCategory;
 	import net.minecraft.world.World;
@@ -25,6 +27,7 @@ import javax.annotation.Nullable;
 	    public ItemGunBase(String itemName, int maxCooldown)
 	    {
 	        super(itemName, maxCooldown);
+	        setCreativeTab(Main.tabWeapons);
 	    }
 
 	    /**
@@ -33,11 +36,13 @@ import javax.annotation.Nullable;
 	     */
 	    protected abstract void spawnBullet(World world, EntityPlayer player);
 
-	    private int getMaxAmmo()
+	    public int getMaxAmmo()
 	    {
 	        return getAmmoItem().getMaxAmmo();
 	    }
 
+	    
+	    
 	    /**
 	     * This will get called by onItemRightClick when the cooldown is 0
 	     * @return True if the cooldown should be started.
@@ -68,7 +73,9 @@ import javax.annotation.Nullable;
 	            }
 	            //Shoot
 	            spawnBullet(world, player);
-	            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.00001F);
+	            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_FIREWORK_LARGE_BLAST, SoundCategory.NEUTRAL, 1f, 1.30F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.00001F);
+	            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.NEUTRAL, 0.05f, 1.10F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.00001F);
+	            player.world.playSound(null, player.getPosition(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.00001F);
 	            if(!player.capabilities.isCreativeMode)
 	            setAmmoAmount(stack, --ammo);
 	            return true;
@@ -107,18 +114,18 @@ import javax.annotation.Nullable;
 	        {
 	            //Find ammo belts
 	            ItemStack stack = player.inventory.mainInventory.get(i);
-	            if(stack.getItem() == ModItems.PRIMARY_AMMO)
-	            {
-	                //Find ammo clips within the ammo belt
-	                ItemStackHandler ammoHandler = PrimaryAmmo.getInventoryHandler(stack);
-	                for(int j = 0; j < ammoHandler.getSlots(); j++)
-	                {
-	                    ItemStack ammoClip = ammoHandler.getStackInSlot(j);
-	                    int remaining = reloadWithStack(gunStack, ammoClip);
-	                    if(ammoClip.getCount() == 0) ammoHandler.setStackInSlot(j, ItemStack.EMPTY);
-	                    if(remaining == 0) return;
-	                }
-	            }
+//	            if(stack.getItem() == ModItems.PRIMARY_AMMO)
+//	            {
+//	                //Find ammo clips within the ammo belt
+//	                ItemStackHandler ammoHandler = PrimaryAmmo.getInventoryHandler(stack);
+//	                for(int j = 0; j < ammoHandler.getSlots(); j++)
+//	                {
+//	                    ItemStack ammoClip = ammoHandler.getStackInSlot(j);
+//	                    int remaining = reloadWithStack(gunStack, ammoClip);
+//	                    if(ammoClip.getCount() == 0) ammoHandler.setStackInSlot(j, ItemStack.EMPTY);
+//	                    if(remaining == 0) return;
+//	                }
+//	            }
 	        }
 
 	        //Check main inventory
@@ -198,4 +205,6 @@ import javax.annotation.Nullable;
 	    {
 	        tooltip.add("Ammo: " + getAmmoAmount(stack) + "/" + getMaxAmmo());
 	    }
+
+		
 	}

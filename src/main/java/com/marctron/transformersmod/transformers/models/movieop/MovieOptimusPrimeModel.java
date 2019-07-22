@@ -2,10 +2,11 @@ package com.marctron.transformersmod.transformers.models.movieop;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 
-public class MovieOptimusPrime extends ModelBiped
+public class MovieOptimusPrimeModel extends ModelBiped
 {
     public ModelRenderer shape314_23;
     public ModelRenderer CHEST;
@@ -692,7 +693,7 @@ public class MovieOptimusPrime extends ModelBiped
     public ModelRenderer shape1_9;
     public ModelRenderer shape790_13;
 
-    public MovieOptimusPrime()
+    public MovieOptimusPrimeModel()
     {
         textureWidth = 1024;
         textureHeight = 512;
@@ -702,7 +703,7 @@ public class MovieOptimusPrime extends ModelBiped
         shape314_23.addBox(0.7F, 0.7F, 0.0F, 1, 1, 1, 0.0F);
         setRotateAngle(shape314_23, 0.0F, 0.0F, 0.7853981633974483F);
         CHEST = new ModelRenderer(this, "CHEST").setTextureOffset(0, 0);
-        CHEST.setRotationPoint(0.0F, -22.0F, 0.0F);
+        CHEST.setRotationPoint(0.0F, -3.0F, -5.0F);												//NIGGA
         CHEST.addBox(0.0F, 5.0F, 3.0F, 1, 1, 1, 0.0F);
         shape783_5 = new ModelRenderer(this, "shape783_5").setTextureOffset(0, 500);
         shape783_5.mirror = true;
@@ -893,7 +894,7 @@ public class MovieOptimusPrime extends ModelBiped
         setRotateAngle(shape304_7, 0.0F, 0.0F, 0.6108652381980153F);
         RIGHT_ARM_1 = new ModelRenderer(this, "RIGHT_ARM_1").setTextureOffset(0, 455);
         RIGHT_ARM_1.mirror = true;
-        RIGHT_ARM_1.setRotationPoint(11.3F, -20.0F, 6.0F);
+        RIGHT_ARM_1.setRotationPoint(5.5F, -3.0F, 0F);                                                           //NIGGA
         RIGHT_ARM_1.addBox(0.4F, -0.2F, -1.48F, 4, 11, 3, 0.0F);
         setRotateAngle(RIGHT_ARM_1, 0.0F, 0.0F, -0.08726646259971647F);
         shape157_79 = new ModelRenderer(this, "shape157_79").setTextureOffset(0, 460);
@@ -1613,7 +1614,7 @@ public class MovieOptimusPrime extends ModelBiped
         shape157_35.setRotationPoint(-7.0F, -4.6F, 5.2F);
         shape157_35.addBox(-0.5F, 0.0F, -2.0F, 1, 3, 1, 0.0F);
         HEAD = new ModelRenderer(this, "HEAD").setTextureOffset(44, 444);
-        HEAD.setRotationPoint(0.0F, -25.8F, 0.0F);
+        HEAD.setRotationPoint(0.0F, -7.0F, -4.50F);												               				//NIGGA
         HEAD.addBox(-0.5F, 0.0F, 4.8F, 1, 1, 1, 0.0F);
         setRotateAngle(HEAD, 0.05235987755982988F, 0.0F, 0.0F);
         shape783_10 = new ModelRenderer(this, "shape783_10").setTextureOffset(41, 432);
@@ -1928,7 +1929,7 @@ public class MovieOptimusPrime extends ModelBiped
         shape508_92.addBox(-1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F);
         setRotateAngle(shape508_92, 2.0943951023931953F, 0.0F, 0.0F);
         RIGHT_ARM = new ModelRenderer(this, "RIGHT_ARM").setTextureOffset(0, 455);
-        RIGHT_ARM.setRotationPoint(-11.3F, -20.0F, 6.0F);
+        RIGHT_ARM.setRotationPoint(-5.50F, -3.0F, 0.0F);																		//NIGGA
         RIGHT_ARM.addBox(-4.4F, -0.2F, -1.48F, 4, 11, 3, 0.0F);
         setRotateAngle(RIGHT_ARM, 0.0F, 0.0F, 0.08726646259971647F);
         shape508_68 = new ModelRenderer(this, "shape508_68").setTextureOffset(56, 458);
@@ -2359,7 +2360,7 @@ public class MovieOptimusPrime extends ModelBiped
         setRotateAngle(shape783_53, 0.0F, 0.0F, -0.6632251157578453F);
         RIGHT_LEG = new ModelRenderer(this, "RIGHT_LEG").setTextureOffset(0, 453);
         RIGHT_LEG.mirror = true;
-        RIGHT_LEG.setRotationPoint(-2.0F, -8.2F, 4.0F);
+        RIGHT_LEG.setRotationPoint(0.0F, 0.0F, 0.0F);                                                      //NIGGA
         RIGHT_LEG.addBox(-3.5F, 0.0F, -3.1F, 4, 6, 5, 0.0F);
         setRotateAngle(RIGHT_LEG, 0.0F, 0.0F, 0.06981317007977318F);
         shape520_5 = new ModelRenderer(this, "shape520_5").setTextureOffset(63, 460);
@@ -2777,7 +2778,7 @@ public class MovieOptimusPrime extends ModelBiped
         shape323_24.setRotationPoint(3.2F, 12.0F, 1.1F);
         shape323_24.addBox(-1.2F, -6.1F, -0.5F, 1, 6, 1, 0.0F);
         RIGHT_LEG_1 = new ModelRenderer(this, "RIGHT_LEG_1").setTextureOffset(0, 453);
-        RIGHT_LEG_1.setRotationPoint(2.0F, -8.2F, 4.0F);
+        RIGHT_LEG_1.setRotationPoint(0.0F, 0.0F, 0.0F);
         RIGHT_LEG_1.addBox(-0.5F, 0.0F, -3.1F, 4, 6, 5, 0.0F);
         setRotateAngle(RIGHT_LEG_1, 0.0F, 0.0F, -0.06981317007977318F);
         shape790_5 = new ModelRenderer(this, "shape790_5").setTextureOffset(62, 456);
@@ -4315,7 +4316,11 @@ public class MovieOptimusPrime extends ModelBiped
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
+    	GlStateManager.pushMatrix();
+    	GlStateManager.scale(0.47F, 0.47F, 0.47F);
     	super.render(entity, f, f1, f2, f3, f4, f5);
+    	GlStateManager.popMatrix();
+      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
     @Override

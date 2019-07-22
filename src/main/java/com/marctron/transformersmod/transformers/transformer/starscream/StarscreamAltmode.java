@@ -1,8 +1,12 @@
 package com.marctron.transformersmod.transformers.transformer.starscream;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.ModelVehicleBase;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamAltmode;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
@@ -23,7 +27,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class StarscreamAltmode  extends ItemArmor implements IHasModel {
+public class StarscreamAltmode  extends ModelVehicleBase implements IHasModel {
 	
 
 	
@@ -51,15 +55,23 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 	
 	@Override
 	
-	
+
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 			player.fallDistance = 0;
 		    
 			player.dropItem(true);
 			
 			if (ClientProxy.ROBOT_MODE.isKeyDown())
 		{
+				
+//				Timer timer = new Timer();
+//				timer.schedule(new TimerTask() {
+//					
+//					@Override
+//					public void run() {	
+						
+					
 		//Starscream
 				if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_BOOTS) 
 				{
@@ -165,6 +177,13 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 					}
 				}
 				
+//					}
+//					
+//				}, 60);	
+				
+				
+				
+				
 			if (!player.onGround) {
 				if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
 				{
@@ -172,26 +191,44 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 					player.moveRelative(0F, 0F, 0.01F, 3F);
 				}
 			}
+			
+			
 		}
+			player.setSprinting(false);
+			player.moveRelative(0F, 0F, 0.01F, 3F);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 1.3, player.posZ, 0.6D, 0.D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX + 0.2, player.posY + 1.3, player.posZ, 0.6D, 0.0D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX - 0.2, player.posY + 1.3, player.posZ, 0.6D, 0.0D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 1.3, player.posZ + 0.2, 0.6D, 0.0D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 1.3, player.posZ - 0.2, 0.6D, 0.0D, 0.85D);
+			player.cameraPitch = 0;
+			player.cameraYaw = 0;
 			
 			if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
 				
-//			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ, 0.6D, 0.D, 0.85D);
-//			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX + 0.2, player.posY + 0.15, player.posZ, 0.6D, 0.0D, 0.85D);
-//			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX - 0.2, player.posY + 0.15, player.posZ, 0.6D, 0.0D, 0.85D);
-//			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ + 0.2, 0.6D, 0.0D, 0.85D);
-//			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ - 0.2, 0.6D, 0.0D, 0.85D);
-//			
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ, 0.6D, 0.D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX + 0.2, player.posY + 0.15, player.posZ, 0.6D, 0.0D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX - 0.2, player.posY + 0.15, player.posZ, 0.6D, 0.0D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ + 0.2, 0.6D, 0.0D, 0.85D);
+			world.spawnParticle(EnumParticleTypes.REDSTONE, player.posX, player.posY + 0.15, player.posZ - 0.2, 0.6D, 0.0D, 0.85D);
+			
 //			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, player.posX, player.posY, player.posZ, 0., -0.1, 0);
 				player.setSprinting(false);
 				player.moveRelative(0F, 0F, 0.01F, 3F);
+				
+			}
+
+			if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown())
+			{
+				player.setSprinting(false);
+				player.moveRelative(0F, 0F, -0.01F, 3F);
 			}
 			
 			
 			
 			if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) {
 				
-				player.eyeHeight = 1.9F;
+				
 								
 			
 				
@@ -290,6 +327,12 @@ public class StarscreamAltmode  extends ItemArmor implements IHasModel {
 			
 			return null;
 		}
+
+
+	public boolean getBoolean(String string) {
+		// TODO Auto-generated method stub
+		return true;
+	}
 	}
 	
 	

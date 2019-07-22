@@ -27,36 +27,63 @@ tile.transformium_ore_block.name=Transformium Ore
 tile.item_spawner.name=Item Spawner
 
 itemGroup.tabTransformersMod=Transformers
+itemGroup.tabWeapons=Weapons
+itemGroup.tabAutobot=Autobots
+itemGroup.tabDecepticon=Decepticons
 
-item.tarn_leggings.name=Tarn Legs
-item.tarn_helmet.name=Tarn Head
-item.tarn_boots.name=Tarn Feet
-item.tarn_chestplate.name=Tarn Torso
+item.tarn_leggings.name=§5Tarn Legs
+item.tarn_helmet.name=§5Tarn Head
+item.tarn_boots.name=§5Tarn Feet
+item.tarn_chestplate.name=§5Tarn Torso
 
-item.custom_leggings.name=Vehicon Legs
-item.custom_helmet.name=Vehicon Head
-item.custom_boots.name=Vehicon Feet
-item.custom_chestplate.name=Vehicon Torso
+item.custom_leggings.name=§5Vehicon Legs
+item.custom_helmet.name=§5Vehicon Head
+item.custom_boots.name=§5Vehicon Feet
+item.custom_chestplate.name=§5Vehicon Torso
 
-item.sideswipe_leggings.name=Sideswipe Legs
-item.sideswipe_helmet.name=Sideswipe Head
-item.sideswipe_boots.name=Sideswipe Feet
-item.sideswipe_chestplate.name=Sideswipe Torso
+item.thundercracker_leggings.name=§5Thundercracker Legs
+item.thundercracker_helmet.name=§5Thundercracker Head
+item.thundercracker_boots.name=§5Thundercracker Feet
+item.thundercracker_chestplate.name=§5Thundercracker Torso
+
+item.starscream_leggings.name=§5Starscream Legs
+item.starscream_helmet.name=§5Starscream Head
+item.starscream_boots.name=§5Starscream Feet
+item.starscream_chestplate.name=§5Starscream Torso
+
+item.skywarp_leggings.name=§5Skywarp Legs
+item.skywarp_helmet.name=§5Skywarp Head
+item.skywarp_boots.name=§5Skywarp Feet
+item.skywarp_chestplate.name=§5Skywarp Torso
+
+item.sideswipe_leggings.name=§4Sideswipe Legs
+item.sideswipe_helmet.name=§4Sideswipe Head
+item.sideswipe_boots.name=§4Sideswipe Feet
+item.sideswipe_chestplateleggings.name=§4Sideswipe Torso
+
+item.movie_optimus_prime_hestplate.name=§4Optimus Prime Torso
+item.movie_optimus_prime_helmet.name=§4Optimus Prime Head
+item.movie_optimus_prime_boots.name=§4Optimus Prime Feet
+item.movie_optimus_prime_.name=§4Optimus Prime Legs
 
 
-
-item.EMP_Shotgun_Shell.name=EMP Shotgun Shell
-item.Energon_Battle_Pistol_Clip.name=Energon Battle Pistol Clip
-item.Scrapper_Clip.name=X12 Scrapmaker Clip
-item.Scatter_Blaster_Shell.name=Scatter Blaster Shell
-item.Neutron_Repeater_Clip.name=Neutron Repeater Clip
+item.EMP_Shotgun_Shell.name=§8EMP Shotgun Shell
+item.Energon_Battle_Pistol_Clip.name=§8Energon Battle Pistol Clip
+item.Scrapper_Clip.name=§8X12 Scrapmaker Clip
+item.Scatter_Blaster_Shell.name=§8Scatter Blaster Shell
+item.Neutron_Repeater_Clip.name=§8Neutron Repeater Clip
 item.basic.bullet.name=Bullet
+item.Rocket_Clip.name=§8Thermo Rocket Launcher Shell
 
-item.energon_pistol.name=Energon Battle Pistol
-item.empshotgun.name=EMP Shotgun
-item.scrapper.name=X12 Scrapmaker
-item.neutron_repeater.name=Neutron Repeater
-item.scatterblaster.name=Scatter Blaster
+item.energon_pistol.name=§8Energon Battle Pistol
+item.empshotgun.name=§8EMP Shotgun
+item.scrapper.name=§8X12 Scrapmaker
+item.neutron_repeater.name=§8Neutron Repeater
+item.scatterblaster.name=§8Scatter Blaster
+item.rocket_launcher.name=§8Thermo Rocket Launcher
+
+item.star_saber.name=Star Saber
+item.phase_shifter.name=Phase Shifter
 
 container.energon_crate=Energon Crate
 tile.energon_crate_block.name=Energon Crate
@@ -85,12 +112,12 @@ item.protoform_chest.name=Protoform Chest
 item.protoform_legs.name=Protoform Legs
 item.protoform_feet.name=Protoform Feet
 
-item.credit1.name=Credit
-item.credit10.name=10 Credits
-item.credit100.name=100 Credits
-item.credit5.name=5 Credits
-item.credit50.name=50 Credits
-item.credit500.name=500 Credits
+item.credit1.name=Shanix
+item.credit10.name=10 Shanix
+item.credit100.name=100 Shanix
+item.credit5.name=5 Shanix
+item.credit50.name=50 Shanix
+item.credit500.name=500 Shanix
 item.botcoin.name=Botcoin
 
 category.transformers=Transformers Unlimited

@@ -11,21 +11,28 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class ItemCustomFood extends ItemFood implements IHasModel 
+public class ItemEnergonChunkSynthetic extends ItemFood implements IHasModel 
 {
-
+	int HealthFix;
+	int Cooldown;
 
 	private PotionEffect[] effects;
 
-	public ItemCustomFood(String name,  int amount, boolean isWolfFood, PotionEffect...potionEffects) 
+	public ItemEnergonChunkSynthetic(String name,  int amount, boolean isWolfFood, int StackSize, int health, int cooldown) 
 	{
 		super(amount, isWolfFood);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.tabTransformers);
-		this.effects = potionEffects;
+		
+		Cooldown = cooldown;
+		HealthFix = health;
+		
 		setMaxStackSize(1);
 		
 	
@@ -46,12 +53,27 @@ public class ItemCustomFood extends ItemFood implements IHasModel
     }
 	
 	@Override
-	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player)
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) 
 	{
-		for(PotionEffect effect : effects) {
-			player.addPotionEffect(effect);
+		ItemStack itemstack = playerIn.getHeldItem(handIn);
+		
+		if(playerIn.getHealth() != playerIn.getMaxHealth())
+		{
+			playerIn.getCooldownTracker().setCooldown(this, Cooldown);
+			if(!worldIn.isRemote)
+			{
+				playerIn.setHealth(playerIn.getHealth() + HealthFix);
+				
+			}
+			
+			playerIn.inventory.clearMatchingItems(ModItems.SYNTHETIC_ENERGON_MUG, 0, 1, null);
+			
 		}
+		
+		return new ActionResult(EnumActionResult.SUCCESS, itemstack);
 	}
+	
+
 		
 	
 

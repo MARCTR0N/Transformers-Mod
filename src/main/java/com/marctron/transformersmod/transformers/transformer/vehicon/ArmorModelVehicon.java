@@ -1,5 +1,9 @@
 package com.marctron.transformersmod.transformers.transformer.vehicon;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
@@ -10,6 +14,8 @@ import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,6 +29,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -34,15 +41,20 @@ public class ArmorModelVehicon extends ItemArmor implements IHasModel {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabTransformers);
+		setCreativeTab(Main.tabDecepticon);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 		
 	}
 
+	
+	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
+		list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("War for Cybertron")));
+	}
+	
 	@Override
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 			
 			
 			

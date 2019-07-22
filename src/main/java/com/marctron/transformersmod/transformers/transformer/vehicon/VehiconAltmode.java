@@ -53,7 +53,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 		@Override
 		
 		public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-				((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 				 //System.out.println("Ooga Booga");
 				 
 				player.dropItem(true);
@@ -94,7 +94,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 					//player.setInvisible(true);
 					
 					//player.setSprinting(true);
-					player.moveRelative(0F, -1F, 0.025F, 3F);
+					
+					if (player.onGround){
+					player.moveRelative(0F, 0F, 0.025F, 3F);
+					}
 					//player.jumpMovementFactor = 0.001F;
 				}
 				

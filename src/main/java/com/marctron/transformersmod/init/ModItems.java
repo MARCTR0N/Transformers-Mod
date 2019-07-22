@@ -5,21 +5,24 @@ import java.util.List;
 
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemBasicMeta;
-import com.marctron.transformersmod.items.ItemCustomFood;
+import com.marctron.transformersmod.items.ItemEnergonMug;
+import com.marctron.transformersmod.items.ItemEnergonMugDark;
+import com.marctron.transformersmod.items.ItemEnergonMugRed;
+import com.marctron.transformersmod.items.ItemEnergonMugSynthetic;
+import com.marctron.transformersmod.items.ItemMedkit;
+import com.marctron.transformersmod.items.ItemPhaseShifter;
+import com.marctron.transformersmod.items.ItemStarSaber;
 import com.marctron.transformersmod.items.ModdedBow;
-import com.marctron.transformersmod.items.PrimaryAmmo;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
 import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.items.gun.IShootable;
 import com.marctron.transformersmod.items.gun.NeutronRepeater;
+import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
-import com.marctron.transformersmod.transformers.ArmorModelTarn;
-import com.marctron.transformersmod.transformers.transformer.Tarn2;
-import com.marctron.transformersmod.transformers.transformer.ironhide.Ironhide;
-import com.marctron.transformersmod.transformers.transformer.ironhide.IronhideAltmode;
+import com.marctron.transformersmod.transformers.MovieOptimusPrime;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
@@ -34,6 +37,17 @@ import com.marctron.transformersmod.transformers.transformer.starscream.Starscre
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid4;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid5;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid6;
+import com.marctron.transformersmod.transformers.transformer.tarn.ArmorModelTarn;
+import com.marctron.transformersmod.transformers.transformer.tarn.Tarn2;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnAltmode;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid1;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid2;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid3;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid4;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid5;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid6;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid7;
+import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid8;
 import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
@@ -46,8 +60,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems 
@@ -65,10 +77,10 @@ public class ModItems
 	public static final Item SYNTHETIC_ENERGON_SHARD = new ItemBase("synthetic_energon_shard");
 	
 	public static final Item MUG = new ItemBase("mug");
-	public static final Item ENERGON_MUG = new ItemCustomFood("energon_mug", 4, false);
-	public static final Item RED_ENERGON_MUG = new ItemCustomFood("red_energon_mug", 4, false, new PotionEffect(Potion.getPotionById(1), 2400, 10), new PotionEffect(Potion.getPotionById(3), 2400, 2));
-	public static final Item DARK_ENERGON_MUG = new ItemCustomFood("dark_energon_mug", 4, false);
-	public static final Item SYNTHETIC_ENERGON_MUG = new ItemCustomFood("synthetic_energon_mug", 4, false);
+	public static final Item ENERGON_MUG = new ItemEnergonMug("energon_mug", 4, false);
+	public static final Item RED_ENERGON_MUG = new ItemEnergonMugRed("red_energon_mug", 4, false);
+	public static final Item DARK_ENERGON_MUG = new ItemEnergonMugDark("dark_energon_mug", 4, false);
+	public static final Item SYNTHETIC_ENERGON_MUG = new ItemEnergonMugSynthetic("synthetic_energon_mug", 4, false);
 	
 	public static final Item TRANSFORMIUM = new ItemBase("transformium");
 	public static final Item SILICON = new ItemBase("silicon");
@@ -82,17 +94,19 @@ public class ModItems
 	
 	//Tools
 	public static final ToolMaterial GUN_MATERIAL = EnumHelper.addToolMaterial("gun", 0, 1000, 2.0F, 0, 0);
+	public static final ToolMaterial SWORD_MATERIAL = EnumHelper.addToolMaterial("sword", 0, 1000, 2.0F, 4, 0);
 	
 	//Armor
 	public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 10, new int[] {3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
 	public static final ArmorMaterial TARN_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn_model", Reference.MOD_ID + ":tarn_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	public static final ArmorMaterial TARN2_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn2_model", Reference.MOD_ID + ":tarn2_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	public static final ArmorMaterial TARN_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("tarn_altmode_model", Reference.MOD_ID + ":tarn_altmode_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
 	
 	public static final ArmorMaterial STARSCREAM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("starscream_model", Reference.MOD_ID + ":starscream_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 	
-	public static final ArmorMaterial MOVIE_OPTIMUS_PRIME_MATERIAL = EnumHelper.addArmorMaterial("movie_optimus_prime_model", Reference.MOD_ID + ":movie_optimus_prime_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	public static final ArmorMaterial MOVIE_OPTIMUS_PRIME_MATERIAL = EnumHelper.addArmorMaterial("movie_optimus_prime_model", Reference.MOD_ID + ":movie_optimus_prime_model", 1000, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
 	
 	public static final ArmorMaterial SKYWARP_MODEL_MATERIAL = EnumHelper.addArmorMaterial("skywarp_model", Reference.MOD_ID + ":skywarp_model", 20, new int[] {7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
@@ -147,6 +161,53 @@ public class ModItems
 	public static final Item TARN_CHESTPLATE = new ArmorModelTarn("tarn_chestplate", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
 	public static final Item TARN_LEGGINGS = new Tarn2("tarn_leggings", TARN2_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 	public static final Item TARN_BOOTS = new Tarn2("tarn_boots", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID1_HELMET = new TarnMid1("tarn_mid1_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID1_CHESTPLATE = new TarnMid1("tarn_mid1_chestplate", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID1_LEGGINGS = new TarnMid1("tarn_mid1_leggings", TARN2_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID1_BOOTS = new TarnMid1("tarn_mid1_boots", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID2_HELMET = new TarnMid2("tarn_mid2_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID2_CHESTPLATE = new TarnMid2("tarn_mid2_chestplate", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID2_LEGGINGS = new TarnMid2("tarn_mid2_leggings", TARN2_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID2_BOOTS = new TarnMid2("tarn_mid2_boots", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID3_HELMET = new TarnMid3("tarn_mid3_helmet", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID3_CHESTPLATE = new TarnMid3("tarn_mid3_chestplate", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID3_LEGGINGS = new TarnMid3("tarn_mid3_leggings", TARN_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID3_BOOTS = new TarnMid3("tarn_mid3_boots", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID4_HELMET = new TarnMid4("tarn_mid4_helmet", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID4_CHESTPLATE = new TarnMid4("tarn_mid4_chestplate", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID4_LEGGINGS = new TarnMid4("tarn_mid4_leggings", TARN_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID4_BOOTS = new TarnMid4("tarn_mid4_boots", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_ALTMODE_HELMET = new TarnAltmode("tarn_altmode_helmet", 3000, TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_ALTMODE_CHESTPLATE = new TarnAltmode("tarn_altmode_chestplate", 3000 , TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_ALTMODE_LEGGINGS = new TarnAltmode("tarn_altmode_leggings", 3000 , TARN_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_ALTMODE_BOOTS = new TarnAltmode("tarn_altmode_boots", 3000 , TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID5_HELMET = new TarnMid5("tarn_mid5_helmet", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID5_CHESTPLATE = new TarnMid5("tarn_mid5_chestplate", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID5_LEGGINGS = new TarnMid5("tarn_mid5_leggings", TARN_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID5_BOOTS = new TarnMid5("tarn_mid5_boots", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID6_HELMET = new TarnMid6("tarn_mid6_helmet", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID6_CHESTPLATE = new TarnMid6("tarn_mid6_chestplate", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID6_LEGGINGS = new TarnMid6("tarn_mid6_leggings", TARN_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID6_BOOTS = new TarnMid6("tarn_mid6_boots", TARN_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID7_HELMET = new TarnMid7("tarn_mid7_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID7_CHESTPLATE = new TarnMid7("tarn_mid7_chestplate", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID7_LEGGINGS = new TarnMid7("tarn_mid7_leggings", TARN2_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID7_BOOTS = new TarnMid7("tarn_mid7_boots", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	public static final Item TARN_MID8_HELMET = new TarnMid8("tarn_mid8_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item TARN_MID8_CHESTPLATE = new TarnMid8("tarn_mid8_chestplate", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item TARN_MID8_LEGGINGS = new TarnMid8("tarn_mid8_leggings", TARN2_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item TARN_MID8_BOOTS = new TarnMid8("tarn_mid8_boots", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
+	
 	
 	//Starscream
 	public static final Item STARSCREAM_HELMET = new Starscream("starscream_helmet", STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD);
@@ -303,37 +364,55 @@ public class ModItems
 	public static final Item SIDESWIPE_ALTMODE_BOOTS = new SideswipeAltmode("sideswipe_altmode_boots", SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	//Ironhide
-	public static final Item IRONHIDE_HELMET = new Ironhide("ironhide_helmet", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
-	public static final Item IRONHIDE_CHESTPLATE = new Ironhide("ironhide_chestplate", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
-	public static final Item IRONHIDE_LEGGINGS = new Ironhide("ironhide_leggings", IRONHIDE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
-	public static final Item IRONHIDE_BOOTS = new Ironhide("ironhide_boots", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
-	public static final Item IRONHIDE_ALTMODE_HELMET = new IronhideAltmode("ironhide_altmode_helmet", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
-	public static final Item IRONHIDE_ALTMODE_CHESTPLATE = new IronhideAltmode("ironhide_altmode_chestplate", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
-	public static final Item IRONHIDE_ALTMODE_LEGGINGS = new IronhideAltmode("ironhide_altmode_leggings", IRONHIDE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
-	public static final Item IRONHIDE_ALTMODE_BOOTS = new IronhideAltmode("ironhide_altmode_boots", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+//	public static final Item IRONHIDE_HELMET = new Ironhide("ironhide_helmet", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+//	public static final Item IRONHIDE_CHESTPLATE = new Ironhide("ironhide_chestplate", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+//	public static final Item IRONHIDE_LEGGINGS = new Ironhide("ironhide_leggings", IRONHIDE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+//	public static final Item IRONHIDE_BOOTS = new Ironhide("ironhide_boots", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.FEET);
+//	
+//	public static final Item IRONHIDE_ALTMODE_HELMET = new IronhideAltmode("ironhide_altmode_helmet", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+//	public static final Item IRONHIDE_ALTMODE_CHESTPLATE = new IronhideAltmode("ironhide_altmode_chestplate", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+//	public static final Item IRONHIDE_ALTMODE_LEGGINGS = new IronhideAltmode("ironhide_altmode_leggings", IRONHIDE_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+//	public static final Item IRONHIDE_ALTMODE_BOOTS = new IronhideAltmode("ironhide_altmode_boots", IRONHIDE_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	
-	public static final Item NIBBA = new ItemBase("nibba");
+	
 	
 	public static Item ItemBase = new ItemBasicMeta("basic", EItemBasic.allNames);
 	
 	//Guns
 	public static final Item PHOTON_BURST_RIFLE = new ModdedBow("modded_bow");
-	public static final Item Energon_Battle_Pistol = new EnergonBattlePistol();
+	
+	public static final IGun Energon_Battle_Pistol = new EnergonBattlePistol(15);
+	public static final IShootable Energon_Battle_Pistol_Clip = new AmmoClip("Energon_Battle_Pistol_Clip", 10);
+	
 	public static final IGun Scrapper = new Scrapper();
-	public static final Item EMPShotgun = new EMPShotgun();
-	public static final Item ScatterBlaster = new ScatterBlaster();
-	public static final Item NeutronRepeater = new NeutronRepeater();
+	public static final IShootable Scrapper_Clip = new AmmoClip("Scrapper_Clip", 60);
+	
+	public static final IGun EMPShotgun = new EMPShotgun(10);
+	public static final IShootable EMP_Shotgun_Shell = new AmmoClip("EMP_Shotgun_Shell", 2);
+	
+	public static final IGun ScatterBlaster = new ScatterBlaster(5);
+	public static final IShootable Scatter_Blaster_Shell = new AmmoClip("Scatter_Blaster_Shell", 6);
+	
+	public static final IGun NeutronRepeater = new NeutronRepeater(2);
+	public static final IShootable Neutron_Repeater_Clip = new AmmoClip("Neutron_Repeater_Clip", 224);
+	
+	public static final IGun RocketLauncher = new RocketLauncher(50);
+	public static final IShootable Rocket_Clip = new AmmoClip("Rocket_Clip", 4);
 	
 	//Ammo
-	public static final Item PRIMARY_AMMO = new PrimaryAmmo();
+	public static final Item AMMO = new ItemBase("ammo");
 	
-	public static final IShootable Energon_Battle_Pistol_Clip = new AmmoClip("Energon_Battle_Pistol_Clip", 10);
-	public static final IShootable Scrapper_Clip = new AmmoClip("Scrapper_Clip", 100);
-	public static final IShootable EMP_Shotgun_Shell = new AmmoClip("EMP_Shotgun_Shell", 16);
-	public static final IShootable Scatter_Blaster_Shell = new AmmoClip("Scatter_Blaster_Shell", 16);
-	public static final IShootable Neutron_Repeater_Clip = new AmmoClip("Neutron_Repeater_Clip", 100);
+	
+	
+	
+	
+	
+	
+	
+	//Consumables 
+	public static final Item MEDKIT = new ItemMedkit("medkit",  3, 10, 100);
 	
 	//Recipe Components
 	public static final Item PROTOFORM = new ItemBase("protoform");
@@ -376,6 +455,13 @@ public class ModItems
 	public static final Item CREDIT100 = new ItemBase("credit100");
 	public static final Item CREDIT500 = new ItemBase("credit500");
 	public static final Item BOTCOIN = new ItemBase("botcoin");
+	
+	
+	//Relics
+	public static final Item STAR_SABER = new ItemStarSaber("star_saber", 200, SWORD_MATERIAL);
+	public static final Item PHASE_SHIFTER = new ItemPhaseShifter("phase_shifter");
+	
+	
 	
 	
 	public static ItemStack getBasicItem(EItemBasic basicName)

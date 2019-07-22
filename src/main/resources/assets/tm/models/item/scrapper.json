@@ -8,8 +8,8 @@
     
      "display": {
         "gui": {
-            "rotation": [ 30, 225, 0 ],
-            "translation": [ 6.5, -15, 5 ],
+            "rotation": [ 30, -225, 0 ],
+            "translation": [ -6.5, -15, 5 ],
             "scale": [ 1.0, 1.0, 1.0 ]
         },
         "ground": {
@@ -18,19 +18,19 @@
             "scale": [ 1, 1, 1 ]
         },
         "fixed": {
-            "rotation": [ 0, 90, 0 ],
-            "translation": [ -19, -30, -5 ],
-            "scale": [ 2, 2, 2 ]
+            "rotation": [ 0, -90, 0 ],
+            "translation": [ 13, -22, -4 ],
+            "scale": [ 1.5, 1.5, 1.5 ]
         },
         "firstperson_righthand": {
             "rotation": [ 0, 0, 0 ],
-            "translation": [ -3.5, -8, -10 ],
+            "translation": [ -3.5, -9, -10 ],
             "scale": [ 0.8, 0.8, 0.8 ]
         },
         "thirdperson_righthand": {
             "rotation": [ 0, 0, 0 ],
-            "translation": [ 1.5, -18, -20 ],
-            "scale": [ 1.1, 1.1, 1.1 ]
+            "translation": [ 1, -13.6, -14.3 ],
+            "scale": [ 0.9, 0.9, 0.9 ]
         }
     },
     

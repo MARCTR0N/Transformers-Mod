@@ -1,4 +1,5 @@
 package com.marctron.transformersmod.items.gun;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,6 +10,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -42,6 +44,7 @@ public class Scrapper extends ItemBase implements IGun
     {
         super("scrapper");
         setMaxStackSize(1);
+        setCreativeTab(Main.tabWeapons);
     }
     
     private int getMaxAmmo()
@@ -49,6 +52,11 @@ public class Scrapper extends ItemBase implements IGun
         return getAmmoItem().getMaxAmmo();
     }
 
+    @Override
+	public boolean getBoolean(String string) {
+		// TODO Auto-generated method stub
+		return true;
+	}
     /**
      * How long it takes to use or consume an item
      */
@@ -119,7 +127,9 @@ public class Scrapper extends ItemBase implements IGun
             //Shoot bullet
             //LogHelper.info("Pew");
             player.world.spawnEntity(new EntityBullet(player.world, player, 5f));
-            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_FIREWORK_LARGE_BLAST, SoundCategory.NEUTRAL, 1.0f, 1.1F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+            player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.NEUTRAL, 0.06f, 1.1F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+            player.world.playSound(null, player.getPosition(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
             lastShotTick = ticksUsed;
             if(!((EntityPlayer) player).capabilities.isCreativeMode)
                 ammoCache--;
@@ -192,6 +202,7 @@ public class Scrapper extends ItemBase implements IGun
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
+    	tooltip.add(TextFormatting.GOLD + I18n.format(TextFormatting.BOLD + I18n.format("Legendary")));
         tooltip.add("Ammo: " + getAmmoAmount(stack) + "/" + getMaxAmmo());
     }
 }

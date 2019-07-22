@@ -1,5 +1,8 @@
 package com.marctron.transformersmod.transformers.transformer.vehicon;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
@@ -33,13 +36,23 @@ public final class VehiconMid extends ItemArmor implements IHasModel {
 
 	@Override
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 160, 0));
+		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 			
 			
 			
 			player.fallDistance = 0;
 			//player.capabilities.allowFlying = true;
 			player.eyeHeight = 1.25F;
+			
+			
+			
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				
+				@Override
+				public void run() {
+					
+			
 			
 			
 			if (itemStack.getItem() == ModItems.VEHICON_MID_HELMET) {
@@ -85,8 +98,13 @@ public final class VehiconMid extends ItemArmor implements IHasModel {
 				
 					//}
 				}
-			} 
+			}
+			}
+			}, 90); 
 		}
+			
+			
+	
 	
 	@Override
 	public final void registerModels() 

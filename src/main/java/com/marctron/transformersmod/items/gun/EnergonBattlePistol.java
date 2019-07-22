@@ -1,16 +1,26 @@
 package com.marctron.transformersmod.items.gun;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.init.ModItems;
 
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class EnergonBattlePistol extends ItemGunBase
 {
-    public EnergonBattlePistol()
+	int Cooldown;
+    public EnergonBattlePistol(int cooldown)
     {
         super("energon_pistol", 9);
+        Cooldown = cooldown;
     }
 
     @Override
@@ -22,6 +32,19 @@ public class EnergonBattlePistol extends ItemGunBase
     @Override
     protected void spawnBullet(World world, EntityPlayer player)
     {
-        world.spawnEntity(new EntityBullet(world, player).setDamage(6f));
+    	player.getCooldownTracker().setCooldown(this, Cooldown);
+        world.spawnEntity(new EntityBullet(world, player).setDamage(5f));
     }
+    
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
+    	list.add(TextFormatting.GREEN + I18n.format(TextFormatting.BOLD + I18n.format("Common")));
+		list.add("Ammo: " + getAmmoAmount(stack) + "/" + getMaxAmmo());
+		
+	}
+    
+    @Override
+	public boolean getBoolean(String string) {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

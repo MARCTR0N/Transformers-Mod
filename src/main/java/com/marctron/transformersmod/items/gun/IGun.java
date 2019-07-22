@@ -26,4 +26,6 @@ public interface IGun
      */
     @Nonnull
     IShootable getAmmoItem();
+
+	boolean getBoolean(String string);
 }
