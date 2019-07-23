@@ -13,6 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.common.capabilities.Capability;
@@ -39,12 +40,31 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
 
         for(EnumFacing dir : EnumFacing.values())
         {
-            TileEntity te = world.getTileEntity(pos.offset(dir));
+        	TileEntity te = world.getTileEntity(pos.offset(dir));
             if(te == null) continue;
             IEnergyStorage energy = te.getCapability(CapabilityEnergy.ENERGY, null);
             if(energy == null) continue;
-            energy.receiveEnergy(Integer.MAX_VALUE, false);
+            energy.receiveEnergy(1, false);
+            this.storage.extractEnergy(1000, false);
+           
         }
+		
+//		 for (EnumFacing facing : EnumFacing.VALUES) {
+//	            BlockPos checking = this.pos.offset(facing);
+//	            TileEntity checkingTile = this.world.getTileEntity(checking);
+//	            if (checkingTile != null) {
+//	                if (checkingTile.hasCapability(CapabilityEnergy.ENERGY, facing.getOpposite())) {
+//	                    IEnergyStorage storage = checkingTile.getCapability(CapabilityEnergy.ENERGY, facing.getOpposite());
+//	                    int energy = storage.receiveEnergy(Math.min(this.storage.getEnergyStored(), 1000), false);
+//	                    if (energy > 0) {
+//	                        this.storage.extractEnergy(energy, false);
+//	                        return;
+//	                    }
+//	                }
+//	            }
+//	        }
+		 
+		 
 		
 		if(!handler.getStackInSlot(0).isEmpty() && isItemFuel(handler.getStackInSlot(0)))
 		{
