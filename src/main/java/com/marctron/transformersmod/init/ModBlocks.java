@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.marctron.transformersmod.blocks.BlockBase;
+import com.marctron.transformersmod.blocks.BlockCreativeGenerator;
 import com.marctron.transformersmod.blocks.BlockEnergonCrate;
 import com.marctron.transformersmod.blocks.BlockGlassBase;
 import com.marctron.transformersmod.blocks.BlueEnergonoreBlock;
@@ -47,8 +48,9 @@ public class ModBlocks
 	public static final Block SPACE_BRIDGE_BLOCK = new BlockBase("space_bridge_block",Material.IRON);
 
 	//Machinery
-	public static final Block ENERGON_ENGINE = new BlockEnergonEngine("energon_engine", Material.IRON);
+	public static final Block ENERGON_ENGINE = new BlockEnergonEngine();
 	public static final Block ENERGON_STORAGE = new BlockEnergonStorage("energon_storage", Material.IRON);
+	public static final Block CREATIVE_GENERATOR = new BlockCreativeGenerator();
 
 	//Dyed Stuff
 	

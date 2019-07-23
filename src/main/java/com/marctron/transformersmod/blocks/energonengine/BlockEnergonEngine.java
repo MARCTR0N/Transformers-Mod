@@ -1,6 +1,9 @@
 package com.marctron.transformersmod.blocks.energonengine;
 
+import javax.annotation.Nullable;
+
 import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.blocks.AbstractBlockContainer;
 import com.marctron.transformersmod.blocks.tileentity.TileEntityEnergonCrate;
 import com.marctron.transformersmod.init.ModBlocks;
 import com.marctron.transformersmod.init.ModItems;
@@ -20,18 +23,13 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockEnergonEngine extends Block
+public class BlockEnergonEngine extends AbstractBlockContainer
 {
-	public BlockEnergonEngine(String name, Material material) 
+	public BlockEnergonEngine() 
 	{
-		super(material);
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setCreativeTab(Main.tabTransformers);
-
+		super("energon_engine", Material.IRON);
+        setBlockUnbreakable();
 		
-		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 	
 	@Override
@@ -45,17 +43,9 @@ public class BlockEnergonEngine extends Block
 		return true;
 	}
 	
-	@Override
-	public boolean hasTileEntity(IBlockState state)
-	{
-		return true;
-	}
 	
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state) 
-	{
-		return new TileEntityEnergonEngine();
-	}
+	
+	
 	
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) 
@@ -63,6 +53,13 @@ public class BlockEnergonEngine extends Block
 		TileEntityEnergonEngine tileentity = (TileEntityEnergonEngine)worldIn.getTileEntity(pos);
 		worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), tileentity.handler.getStackInSlot(0)));
 		super.breakBlock(worldIn, pos, state);
+	}
+
+	@Nullable
+    @Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		// TODO Auto-generated method stub
+		return  new TileEntityEnergonEngine();
 	}
 	
 	

@@ -13,7 +13,7 @@ import net.minecraftforge.energy.EnergyStorage;
 
 public class TileEntityEnergonStorage extends TileEntity implements ITickable
 {
-	private EnergyStorage storage = new EnergyStorage(200000);
+	private final EnergyStorage storage = new EnergyStorage(200000, 200, 200);
 	public int energy = storage.getEnergyStored();
 	private String customName;
 	

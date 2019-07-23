@@ -1,5 +1,8 @@
 package com.marctron.transformersmod.blocks.energonengine;
 
+import javax.annotation.Nullable;
+
+import com.marctron.transformersmod.blocks.energy.CustomEnergyStorage;
 import com.marctron.transformersmod.init.ModItems;
 
 
@@ -15,20 +18,34 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityEnergonEngine extends TileEntity implements ITickable
 {
 	public ItemStackHandler handler = new ItemStackHandler(1);
-	private EnergyStorage storage = new EnergyStorage(55000, 100, 200, 0);
+	private EnergyStorage storage = new EnergyStorage(100000, 0, 200, 0);
 	public int energy = storage.getEnergyStored();
 	private String customName;
 	public int cookTime;
 	
+	
+	
 	@Override
-	public void update() 
+	public void update()
 	{
+		if(world.isRemote) return;
+
+        for(EnumFacing dir : EnumFacing.values())
+        {
+            TileEntity te = world.getTileEntity(pos.offset(dir));
+            if(te == null) continue;
+            IEnergyStorage energy = te.getCapability(CapabilityEnergy.ENERGY, null);
+            if(energy == null) continue;
+            energy.receiveEnergy(Integer.MAX_VALUE, false);
+        }
+		
 		if(!handler.getStackInSlot(0).isEmpty() && isItemFuel(handler.getStackInSlot(0)))
 		{
 			cookTime++;
@@ -39,6 +56,8 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
 				cookTime = 0;
 			}
 		}
+		
+		
 	}
 	
 	private boolean isItemFuel(ItemStack stack) 
@@ -49,28 +68,36 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
 	private int getFuelValue(ItemStack stack) 
 	{
 		if(stack.getItem() == ModItems.BLUE_ENERGON_SHARD) return 1000;
+		
+		//else if(stack.getItem() == Items.XXX) return 500; to add new fuels
 		else return 0;
 	}
 
-	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) 
-	{
-		if(capability == CapabilityEnergy.ENERGY) return (T)this.storage;
-		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T)this.handler;
-		return super.getCapability(capability, facing);
-	}
+	
+	
+    
+	
+	@Nullable
+    @Override
+    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+//		System.out.println("capability checked");
+        if (capability == CapabilityEnergy.ENERGY) return (T) storage;
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T)this.handler;
+        return super.getCapability(capability, facing);
+    }
+	
+
+
 	
 	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) 
-	{
-		if(capability == CapabilityEnergy.ENERGY) return true;
+    public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
+        return capability == CapabilityEnergy.ENERGY || super.hasCapability(capability, facing);
+    }
 	
-		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return true;
-		return super.hasCapability(capability, facing);
-	}
+	
 	
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) 
+	public NBTTagCompound writeToNBT(NBTTagCompound compound)
 	{
 		super.writeToNBT(compound);
 		compound.setTag("Inventory", this.handler.serializeNBT());
@@ -90,12 +117,16 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
 		this.energy = compound.getInteger("GuiEnergy");
 		this.customName = compound.getString("Name");
 //		this.storage.readFromNBT(compound);
+		super.readFromNBT(compound);
 	}
+	
+	
+	
 	
 	@Override
 	public ITextComponent getDisplayName()
 	{
-		return new TextComponentTranslation("container.energon_engine");
+		return new TextComponentTranslation("container.coal_generator");
 	}
 	
 	public int getEnergyStored()
@@ -135,7 +166,6 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
 	public boolean isUsableByPlayer(EntityPlayer player) 
 	{
 		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
-	}	
-	
-	
+	}
+
 }

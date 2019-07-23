@@ -1,79 +1,95 @@
 package com.marctron.transformersmod.blocks.energy;
 
+/*
+ * This file is part of Worldgen Indicators.
+ *
+ * Copyright 2018, Buuz135
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in the
+ * Software without restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the
+ * following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies
+ * or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+ * FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.energy.EnergyStorage;
 
-public class CustomEnergyStorage extends EnergyStorage
-{
-	public CustomEnergyStorage(int capacity)
-    {
-        super(capacity, capacity, capacity, 0);
+public class CustomEnergyStorage extends EnergyStorage {
+
+    public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract, int energy) {
+        super(capacity, maxReceive, maxExtract, energy);
     }
 
-    public CustomEnergyStorage(int capacity, int maxTransfer)
-    {
-    	super(capacity, maxTransfer, maxTransfer, 0);
+    public int extractEnergyInternal(int maxExtract, boolean simulate) {
+        int before = this.maxExtract;
+        this.maxExtract = Integer.MAX_VALUE;
+
+        int toReturn = this.extractEnergy(maxExtract, simulate);
+
+        this.maxExtract = before;
+        return toReturn;
     }
 
-    public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract)
-    {
-    	super(capacity, maxReceive, maxExtract, 0);
+    public int receiveEnergyInternal(int maxReceive, boolean simulate) {
+        int before = this.maxReceive;
+        this.maxReceive = Integer.MAX_VALUE;
+
+        int toReturn = this.receiveEnergy(maxReceive, simulate);
+
+        this.maxReceive = before;
+        return toReturn;
     }
 
-    public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract, int energy)
-    {
-    	super(capacity, maxReceive, maxExtract, energy);
-    }
-    
     @Override
-    public int receiveEnergy(int maxReceive, boolean simulate) 
-    {
-    	return super.receiveEnergy(maxReceive, simulate);
+    public int receiveEnergy(int maxReceive, boolean simulate) {
+        if (!this.canReceive()) {
+            return 0;
+        }
+        int energy = this.getEnergyStored();
+
+        int energyReceived = Math.min(this.capacity - energy, Math.min(this.maxReceive, maxReceive));
+        if (!simulate) {
+            this.setEnergyStored(energy + energyReceived);
+        }
+
+        return energyReceived;
     }
-    
+
     @Override
-    public int extractEnergy(int maxExtract, boolean simulate) 
-    {
-    	return super.extractEnergy(maxExtract, simulate);
+    public int extractEnergy(int maxExtract, boolean simulate) {
+        if (!this.canExtract()) {
+            return 0;
+        }
+        int energy = this.getEnergyStored();
+
+        int energyExtracted = Math.min(energy, Math.min(this.maxExtract, maxExtract));
+        if (!simulate) {
+            this.setEnergyStored(energy - energyExtracted);
+        }
+        return energyExtracted;
     }
-    
-    @Override
-    public int getEnergyStored() 
-    {
-    	return super.getEnergyStored();
+
+    public void readFromNBT(NBTTagCompound compound) {
+        this.setEnergyStored(compound.getInteger("Energy"));
     }
-    
-    @Override
-    public int getMaxEnergyStored()
-    {
-    	return super.getMaxEnergyStored();
+
+    public void writeToNBT(NBTTagCompound compound) {
+        compound.setInteger("Energy", this.getEnergyStored());
     }
-    
-    @Override
-    public boolean canExtract()
-    {
-    	return super.canExtract();
+
+    public void setEnergyStored(int energy) {
+        this.energy = energy;
     }
-    
-    @Override
-    public boolean canReceive() 
-    {
-    	return super.canReceive();
-    }
-    
-    public void readFromNBT(NBTTagCompound compound)
-    {
-    	this.energy = compound.getInteger("Energy");
-    	this.capacity = compound.getInteger("Capacity");
-    	this.maxReceive = compound.getInteger("MaxReceive");
-    	this.maxExtract = compound.getInteger("MaxExtract");
-    }
-    
-    public void writeToNBT(NBTTagCompound compound)
-    {
-    	compound.setInteger("Energy", this.energy);
-    	compound.setInteger("Capacity", this.capacity);
-    	compound.setInteger("MaxReceive", this.maxReceive);
-    	compound.setInteger("MaxExtract", this.maxExtract);
-    }    
 }
