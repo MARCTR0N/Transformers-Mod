@@ -28,8 +28,6 @@ import java.util.TimerTask;
 
 public class MovieOptimusPrime extends ItemArmor {
 
-
-    @SideOnly(Side.CLIENT)
     private static MovieOptimusPrimeModel model = new MovieOptimusPrimeModel();
 
 
@@ -50,7 +48,6 @@ public class MovieOptimusPrime extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(Main.tabAutobot);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
@@ -183,16 +180,11 @@ public class MovieOptimusPrime extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
-
         if (!itemStack.isEmpty()) {
-
-
             if (itemStack.getItem() instanceof ItemArmor) {
-
-
                 model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
                 model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+                model.bipedBody.showModel = armorSlot == EntityEquipmentSlot.CHEST;
                 model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
                 model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
                 model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);

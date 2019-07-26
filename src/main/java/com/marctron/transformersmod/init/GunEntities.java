@@ -21,10 +21,6 @@ public class GunEntities {
         ENTITY_CLASSES.add(entityClass);
     }
 
-    private static <T extends Entity> void regRender(Class<T> entityClass, IRenderFactory<? super T> renderFactory) {
-        RenderingRegistry.registerEntityRenderingHandler(entityClass, renderFactory);
-    }
-
     public static void regEntities() {
 
         regEntity(EntityBullet.class, "Bullet");

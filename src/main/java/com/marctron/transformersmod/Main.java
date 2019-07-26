@@ -1,12 +1,12 @@
 package com.marctron.transformersmod;
 
+import com.marctron.transformersmod.commands.CommandDimensionTeleport;
 import com.marctron.transformersmod.init.*;
 import com.marctron.transformersmod.proxy.IProxy;
-import com.marctron.transformersmod.proxy.ServerProxy;
 import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.GuiHandler;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
-import com.marctron.transformersmod.util.handlers.RenderHandler;
+import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.world.generators.ModWorldGen;
 import com.marctron.transformersmod.world.generators.WorldGenCustomStructures;
 import net.minecraft.creativetab.CreativeTabs;
@@ -106,7 +106,7 @@ public class Main {
 
         //ModBiomes.registerBiomes();
 
-        RegistryHandler.preInitRegistries(event);
+        EntityInit.registerEntities();
 
         //GunEntities.regEntities();
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
@@ -116,7 +116,8 @@ public class Main {
     @EventHandler
     public static void init(FMLInitializationEvent event) {
         ModRecipes.init();
-        RegistryHandler.initRegistries();
+        // TODO: Should be instantiated in Forge related event RegistryEvent.Register<SoundEvent> -Toma
+        SoundsHandler.init();
         GunEntities.regEntities();
         proxy.init(event);
     }
@@ -124,7 +125,6 @@ public class Main {
     @EventHandler
     public static void preInitRegistries() {
         EntityInit.registerEntities();
-        RenderHandler.registerEntityRenders();
     }
 
     public static void postInit(FMLPostInitializationEvent event) {
@@ -133,7 +133,7 @@ public class Main {
 
     @EventHandler
     public static void serverInit(FMLServerStartingEvent event) {
-        RegistryHandler.serverRegistries(event);
+        event.registerServerCommand(new CommandDimensionTeleport());
     }
 
 

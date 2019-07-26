@@ -27,10 +27,4 @@ public class EntityInit {
     public static void registerProjectile(String name, Class<? extends Entity> entity, int id) {
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, 64, 1, true);
     }
-
-
-//	private static void registerProjectileType(String entityName, Class<? extends Entity> entityClass, int id, int range) 
-//	{
-//		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + entityName), entityClass, entityName, id, Main.instance, range, 1, true);
-//	}
 }

@@ -165,10 +165,6 @@ public class ModdedBow extends ItemBow {
         return EnumAction.NONE;
     }
 
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(this, 0, "inventory");
-    }
-
     public int getItemEnchantability() {
         return 0;
     }

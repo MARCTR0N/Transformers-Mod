@@ -2,7 +2,6 @@ package com.marctron.transformersmod.init;
 
 import com.marctron.transformersmod.items.*;
 import com.marctron.transformersmod.items.gun.*;
-import com.marctron.transformersmod.transformers.MovieOptimusPrime;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.*;
 import com.marctron.transformersmod.transformers.transformer.starscream.*;
 import com.marctron.transformersmod.transformers.transformer.tarn.*;
@@ -83,10 +82,10 @@ public class ModItems {
     public static final ArmorMaterial SKYWARP_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("skywarp_altmode_model", Reference.MOD_ID + ":skywarp_altmode_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
     //Movie Optimus Prime
-    public static final Item MOVIE_OPTIMUS_PRIME_HELMET = new MovieOptimusPrime("movie_optimus_prime_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
-    public static final Item MOVIE_OPTIMUS_PRIME_CHESTPLATE = new MovieOptimusPrime("movie_optimus_prime_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
-    public static final Item MOVIE_OPTIMUS_PRIME_LEGGINGS = new MovieOptimusPrime("movie_optimus_prime_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
-    public static final Item MOVIE_OPTIMUS_PRIME_BOOTS = new MovieOptimusPrime("movie_optimus_prime_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+    //public static final Item MOVIE_OPTIMUS_PRIME_HELMET = new MovieOptimusPrime("movie_optimus_prime_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+    //public static final Item MOVIE_OPTIMUS_PRIME_CHESTPLATE = new MovieOptimusPrime("movie_optimus_prime_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+    //public static final Item MOVIE_OPTIMUS_PRIME_LEGGINGS = new MovieOptimusPrime("movie_optimus_prime_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+    //public static final Item MOVIE_OPTIMUS_PRIME_BOOTS = new MovieOptimusPrime("movie_optimus_prime_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
 
 
     //Vehicon
