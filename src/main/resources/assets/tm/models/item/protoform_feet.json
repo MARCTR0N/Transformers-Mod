@@ -1,6 +1,6 @@
 {
-   "parent": "item/generated",
-   "textures": {
-       "layer0": "tm:items/protoform_feet"
-   }
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tm:items/protoform_feet"
+  }
 }

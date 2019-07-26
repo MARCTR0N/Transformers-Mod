@@ -1,25 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        
-        "EEE",
-        "RAR",
-        "EEE"
-    ],
-    "key": 
-    {
-        "E": {
-                "item": "tm:alloy"
-        },
-        "R": {
-                "item": "tm:transformium"
-        },
-        "A": {
-                "item": "tm:basic_ciruit"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "RAR",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "tm:alloy"
     },
-    "result": {
-        "item": "tm:voicebox",
-        "count": 1
+    "R": {
+      "item": "tm:transformium"
+    },
+    "A": {
+      "item": "tm:basic_ciruit"
     }
+  },
+  "result": {
+    "item": "tm:voicebox",
+    "count": 1
+  }
 }

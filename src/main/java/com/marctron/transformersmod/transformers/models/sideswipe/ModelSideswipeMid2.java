@@ -4,8 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public final class ModelSideswipeMid2 extends ModelBiped
-{
+public final class ModelSideswipeMid2 extends ModelBiped {
     public ModelRenderer shape253;
     public ModelRenderer LeftArm;
     public ModelRenderer shape157;
@@ -143,8 +142,7 @@ public final class ModelSideswipeMid2 extends ModelBiped
     public ModelRenderer shape171_1;
     public ModelRenderer shape231_1;
 
-    public ModelSideswipeMid2()
-    {
+    public ModelSideswipeMid2() {
         textureWidth = 64;
         textureHeight = 64;
         shape253 = new ModelRenderer(this, "shape253").setTextureOffset(56, 44);
@@ -832,8 +830,7 @@ public final class ModelSideswipeMid2 extends ModelBiped
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         LeftArm.render(f5);
         RightLeg.render(f5);
         Chest.render(f5);
@@ -842,8 +839,7 @@ public final class ModelSideswipeMid2 extends ModelBiped
         RightArm.render(f5);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-    {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

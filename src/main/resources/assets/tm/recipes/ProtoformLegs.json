@@ -1,21 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "EEE",
-        "A A",
-        "E E"
-    ],
-    "key": 
-    {
-        "E": {
-                "item": "tm:alloy"
-        },
-        "A": {
-                "item": "tm:limb"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "A A",
+    "E E"
+  ],
+  "key": {
+    "E": {
+      "item": "tm:alloy"
     },
-    "result": {
-        "item": "tm:protoform_legs",
-        "count": 1
+    "A": {
+      "item": "tm:limb"
     }
+  },
+  "result": {
+    "item": "tm:protoform_legs",
+    "count": 1
+  }
 }

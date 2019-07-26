@@ -1,16 +1,12 @@
 package com.marctron.transformersmod.transformers.models.tarn;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.MathHelper;
 
-public class ModelTarnAltmode extends ModelBiped
-{
+public class ModelTarnAltmode extends ModelBiped {
     public ModelRenderer shape499_14;
     public ModelRenderer shape220_49;
     public ModelRenderer shape101_74;
@@ -561,8 +557,7 @@ public class ModelTarnAltmode extends ModelBiped
     public ModelRenderer shape220_40;
     public ModelRenderer shape220_48;
 
-    public ModelTarnAltmode()
-    {
+    public ModelTarnAltmode() {
         textureWidth = 256;
         textureHeight = 128;
         shape499_14 = new ModelRenderer(this, "shape499_14").setTextureOffset(0, 0);
@@ -3296,54 +3291,50 @@ public class ModelTarnAltmode extends ModelBiped
         LEFT_LOWER_LEG_1.addChild(LEFT_LOWER_LEG_56);
         TREADARM_2.addChild(shape220_40);
         TREADARM_2.addChild(shape220_48);
-        
+
 //        this.bipedBody.addChild(TANK);
 //        this.bipedHead.addChild(TURRET);
 //        this.bipedHead.addChild(LEFT_BARREL);
 //        this.bipedHead.addChild(RIGHT_BARREL);
     }
 
-    
+
     @Override
-    public void setVisible(boolean visible)
-    {
-        
-    }
-    
-    
-    @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
-        
-        GlStateManager.pushMatrix();
-    	GlStateManager.scale(0.8F, 0.88F, 0.9F);
-    	super.render(entity, f, f1, f2, f3, f4, f5);
-    	TANK.render(f5);
-    	GlStateManager.popMatrix();
-      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        
+    public void setVisible(boolean visible) {
+
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-    {
+
+    @Override
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+
+        GlStateManager.pushMatrix();
+        GlStateManager.scale(0.8F, 0.88F, 0.9F);
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        TANK.render(f5);
+        GlStateManager.popMatrix();
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+
+    }
+
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
-        
+
     }
+
     @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ticks, float rotationYaw, float rotationPitch, float scale, Entity entity)
-    {
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ticks, float rotationYaw, float rotationPitch, float scale, Entity entity) {
         super.setRotationAngles(limbSwing, limbSwingAmount, ticks, rotationYaw, rotationPitch, scale, entity);
-        
-        if (entity instanceof EntityPlayer)
-        {
+
+        if (entity instanceof EntityPlayer) {
             TURRET.rotateAngleY = (rotationYaw) / (180F / 3.14f);
             LEFT_BARREL.rotateAngleX = (rotationPitch) / (180F / 3.14f);
-            RIGHT_BARREL.rotateAngleX =  (rotationPitch) / (180F / 3.14f);
+            RIGHT_BARREL.rotateAngleX = (rotationPitch) / (180F / 3.14f);
 //            vehiclebase.rotateAngleY = -(float) Math.toRadians(TFRenderHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientEventHandler.renderTick)) * limbSwingAmount;
         }
-        
+
 //        boolean flag = entity instanceof EntityLivingBase && ((EntityLivingBase)entity).getTicksElytraFlying() > 4;
 //        this.LEFT_BARREL.rotateAngleY = rotationYaw * 0.017453292F;
 //

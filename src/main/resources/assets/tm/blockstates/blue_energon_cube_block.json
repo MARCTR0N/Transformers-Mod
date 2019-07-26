@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "explode=false": { "model": "tm:blue_energon_cube_block" }
+  "variants": {
+    "explode=false": {
+      "model": "tm:blue_energon_cube_block"
     }
+  }
 }
