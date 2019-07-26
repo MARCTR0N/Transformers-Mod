@@ -1,5 +1,6 @@
 package com.marctron.transformersmod.util.handlers;
 
-public enum EnumGuiID {
+public enum EnumGuiID
+{
     PRIMARY_AMMO
 }

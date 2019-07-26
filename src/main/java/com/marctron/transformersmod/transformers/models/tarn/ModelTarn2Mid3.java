@@ -5,7 +5,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelTarn2Mid3 extends ModelBiped {
+public class ModelTarn2Mid3 extends ModelBiped
+{
     public ModelRenderer shape59_3;
     public ModelRenderer shape868_3;
     public ModelRenderer shape100_20;
@@ -742,7 +743,8 @@ public class ModelTarn2Mid3 extends ModelBiped {
     public ModelRenderer Tread_67;
     public ModelRenderer TARNMODEL;
 
-    public ModelTarn2Mid3() {
+    public ModelTarn2Mid3()
+    {
         textureWidth = 256;
         textureHeight = 128;
         shape59_3 = new ModelRenderer(this, "shape59_3").setTextureOffset(0, 120);
@@ -3658,7 +3660,7 @@ public class ModelTarn2Mid3 extends ModelBiped {
         Tread_67.addBox(0.0F, 0.0F, 0.0F, 3, 1, 1, 0.0F);
         setRotateAngle(Tread_67, -3.141592653589793F, 0.0F, 0.0F);
         TARNMODEL = new ModelRenderer(this, "TARNMODEL").setTextureOffset(0, 0);
-        TARNMODEL.setRotationPoint(0.0F, 30.0F, 22.0F);                                                                        //NIBBA
+        TARNMODEL.setRotationPoint(0.0F, 30.0F, 22.0F);																		//NIBBA
         TARNMODEL.addBox(0.0F, -31.0F, 0.0F, 1, 1, 1, 0.0F);
         setRotateAngle(TARNMODEL, 1.2217304763960306F, 0.0F, 0.0F);
         Chestpiece.addChild(shape59_3);
@@ -4398,15 +4400,17 @@ public class ModelTarn2Mid3 extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        GlStateManager.pushMatrix();
-        GlStateManager.scale(0.7F, 0.7F, 0.7F);
-        TARNMODEL.render(f5);
-        GlStateManager.popMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+    {
+    	GlStateManager.pushMatrix();
+    	GlStateManager.scale(0.7F, 0.7F, 0.7F);
+    	TARNMODEL.render(f5);
+    	GlStateManager.popMatrix();
+      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "tm:blocks/transformium_ore_block"
-  }
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "tm:blocks/transformium_ore_block"
+   }
 }

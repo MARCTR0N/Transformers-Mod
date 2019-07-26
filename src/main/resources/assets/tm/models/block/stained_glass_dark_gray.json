@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "tm:blocks/stained_glass_dark_gray"
-  }
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "tm:blocks/stained_glass_dark_gray"
+   }
 }

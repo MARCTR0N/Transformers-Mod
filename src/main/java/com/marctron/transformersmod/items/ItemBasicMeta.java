@@ -1,15 +1,18 @@
 package com.marctron.transformersmod.items;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBasicMeta extends ItemBase {
+public class ItemBasicMeta extends ItemBase
+{
     protected String[] subNames;
 
-    public ItemBasicMeta(String itemName, String... subNames) {
+    public ItemBasicMeta(String itemName, String... subNames)
+    {
         super(itemName);
         setHasSubtypes(subNames != null && subNames.length > 0);
         this.subNames = hasSubtypes ? subNames : null;
@@ -20,8 +23,10 @@ public class ItemBasicMeta extends ItemBase {
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-        if (this.isInCreativeTab(tab)) {
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+    {
+        if (this.isInCreativeTab(tab))
+        {
             items.add(new ItemStack(this));
         }
     }
@@ -31,13 +36,15 @@ public class ItemBasicMeta extends ItemBase {
      * different names based on their damage or NBT.
      */
     @Override
-    public String getUnlocalizedName(ItemStack stack) {
-        if (hasSubtypes)
+    public String getUnlocalizedName(ItemStack stack)
+    {
+        if(hasSubtypes)
             return super.getUnlocalizedName(stack) + "." + getSubNames()[stack.getMetadata()];
         return super.getUnlocalizedName(stack);
     }
 
-    public String[] getSubNames() {
+    public String[] getSubNames()
+    {
         return subNames;
     }
 }

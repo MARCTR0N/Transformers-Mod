@@ -1,23 +1,24 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "HOH",
-    "AOA",
-    "HOH"
-  ],
-  "key": {
-    "A": {
-      "item": "minecraft:gold_ingot"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "HOH",
+        "AOA",
+        "HOH"
+    ],
+    "key": 
+    {
+        "A": {
+                "item": "minecraft:gold_ingot"
+        },
+        "H": {
+                "item": "tm:transformium"
+        },
+        "O": {
+                "item": "minecraft:diamond"
+        }
     },
-    "H": {
-      "item": "tm:transformium"
-    },
-    "O": {
-      "item": "minecraft:diamond"
+    "result": {
+        "item": "tm:transformation_cog",
+        "count": 1
     }
-  },
-  "result": {
-    "item": "tm:transformation_cog",
-    "count": 1
-  }
 }

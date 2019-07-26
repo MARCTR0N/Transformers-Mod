@@ -1,23 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ERE",
-    "RAR",
-    "ERE"
-  ],
-  "key": {
-    "R": {
-      "item": "tm:transformium"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "ERE",
+        "RAR",
+        "ERE"
+    ],
+    "key": 
+    {
+        
+        "R": {
+                "item": "tm:transformium"
+        },
+        "E": {
+                "item": "minecraft:redstone"
+        },
+        "A": {
+                "item": "tm:advanced_circuit"
+        }
     },
-    "E": {
-      "item": "minecraft:redstone"
-    },
-    "A": {
-      "item": "tm:advanced_circuit"
+    "result": {
+        "item": "tm:brain",
+        "count": 1
     }
-  },
-  "result": {
-    "item": "tm:brain",
-    "count": 1
-  }
 }

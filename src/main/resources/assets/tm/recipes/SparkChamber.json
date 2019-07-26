@@ -1,20 +1,24 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ERE",
-    "R R",
-    "ERE"
-  ],
-  "key": {
-    "R": {
-      "item": "tm:transformium"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "ERE",
+        "R R",
+        "ERE"
+    ],
+    "key": 
+    {
+        
+        "R": {
+                "item": "tm:transformium"
+        },
+        "E": {
+                "item": "tm:alloy"
+        }
+        
     },
-    "E": {
-      "item": "tm:alloy"
+    "result": {
+        "item": "tm:spark_chamber",
+        "count": 1
     }
-  },
-  "result": {
-    "item": "tm:spark_chamber",
-    "count": 1
-  }
 }

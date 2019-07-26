@@ -1,17 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "EEE",
-    "EEE",
-    "EEE"
-  ],
-  "key": {
-    "E": {
-      "item": "blue_energon_cube_block"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        
+        "EEE",
+        "EEE",
+        "EEE"
+    ],
+    "key": 
+    {
+        
+        
+        "E": {
+                "item": "blue_energon_cube_block"
+        }
+    },
+    "result": {
+        "item": "energon_cube_block",
+        "count": 9
     }
-  },
-  "result": {
-    "item": "energon_cube_block",
-    "count": 9
-  }
 }

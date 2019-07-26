@@ -6,7 +6,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
 
-public class MovieOptimusPrimeModel extends ModelBiped {
+public class MovieOptimusPrimeModel extends ModelBiped
+{
     public ModelRenderer shape314_23;
     public ModelRenderer CHEST;
     public ModelRenderer shape783_5;
@@ -692,7 +693,8 @@ public class MovieOptimusPrimeModel extends ModelBiped {
     public ModelRenderer shape1_9;
     public ModelRenderer shape790_13;
 
-    public MovieOptimusPrimeModel() {
+    public MovieOptimusPrimeModel()
+    {
         textureWidth = 1024;
         textureHeight = 512;
         shape314_23 = new ModelRenderer(this, "shape314_23").setTextureOffset(0, 500);
@@ -701,7 +703,7 @@ public class MovieOptimusPrimeModel extends ModelBiped {
         shape314_23.addBox(0.7F, 0.7F, 0.0F, 1, 1, 1, 0.0F);
         setRotateAngle(shape314_23, 0.0F, 0.0F, 0.7853981633974483F);
         CHEST = new ModelRenderer(this, "CHEST").setTextureOffset(0, 0);
-        CHEST.setRotationPoint(0.0F, -3.0F, -5.0F);                                                //NIGGA
+        CHEST.setRotationPoint(0.0F, -3.0F, -5.0F);												//NIGGA
         CHEST.addBox(0.0F, 5.0F, 3.0F, 1, 1, 1, 0.0F);
         shape783_5 = new ModelRenderer(this, "shape783_5").setTextureOffset(0, 500);
         shape783_5.mirror = true;
@@ -1612,7 +1614,7 @@ public class MovieOptimusPrimeModel extends ModelBiped {
         shape157_35.setRotationPoint(-7.0F, -4.6F, 5.2F);
         shape157_35.addBox(-0.5F, 0.0F, -2.0F, 1, 3, 1, 0.0F);
         HEAD = new ModelRenderer(this, "HEAD").setTextureOffset(44, 444);
-        HEAD.setRotationPoint(0.0F, -7.0F, -4.50F);                                                                            //NIGGA
+        HEAD.setRotationPoint(0.0F, -7.0F, -4.50F);												               				//NIGGA
         HEAD.addBox(-0.5F, 0.0F, 4.8F, 1, 1, 1, 0.0F);
         setRotateAngle(HEAD, 0.05235987755982988F, 0.0F, 0.0F);
         shape783_10 = new ModelRenderer(this, "shape783_10").setTextureOffset(41, 432);
@@ -1927,7 +1929,7 @@ public class MovieOptimusPrimeModel extends ModelBiped {
         shape508_92.addBox(-1.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F);
         setRotateAngle(shape508_92, 2.0943951023931953F, 0.0F, 0.0F);
         RIGHT_ARM = new ModelRenderer(this, "RIGHT_ARM").setTextureOffset(0, 455);
-        RIGHT_ARM.setRotationPoint(-5.50F, -3.0F, 0.0F);                                                                        //NIGGA
+        RIGHT_ARM.setRotationPoint(-5.50F, -3.0F, 0.0F);																		//NIGGA
         RIGHT_ARM.addBox(-4.4F, -0.2F, -1.48F, 4, 11, 3, 0.0F);
         setRotateAngle(RIGHT_ARM, 0.0F, 0.0F, 0.08726646259971647F);
         shape508_68 = new ModelRenderer(this, "shape508_68").setTextureOffset(56, 458);
@@ -4296,8 +4298,8 @@ public class MovieOptimusPrimeModel extends ModelBiped {
         shape508_119.addChild(shape508_126);
         FACEPLATE.addChild(shape1_9);
         RIGHT_LOWER_LEG_1.addChild(shape790_13);
-
-
+        
+        
         this.bipedHead.addChild(HEAD);
 
         this.bipedBody.addChild(CHEST);
@@ -4312,52 +4314,53 @@ public class MovieOptimusPrimeModel extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        GlStateManager.pushMatrix();
-        GlStateManager.scale(0.47F, 0.47F, 0.47F);
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        GlStateManager.popMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+    {
+    	GlStateManager.pushMatrix();
+    	GlStateManager.scale(0.47F, 0.47F, 0.47F);
+    	super.render(entity, f, f1, f2, f3, f4, f5);
+    	GlStateManager.popMatrix();
+      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
     @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-        // this prevents helmets from always facing south, and the armor "breathing" on the stand
-        if (entityIn instanceof EntityArmorStand) {
-            EntityArmorStand entityarmorstand = (EntityArmorStand) entityIn;
-            this.bipedHead.rotateAngleX = 0.017453292F * entityarmorstand.getHeadRotation().getX();
-            this.bipedHead.rotateAngleY = 0.017453292F * entityarmorstand.getHeadRotation().getY();
-            this.bipedHead.rotateAngleZ = 0.017453292F * entityarmorstand.getHeadRotation().getZ();
-            this.bipedHead.setRotationPoint(0.0F, 1.0F, 0.0F);
-
-            this.bipedBody.rotateAngleX = 0.017453292F * entityarmorstand.getBodyRotation().getX();
-            this.bipedBody.rotateAngleY = 0.017453292F * entityarmorstand.getBodyRotation().getY();
-            this.bipedBody.rotateAngleZ = 0.017453292F * entityarmorstand.getBodyRotation().getZ();
-
-            this.bipedLeftArm.rotateAngleX = 0.017453292F * entityarmorstand.getLeftArmRotation().getX();
-            this.bipedLeftArm.rotateAngleY = 0.017453292F * entityarmorstand.getLeftArmRotation().getY();
-            this.bipedLeftArm.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftArmRotation().getZ();
-
-            this.bipedRightArm.rotateAngleX = 0.017453292F * entityarmorstand.getRightArmRotation().getX();
-            this.bipedRightArm.rotateAngleY = 0.017453292F * entityarmorstand.getRightArmRotation().getY();
-            this.bipedRightArm.rotateAngleZ = 0.017453292F * entityarmorstand.getRightArmRotation().getZ();
-
-            this.bipedLeftLeg.rotateAngleX = 0.017453292F * entityarmorstand.getLeftLegRotation().getX();
-            this.bipedLeftLeg.rotateAngleY = 0.017453292F * entityarmorstand.getLeftLegRotation().getY();
-            this.bipedLeftLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftLegRotation().getZ();
-            this.bipedLeftLeg.setRotationPoint(1.9F, 11.0F, 0.0F);
-
-            this.bipedRightLeg.rotateAngleX = 0.017453292F * entityarmorstand.getRightLegRotation().getX();
-            this.bipedRightLeg.rotateAngleY = 0.017453292F * entityarmorstand.getRightLegRotation().getY();
-            this.bipedRightLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getRightLegRotation().getZ();
-            this.bipedRightLeg.setRotationPoint(-1.9F, 11.0F, 0.0F);
-            copyModelAngles(this.bipedHead, this.bipedHeadwear);
-        } else
-            super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-    }
-
-
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		// this prevents helmets from always facing south, and the armor "breathing" on the stand
+		if (entityIn instanceof EntityArmorStand) {
+			EntityArmorStand entityarmorstand = (EntityArmorStand) entityIn;
+			this.bipedHead.rotateAngleX = 0.017453292F * entityarmorstand.getHeadRotation().getX();
+			this.bipedHead.rotateAngleY = 0.017453292F * entityarmorstand.getHeadRotation().getY();
+			this.bipedHead.rotateAngleZ = 0.017453292F * entityarmorstand.getHeadRotation().getZ();
+			this.bipedHead.setRotationPoint(0.0F, 1.0F, 0.0F);
+			
+			this.bipedBody.rotateAngleX = 0.017453292F * entityarmorstand.getBodyRotation().getX();
+			this.bipedBody.rotateAngleY = 0.017453292F * entityarmorstand.getBodyRotation().getY();
+			this.bipedBody.rotateAngleZ = 0.017453292F * entityarmorstand.getBodyRotation().getZ();
+			
+			this.bipedLeftArm.rotateAngleX = 0.017453292F * entityarmorstand.getLeftArmRotation().getX();
+			this.bipedLeftArm.rotateAngleY = 0.017453292F * entityarmorstand.getLeftArmRotation().getY();
+			this.bipedLeftArm.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftArmRotation().getZ();
+			
+			this.bipedRightArm.rotateAngleX = 0.017453292F * entityarmorstand.getRightArmRotation().getX();
+			this.bipedRightArm.rotateAngleY = 0.017453292F * entityarmorstand.getRightArmRotation().getY();
+			this.bipedRightArm.rotateAngleZ = 0.017453292F * entityarmorstand.getRightArmRotation().getZ();
+			
+			this.bipedLeftLeg.rotateAngleX = 0.017453292F * entityarmorstand.getLeftLegRotation().getX();
+			this.bipedLeftLeg.rotateAngleY = 0.017453292F * entityarmorstand.getLeftLegRotation().getY();
+			this.bipedLeftLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftLegRotation().getZ();
+			this.bipedLeftLeg.setRotationPoint(1.9F, 11.0F, 0.0F);
+			
+			this.bipedRightLeg.rotateAngleX = 0.017453292F * entityarmorstand.getRightLegRotation().getX();
+			this.bipedRightLeg.rotateAngleY = 0.017453292F * entityarmorstand.getRightLegRotation().getY();
+			this.bipedRightLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getRightLegRotation().getZ();
+			this.bipedRightLeg.setRotationPoint(-1.9F, 11.0F, 0.0F);
+			copyModelAngles(this.bipedHead, this.bipedHeadwear);
+		} else super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+	}
+    
+    
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

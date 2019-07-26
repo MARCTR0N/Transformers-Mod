@@ -1,7 +1,5 @@
 {
-  "variants": {
-    "normal": {
-      "model": "tm:stained_hardened_clay_pale_brown"
+    "variants": {
+        "normal": { "model": "tm:stained_hardened_clay_pale_brown" }
     }
-  }
 }

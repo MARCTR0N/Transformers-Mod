@@ -1,6 +1,9 @@
 package com.marctron.transformersmod.cybertronworldgen;
 
+import java.util.Random;
+
 import com.marctron.transformersmod.init.CybertronWorldGen;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.world.World;
@@ -11,16 +14,16 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.Random;
-
-public class WorldTypeCybertron extends WorldType {
-
+public class WorldTypeCybertron extends WorldType
+{    
+    
     /**
      * Instantiates a new world type cloud.
      */
-    public WorldTypeCybertron() {
+    public WorldTypeCybertron()
+    {
         super(CybertronWorldGen.CYBERTRON_NAME);
-
+        
         // DEBUG
         System.out.println("Constructing WorldTypeCybertron");
     }
@@ -29,7 +32,8 @@ public class WorldTypeCybertron extends WorldType {
      * @see net.minecraft.world.WorldType#getBiomeProvider(net.minecraft.world.World)
      */
     @Override
-    public BiomeProvider getBiomeProvider(World world) {
+    public BiomeProvider getBiomeProvider(World world)
+    {
         return new BiomeProviderCybertron(world);
     }
 
@@ -37,7 +41,8 @@ public class WorldTypeCybertron extends WorldType {
      * @see net.minecraft.world.WorldType#getChunkGenerator(net.minecraft.world.World, java.lang.String)
      */
     @Override
-    public IChunkGenerator getChunkGenerator(World world, String generatorOptions) {
+    public IChunkGenerator getChunkGenerator(World world, String generatorOptions)
+    {
         return new ChunkGeneratorCybertron(world);
     }
 
@@ -45,7 +50,8 @@ public class WorldTypeCybertron extends WorldType {
      * @see net.minecraft.world.WorldType#getMinimumSpawnHeight(net.minecraft.world.World)
      */
     @Override
-    public int getMinimumSpawnHeight(World world) {
+    public int getMinimumSpawnHeight(World world)
+    {
         return world.getSeaLevel() + 1;
     }
 
@@ -53,7 +59,8 @@ public class WorldTypeCybertron extends WorldType {
      * @see net.minecraft.world.WorldType#getHorizon(net.minecraft.world.World)
      */
     @Override
-    public double getHorizon(World world) {
+    public double getHorizon(World world)
+    {
         return 63.0D;
     }
 
@@ -61,7 +68,8 @@ public class WorldTypeCybertron extends WorldType {
      * @see net.minecraft.world.WorldType#voidFadeMagnitude()
      */
     @Override
-    public double voidFadeMagnitude() {
+    public double voidFadeMagnitude()
+    {
         return 0.03125D;
     }
 
@@ -69,7 +77,8 @@ public class WorldTypeCybertron extends WorldType {
      * @see net.minecraft.world.WorldType#handleSlimeSpawnReduction(java.util.Random, net.minecraft.world.World)
      */
     @Override
-    public boolean handleSlimeSpawnReduction(Random random, World world) {
+    public boolean handleSlimeSpawnReduction(Random random, World world)
+    {
         return false;
     }
 
@@ -77,31 +86,32 @@ public class WorldTypeCybertron extends WorldType {
      * Called when 'Create New World' button is pressed before starting game.
      */
     @Override
-    public void onGUICreateWorldPress() {
-    }
+    public void onGUICreateWorldPress() { }
 
     /**
      * Gets the spawn fuzz for players who join the world.
      * Useful for void world types.
      *
-     * @param world  the world
+     * @param world the world
      * @param server the server
      * @return Fuzz for entity initial spawn in blocks.
      */
     @Override
-    public int getSpawnFuzz(WorldServer world, net.minecraft.server.MinecraftServer server) {
+    public int getSpawnFuzz(WorldServer world, net.minecraft.server.MinecraftServer server)
+    {
         return Math.max(0, server.getSpawnRadius(world));
     }
 
     /**
      * Called when the 'Customize' button is pressed on world creation GUI.
      *
-     * @param mc             The Minecraft instance
+     * @param mc The Minecraft instance
      * @param guiCreateWorld the createworld GUI
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public void onCustomizeButton(Minecraft mc, GuiCreateWorld guiCreateWorld) {
+    public void onCustomizeButton(Minecraft mc, GuiCreateWorld guiCreateWorld)
+    {
     }
 
     /**
@@ -110,7 +120,8 @@ public class WorldTypeCybertron extends WorldType {
      * @return if this world type has customization parameters
      */
     @Override
-    public boolean isCustomizable() {
+    public boolean isCustomizable()
+    {
         return false;
     }
 
@@ -122,7 +133,8 @@ public class WorldTypeCybertron extends WorldType {
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public boolean hasInfoNotice() {
+    public boolean hasInfoNotice()
+    {
         return true;
     }
 
@@ -132,7 +144,8 @@ public class WorldTypeCybertron extends WorldType {
      * @return The height to render clouds at
      */
     @Override
-    public float getCloudHeight() {
+    public float getCloudHeight()
+    {
         return 150.0F;
     }
 }

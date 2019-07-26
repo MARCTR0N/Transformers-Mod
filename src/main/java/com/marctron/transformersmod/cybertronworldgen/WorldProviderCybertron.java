@@ -1,18 +1,20 @@
 package com.marctron.transformersmod.cybertronworldgen;
 
-import com.marctron.transformersmod.init.CybertronWorldGen;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.Chunk;
+import com.marctron.transformersmod.init.CybertronWorldGen;
 
-public class WorldProviderCybertron extends WorldProvider {
-
+public class WorldProviderCybertron extends WorldProvider
+{
+    
     /* (non-Javadoc)
      * @see net.minecraft.world.WorldProvider#getDimensionType()
      */
     @Override
-    public DimensionType getDimensionType() {
+    public DimensionType getDimensionType()
+    {
         return CybertronWorldGen.CYBERTRON_DIM_TYPE;
     }
 
@@ -22,7 +24,8 @@ public class WorldProviderCybertron extends WorldProvider {
      * @return true, if is surface world
      */
     @Override
-    public boolean isSurfaceWorld() {
+    public boolean isSurfaceWorld()
+    {
         return true;
     }
 
@@ -32,7 +35,8 @@ public class WorldProviderCybertron extends WorldProvider {
      * @see net.minecraft.world.WorldProvider#canDoLightning(net.minecraft.world.chunk.Chunk)
      */
     @Override
-    public boolean canDoLightning(net.minecraft.world.chunk.Chunk chunk) {
+    public boolean canDoLightning(net.minecraft.world.chunk.Chunk chunk)
+    {
         return true;
     }
 
@@ -40,15 +44,17 @@ public class WorldProviderCybertron extends WorldProvider {
      * @see net.minecraft.world.WorldProvider#canDoRainSnowIce(net.minecraft.world.chunk.Chunk)
      */
     @Override
-    public boolean canDoRainSnowIce(Chunk chunk) {
+    public boolean canDoRainSnowIce(Chunk chunk)
+    {
         return false;
     }
-
+    
     /* (non-Javadoc)
      * @see net.minecraft.world.WorldProvider#canSnowAt(net.minecraft.util.math.BlockPos, boolean)
      */
     @Override
-    public boolean canSnowAt(BlockPos pos, boolean checkLight) {
-        return false;
+    public boolean canSnowAt(BlockPos pos, boolean checkLight)
+    {
+        return false; 
     }
 }

@@ -1,3 +1,4 @@
+
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
@@ -5,9 +6,11 @@
     "##"
   ],
   "key": {
-    "#": {
-      "item": "tm:transformium"
-    }
+    "#": 
+      {
+        "item": "tm:transformium"
+      }
+    
   },
   "result": {
     "item": "tm:alloy"

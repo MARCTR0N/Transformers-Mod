@@ -1,12 +1,16 @@
+
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
+    
     "#"
   ],
   "key": {
-    "#": {
-      "item": "tm:energon_cube_block"
-    }
+    "#": 
+      {
+        "item": "tm:energon_cube_block"
+      }
+    
   },
   "result": {
     "item": "tm:energon_shard",

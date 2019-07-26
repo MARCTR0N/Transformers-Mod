@@ -2,6 +2,7 @@ package com.marctron.transformersmod.entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.datafix.DataFixer;
@@ -10,47 +11,55 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityLargeRocket extends EntityRocket {
+public class EntityLargeRocket extends EntityRocket{
 
-    public int explosionPower = 1;
+	public int explosionPower = 1;
 
-    public EntityLargeRocket(World worldIn) {
+    public EntityLargeRocket(World worldIn)
+    {
         super(worldIn);
     }
 
     @SideOnly(Side.CLIENT)
-    public EntityLargeRocket(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
+    public EntityLargeRocket(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ)
+    {
         super(worldIn, x, y, z, accelX, accelY, accelZ);
     }
 
-    public EntityLargeRocket(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ) {
+    public EntityLargeRocket(World worldIn, EntityLivingBase shooter, double accelX, double accelY, double accelZ)
+    {
         super(worldIn, shooter, accelX, accelY, accelZ);
-    }
-
-    public static void registerFixesLargeFireball(DataFixer fixer) {
-        EntityLargeRocket.registerFixesFireball(fixer, "Rocket");
     }
 
     /**
      * Called when this EntityFireball hits a block or entity.
      */
-    protected void onImpact(RayTraceResult result) {
-        if (!this.world.isRemote) {
-            if (result.entityHit != null) {
+    protected void onImpact(RayTraceResult result)
+    {
+        if (!this.world.isRemote)
+        {
+            if (result.entityHit != null)
+            {
                 result.entityHit.attackEntityFrom(DamageSource.causeIndirectDamage(this, this.shootingEntity), distanceWalkedModified);
                 this.applyEnchantments(this.shootingEntity, result.entityHit);
             }
 
             boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this.shootingEntity);
-            this.world.newExplosion((Entity) null, this.posX, this.posY, this.posZ, (float) this.explosionPower, flag, flag);
+            this.world.newExplosion((Entity)null, this.posX, this.posY, this.posZ, (float)this.explosionPower, flag, flag);
             this.setDead();
         }
+    }
+
+    public static void registerFixesLargeFireball(DataFixer fixer)
+    {
+    	EntityLargeRocket.registerFixesFireball(fixer, "Rocket");
     }
 
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
-    public void writeEntityToNBT(NBTTagCompound compound) {
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
         super.writeEntityToNBT(compound);
         compound.setInteger("ExplosionPower", this.explosionPower);
     }
@@ -58,10 +67,12 @@ public class EntityLargeRocket extends EntityRocket {
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
-    public void readEntityFromNBT(NBTTagCompound compound) {
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
         super.readEntityFromNBT(compound);
 
-        if (compound.hasKey("ExplosionPower", 99)) {
+        if (compound.hasKey("ExplosionPower", 99))
+        {
             this.explosionPower = compound.getInteger("ExplosionPower");
         }
     }

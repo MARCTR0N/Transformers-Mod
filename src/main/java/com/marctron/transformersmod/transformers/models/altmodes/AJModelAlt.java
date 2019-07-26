@@ -40,11 +40,11 @@ public class AJModelAlt extends ModelBiped {
         this.Right_Leg = new ModelRenderer(this, 0, 16);
         this.Right_Leg.setRotationPoint(3.0F, 6.0F, 0.0F);
         this.Right_Leg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
-
+        
         this.bipedHead.addChild(Head);
 
         this.bipedBody.addChild(Chest);
-
+        
         this.bipedLeftArm.addChild(Left_Arm);
 
         this.bipedLeftLeg.addChild(Left_Leg);
@@ -54,12 +54,14 @@ public class AJModelAlt extends ModelBiped {
         this.bipedRightLeg.addChild(Right_Leg);
 
     }
-
-
+    
+      
+   
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+    { 
+    	super.render(entity, f, f1, f2, f3, f4, f5);
+    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
     /**

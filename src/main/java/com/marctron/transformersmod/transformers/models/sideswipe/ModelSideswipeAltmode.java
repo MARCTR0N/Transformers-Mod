@@ -4,7 +4,8 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public final class ModelSideswipeAltmode extends ModelBiped {
+public final class ModelSideswipeAltmode extends ModelBiped
+{
     public ModelRenderer H;
     public ModelRenderer shape42_7;
     public ModelRenderer shape44;
@@ -115,7 +116,8 @@ public final class ModelSideswipeAltmode extends ModelBiped {
     public ModelRenderer shape29_1;
     public ModelRenderer shape44_4;
 
-    public ModelSideswipeAltmode() {
+    public ModelSideswipeAltmode()
+    {
         textureWidth = 128;
         textureHeight = 64;
         H = new ModelRenderer(this, "H").setTextureOffset(0, 0);
@@ -683,20 +685,22 @@ public final class ModelSideswipeAltmode extends ModelBiped {
         H.addChild(shape27);
         shape27_1.addChild(shape29_1);
         WHEEL.addChild(shape44_4);
-
+        
         this.bipedBody.addChild(E);
         this.bipedBody.addChild(E_1);
         this.bipedBody.addChild(H);
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+    {
         H.render(f5);
         E.render(f5);
         E_1.render(f5);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

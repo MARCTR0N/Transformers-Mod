@@ -4,7 +4,8 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public final class ModelVehiconAltmode extends ModelBiped {
+public final class ModelVehiconAltmode extends ModelBiped
+{
     public ModelRenderer shape78_7;
     public ModelRenderer shape44_12;
     public ModelRenderer E_1;
@@ -165,7 +166,8 @@ public final class ModelVehiconAltmode extends ModelBiped {
     public ModelRenderer shape74_1;
     public ModelRenderer shape101_10;
 
-    public ModelVehiconAltmode() {
+    public ModelVehiconAltmode()
+    {
         textureWidth = 128;
         textureHeight = 64;
         shape78_7 = new ModelRenderer(this, "shape78_7").setTextureOffset(0, 60);
@@ -970,24 +972,31 @@ public final class ModelVehiconAltmode extends ModelBiped {
         shape41.addChild(shape29);
         E.addChild(shape74_1);
         shape101_1.addChild(shape101_10);
-
+        
         this.bipedBody.addChild(E);
         this.bipedBody.addChild(E_1);
         this.bipedBody.addChild(shape41);
     }
 
-    public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        //super.render(entity, f, f1, f2, f3, f4, f5);
-
-        E.render(f5);
-
-        E_1.render(f5);
-
-        shape41.render(f5);
+    public  final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+    { 
+      //super.render(entity, f, f1, f2, f3, f4, f5);
+      
+      E.render(f5);
+        
+      E_1.render(f5);
+        
+      shape41.render(f5);
     }
+    
+    
+        
+        
+    
+    
 
-
-    public final void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public final void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

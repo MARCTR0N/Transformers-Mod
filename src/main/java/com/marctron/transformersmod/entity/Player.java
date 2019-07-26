@@ -1,60 +1,85 @@
 package com.marctron.transformersmod.entity;
 
-import com.marctron.transformersmod.items.gun.IGun;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPlayer;
+import net.minecraft.client.model.ModelBiped.ArmPose;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import org.lwjgl.opengl.GL11;
+
+import com.marctron.transformersmod.items.gun.IGun;
+import com.marctron.transformersmod.items.gun.ItemGunBase;
+import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamAltmode;
+import com.marctron.transformersmod.util.Reference;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
+
 @SideOnly(Side.CLIENT)
 @EventBusSubscriber(Side.CLIENT)
-public class Player {
-
-
-    @SubscribeEvent
+public class Player
+{
+	
+	
+	@SubscribeEvent
     public static void EntityRender(RenderLivingEvent.Pre event) {
-
-
+        
+		
         EntityLivingBase entity = event.getEntity();
-
+        
         if (entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
+            EntityPlayer player = (EntityPlayer)entity;
             if (player.getHeldItemMainhand().getItem() instanceof IGun) {
-
+                
                 RenderLivingBase renderer = event.getRenderer();
-
+                
                 ItemStack stack = event.getEntity().getHeldItemMainhand();
-
+                
                 ModelPlayer model = (ModelPlayer) renderer.getMainModel();
-
-                if (stack.getItem() instanceof IGun) {
-                    IGun nbt = ((IGun) stack.getItem());
-                    if (nbt.getBoolean("Gun")) {
-                        if (player.isSprinting()) {
-                            model.rightArmPose = ModelBiped.ArmPose.BLOCK;
-                        } else
-                            model.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+                
+                if(stack.getItem() instanceof IGun)
+        		{
+        			IGun nbt = ((IGun) stack.getItem());
+        			if (nbt.getBoolean("Gun")) 
+        			{
+        				if (player.isSprinting()){
+        					model.rightArmPose = ModelBiped.ArmPose.BLOCK;
+        				} else
+       				model.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
                         model.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
                     }
-
-                    if (nbt.getBoolean("running")) {
-                        if (player.getPrimaryHand() == EnumHandSide.LEFT) {
-                            model.leftArmPose = ModelBiped.ArmPose.BLOCK;
-                        } else {
-                            model.rightArmPose = ModelBiped.ArmPose.BLOCK;
-                        }
-                    }
-
-                }
-
+        			
+        			if(nbt.getBoolean("running"))
+        			{
+        				if(player.getPrimaryHand() == EnumHandSide.LEFT)
+        				{
+        					model.leftArmPose = ModelBiped.ArmPose.BLOCK;
+        				}
+        				else
+        				{
+        					 model.rightArmPose = ModelBiped.ArmPose.BLOCK;
+        				}
+        			}
+        			
+        		}
+                
 //                if(stack.getItem() instanceof StarscreamAltmode)
 //        		{
 //                	StarscreamAltmode nbt = ((StarscreamAltmode) stack.getItem());
@@ -66,7 +91,7 @@ public class Player {
 //       				model.leftArmPose = null;
 //                        model.rightArmPose = null;
 //                    }
-
+        			
 //        			if(nbt.getBoolean("running"))
 //        			{
 //        				if(player.getPrimaryHand() == EnumHandSide.LEFT)
@@ -105,10 +130,10 @@ public class Player {
 //        		}
             }
         }
-
+        
     }
-
-
+	
+	
 //	
 //	@SubscribeEvent
 //    public static void onRenderGameOverlayEvent(RenderGameOverlayEvent event) {
@@ -141,5 +166,5 @@ public class Player {
 //        	
 //        }
 //    }
-
+	
 }

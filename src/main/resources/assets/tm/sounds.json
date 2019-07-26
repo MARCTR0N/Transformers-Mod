@@ -1,22 +1,14 @@
 {
-  "transformation.transformone": {
-    "category": "player",
-    "subtitle": "transformation.transformone",
-    "sounds": [
-      {
-        "name": "tm:transformation/transformone",
-        "stream": true
-      }
-    ]
-  },
-  "transformation.transformtwo": {
-    "category": "player",
-    "subtitle": "transformation.transformtwo",
-    "sounds": [
-      {
-        "name": "tm:transformation/transformtwo",
-        "stream": true
-      }
-    ]
-  }
+    "transformation.transformone": 
+    {
+        "category": "player",
+        "subtitle": "transformation.transformone",
+        "sounds": [{ "name": "tm:transformation/transformone", "stream": true}]
+    },
+    "transformation.transformtwo": 
+    {
+        "category": "player",
+        "subtitle": "transformation.transformtwo",
+        "sounds": [{ "name": "tm:transformation/transformtwo", "stream": true}]
+    }
 }

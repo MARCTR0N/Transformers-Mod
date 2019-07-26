@@ -1,7 +1,5 @@
 {
-  "variants": {
-    "normal": {
-      "model": "tm:transformium_block"
+    "variants": {
+        "normal": { "model": "tm:transformium_block" }
     }
-  }
 }

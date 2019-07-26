@@ -1,11 +1,13 @@
 package com.marctron.transformersmod.transformers.models.tarn;
 
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelTarn2Mid2 extends ModelBiped {
+public class ModelTarn2Mid2 extends ModelBiped
+{
     public ModelRenderer e_3;
     public ModelRenderer LEFT_LOWER_LEG_20;
     public ModelRenderer Tread_35;
@@ -758,7 +760,8 @@ public class ModelTarn2Mid2 extends ModelBiped {
     public ModelRenderer LEFT_LOWER_LEG_10;
     public ModelRenderer Tread_20;
 
-    public ModelTarn2Mid2() {
+    public ModelTarn2Mid2()
+    {
         textureWidth = 256;
         textureHeight = 128;
         e_3 = new ModelRenderer(this, "e_3").setTextureOffset(0, 120);
@@ -4512,15 +4515,17 @@ public class ModelTarn2Mid2 extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+    {
         GlStateManager.pushMatrix();
-        GlStateManager.scale(0.6F, 0.6F, 0.6F);
-        TARNMODEL.render(f5);
-        GlStateManager.popMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    	GlStateManager.scale(0.6F, 0.6F, 0.6F);
+    	TARNMODEL.render(f5);
+    	GlStateManager.popMatrix();
+      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

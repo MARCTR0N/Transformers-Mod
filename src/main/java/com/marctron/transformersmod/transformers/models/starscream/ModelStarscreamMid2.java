@@ -4,7 +4,8 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelStarscreamMid2 extends ModelBiped {
+public class ModelStarscreamMid2 extends ModelBiped
+{
     public ModelRenderer Left_Wing_31;
     public ModelRenderer shape29_3;
     public ModelRenderer shape84;
@@ -299,7 +300,8 @@ public class ModelStarscreamMid2 extends ModelBiped {
     public ModelRenderer shape142_12;
     public ModelRenderer Right_Leg6;
 
-    public ModelStarscreamMid2() {
+    public ModelStarscreamMid2()
+    {
         textureWidth = 256;
         textureHeight = 128;
         Left_Wing_31 = new ModelRenderer(this, "Left_Wing_31").setTextureOffset(22, 120);
@@ -1827,8 +1829,8 @@ public class ModelStarscreamMid2 extends ModelBiped {
         Right_Wing_2.addChild(shape142_24);
         Left_Wing.addChild(shape142_12);
         Right_Leg2.addChild(Right_Leg6);
-
-
+        
+        
         this.bipedHead.addChild(Head);
 
         this.bipedBody.addChild(Chest);
@@ -1840,20 +1842,21 @@ public class ModelStarscreamMid2 extends ModelBiped {
         this.bipedRightArm.addChild(Right_Arm1);
 
         this.bipedRightLeg.addChild(Right_Leg1);
-
-
+        
+        
         this.bipedHead.addChild(Left_Wing);
         this.bipedHead.addChild(Right_Wing);
         this.bipedHead.addChild(Right_Wing_1);
         this.bipedHead.addChild(Right_Wing_2);
-
-
+       
+        
         this.bipedHead.addChild(Nosecone);
-
+        
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+    {
         Left_Leg1.render(f5);
         Chest.render(f5);
         Nosecone.render(f5);
@@ -1863,7 +1866,8 @@ public class ModelStarscreamMid2 extends ModelBiped {
         Head.render(f5);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

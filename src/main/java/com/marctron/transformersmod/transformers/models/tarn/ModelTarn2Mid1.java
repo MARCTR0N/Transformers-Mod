@@ -5,7 +5,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelTarn2Mid1 extends ModelBiped {
+public class ModelTarn2Mid1 extends ModelBiped
+{
     public ModelRenderer Tread_13;
     public ModelRenderer shape101_21;
     public ModelRenderer RIGHT_FOOT_34;
@@ -775,7 +776,8 @@ public class ModelTarn2Mid1 extends ModelBiped {
     public ModelRenderer shape868_5;
     public ModelRenderer shape100_20;
 
-    public ModelTarn2Mid1() {
+    public ModelTarn2Mid1()
+    {
         textureWidth = 256;
         textureHeight = 128;
         Tread_13 = new ModelRenderer(this, "Tread_13").setTextureOffset(0, 120);
@@ -4616,16 +4618,18 @@ public class ModelTarn2Mid1 extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+    {
+        
         GlStateManager.pushMatrix();
-        GlStateManager.scale(0.5F, 0.5F, 0.5F);
-        TARNMODEL.render(f5);
-        GlStateManager.popMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    	GlStateManager.scale(0.5F, 0.5F, 0.5F);
+    	TARNMODEL.render(f5);
+    	GlStateManager.popMatrix();
+      setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+    {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
