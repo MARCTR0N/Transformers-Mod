@@ -1,7 +1,6 @@
 package com.marctron.transformersmod.blocks;
 
 import com.marctron.transformersmod.Main;
-
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,50 +16,42 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class AbstractBlockContainer extends BlockBase implements ITileEntityProvider
-{
+public abstract class AbstractBlockContainer extends BlockBase implements ITileEntityProvider {
     protected boolean hasGui = false;
 
-    public AbstractBlockContainer(String name, Material mat)
-    {
+    public AbstractBlockContainer(String name, Material mat) {
         super(name, mat);
         hasTileEntity = true;
     }
 
-    public void setHasGui()
-    {
+    public void setHasGui() {
         hasGui = true;
     }
 
     @Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     @SideOnly(Side.CLIENT)
-    public GuiScreen getGui(InventoryPlayer invPlayer, TileEntity te)
-    {
+    public GuiScreen getGui(InventoryPlayer invPlayer, TileEntity te) {
         return null;
     }
 
-    public Container getContainer(InventoryPlayer invPlayer, TileEntity te)
-    {
+    public Container getContainer(InventoryPlayer invPlayer, TileEntity te) {
         return null;
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
-    {
-        if(!hasGui)
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+        if (!hasGui)
             return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
-        if(!playerIn.isSneaking())
+        if (!playerIn.isSneaking())
             playerIn.openGui(Main.instance, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }

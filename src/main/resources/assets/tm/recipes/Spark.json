@@ -1,25 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        
-        "ERE",
-        "RAR",
-        "ERE"
-    ],
-    "key": 
-    {
-        "E": {
-                "item": "minecraft:diamond"
-        },
-        "R": {
-                "item": "minecraft:redstone"
-        },
-        "A": {
-                "item": "minecraft:emerald"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ERE",
+    "RAR",
+    "ERE"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:diamond"
     },
-    "result": {
-        "item": "tm:spark",
-        "count": 1
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "A": {
+      "item": "minecraft:emerald"
     }
+  },
+  "result": {
+    "item": "tm:spark",
+    "count": 1
+  }
 }

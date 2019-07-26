@@ -4,8 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class G1IronhideAltmode extends ModelBiped
-{
+public class G1IronhideAltmode extends ModelBiped {
     public ModelRenderer shape42_4;
     public ModelRenderer shape53_27;
     public ModelRenderer shape44_13;
@@ -89,8 +88,7 @@ public class G1IronhideAltmode extends ModelBiped
     public ModelRenderer shape53_36;
     public ModelRenderer shape46_5;
 
-    public G1IronhideAltmode()
-    {
+    public G1IronhideAltmode() {
         textureWidth = 512;
         textureHeight = 256;
         shape42_4 = new ModelRenderer(this, "shape42_4").setTextureOffset(100, 240);
@@ -480,14 +478,12 @@ public class G1IronhideAltmode extends ModelBiped
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         CHEST.render(f5);
         CHEST_1.render(f5);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-    {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

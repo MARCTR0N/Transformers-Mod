@@ -1,6 +1,6 @@
 {
-   "parent": "block/cube_all",
-   "textures": {
-       "all": "tm:blocks/wool_beige"
-   }
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "tm:blocks/wool_beige"
+  }
 }

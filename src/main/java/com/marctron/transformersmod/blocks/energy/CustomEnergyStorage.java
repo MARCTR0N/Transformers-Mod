@@ -26,8 +26,6 @@ package com.marctron.transformersmod.blocks.energy;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.energy.EnergyStorage;
 
-	
-
 public class CustomEnergyStorage extends EnergyStorage {
 
     public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract, int energy) {
