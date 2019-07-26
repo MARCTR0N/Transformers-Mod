@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "normal": { "model": "tm:dark_energon_ore_block_end_stone" }
+  "variants": {
+    "normal": {
+      "model": "tm:dark_energon_ore_block_end_stone"
     }
+  }
 }

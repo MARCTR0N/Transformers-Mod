@@ -1,18 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "EEE",
-        "E E",
-        "EEE"
-    ],
-    "key": 
-    {
-        "E": {
-            "item": "tm:silicon"
-             }
-    },
-    "result": {
-        "item": "tm:tire",
-        "count": 1
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "E E",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "tm:silicon"
     }
+  },
+  "result": {
+    "item": "tm:tire",
+    "count": 1
+  }
 }

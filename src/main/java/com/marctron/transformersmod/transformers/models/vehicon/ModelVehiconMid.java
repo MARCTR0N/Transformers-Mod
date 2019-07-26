@@ -4,8 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public final class ModelVehiconMid extends ModelBiped
-{
+public final class ModelVehiconMid extends ModelBiped {
     public ModelRenderer Left_Leg;
     public ModelRenderer Chest_6;
     public ModelRenderer Chest;
@@ -91,8 +90,7 @@ public final class ModelVehiconMid extends ModelBiped
     public ModelRenderer Croach_2;
     public ModelRenderer Right_Foot_2;
 
-    public ModelVehiconMid()
-    {
+    public ModelVehiconMid() {
         textureWidth = 128;
         textureHeight = 64;
         Left_Leg = new ModelRenderer(this, "Left_Leg").setTextureOffset(0, 55);
@@ -497,7 +495,7 @@ public final class ModelVehiconMid extends ModelBiped
         Right_Leg.addChild(Right_Lower_Leg);
         Chest.addChild(Croach_2);
         Right_Leg.addChild(Right_Foot_2);
-        
+
         this.bipedHead.addChild(Head1);
 
         this.bipedBody.addChild(Chest);
@@ -512,8 +510,7 @@ public final class ModelVehiconMid extends ModelBiped
     }
 
     @Override
-    public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         Left_Leg.render(f5);
         Chest.render(f5);
         Right_Leg.render(f5);
@@ -522,8 +519,7 @@ public final class ModelVehiconMid extends ModelBiped
         Left_Arm.render(f5);
     }
 
-    public final void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-    {
+    public final void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

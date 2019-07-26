@@ -1,23 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        
-        
-        "RAR",
-        "R R"
-    ],
-    "key": 
-    {
-        
-        "R": {
-                "item": "tm:transformium"
-        },
-        "A": {
-                "item": "tm:alloy"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RAR",
+    "R R"
+  ],
+  "key": {
+    "R": {
+      "item": "tm:transformium"
     },
-    "result": {
-        "item": "tm:hand",
-        "count": 1
+    "A": {
+      "item": "tm:alloy"
     }
+  },
+  "result": {
+    "item": "tm:hand",
+    "count": 1
+  }
 }

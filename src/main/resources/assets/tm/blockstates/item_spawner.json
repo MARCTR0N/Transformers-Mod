@@ -1,10 +1,26 @@
 {
-    "variants": {
-        "facing=down,triggered=false":  { "model": "tm:item_spawner_vertical", "x": 180 },
-        "facing=up,triggered=false":    { "model": "tm:item_spawner_vertical" },
-        "facing=north,triggered=false": { "model": "tm:item_spawner" },
-        "facing=south,triggered=false": { "model": "tm:item_spawner", "y": 180 },
-        "facing=west,triggered=false":  { "model": "tm:item_spawner", "y": 270 },
-        "facing=east,triggered=false":  { "model": "tm:item_spawner", "y": 90 }
+  "variants": {
+    "facing=down,triggered=false": {
+      "model": "tm:item_spawner_vertical",
+      "x": 180
+    },
+    "facing=up,triggered=false": {
+      "model": "tm:item_spawner_vertical"
+    },
+    "facing=north,triggered=false": {
+      "model": "tm:item_spawner"
+    },
+    "facing=south,triggered=false": {
+      "model": "tm:item_spawner",
+      "y": 180
+    },
+    "facing=west,triggered=false": {
+      "model": "tm:item_spawner",
+      "y": 270
+    },
+    "facing=east,triggered=false": {
+      "model": "tm:item_spawner",
+      "y": 90
     }
+  }
 }

@@ -4,8 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public final class ModelStarscreamAltmode extends ModelBiped
-{
+public final class ModelStarscreamAltmode extends ModelBiped {
     public ModelRenderer shape142_9;
     public ModelRenderer Left_Wing_75;
     public ModelRenderer shape268_1;
@@ -242,8 +241,7 @@ public final class ModelStarscreamAltmode extends ModelBiped
     public ModelRenderer oof_6;
     public ModelRenderer rightshoulder1;
 
-    public ModelStarscreamAltmode()
-    {
+    public ModelStarscreamAltmode() {
         textureWidth = 256;
         textureHeight = 128;
         shape142_9 = new ModelRenderer(this, "shape142_9").setTextureOffset(0, 120);
@@ -1469,7 +1467,7 @@ public final class ModelStarscreamAltmode extends ModelBiped
         Right_Wing_1.addChild(shape152_9);
         oof_4.addChild(shape43_4);
         oof_5.addChild(oof_6);
-        
+
         this.bipedHead.addChild(Left_Wing);
         this.bipedHead.addChild(Right_Wing);
         this.bipedHead.addChild(Right_Wing_1);
@@ -1484,8 +1482,7 @@ public final class ModelStarscreamAltmode extends ModelBiped
     }
 
     @Override
-    public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public final void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         Right_Wing_4.render(f5);
         Right_Wing_2.render(f5);
         Nosecone.render(f5);
@@ -1499,8 +1496,7 @@ public final class ModelStarscreamAltmode extends ModelBiped
         rightshoulder1.render(f5);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-    {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

@@ -4,8 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelStarscreamMid1 extends ModelBiped
-{
+public class ModelStarscreamMid1 extends ModelBiped {
     public ModelRenderer Left_Arm4;
     public ModelRenderer oof;
     public ModelRenderer shape142_5;
@@ -242,8 +241,7 @@ public class ModelStarscreamMid1 extends ModelBiped
     public ModelRenderer oof_6;
     public ModelRenderer Right_Leg7;
 
-    public ModelStarscreamMid1()
-    {
+    public ModelStarscreamMid1() {
         textureWidth = 256;
         textureHeight = 128;
         Left_Arm4 = new ModelRenderer(this, "Left_Arm4").setTextureOffset(43, 119);
@@ -1474,7 +1472,7 @@ public class ModelStarscreamMid1 extends ModelBiped
         Right_Leg2.addChild(Right_Leg6);
         oof_5.addChild(oof_6);
         Right_Leg2.addChild(Right_Leg7);
-        
+
         this.bipedHead.addChild(Head);
 
         this.bipedBody.addChild(Chest);
@@ -1486,13 +1484,12 @@ public class ModelStarscreamMid1 extends ModelBiped
         this.bipedRightArm.addChild(Right_Arm1);
 
         this.bipedRightLeg.addChild(Right_Leg1);
-        
-        
+
+
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         Right_Leg1.render(f5);
         Head.render(f5);
         Right_Arm1.render(f5);
@@ -1501,8 +1498,7 @@ public class ModelStarscreamMid1 extends ModelBiped
         Left_Arm1.render(f5);
     }
 
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
-    {
+    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;

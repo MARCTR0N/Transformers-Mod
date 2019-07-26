@@ -1,14 +1,11 @@
 package com.marctron.transformersmod.items.gun;
 
-public interface IShootable
-{
+public interface IShootable {
 
-	
-	
 
-	
+    int clipSize = 0;
 
-	/**
+    /**
      * True if is a bullet clip
      * False if individual bullets that can be loaded directly
      */
@@ -19,10 +16,6 @@ public interface IShootable
      * If not, then returns the max stack size
      */
     int getMaxAmmo();
-    
-    
-    int clipSize = 0;
 
-
-	Object getRegistryName();
+    Object getRegistryName();
 }
