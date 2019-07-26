@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "normal": { "model": "tm:stained_glass_pale_green" }
+  "variants": {
+    "normal": {
+      "model": "tm:stained_glass_pale_green"
     }
+  }
 }

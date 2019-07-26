@@ -1,25 +1,23 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        
-        "ER ",
-        "RAR",
-        " RR"
-    ],
-    "key": 
-    {
-        "E": {
-                "item": "minecraft:glass"
-        },
-        "R": {
-                "item": "tm:transformium"
-        },
-        "A": {
-                "item": "tm:basic_ciruit"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ER ",
+    "RAR",
+    " RR"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:glass"
     },
-    "result": {
-        "item": "tm:optics",
-        "count": 1
+    "R": {
+      "item": "tm:transformium"
+    },
+    "A": {
+      "item": "tm:basic_ciruit"
     }
+  },
+  "result": {
+    "item": "tm:optics",
+    "count": 1
+  }
 }

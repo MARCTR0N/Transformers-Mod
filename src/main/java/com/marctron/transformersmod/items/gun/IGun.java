@@ -4,8 +4,7 @@ import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nonnull;
 
-public interface IGun
-{
+public interface IGun {
     /**
      * Sets the amount of ammo in this gun
      */
@@ -27,5 +26,5 @@ public interface IGun
     @Nonnull
     IShootable getAmmoItem();
 
-	boolean getBoolean(String string);
+    boolean getBoolean(String string);
 }

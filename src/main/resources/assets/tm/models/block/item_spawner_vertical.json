@@ -1,7 +1,7 @@
 {
-    "parent": "block/orientable_vertical",
-    "textures": {
-        "front": "tm:blocks/item_spawner",
-        "side": "blocks/furnace_top"
-   }
+  "parent": "block/orientable_vertical",
+  "textures": {
+    "front": "tm:blocks/item_spawner",
+    "side": "blocks/furnace_top"
+  }
 }

@@ -1,27 +1,26 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "EEE",
-        "AOA",
-        "HEH"
-    ],
-    "key": 
-    {
-        "E": {
-                "item": "tm:alloy"
-        },
-        "A": {
-                "item": "tm:limb"
-        },
-        "H": {
-                "item": "tm:hand"
-        },
-        "O": {
-                "item": "tm:spark_chamber"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "AOA",
+    "HEH"
+  ],
+  "key": {
+    "E": {
+      "item": "tm:alloy"
     },
-    "result": {
-        "item": "tm:protoform_chest",
-        "count": 1
+    "A": {
+      "item": "tm:limb"
+    },
+    "H": {
+      "item": "tm:hand"
+    },
+    "O": {
+      "item": "tm:spark_chamber"
     }
+  },
+  "result": {
+    "item": "tm:protoform_chest",
+    "count": 1
+  }
 }

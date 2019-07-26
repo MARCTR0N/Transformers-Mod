@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "normal": { "model": "tm:red_energon_ore_block_netherrack" }
+  "variants": {
+    "normal": {
+      "model": "tm:red_energon_ore_block_netherrack"
     }
+  }
 }

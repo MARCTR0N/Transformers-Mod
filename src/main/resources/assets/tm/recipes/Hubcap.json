@@ -1,18 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " E ",
-        "EEE",
-        " E "
-    ],
-    "key": 
-    {
-        "E": {
-            "item": "tm:transformium"
-             }
-    },
-    "result": {
-        "item": "tm:hubcap",
-        "count": 1
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "EEE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "tm:transformium"
     }
+  },
+  "result": {
+    "item": "tm:hubcap",
+    "count": 1
+  }
 }
