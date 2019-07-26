@@ -1,8 +1,10 @@
 package com.marctron.transformersmod;
 
 import com.marctron.transformersmod.init.*;
-import com.marctron.transformersmod.proxy.CommonProxy;
+import com.marctron.transformersmod.proxy.IProxy;
+import com.marctron.transformersmod.proxy.ServerProxy;
 import com.marctron.transformersmod.util.Reference;
+import com.marctron.transformersmod.util.handlers.GuiHandler;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.RenderHandler;
 import com.marctron.transformersmod.world.generators.ModWorldGen;
@@ -17,6 +19,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
@@ -27,8 +30,8 @@ public class Main {
     @Instance
     public static Main instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
-    public static CommonProxy proxy;
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
+    public static IProxy proxy;
 
 
     public static File config;
@@ -94,7 +97,7 @@ public class Main {
     };
 
     @EventHandler
-    public static void PreInit(FMLPreInitializationEvent event) {
+    public static void preInit(FMLPreInitializationEvent event) {
         GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 
         CybertronWorldGen.registerDimensions();
@@ -106,16 +109,16 @@ public class Main {
         RegistryHandler.preInitRegistries(event);
 
         //GunEntities.regEntities();
-
-
+        NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+        proxy.preInit(event);
     }
 
     @EventHandler
     public static void init(FMLInitializationEvent event) {
         ModRecipes.init();
         RegistryHandler.initRegistries();
-        proxy.register();
         GunEntities.regEntities();
+        proxy.init(event);
     }
 
     @EventHandler
@@ -125,7 +128,7 @@ public class Main {
     }
 
     public static void postInit(FMLPostInitializationEvent event) {
-
+        proxy.postInit(event);
     }
 
     @EventHandler

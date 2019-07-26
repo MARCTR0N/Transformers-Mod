@@ -35,9 +35,9 @@ public class GunEntities {
 //    @SideOnly(Side.CLIENT)
 //    public static void regRenders()
 //    {
-//       
+//
 //        regRender(EntityBullet.class, RenderBullet.FACTORY);
-//        
+//
 //       // regRender(EntityGrenade.class, manager -> new RenderSnowball<>(manager, Items.GUNPOWDER, Minecraft.getMinecraft().getRenderItem()));
 //    }
 

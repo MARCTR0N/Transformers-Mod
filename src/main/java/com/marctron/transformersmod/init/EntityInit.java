@@ -13,9 +13,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 public class EntityInit {
     public static void registerEntities() {
         registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 50, 000000, 660066);
-
         registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 50, 8983288, 16043109);
-
         registerProjectile("rocket", EntityLargeRocket.class, Reference.ENTITY_LARGE_ROCKET);
         registerProjectile("bullet", EntityBullet.class, Reference.ENTITY_BULLET);
     }
@@ -28,7 +26,6 @@ public class EntityInit {
 
     public static void registerProjectile(String name, Class<? extends Entity> entity, int id) {
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, 64, 1, true);
-
     }
 
 

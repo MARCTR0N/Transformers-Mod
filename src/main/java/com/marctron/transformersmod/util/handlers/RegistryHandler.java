@@ -59,8 +59,8 @@ public class RegistryHandler {
     }
 
     public static void initRegistries() {
+        // TODO: Should be instantiated in Forge related event RegistryEvent.Register<SoundEvent> -Toma
         SoundsHandler.init();
-        NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
     }
 
     public static void serverRegistries(FMLServerStartingEvent event) {

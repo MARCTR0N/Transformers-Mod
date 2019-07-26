@@ -1,37 +1,38 @@
 package com.marctron.transformersmod.proxy;
 
 import com.marctron.transformersmod.events.ClientEvents;
-import com.marctron.transformersmod.util.Reference;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.lwjgl.input.Keyboard;
 
-public class ClientProxy extends CommonProxy {
+public class ClientProxy implements IProxy {
 
     public static final KeyBinding MY_KEYBINDING = new KeyBinding("key.transform", Keyboard.KEY_X, "category.transformers");
     public static final KeyBinding ROBOT_MODE = new KeyBinding("key.robotmode", Keyboard.KEY_Y, "category.transformers");
 
     @Override
-    public void register() {
-        MinecraftForge.EVENT_BUS.register(new ClientEvents());
-        ClientRegistry.registerKeyBinding(MY_KEYBINDING);
+    public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
-    }
-
-
-    @Override
-    public void registerItemRenderer(Item item, int meta, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+        ClientRegistry.registerKeyBinding(MY_KEYBINDING);
+        registerEntityRenderers();
     }
 
     @Override
-    public void registerVariantRenderer(Item item, int meta, String filename, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Reference.MOD_ID, filename), id));
+    public void init(FMLInitializationEvent e) {
+
+    }
+
+    @Override
+    public void postInit(FMLPostInitializationEvent e) {
+
+    }
+
+    private static void registerEntityRenderers() {
+        //RenderingRegistry.registerEntityRenderingHandler(Entity.class, RenderEntity::new);
     }
 }
