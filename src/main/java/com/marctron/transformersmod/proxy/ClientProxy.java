@@ -42,4 +42,9 @@ public class ClientProxy extends CommonProxy
 	{
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Reference.MOD_ID, filename), id));
 	}
+	
+	@Override
+	public void render () {
+
+	}
 }

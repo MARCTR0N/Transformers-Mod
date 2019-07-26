@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers;
+package com.marctron.transformersmod.transformers.transformer.movieop;
 
 import java.util.List;
 import java.util.Timer;
@@ -9,9 +9,7 @@ import javax.annotation.Nullable;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
-import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
-import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
-import com.marctron.transformersmod.util.handlers.SoundsHandler;
+import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid6;
 import com.marctron.transformersmod.util.interfaces.IHasModel;
 
 import net.minecraft.client.Minecraft;
@@ -21,32 +19,26 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MovieOptimusPrime extends ItemArmor implements IHasModel {
+public class MovieOptimusPrimeMid6 extends ItemArmor implements IHasModel {
 	
 
 	
 
-public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+public MovieOptimusPrimeMid6(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabAutobot);
+		setCreativeTab(null);
 		setMaxStackSize(1);
 		ModItems.ITEMS.add(this);
 	}
@@ -181,7 +173,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 										
 
 						}
-					if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
+					
 						
 						
 				
@@ -203,27 +195,27 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 								{
 								
 										
-									if (itemStack.getItem() == ModItems.STARSCREAM_BOOTS) {
+									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID6_BOOTS) {
 										
-									player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID1_BOOTS));
-										
-									}
-									
-									if (itemStack.getItem() == ModItems.STARSCREAM_LEGGINGS) {
-										
-									player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID1_LEGGINGS));
+									player.inventory.armorInventory.set(0, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID7_BOOTS));
 										
 									}
 									
-									if (itemStack.getItem() == ModItems.STARSCREAM_CHESTPLATE) {
+									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID6_LEGGINGS) {
 										
-									player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID1_CHESTPLATE));
+									player.inventory.armorInventory.set(1, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID7_LEGGINGS));
 										
 									}
 									
-									if (itemStack.getItem() == ModItems.STARSCREAM_HELMET) {
+									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID6_CHESTPLATE) {
 										
-									player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID1_HELMET));
+									player.inventory.armorInventory.set(2, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID7_CHESTPLATE));
+										
+									}
+									
+									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID6_HELMET) {
+										
+									player.inventory.armorInventory.set(3, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID7_HELMET));
 									}
 									
 									
@@ -234,7 +226,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 								
 							}
 						
-						}, 60);
+						}, 50);
 						
 						
 						
@@ -244,7 +236,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 						
 					}
 				}
-			} 
+			 
 			
 			
 			
@@ -259,7 +251,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 	
 
 	@SideOnly(Side.CLIENT)
-	private static MovieOptimusPrimeModel model = new MovieOptimusPrimeModel();
+	private static ModelMovieOptimusPrimeMid6 model = new ModelMovieOptimusPrimeMid6();
 	
 	@Override
 	@SideOnly(Side.CLIENT)

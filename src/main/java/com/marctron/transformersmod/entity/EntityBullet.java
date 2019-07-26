@@ -18,6 +18,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IThrowableEntity;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
@@ -36,13 +38,14 @@ public  class EntityBullet extends Entity implements IProjectile, IThrowableEnti
     private int knockbackStrength = 1;
     public Entity shooter;
     private int ticksInAir = 0;
-
+    
+    @SideOnly(Side.CLIENT)
     public EntityBullet(World world)
     {
         super(world);
         setSize(0.2f, 0.2f);
     }
-
+    @SideOnly(Side.CLIENT)
     public EntityBullet(World world, double x, double y, double z)
     {
         this(world);

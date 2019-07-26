@@ -12,6 +12,8 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityEnergonCube extends Entity{
 	private static final DataParameter<Integer> FUSE = EntityDataManager.<Integer>createKey(EntityTNTPrimed.class, DataSerializers.VARINT);
@@ -19,7 +21,8 @@ public class EntityEnergonCube extends Entity{
     private EntityLivingBase tntPlacedBy;
     /** How long the fuse is */
     private int fuse;
-
+    
+    @SideOnly(Side.CLIENT)
     public EntityEnergonCube(World worldIn)
     {
         super(worldIn);
@@ -28,7 +31,8 @@ public class EntityEnergonCube extends Entity{
         this.isImmuneToFire = true;
         this.setSize(0.98F, 0.98F);
     }
-
+    
+    @SideOnly(Side.CLIENT)
     public EntityEnergonCube(World worldIn, double x, double y, double z, EntityLivingBase igniter)
     {
         this(worldIn);

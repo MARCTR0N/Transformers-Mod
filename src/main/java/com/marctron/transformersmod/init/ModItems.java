@@ -22,7 +22,17 @@ import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
-import com.marctron.transformersmod.transformers.MovieOptimusPrime;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrime;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid1;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid2;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid3;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid4;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid5;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid6;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid7;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid8;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid9;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
@@ -130,6 +140,56 @@ public class ModItems
 		public static final Item MOVIE_OPTIMUS_PRIME_CHESTPLATE = new MovieOptimusPrime("movie_optimus_prime_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
 		public static final Item MOVIE_OPTIMUS_PRIME_LEGGINGS = new MovieOptimusPrime("movie_optimus_prime_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
 		public static final Item MOVIE_OPTIMUS_PRIME_BOOTS = new MovieOptimusPrime("movie_optimus_prime_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID1_HELMET = new MovieOptimusPrimeMid1("movie_optimus_prime_mid1_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID1_CHESTPLATE = new MovieOptimusPrimeMid1("movie_optimus_prime_mid1_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID1_LEGGINGS = new MovieOptimusPrimeMid1("movie_optimus_prime_mid1_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID1_BOOTS = new MovieOptimusPrimeMid1("movie_optimus_prime_mid1_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID2_HELMET = new MovieOptimusPrimeMid2("movie_optimus_prime_mid2_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID2_CHESTPLATE = new MovieOptimusPrimeMid2("movie_optimus_prime_mid2_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID2_LEGGINGS = new MovieOptimusPrimeMid2("movie_optimus_prime_mid2_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID2_BOOTS = new MovieOptimusPrimeMid2("movie_optimus_prime_mid2_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID3_HELMET = new MovieOptimusPrimeMid3("movie_optimus_prime_mid3_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE = new MovieOptimusPrimeMid3("movie_optimus_prime_mid3_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS = new MovieOptimusPrimeMid3("movie_optimus_prime_mid3_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID3_BOOTS = new MovieOptimusPrimeMid3("movie_optimus_prime_mid3_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID4_HELMET = new MovieOptimusPrimeMid4("movie_optimus_prime_mid4_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE = new MovieOptimusPrimeMid4("movie_optimus_prime_mid4_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS = new MovieOptimusPrimeMid4("movie_optimus_prime_mid4_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID4_BOOTS = new MovieOptimusPrimeMid4("movie_optimus_prime_mid4_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID5_HELMET = new MovieOptimusPrimeMid5("movie_optimus_prime_mid5_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE = new MovieOptimusPrimeMid5("movie_optimus_prime_mid5_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS = new MovieOptimusPrimeMid5("movie_optimus_prime_mid5_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID5_BOOTS = new MovieOptimusPrimeMid5("movie_optimus_prime_mid5_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID6_HELMET = new MovieOptimusPrimeMid6("movie_optimus_prime_mid6_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID6_CHESTPLATE = new MovieOptimusPrimeMid6("movie_optimus_prime_mid6_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID6_LEGGINGS = new MovieOptimusPrimeMid6("movie_optimus_prime_mid6_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID6_BOOTS = new MovieOptimusPrimeMid6("movie_optimus_prime_mid6_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID7_HELMET = new MovieOptimusPrimeMid7("movie_optimus_prime_mid7_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID7_CHESTPLATE = new MovieOptimusPrimeMid7("movie_optimus_prime_mid7_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID7_LEGGINGS = new MovieOptimusPrimeMid7("movie_optimus_prime_mid7_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID7_BOOTS = new MovieOptimusPrimeMid7("movie_optimus_prime_mid7_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID8_HELMET = new MovieOptimusPrimeMid8("movie_optimus_prime_mid8_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID8_CHESTPLATE = new MovieOptimusPrimeMid8("movie_optimus_prime_mid8_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID8_LEGGINGS = new MovieOptimusPrimeMid8("movie_optimus_prime_mid8_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID8_BOOTS = new MovieOptimusPrimeMid8("movie_optimus_prime_mid8_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_MID9_HELMET = new MovieOptimusPrimeMid9("movie_optimus_prime_mid9_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID9_CHESTPLATE = new MovieOptimusPrimeMid9("movie_optimus_prime_mid9_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID9_LEGGINGS = new MovieOptimusPrimeMid9("movie_optimus_prime_mid9_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_MID9_BOOTS = new MovieOptimusPrimeMid9("movie_optimus_prime_mid9_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+		
+		public static final Item MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET = new MovieOptimusPrimeAltmode("movie_optimus_prime_altmode_helmet", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+		public static final Item MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE = new MovieOptimusPrimeAltmode("movie_optimus_prime_altmode_chestplate", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+		public static final Item MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS = new MovieOptimusPrimeAltmode("movie_optimus_prime_altmode_leggings", MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+		public static final Item MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS = new MovieOptimusPrimeAltmode("movie_optimus_prime_altmode_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET);
 	
 	
 	//Vehicon

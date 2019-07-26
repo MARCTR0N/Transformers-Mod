@@ -4,7 +4,7 @@ import java.io.File;
 
 import com.marctron.transformersmod.init.CybertronWorldGen;
 import com.marctron.transformersmod.init.EntityInit;
-import com.marctron.transformersmod.init.GunEntities;
+//import com.marctron.transformersmod.init.GunEntities;
 import com.marctron.transformersmod.init.ModBiomes;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.init.ModRecipes;
@@ -69,7 +69,7 @@ public class Main {
 		ModRecipes.init();
 		RegistryHandler.initRegistries();
 		proxy.register();
-		GunEntities.regEntities();
+//		GunEntities.regEntities();
 	}
 	
 	@EventHandler

@@ -26,7 +26,7 @@ import net.minecraftforge.items.ItemStackHandler;
 public class TileEntityEnergonEngine extends TileEntity implements ITickable
 {
 	public ItemStackHandler handler = new ItemStackHandler(1);
-	private EnergyStorage storage = new EnergyStorage(100000, 0, 200, 0);
+	private CustomEnergyStorage storage = new CustomEnergyStorage(100000, 0, 200, 0);
 	public int energy = storage.getEnergyStored();
 	private String customName;
 	public int cookTime;
@@ -43,9 +43,16 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
         	TileEntity te = world.getTileEntity(pos.offset(dir));
             if(te == null) continue;
             IEnergyStorage energy = te.getCapability(CapabilityEnergy.ENERGY, null);
-            if(energy == null) continue;
-            energy.receiveEnergy(1, false);
-            this.storage.extractEnergy(1000, false);
+            if(energy != null){
+            	energy.receiveEnergy(this.energy, false);
+            	this.energy = this.energy - energy.receiveEnergy(this.energy , false);;
+            	
+            }
+            
+            
+           
+
+            
            
         }
 		
@@ -87,7 +94,7 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable
 	
 	private int getFuelValue(ItemStack stack) 
 	{
-		if(stack.getItem() == ModItems.BLUE_ENERGON_SHARD) return 1000;
+		if(stack.getItem() == ModItems.BLUE_ENERGON_SHARD) return 500;
 		
 		//else if(stack.getItem() == Items.XXX) return 500; to add new fuels
 		else return 0;

@@ -19,6 +19,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @EventBusSubscriber
 public class RegistryHandler 
@@ -33,15 +35,20 @@ public class RegistryHandler
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
-		TileEntityHandler.registerTileEntities();
+		
 		
 	}
 	
 	
 	
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public static void onModelRegister(ModelRegistryEvent event)
 	{
+		EntityInit.registerEntities();
+		RenderHandler.registerEntityRenders();
+		RenderHandler.registerEntityRenders();
+		TileEntityHandler.registerTileEntities();
 		for(Item item : ModItems.ITEMS)
 		{
 			if(item instanceof IHasModel)
@@ -61,14 +68,14 @@ public class RegistryHandler
 	}
 	public static void preInitRegistries(FMLPreInitializationEvent event)
 	{
-		EntityInit.registerEntities();
-		RenderHandler.registerEntityRenders();
+		
+		
 	}
 
 	public static void preInitRegistriesSide() 
 	{
 		EntityInit.registerEntities();
-		RenderHandler.registerEntityRenders();
+		
 		SoundsHandler.init();
 	}
 	public static void initRegistries() 

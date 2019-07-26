@@ -4,11 +4,14 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * ModelSkeleton - Either Mojang or a mod author
  * Created using Tabula 7.0.0
  */
+@SideOnly(Side.CLIENT)
 public class ModelVehicon extends ModelBase {
     public ModelRenderer RightArm;
     public ModelRenderer Right_Leg;

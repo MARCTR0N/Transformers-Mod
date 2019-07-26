@@ -12,10 +12,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntitySwindle extends EntitySkeleton
 {
-
+	
 	public EntitySwindle(World worldIn) 
 	{
 		super(worldIn);

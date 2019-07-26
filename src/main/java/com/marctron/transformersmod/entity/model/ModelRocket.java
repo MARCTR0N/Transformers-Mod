@@ -3,7 +3,9 @@ package com.marctron.transformersmod.entity.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+@SideOnly(Side.CLIENT)
 public class ModelRocket extends ModelBase {
     
 	public ModelRenderer shape1;
