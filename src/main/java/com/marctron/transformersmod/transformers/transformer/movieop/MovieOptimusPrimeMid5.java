@@ -13,8 +13,9 @@ import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimu
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid5;
 import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
-import com.marctron.transformersmod.util.interfaces.IHasModel;
+
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -39,7 +40,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MovieOptimusPrimeMid5 extends ItemArmor implements IHasModel {
+public class MovieOptimusPrimeMid5 extends ItemArmor {
 	
 
 	
@@ -68,13 +69,7 @@ public MovieOptimusPrimeMid5(String name, ArmorMaterial materialIn, int renderIn
 //		
 //	}
 	
-	
-	@Override
-	public final void registerModels() 
-	{
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
-	
+
 	
 	
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
@@ -205,27 +200,27 @@ public MovieOptimusPrimeMid5(String name, ArmorMaterial materialIn, int renderIn
 								{
 								
 										
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID5_BOOTS) {
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_BOOTS) {
 										
-									player.inventory.armorInventory.set(0, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID6_BOOTS));
-										
-									}
-									
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS) {
-										
-									player.inventory.armorInventory.set(1, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID6_LEGGINGS));
+									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID6_BOOTS));
 										
 									}
 									
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE) {
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS) {
 										
-									player.inventory.armorInventory.set(2, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID6_CHESTPLATE));
+									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID6_LEGGINGS));
 										
 									}
 									
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_MID5_HELMET) {
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE) {
 										
-									player.inventory.armorInventory.set(3, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID6_HELMET));
+									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID6_CHESTPLATE));
+										
+									}
+									
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_HELMET) {
+										
+									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID6_HELMET));
 									}
 									
 									

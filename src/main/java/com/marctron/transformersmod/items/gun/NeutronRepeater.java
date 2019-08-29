@@ -2,6 +2,8 @@ package com.marctron.transformersmod.items.gun;
 
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,7 +24,7 @@ public class NeutronRepeater extends ItemGunBase {
 
     @Override
     public IShootable getAmmoItem() {
-        return ModItems.Neutron_Repeater_Clip;
+        return RegistryHandler.ModItems.Neutron_Repeater_Clip;
     }
 
     @Override

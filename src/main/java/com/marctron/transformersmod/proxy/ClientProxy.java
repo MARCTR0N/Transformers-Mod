@@ -21,14 +21,14 @@ import org.lwjgl.input.Keyboard;
 
 public class ClientProxy implements IProxy {
 
-    public static final KeyBinding MY_KEYBINDING = new KeyBinding("key.transform", Keyboard.KEY_X, "category.transformers");
+    public static final KeyBinding ALT_MODE = new KeyBinding("key.transform", Keyboard.KEY_X, "category.transformers");
     public static final KeyBinding ROBOT_MODE = new KeyBinding("key.robotmode", Keyboard.KEY_Y, "category.transformers");
 
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
-        ClientRegistry.registerKeyBinding(MY_KEYBINDING);
+        ClientRegistry.registerKeyBinding(ALT_MODE);
         registerEntityRenderers();
     }
 

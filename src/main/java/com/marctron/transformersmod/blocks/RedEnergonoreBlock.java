@@ -2,6 +2,8 @@ package com.marctron.transformersmod.blocks;
 
 import com.marctron.transformersmod.init.ModBlocks;
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -37,7 +39,7 @@ public class RedEnergonoreBlock extends BlockBase {
 
     @Override
     public Item getItemDropped(IBlockState state, Random par2Random, int par3) {
-        return new ItemStack(ModItems.RED_ENERGON_SHARD).getItem();
+        return new ItemStack(RegistryHandler.ModItems.RED_ENERGON_SHARD).getItem();
 
     }
 

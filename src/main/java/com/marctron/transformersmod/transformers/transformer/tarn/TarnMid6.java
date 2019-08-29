@@ -3,6 +3,8 @@ package com.marctron.transformersmod.transformers.transformer.tarn;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid3;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -54,20 +56,20 @@ public class TarnMid6 extends ItemArmor {
             public void run() {
 
 
-                if (itemStack.getItem() == ModItems.TARN_MID6_HELMET) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID6_HELMET) {
                     if (world.isRemote) {
 
-                        player.inventory.armorInventory.set(3, new ItemStack(ModItems.TARN_MID7_HELMET));
+                        player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.TARN_MID7_HELMET));
                         //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
 
 
                     }
                 }
 
-                if (itemStack.getItem() == ModItems.TARN_MID6_CHESTPLATE) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID6_CHESTPLATE) {
                     if (world.isRemote) {
 
-                        player.inventory.armorInventory.set(2, new ItemStack(ModItems.TARN_MID7_CHESTPLATE));
+                        player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.TARN_MID7_CHESTPLATE));
                         //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
 
 
@@ -75,19 +77,19 @@ public class TarnMid6 extends ItemArmor {
                 }
 
 
-                if (itemStack.getItem() == ModItems.TARN_MID6_LEGGINGS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID6_LEGGINGS) {
                     if (world.isRemote) {
 
-                        player.inventory.armorInventory.set(1, new ItemStack(ModItems.TARN_MID7_LEGGINGS));
+                        player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.TARN_MID7_LEGGINGS));
                         //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
 
 
                     }
                 }
-                if (itemStack.getItem() == ModItems.TARN_MID6_BOOTS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID6_BOOTS) {
                     if (world.isRemote) {
 
-                        player.inventory.armorInventory.set(0, new ItemStack(ModItems.TARN_MID7_BOOTS));
+                        player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.TARN_MID7_BOOTS));
                         //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
 
 

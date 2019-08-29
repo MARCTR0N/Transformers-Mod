@@ -2,6 +2,8 @@ package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
@@ -50,7 +52,7 @@ public class ItemEnergonChunkRed extends ItemFood {
 
             }
 
-            playerIn.inventory.clearMatchingItems(ModItems.RED_ENERGON_MUG, 0, 1, null);
+            playerIn.inventory.clearMatchingItems(RegistryHandler.ModItems.RED_ENERGON_MUG, 0, 1, null);
 
         }
 

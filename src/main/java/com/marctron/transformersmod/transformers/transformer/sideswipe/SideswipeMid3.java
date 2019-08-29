@@ -2,6 +2,8 @@ package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,7 +30,7 @@ public class SideswipeMid3 extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+       
 
     }
 
@@ -57,24 +59,24 @@ public class SideswipeMid3 extends ItemArmor {
 
                 player.eyeHeight = 1.25F;
 
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_HELMET) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID3_HELMET) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_HELMET));
+                        player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_HELMET));
                     }
                 }
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_CHESTPLATE) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID3_CHESTPLATE) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_CHESTPLATE));
+                        player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_CHESTPLATE));
                     }
                 }
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_LEGGINGS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID3_LEGGINGS) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_LEGGINGS));
+                        player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_LEGGINGS));
                     }
                 }
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID3_BOOTS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID3_BOOTS) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_BOOTS));
+                        player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_BOOTS));
                     }
                 }
             }

@@ -9,10 +9,13 @@ import javax.annotation.Nullable;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
+import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
-import com.marctron.transformersmod.util.interfaces.IHasModel;
+
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -37,7 +40,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MovieOptimusPrime extends ItemArmor implements IHasModel {
+public class MovieOptimusPrime extends ItemArmor {
 	
 
 	
@@ -46,34 +49,11 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(Main.tabAutobot);
+		setCreativeTab(null);
 		setMaxStackSize(1);
-		ModItems.ITEMS.add(this);
+		
 	}
 
-
-
-
-
-
-//	public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
-//		super(materialIn, renderIndexIn, equipmentSlotIn);
-//		setUnlocalizedName(name);
-//		setRegistryName(name);
-//		setCreativeTab(Main.tabTransformers);
-//		setMaxStackSize(1);
-//		ModItems.ITEMS.add(this);
-//		
-//	}
-	
-	
-	@Override
-	public final void registerModels() 
-	{
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
-	
-	
 	
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
 		list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("MOVIE")));
@@ -84,11 +64,19 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 	@SubscribeEvent
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
-//			player.fallDistance = 0;
-			//player.capabilities.allowFlying = true;
-			
-//			player.noClip = true;
 
+		player.dropItem(true);
+		
+		player.cameraPitch = 0F;
+		player.cameraYaw = 0F;
+		if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
+		{
+			if (player.onGround){
+			player.moveRelative(0F, 0F, 0.017F, 3F);
+			}
+		}
+		
+		
 			if (!Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown())
 			{
 				if (!player.isCreative()){
@@ -153,13 +141,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 				
 				
 				
-//				
-//				if (player.getHeldItem(EnumHand.MAIN_HAND) != itemStack){
-//					if (itemStack.getItem() == ModItems.PHASE_SHIFTER){
-//						player.noClip = true;
-//					}
-//				
-//				}
+
 			}
 			
 			
@@ -181,18 +163,14 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 										
 
 						}
-					if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
+					if (ClientProxy.ALT_MODE.isKeyDown()) {
 						
 						
 				
 						
 
 						
-						Timer timer = new Timer();
-						timer.schedule(new TimerTask() {
-							
-							@Override
-							public void run() {
+						
 								
 								
 
@@ -203,27 +181,27 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 								{
 								
 										
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) {
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) {
 										
-									player.inventory.armorInventory.set(0, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID1_BOOTS));
-										
-									}
-									
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS) {
-										
-									player.inventory.armorInventory.set(1, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID1_LEGGINGS));
+									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS));
 										
 									}
 									
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE) {
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS) {
 										
-									player.inventory.armorInventory.set(2, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID1_CHESTPLATE));
+									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS));
 										
 									}
 									
-									if (itemStack.getItem() == ModItems.MOVIE_OPTIMUS_PRIME_HELMET) {
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE) {
 										
-									player.inventory.armorInventory.set(3, new ItemStack(ModItems.MOVIE_OPTIMUS_PRIME_MID1_HELMET));
+									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE));
+										
+									}
+									
+									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET) {
+										
+									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET));
 									}
 									
 									
@@ -232,9 +210,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 								
 								}
 								
-							}
 						
-						}, 60);
 						
 						
 						

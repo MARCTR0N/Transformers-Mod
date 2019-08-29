@@ -129,51 +129,51 @@ public class MovieOptimusPrime extends ItemArmor {
 
 
             }
-            if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-
-
-                Timer timer = new Timer();
-                timer.schedule(new TimerTask() {
-
-                    @Override
-                    public void run() {
-
-
-                        if (world.isRemote) {
-
-
-                            if (itemStack.getItem() == ModItems.STARSCREAM_BOOTS) {
-
-                                player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID1_BOOTS));
-
-                            }
-
-                            if (itemStack.getItem() == ModItems.STARSCREAM_LEGGINGS) {
-
-                                player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID1_LEGGINGS));
-
-                            }
-
-                            if (itemStack.getItem() == ModItems.STARSCREAM_CHESTPLATE) {
-
-                                player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID1_CHESTPLATE));
-
-                            }
-
-                            if (itemStack.getItem() == ModItems.STARSCREAM_HELMET) {
-
-                                player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID1_HELMET));
-                            }
-
-
-                        }
-
-                    }
-
-                }, 60);
-
-
-            }
+//            if (ClientProxy.ALT_MODE.isKeyDown()) {
+//
+//
+//                Timer timer = new Timer();
+//                timer.schedule(new TimerTask() {
+//
+//                    @Override
+//                    public void run() {
+//
+//
+//                        if (world.isRemote) {
+//
+//
+//                            if (itemStack.getItem() == ModItems.STARSCREAM_BOOTS) {
+//
+//                                player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID1_BOOTS));
+//
+//                            }
+//
+//                            if (itemStack.getItem() == ModItems.STARSCREAM_LEGGINGS) {
+//
+//                                player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID1_LEGGINGS));
+//
+//                            }
+//
+//                            if (itemStack.getItem() == ModItems.STARSCREAM_CHESTPLATE) {
+//
+//                                player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID1_CHESTPLATE));
+//
+//                            }
+//
+//                            if (itemStack.getItem() == ModItems.STARSCREAM_HELMET) {
+//
+//                                player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID1_HELMET));
+//                            }
+//
+//
+//                        }
+//
+//                    }
+//
+//                }, 60);
+//
+//
+//            }
         }
     }
 

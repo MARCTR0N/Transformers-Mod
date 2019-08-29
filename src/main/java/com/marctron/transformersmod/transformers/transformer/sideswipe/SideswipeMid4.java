@@ -2,6 +2,8 @@ package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid2;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,7 +30,7 @@ public class SideswipeMid4 extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+       
 
     }
 
@@ -57,24 +59,24 @@ public class SideswipeMid4 extends ItemArmor {
 
                 player.eyeHeight = 1.25F;
 
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_HELMET) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_HELMET) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_MID3_HELMET));
+                        player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_HELMET));
                     }
                 }
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_CHESTPLATE) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_CHESTPLATE) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_MID3_CHESTPLATE));
+                        player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_CHESTPLATE));
                     }
                 }
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_LEGGINGS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_LEGGINGS) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_MID3_LEGGINGS));
+                        player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_LEGGINGS));
                     }
                 }
-                if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_BOOTS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_BOOTS) {
                     if (world.isRemote) {
-                        player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_MID3_BOOTS));
+                        player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_BOOTS));
                     }
                 }
             }
@@ -82,28 +84,28 @@ public class SideswipeMid4 extends ItemArmor {
         }, 60);
 
 
-        player.eyeHeight = 1.25F;
-
-        if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_HELMET) {
-            if (world.isRemote) {
-                player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_MID3_HELMET));
-            }
-        }
-        if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_CHESTPLATE) {
-            if (world.isRemote) {
-                player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_MID3_CHESTPLATE));
-            }
-        }
-        if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_LEGGINGS) {
-            if (world.isRemote) {
-                player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_MID3_LEGGINGS));
-            }
-        }
-        if (itemStack.getItem() == ModItems.SIDESWIPE_MID4_BOOTS) {
-            if (world.isRemote) {
-                player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_MID3_BOOTS));
-            }
-        }
+//        player.eyeHeight = 1.25F;
+//
+//        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_HELMET) {
+//            if (world.isRemote) {
+//                player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_HELMET));
+//            }
+//        }
+//        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_CHESTPLATE) {
+//            if (world.isRemote) {
+//                player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_CHESTPLATE));
+//            }
+//        }
+//        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_LEGGINGS) {
+//            if (world.isRemote) {
+//                player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_LEGGINGS));
+//            }
+//        }
+//        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_MID4_BOOTS) {
+//            if (world.isRemote) {
+//                player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID3_BOOTS));
+//            }
+//        }
     }
 
     @Override

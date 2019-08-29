@@ -39,7 +39,7 @@ public class Main {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.ENERGON_SHARD);
+            return new ItemStack(RegistryHandler.ModItems.ENERGON_SHARD);
         }
 
         ;
@@ -55,9 +55,7 @@ public class Main {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(ModItems.AMMO);
-        }
-
-        ;
+        };
 
         @Override
         public boolean hasSearchBar() {
@@ -69,10 +67,8 @@ public class Main {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.DECEPTICON_INSGINIA);
-        }
-
-        ;
+            return new ItemStack(RegistryHandler.ModItems.D_INSGINIA);
+        };
 
         @Override
         public boolean hasSearchBar() {
@@ -84,7 +80,7 @@ public class Main {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.AUTOBOT_INSGINIA);
+            return new ItemStack(RegistryHandler.ModItems.A_INSGINIA);
         }
 
         ;

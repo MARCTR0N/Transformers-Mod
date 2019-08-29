@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -35,7 +36,7 @@ public class ArmorModelSideswipe extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(Main.tabAutobot);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+       
 
     }
 
@@ -62,39 +63,39 @@ public class ArmorModelSideswipe extends ItemArmor {
 
         player.eyeHeight = 1.65F;
 
-        if (itemStack.getItem() == ModItems.SIDESWIPE_HELMET) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_HELMET) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
                     //player.inventory.armorInventory.set(3, new ItemStack(ModItems.TARN_HELMET));
-                    player.inventory.armorInventory.set(3, new ItemStack(ModItems.SIDESWIPE_MID_HELMET));
+                    player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID_HELMET));
                     Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 0.3F, 1.85F);
                     //player.playSound(SoundsHandler.TRANSFORMONE, 1F, 1F);
 
                 }
             }
         }
-        if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_CHESTPLATE) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(2, new ItemStack(ModItems.SIDESWIPE_MID_CHESTPLATE));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID_CHESTPLATE));
                     //player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_ALTMODE_CHESTPLATE));
 
                 }
             }
         }
-        if (itemStack.getItem() == ModItems.SIDESWIPE_LEGGINGS) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_LEGGINGS) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(1, new ItemStack(ModItems.SIDESWIPE_MID_LEGGINGS));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID_LEGGINGS));
                     //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
 
                 }
             }
         }
-        if (itemStack.getItem() == ModItems.SIDESWIPE_BOOTS) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_BOOTS) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(0, new ItemStack(ModItems.SIDESWIPE_MID_BOOTS));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.SIDESWIPE_MID_BOOTS));
                     //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
 
                 }

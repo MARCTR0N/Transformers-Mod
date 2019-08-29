@@ -1,6 +1,8 @@
 package com.marctron.transformersmod.blocks.energonengine;
 
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -72,7 +74,7 @@ public class TileEntityEnergonEngine extends TileEntity implements ITickable {
     }
 
     private int getFuelValue(ItemStack stack) {
-        if (stack.getItem() == ModItems.BLUE_ENERGON_SHARD) return 1000;
+        if (stack.getItem() == RegistryHandler.ModItems.BLUE_ENERGON_SHARD) return 1000;
 
             //else if(stack.getItem() == Items.XXX) return 500; to add new fuels
         else return 0;

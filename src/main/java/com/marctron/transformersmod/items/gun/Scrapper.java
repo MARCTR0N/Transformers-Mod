@@ -5,6 +5,8 @@ import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.util.NBTHelper;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -164,7 +166,7 @@ public class Scrapper extends ItemBase implements IGun {
 
     @Override
     public IShootable getAmmoItem() {
-        return ModItems.Scrapper_Clip;
+        return RegistryHandler.ModItems.Scrapper_Clip;
     }
 
     @Override

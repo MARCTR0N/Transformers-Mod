@@ -4,6 +4,7 @@ import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.ModelVehicleBase;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamAltmode;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -55,83 +56,83 @@ public class StarscreamAltmode extends ModelVehicleBase {
 
 
             //Starscream
-            if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_BOOTS) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.STARSCREAM_ALTMODE_BOOTS) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(0, new ItemStack(ModItems.STARSCREAM_MID4_BOOTS));
+                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.STARSCREAM_MID4_BOOTS));
                     Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMONE, 0.3F, 1.9F);
                 }
             }
 
 
-            if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_LEGGINGS) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.STARSCREAM_ALTMODE_LEGGINGS) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(1, new ItemStack(ModItems.STARSCREAM_MID4_LEGGINGS));
+                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.STARSCREAM_MID4_LEGGINGS));
                 }
             }
 
-            if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_CHESTPLATE) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.STARSCREAM_ALTMODE_CHESTPLATE) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(2, new ItemStack(ModItems.STARSCREAM_MID4_CHESTPLATE));
+                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.STARSCREAM_MID4_CHESTPLATE));
                 }
             }
 
-            if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_HELMET) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.STARSCREAM_ALTMODE_HELMET) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(3, new ItemStack(ModItems.STARSCREAM_MID4_HELMET));
+                    player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.STARSCREAM_MID4_HELMET));
                 }
             }
 
             //Skywarp
-            if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_BOOTS) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.SKYWARP_ALTMODE_BOOTS) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(0, new ItemStack(ModItems.SKYWARP_MID4_BOOTS));
+                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.SKYWARP_MID4_BOOTS));
                     Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMONE, 0.3F, 1.9F);
                 }
 
             }
 
-            if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_LEGGINGS) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.SKYWARP_ALTMODE_LEGGINGS) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(1, new ItemStack(ModItems.SKYWARP_MID4_LEGGINGS));
+                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.SKYWARP_MID4_LEGGINGS));
                 }
             }
 
-            if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_CHESTPLATE) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.SKYWARP_ALTMODE_CHESTPLATE) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(2, new ItemStack(ModItems.SKYWARP_MID4_CHESTPLATE));
+                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.SKYWARP_MID4_CHESTPLATE));
                 }
             }
 
-            if (itemStack.getItem() == ModItems.SKYWARP_ALTMODE_HELMET) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.SKYWARP_ALTMODE_HELMET) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(3, new ItemStack(ModItems.SKYWARP_MID4_HELMET));
+                    player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.SKYWARP_MID4_HELMET));
                 }
             }
 
             //THUNDERCRACKER
-            if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_BOOTS) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.THUNDERCRACKER_ALTMODE_BOOTS) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(0, new ItemStack(ModItems.THUNDERCRACKER_MID4_BOOTS));
+                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.THUNDERCRACKER_MID4_BOOTS));
                     Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMONE, 0.3F, 1.9F);
                 }
 
             }
 
-            if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_LEGGINGS) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.THUNDERCRACKER_ALTMODE_LEGGINGS) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(1, new ItemStack(ModItems.THUNDERCRACKER_MID4_LEGGINGS));
+                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.THUNDERCRACKER_MID4_LEGGINGS));
                 }
             }
 
-            if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_CHESTPLATE) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.THUNDERCRACKER_ALTMODE_CHESTPLATE) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(2, new ItemStack(ModItems.THUNDERCRACKER_MID4_CHESTPLATE));
+                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.THUNDERCRACKER_MID4_CHESTPLATE));
                 }
             }
 
-            if (itemStack.getItem() == ModItems.THUNDERCRACKER_ALTMODE_HELMET) {
+            if (itemStack.getItem() == RegistryHandler.ModItems.THUNDERCRACKER_ALTMODE_HELMET) {
                 if (world.isRemote) {
-                    player.inventory.armorInventory.set(3, new ItemStack(ModItems.THUNDERCRACKER_MID4_HELMET));
+                    player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.THUNDERCRACKER_MID4_HELMET));
                 }
             }
 
@@ -189,8 +190,7 @@ public class StarscreamAltmode extends ModelVehicleBase {
                 player.moveRelative(0F, 0F, 0.01F, 3F);
             }
 
-            if (itemStack.getItem() == ModItems.STARSCREAM_ALTMODE_CHESTPLATE) {
-                if (world.isRemote) {
+           
 
 
                     //world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY, player.posZ, 0., -0.3, 0);
@@ -210,9 +210,9 @@ public class StarscreamAltmode extends ModelVehicleBase {
                     //world.spawnParticle(EnumParticleTypes.FLAME, player.posX, player.posY, player.posZ, 0, -0.1, 0);
 
 
-                }
+                
 
-            }
+            
         }
 
 

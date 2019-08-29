@@ -2,6 +2,8 @@ package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -42,7 +44,7 @@ public class ItemMedkit extends Item {
 
             }
 
-            playerIn.inventory.clearMatchingItems(ModItems.ENERGON_SHARD, 0, 1, null);
+            playerIn.inventory.clearMatchingItems(RegistryHandler.ModItems.ENERGON_SHARD, 0, 1, null);
 
         }
 

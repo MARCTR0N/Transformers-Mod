@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -57,37 +58,37 @@ public class ArmorModelVehicon extends ItemArmor {
         //player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 1.8F, player.getEntityBoundingBox().minZ + 0.6F));
 
 
-        if (itemStack.getItem() == ModItems.CUSTOM_HELMET) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.CUSTOM_HELMET) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_MID_HELMET));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.VEHICON_MID_HELMET));
                     //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
                     Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 0.3F, 1.85F);
                 }
             }
         }
-        if (itemStack.getItem() == ModItems.CUSTOM_CHESTPLATE) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.CUSTOM_CHESTPLATE) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_MID_CHESTPLATE));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.VEHICON_MID_CHESTPLATE));
                     //player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_ALTMODE_CHESTPLATE));
 
                 }
             }
         }
-        if (itemStack.getItem() == ModItems.CUSTOM_LEGGINGS) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.CUSTOM_LEGGINGS) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_MID_LEGGINGS));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.VEHICON_MID_LEGGINGS));
                     //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
 
                 }
             }
         }
-        if (itemStack.getItem() == ModItems.CUSTOM_BOOTS) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.CUSTOM_BOOTS) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_MID_BOOTS));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.VEHICON_MID_BOOTS));
                     //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
 
                 }

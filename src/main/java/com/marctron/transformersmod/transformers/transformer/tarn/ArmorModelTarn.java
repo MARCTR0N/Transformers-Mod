@@ -4,6 +4,8 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.tarn.TarnChest;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -48,10 +50,10 @@ public class ArmorModelTarn extends ItemArmor {
         super.onArmorTick(world, player, itemStack);
 
 
-        if (itemStack.getItem() == ModItems.TARN_CHESTPLATE) {
+        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_CHESTPLATE) {
             if (world.isRemote) {
-                if (ClientProxy.MY_KEYBINDING.isKeyDown()) {
-                    player.inventory.armorInventory.set(2, new ItemStack(ModItems.TARN_MID1_CHESTPLATE));
+                if (ClientProxy.ALT_MODE.isKeyDown()) {
+                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.TARN_MID1_CHESTPLATE));
                     //player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_ALTMODE_CHESTPLATE));
 
                 }

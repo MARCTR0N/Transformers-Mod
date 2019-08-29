@@ -2,6 +2,8 @@ package com.marctron.transformersmod.items.gun;
 
 import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.init.ModItems;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +26,7 @@ public class RocketLauncher extends ItemGunBase {
 
     @Override
     public IShootable getAmmoItem() {
-        return ModItems.Rocket_Clip;
+        return RegistryHandler.ModItems.Rocket_Clip;
     }
 
     @Override

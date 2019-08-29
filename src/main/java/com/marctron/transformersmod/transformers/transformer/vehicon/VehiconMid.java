@@ -2,6 +2,8 @@ package com.marctron.transformersmod.transformers.transformer.vehicon;
 
 import com.marctron.transformersmod.init.ModItems;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,41 +51,41 @@ public final class VehiconMid extends ItemArmor {
             public void run() {
 
 
-                if (itemStack.getItem() == ModItems.VEHICON_MID_HELMET) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.VEHICON_MID_HELMET) {
                     if (world.isRemote) {
                         //if (ClientProxy.MY_KEYBINDING.isKeyDown())
                         //{
-                        player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
+                        player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.VEHICON_ALTMODE_HELMET));
                         //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
 
                         //}
                     }
                 }
-                if (itemStack.getItem() == ModItems.VEHICON_MID_CHESTPLATE) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.VEHICON_MID_CHESTPLATE) {
                     if (world.isRemote) {
                         //if (ClientProxy.MY_KEYBINDING.isKeyDown())
                         //{
-                        player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_ALTMODE_CHESTPLATE));
+                        player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.VEHICON_ALTMODE_CHESTPLATE));
                         //player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_ALTMODE_CHESTPLATE));
 
                         //}
                     }
                 }
-                if (itemStack.getItem() == ModItems.VEHICON_MID_LEGGINGS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.VEHICON_MID_LEGGINGS) {
                     if (world.isRemote) {
                         //if (ClientProxy.MY_KEYBINDING.isKeyDown())
                         //{
-                        player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
+                        player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.VEHICON_ALTMODE_LEGGINGS));
                         //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
 
                         //}
                     }
                 }
-                if (itemStack.getItem() == ModItems.VEHICON_MID_BOOTS) {
+                if (itemStack.getItem() == RegistryHandler.ModItems.VEHICON_MID_BOOTS) {
                     if (world.isRemote) {
                         //if (ClientProxy.MY_KEYBINDING.isKeyDown())
                         //{
-                        player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
+                        player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.VEHICON_ALTMODE_BOOTS));
                         //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
 
                         //}
