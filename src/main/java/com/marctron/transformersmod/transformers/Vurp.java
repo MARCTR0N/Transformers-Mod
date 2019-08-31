@@ -1,10 +1,13 @@
 package com.marctron.transformersmod.transformers;
 
+import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeAltmode;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
+import net.ilexiconn.llibrary.server.animation.Animation;
+import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,7 +35,7 @@ public class Vurp extends ItemArmor {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(null);
+        setCreativeTab(Main.tabDecepticon);
         setMaxStackSize(1);
         
 
@@ -114,7 +117,7 @@ public class Vurp extends ItemArmor {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+    public final ModelVurp getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 
         if (!itemStack.isEmpty()) {
 
@@ -122,13 +125,13 @@ public class Vurp extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                model.Head.showModel = armorSlot == EntityEquipmentSlot.HEAD;
                 model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
-                model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
-                model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+                model.CHEST.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
+                model.RightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                model.RightArm_1.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                model.RightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+                model.RightLeg_1.showModel = (armorSlot == EntityEquipmentSlot.FEET);
 
 
                 model.isSneak = _default.isSneak;
@@ -143,6 +146,5 @@ public class Vurp extends ItemArmor {
         }
         return null;
     }
-
 
 }

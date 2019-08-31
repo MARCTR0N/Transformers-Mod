@@ -40,6 +40,7 @@ public class Player {
                     if (nbt.getBoolean("Gun")) {
                         if (player.isSprinting()) {
                             model.rightArmPose = ModelBiped.ArmPose.BLOCK;
+                            
                         } else
                             model.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
                         model.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;

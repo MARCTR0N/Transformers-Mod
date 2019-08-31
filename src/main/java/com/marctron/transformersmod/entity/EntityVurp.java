@@ -3,6 +3,7 @@ package com.marctron.transformersmod.entity;
 import com.marctron.transformersmod.util.handlers.LootTableHandler;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
+import net.ilexiconn.llibrary.server.animation.AnimationAI;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,9 +13,19 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityVehicon extends EntitySkeleton implements IAnimatedEntity {
+public class EntityVurp extends EntitySkeleton implements IAnimatedEntity {
 
-    public EntityVehicon(World worldIn) {
+	private Animation animation = NO_ANIMATION;
+	private int animationTick;
+	
+	public static final Animation ANIMATION_WALK = Animation.create(60);
+	public static final Animation ANIMATION_ATTACK = Animation.create(120);
+	
+	private static final Animation[] ANIMATIONS = {ANIMATION_WALK, ANIMATION_ATTACK};
+	public AnimationAI currentAnim;
+	
+	
+    public EntityVurp(World worldIn) {
         super(worldIn);
 
     }
@@ -28,7 +39,7 @@ public class EntityVehicon extends EntitySkeleton implements IAnimatedEntity {
     }
 
     public EntitySkeleton createChild(EntityAgeable ageable) {
-        return new EntityVehicon(world);
+        return new EntityVurp(world);
     }
 
     @Override
@@ -53,32 +64,43 @@ public class EntityVehicon extends EntitySkeleton implements IAnimatedEntity {
 
 	@Override
 	public int getAnimationTick() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return animationTick;
 	}
 
 	@Override
 	public void setAnimationTick(int tick) {
-		// TODO Auto-generated method stub
+		animationTick = tick;
 		
 	}
 
 	@Override
 	public Animation getAnimation() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.animation;
 	}
 
 	@Override
 	public void setAnimation(Animation animation) {
+		if(animation == NO_ANIMATION)
+		{
+			onAnimationFinish(this.animation);
+			setAnimationTick(0);
+		}
+		this.animation = animation;
+	}
+
+	private void onAnimationFinish(Animation animation) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public Animation[] getAnimations() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return ANIMATIONS;
 	}
+	
+	
 
 }
