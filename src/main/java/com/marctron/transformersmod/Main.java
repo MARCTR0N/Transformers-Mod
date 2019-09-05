@@ -1,6 +1,7 @@
 package com.marctron.transformersmod;
 
 import com.marctron.transformersmod.commands.CommandDimensionTeleport;
+import org.apache.logging.log4j.Logger;
 import com.marctron.transformersmod.init.*;
 import com.marctron.transformersmod.proxy.IProxy;
 import com.marctron.transformersmod.util.Reference;
@@ -54,7 +55,7 @@ public class Main {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(ModItems.AMMO);
+            return new ItemStack(RegistryHandler.ModItems.AMMO);
         };
 
         @Override
@@ -76,6 +77,8 @@ public class Main {
         }
 
     };
+    public static Logger logger;
+    
     public static CreativeTabs tabAutobot = new CreativeTabs("tabAutobot") {
 
         @Override
@@ -95,6 +98,8 @@ public class Main {
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+        
+        logger = event.getModLog();
 
         CybertronWorldGen.registerDimensions();
 
@@ -102,7 +107,7 @@ public class Main {
 
         //ModBiomes.registerBiomes();
 
-        EntityInit.registerEntities();
+//        EntityInit.registerEntities();
 
         //GunEntities.regEntities();
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
@@ -120,7 +125,7 @@ public class Main {
 
     @EventHandler
     public static void preInitRegistries() {
-        EntityInit.registerEntities();
+//        EntityInit.registerEntities();
     }
 
     public static void postInit(FMLPostInitializationEvent event) {

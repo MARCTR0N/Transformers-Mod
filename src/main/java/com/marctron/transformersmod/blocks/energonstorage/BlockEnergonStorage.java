@@ -1,9 +1,11 @@
 package com.marctron.transformersmod.blocks.energonstorage;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModBlocks;
-import com.marctron.transformersmod.init.ModItems;
+
+
 import com.marctron.transformersmod.util.Reference;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,10 +23,11 @@ public class BlockEnergonStorage extends Block {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
+        RegistryHandler.Registry.registerItemBlock(this);
 
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+//        ModBlocks.BLOCKS.add(this);
+//        RegistryHandler.Registry.onItemRegister(this);
     }
 
     @Override

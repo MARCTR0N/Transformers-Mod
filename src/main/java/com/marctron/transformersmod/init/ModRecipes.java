@@ -10,7 +10,7 @@ public class ModRecipes {
 
 
     public static void init() {
-        GameRegistry.addSmelting(ModBlocks.TRANSFORMIUM_ORE_BLOCK, new ItemStack(RegistryHandler.ModItems.TRANSFORMIUM, 1), 1.5f);
+        GameRegistry.addSmelting(RegistryHandler.ModBlocks.TRANSFORMIUM_ORE_BLOCK, new ItemStack(RegistryHandler.ModItems.TRANSFORMIUM, 1), 1.5f);
 	
 		
 		

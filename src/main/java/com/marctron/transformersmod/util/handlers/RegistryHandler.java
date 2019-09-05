@@ -1,21 +1,38 @@
 package com.marctron.transformersmod.util.handlers;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.blocks.BlockBase;
+import com.marctron.transformersmod.blocks.BlockEnergonCrate;
+import com.marctron.transformersmod.blocks.BlockGlassBase;
+import com.marctron.transformersmod.blocks.BlueEnergonoreBlock;
+import com.marctron.transformersmod.blocks.DarkEnergonoreBlock;
+import com.marctron.transformersmod.blocks.EnergoncubeBlock;
+import com.marctron.transformersmod.blocks.EnergonoreBlock;
+import com.marctron.transformersmod.blocks.ItemSpawner;
+import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
+import com.marctron.transformersmod.blocks.TransformiumoreBlock;
+import com.marctron.transformersmod.entity.EntityBullet;
+import com.marctron.transformersmod.entity.EntityLargeRocket;
+import com.marctron.transformersmod.entity.EntitySwindle;
+import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemEnergonMug;
 import com.marctron.transformersmod.items.ItemEnergonMugDark;
 import com.marctron.transformersmod.items.ItemEnergonMugRed;
 import com.marctron.transformersmod.items.ItemEnergonMugSynthetic;
+import com.marctron.transformersmod.items.ItemMedkit;
+import com.marctron.transformersmod.items.ItemPhaseShifter;
 import com.marctron.transformersmod.items.ItemStarSaber;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
-import com.marctron.transformersmod.items.gun.IGun;
-import com.marctron.transformersmod.items.gun.IShootable;
 import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
-import com.marctron.transformersmod.transformers.MovieOptimusPrime;
 import com.marctron.transformersmod.transformers.Vurp;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
@@ -60,12 +77,18 @@ import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid2
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -73,11 +96,16 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class RegistryHandler {
+	
+	
+	
 	
 	
 	//Tools
@@ -120,9 +148,15 @@ public class RegistryHandler {
 
     @GameRegistry.ObjectHolder(Reference.MOD_ID)
     public static final class ModItems {
-    	
+      //Relics
+    	public static final Item PHASE_SHIFTER = null;
     	public static final Item STAR_SABER = null;
     	
+      //TabIcons
+    	public static final Item AMMO = null;
+    	
+      //Consumables
+        public static final Item MEDKIT = null;
     	
       //Recipe Components
         public static final Item PROTOFORM = null;
@@ -487,16 +521,74 @@ public class RegistryHandler {
     @GameRegistry.ObjectHolder(Reference.MOD_ID)
     public static final class ModBlocks {
 
+    	public static final Block ITEM_SPAWNER = null;
+    	public static final Block ENERGON_CUBE_BLOCK = null;
+        public static final Block RED_ENERGON_CUBE_BLOCK = null;
+        public static final Block BLUE_ENERGON_CUBE_BLOCK = null;
+        public static final Block DARK_ENERGON_CUBE_BLOCK = null;
+        public static final Block SYNTHETIC_ENERGON_CUBE_BLOCK = null;
+        
+        public static final Block ENERGON_ORE_BLOCK = null;
+        public static final Block RED_ENERGON_ORE_BLOCK = null;
+        public static final Block BLUE_ENERGON_ORE_BLOCK = null;
+        public static final Block DARK_ENERGON_ORE_BLOCK = null;
+        public static final Block RED_ENERGON_ORE_BLOCK_NETHERRACK = null;
+        public static final Block DARK_ENERGON_ORE_BLOCK_END_STONE = null;
+
+        public static final Block TRANSFORMIUM_BLOCK = null;
+        public static final Block TRANSFORMIUM_ORE_BLOCK = null;
+
+        public static final Block ENERGON_CRATE_BLOCK = null;
+        
+        public static final Block SPACE_BRIDGE_BLOCK = null;
+
+        //Machinery
+//        public static final Block ENERGON_ENGINE = null;
+//        public static final Block ENERGON_STORAGE = null;
+//        public static final Block CREATIVE_GENERATOR = null;
+
+        //Dyed Stuff
+
+        //Wool
+        public static final Block WOOL_PALE_GREEN = null;
+        public static final Block WOOL_PALE_BROWN = null;
+        public static final Block WOOL_DARK_RED = null;
+        public static final Block WOOL_DARK_GRAY = null;
+        public static final Block WOOL_BEIGE = null;
+
+        //Glass
+        public static final Block STAINED_GLASS_PALE_GREEN = null;
+        public static final Block STAINED_GLASS_PALE_BROWN = null;
+        public static final Block STAINED_GLASS_DARK_RED = null;
+        public static final Block STAINED_GLASS_DARK_GRAY = null;
+        public static final Block STAINED_GLASS_BEIGE = null;
+
+        //Clay
+        public static final Block STAINED_HARDENED_CLAY_PALE_GREEN = null;
+        public static final Block STAINED_HARDENED_CLAY_PALE_BROWN = null;
+        public static final Block STAINED_HARDENED_CLAY_DARK_RED = null;
+        public static final Block STAINED_HARDENED_CLAY_DARK_GRAY = null;
+        public static final Block STAINED_HARDENED_CLAY_BEIGE = null;
+    	
     }
 
     @Mod.EventBusSubscriber
     public static class Registry {
-
+    	private static int entityID = -1;
+    	private static List<ItemBlock> ITEM_BLOCKS = new ArrayList<>();
+    	
         @SubscribeEvent
         public static void onItemRegister(RegistryEvent.Register<Item> event) {
             final Item[] items = {
             	  //Relics
             		new ItemStarSaber("star_saber", 200, SWORD_MATERIAL),
+            		new ItemPhaseShifter("phase_shifter"),
+            		
+            	  //TabIcons
+            		new ItemBase("ammo"),
+            		
+            	  //Consumables
+            	    new ItemMedkit("medkit", 3, 10, 100),
             		
             	  //Recipe Components
             	    new ItemBase("protoform"),
@@ -859,25 +951,128 @@ public class RegistryHandler {
                     
             };
             event.getRegistry().registerAll(items);
-            event.getRegistry().registerAll(com.marctron.transformersmod.init.ModItems.ITEMS.toArray(new Item[0]));
+            event.getRegistry().registerAll(ITEM_BLOCKS.toArray(new ItemBlock[ITEM_BLOCKS.size()]));
+           
+            ITEM_BLOCKS = null;
+
+//            event.getRegistry().registerAll(com.marctron.transformersmod.init.ModItems.ITEMS.toArray(new Item[0]));
         }
 
         @SubscribeEvent
         public static void onBlockRegister(RegistryEvent.Register<Block> event) {
-            final Block[] blocks = {};
+            final Block[] blocks = {
+            		new ItemSpawner("item_spawner", Material.IRON, SoundType.METAL, MapColor.BLUE),
+            		
+            		new EnergoncubeBlock("energon_cube_block", Material.IRON).setHardness(3),
+            	    new EnergoncubeBlock("red_energon_cube_block", Material.IRON).setHardness(3),
+            	    new EnergoncubeBlock("blue_energon_cube_block", Material.IRON).setHardness(3),
+            	    new EnergoncubeBlock("dark_energon_cube_block", Material.IRON).setHardness(3),
+            	    new EnergoncubeBlock("synthetic_energon_cube_block", Material.IRON).setHardness(3),
+            	    
+            	    new EnergonoreBlock("energon_ore_block", Material.IRON, true).setHardness(3),
+            	    new RedEnergonoreBlock("red_energon_ore_block", Material.IRON, true).setHardness(3),
+            	    new BlueEnergonoreBlock("blue_energon_ore_block", Material.IRON, true).setHardness(3),
+            	    new DarkEnergonoreBlock("dark_energon_ore_block", Material.IRON, true).setHardness(3),
+            	    new RedEnergonoreBlock("red_energon_ore_block_netherrack", Material.IRON, true).setHardness(3),
+            	    new DarkEnergonoreBlock("dark_energon_ore_block_end_stone", Material.IRON, true).setHardness(3),
+
+            	    new BlockBase("transformium_block", Material.IRON).setHardness(3).setHardness(3),
+            	    new TransformiumoreBlock("transformium_ore_block", Material.IRON).setHardness(3),
+
+            	    new BlockEnergonCrate("energon_crate_block").setHardness(3),
+            	    
+            	   new BlockBase("space_bridge_block", Material.IRON).setHardness(3),
+
+            	    //Machinery 
+//            	    new BlockEnergonEngine("energon_engine", Material.IRON).setHardness(3),
+//            	    new BlockEnergonStorage("energon_storage", Material.IRON).setHardness(3),
+//            	    new BlockCreativeGenerator("creative_engine", Material.IRON).setHardness(3),
+
+            	//Dyed Stuff
+
+            	    //Wool
+            	    new BlockBase("wool_pale_green", Material.CLOTH).setHardness(3),
+            	    new BlockBase("wool_pale_brown", Material.CLOTH).setHardness(3),
+            	    new BlockBase("wool_dark_red", Material.CLOTH).setHardness(3),
+            	    new BlockBase("wool_dark_gray", Material.CLOTH).setHardness(3),
+            	    new BlockBase("wool_beige", Material.CLOTH).setHardness(3),
+
+            	    //Glass
+            	    new BlockGlassBase("stained_glass_pale_green", Material.GLASS, false).setHardness(3),
+            	    new BlockGlassBase("stained_glass_pale_brown", Material.GLASS, false).setHardness(3),
+            	    new BlockGlassBase("stained_glass_dark_red", Material.GLASS, false).setHardness(3),
+            	    new BlockGlassBase("stained_glass_dark_gray", Material.GLASS, false).setHardness(3),
+            	    new BlockGlassBase("stained_glass_beige", Material.GLASS, false).setHardness(3),
+
+            	    //Clay
+            	    new BlockBase("stained_hardened_clay_pale_green", Material.CLAY).setHardness(3),
+            	    new BlockBase("stained_hardened_clay_pale_brown", Material.CLAY).setHardness(3),
+            	    new BlockBase("stained_hardened_clay_dark_red", Material.CLAY).setHardness(3),
+            	    new BlockBase("stained_hardened_clay_dark_gray", Material.CLAY).setHardness(3),
+            	    new BlockBase("stained_hardened_clay_beige", Material.CLAY).setHardness(3),
+            		
+            		
+            };
+            
             event.getRegistry().registerAll(blocks);
-            event.getRegistry().registerAll(com.marctron.transformersmod.init.ModBlocks.BLOCKS.toArray(new Block[0]));
+//            event.getRegistry().registerAll(com.marctron.transformersmod.init.ModBlocks.BLOCKS.toArray(new Block[0]));
             TileEntityHandler.registerTileEntities();
         }
+        
+        
 
         @SubscribeEvent
         public static void entityRegistry(RegistryEvent.Register<EntityEntry> e) {
-            final EntityEntry[] entry = {};
+            final EntityEntry[] entry = {
+            		registerProjectile("rocket", EntityLargeRocket.class, Reference.ENTITY_LARGE_ROCKET),
+                    registerProjectile("bullet", EntityBullet.class, Reference.ENTITY_BULLET),
+            		registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 1, true, 000000, 660066),
+            		registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 1, true, 8983288, 16043109),
+                    
+            };
             // use
             e.getRegistry().registerAll(entry);
         }
+        
+        public static void registerItemBlock(Block block) {
+            ItemBlock itemBlock = new ItemBlock(block);
+            itemBlock.setRegistryName(block.getRegistryName());
+            try {
+                ITEM_BLOCKS.add(itemBlock);
+            } catch (NullPointerException e) {
+                Main.logger.fatal("Attempted to register itemblock for {} after PMC registration was complete!", block.getRegistryName());
+            }
+        }
+        
+        public static EntityEntry registerProjectile(String name, Class<? extends Entity> entity, int id) {
+			return createEntityBuilder(name).entity(entity).build();
+//            EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, 64, 1, true);
+        }
+        
+        private static EntityEntry registerEntity(String name, Class<? extends Entity> cl, int trackRange, int frequency, boolean velocityUpdates) {
+            return createEntityBuilder(name).entity(cl).tracker(trackRange, frequency, velocityUpdates).build();
+        }
+
+        private static EntityEntry registerEntity(String name, Class<? extends Entity> entityClass, int trackingRange, int updateFrequency, boolean sendVelocityUpdates, int eggPrimary, int eggSecondary) {
+            return createEntityBuilder(name).entity(entityClass).tracker(trackingRange, updateFrequency, sendVelocityUpdates).egg(eggPrimary, eggSecondary).build();
+        }
+    
+        private static <E extends Entity> EntityEntryBuilder<E> createEntityBuilder(String name) {
+        	EntityEntryBuilder<E> builder = EntityEntryBuilder.create();
+        	ResourceLocation regName = new ResourceLocation(Reference.MOD_ID, name);
+        	return builder.id(regName, ID()).name(regName.toString());
+    	}
+    
+    	private static int ID() {
+        	++entityID;
+        	return entityID;
+    	}
     }
 
+    
+    
+    
+    
     @Mod.EventBusSubscriber(Side.CLIENT)
     public static class ModelRegistry {
         @SubscribeEvent

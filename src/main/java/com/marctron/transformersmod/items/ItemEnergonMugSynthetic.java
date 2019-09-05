@@ -1,7 +1,7 @@
 package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
@@ -24,7 +24,6 @@ public class ItemEnergonMugSynthetic extends ItemFood {
         setMaxStackSize(1);
 
 
-        ModItems.ITEMS.add(this);
     }
 
     @Override

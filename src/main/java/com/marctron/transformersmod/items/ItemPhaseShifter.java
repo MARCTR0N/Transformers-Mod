@@ -1,7 +1,6 @@
 package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,8 +26,7 @@ public class ItemPhaseShifter extends Item {
         TOOLTIP = getUnlocalizedName() + ".tooltip.";
         setMaxStackSize(1);
 
-        ModItems.ITEMS.add(this);
-
+      
     }
 
     @Override

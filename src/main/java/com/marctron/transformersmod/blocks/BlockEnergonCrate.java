@@ -2,9 +2,11 @@ package com.marctron.transformersmod.blocks;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.blocks.tileentity.TileEntityEnergonCrate;
-import com.marctron.transformersmod.init.ModBlocks;
-import com.marctron.transformersmod.init.ModItems;
+
+
 import com.marctron.transformersmod.util.Reference;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -29,8 +31,8 @@ public class BlockEnergonCrate extends BlockContainer {
         setCreativeTab(Main.tabTransformers);
         this.setLightLevel(0.15F);
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        RegistryHandler.Registry.registerItemBlock(this);
+//        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.marctron.transformersmod.blocks;
 
-import com.marctron.transformersmod.init.ModBlocks;
-import com.marctron.transformersmod.init.ModItems;
+
+
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.block.SoundType;
@@ -73,14 +73,14 @@ public class DarkEnergonoreBlock extends BlockBase {
     private void activate(World worldIn, BlockPos pos) {
         this.spawnParticles(worldIn, pos);
 
-        if (this == ModBlocks.DARK_ENERGON_ORE_BLOCK) {
-            worldIn.setBlockState(pos, ModBlocks.DARK_ENERGON_ORE_BLOCK.getDefaultState());
+        if (this == RegistryHandler.ModBlocks.DARK_ENERGON_ORE_BLOCK) {
+            worldIn.setBlockState(pos, RegistryHandler.ModBlocks.DARK_ENERGON_ORE_BLOCK.getDefaultState());
         }
     }
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if (this == ModBlocks.DARK_ENERGON_ORE_BLOCK) {
-            worldIn.setBlockState(pos, ModBlocks.DARK_ENERGON_ORE_BLOCK.getDefaultState());
+        if (this == RegistryHandler.ModBlocks.DARK_ENERGON_ORE_BLOCK) {
+            worldIn.setBlockState(pos, RegistryHandler.ModBlocks.DARK_ENERGON_ORE_BLOCK.getDefaultState());
         }
     }
 

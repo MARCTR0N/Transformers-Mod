@@ -1,9 +1,11 @@
 package com.marctron.transformersmod.transformers;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
@@ -73,7 +75,7 @@ public class MovieOptimusPrime extends ItemArmor {
 
         ItemStack heldItem = player.inventory.getCurrentItem();//(EnumHand.MAIN_HAND);
         if (heldItem != null) {
-            if (heldItem.getItem() == ModItems.PHASE_SHIFTER) {
+            if (heldItem.getItem() == RegistryHandler.ModItems.PHASE_SHIFTER) {
 
 
                 if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) {

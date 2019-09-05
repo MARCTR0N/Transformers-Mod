@@ -1,10 +1,18 @@
 package com.marctron.transformersmod.transformers.models.tarn;
 
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TarnChest extends ModelBiped {
     public ModelRenderer shape101_121;
@@ -3381,17 +3389,18 @@ public class TarnChest extends ModelBiped {
         TREADARM_3.addChild(Tread_38);
 
         this.bipedBody.addChild(Chestpiece);
-        this.bipedBody.addChild(TREAD_1);
-        this.bipedBody.addChild(TREAD);
-        this.bipedLeftArm.addChild(LEFT_ARM);
-        this.bipedRightArm.addChild(RIGHT_ARM);
+        this.Chestpiece.addChild(TREAD_1);
+        this.Chestpiece.addChild(TREAD);
+        this.Chestpiece.addChild(LEFT_ARM);
+        this.Chestpiece.addChild(RIGHT_ARM);
     }
 
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
-        GlStateManager.scale(0.435F, 0.435F, 0.435F);
+        GlStateManager.scale(0.535F, 0.535F, 0.535F);
+        GlStateManager.translate(0.0F, -13.0F * f5, -0.15F);
         super.render(entity, f, f1, f2, f3, f4, f5);
         GlStateManager.popMatrix();
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
@@ -3399,39 +3408,330 @@ public class TarnChest extends ModelBiped {
 
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-        // this prevents helmets from always facing south, and the armor "breathing" on the stand
-        if (entityIn instanceof EntityArmorStand) {
-            EntityArmorStand entityarmorstand = (EntityArmorStand) entityIn;
-            this.bipedHead.rotateAngleX = 0.017453292F * entityarmorstand.getHeadRotation().getX();
-            this.bipedHead.rotateAngleY = 0.017453292F * entityarmorstand.getHeadRotation().getY();
-            this.bipedHead.rotateAngleZ = 0.017453292F * entityarmorstand.getHeadRotation().getZ();
-            this.bipedHead.setRotationPoint(0.0F, 1.0F, 0.0F);
+    	{
+	        
+	        
 
-            this.bipedBody.rotateAngleX = 0.017453292F * entityarmorstand.getBodyRotation().getX();
-            this.bipedBody.rotateAngleY = 0.017453292F * entityarmorstand.getBodyRotation().getY();
-            this.bipedBody.rotateAngleZ = 0.017453292F * entityarmorstand.getBodyRotation().getZ();
+	        
 
-            this.bipedLeftArm.rotateAngleX = 0.017453292F * entityarmorstand.getLeftArmRotation().getX();
-            this.bipedLeftArm.rotateAngleY = 0.017453292F * entityarmorstand.getLeftArmRotation().getY();
-            this.bipedLeftArm.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftArmRotation().getZ();
+	        if (this.isSneak)
+	        {
+	            
+	            
+	           
+		       
+//		        this.LEFT_ARM.rotationPointY = 1.0F;
+//		        this.RIGHT_ARM.rotationPointY = 1.0F;
+		        
+//		        this.RightLeg.rotationPointY = 1.0F;
+//		        this.RightLeg_1.rotationPointY = 1.0F ;
+		        
+		       
+		        this.LEFT_ARM.rotateAngleZ = -0.4F;
+		        this.Left_Lower_arm.rotateAngleZ = 0.3F; 
+		        
+		        this.RIGHT_ARM.rotateAngleZ = 0.4F;
+		        this.Right_Lower_arm.rotateAngleZ = -0.3F; 
+		        
+		        
+	        }
+	        else
+	        {
+//	        	this.WHEEL.rotateAngleX = 0;
+//	        	this.WHEEL_1.rotateAngleX = 0;
+//	        	this.WHEEL_2.rotateAngleX = 0;
+//	        	this.WHEEL_3.rotateAngleX = 0;
+	        	
+	        	this.LEFT_ARM.rotateAngleZ = 0;
+		        this.Left_Lower_arm.rotateAngleZ = 0;
+		        
+	        	this.RIGHT_ARM.rotateAngleZ = 0;
+		        this.Right_Lower_arm.rotateAngleZ = 0; 
+		        
+		        
+	        	
+	            this.bipedBody.rotateAngleX = 0.0F;
+	            this.bipedRightLeg.rotationPointZ = 0.1F;
+	            this.bipedLeftLeg.rotationPointZ = 0.1F;
+	            this.bipedRightLeg.rotationPointY = 12.0F;
+	            this.bipedLeftLeg.rotationPointY = 12.0F;
+	            this.bipedHead.rotationPointY = 0.0F;
+	            
+//	           
+//		        this.Chestpiece.rotationPointY = 1.0F;
+//		        this.LEFT_ARM.rotationPointY = 3.50F;
+//		        this.RIGHT_ARM.rotationPointY = 3.50F;
+		      
+	        }
+	        
 
-            this.bipedRightArm.rotateAngleX = 0.017453292F * entityarmorstand.getRightArmRotation().getX();
-            this.bipedRightArm.rotateAngleY = 0.017453292F * entityarmorstand.getRightArmRotation().getY();
-            this.bipedRightArm.rotateAngleZ = 0.017453292F * entityarmorstand.getRightArmRotation().getZ();
+	       
+	        
+	        
+	        
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	        float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entityIn.motionY + 0.01))));
+		    float downwardPose = (float) (1 / (1 + Math.exp(10 * (entityIn.motionY + 0.2))));
+		    
+	    	//this prevents helmets from always facing south, and the armor "breathing" on the stand
+	        if (entityIn instanceof EntityArmorStand) {
+	            EntityArmorStand entityarmorstand = (EntityArmorStand) entityIn;
+	           
 
-            this.bipedLeftLeg.rotateAngleX = 0.017453292F * entityarmorstand.getLeftLegRotation().getX();
-            this.bipedLeftLeg.rotateAngleY = 0.017453292F * entityarmorstand.getLeftLegRotation().getY();
-            this.bipedLeftLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftLegRotation().getZ();
-            this.bipedLeftLeg.setRotationPoint(1.9F, 11.0F, 0.0F);
+	            this.bipedBody.rotateAngleX = 0.017453292F * entityarmorstand.getBodyRotation().getX();
+	            this.bipedBody.rotateAngleY = 0.017453292F * entityarmorstand.getBodyRotation().getY();
+	            this.bipedBody.rotateAngleZ = 0.017453292F * entityarmorstand.getBodyRotation().getZ();
 
-            this.bipedRightLeg.rotateAngleX = 0.017453292F * entityarmorstand.getRightLegRotation().getX();
-            this.bipedRightLeg.rotateAngleY = 0.017453292F * entityarmorstand.getRightLegRotation().getY();
-            this.bipedRightLeg.rotateAngleZ = 0.017453292F * entityarmorstand.getRightLegRotation().getZ();
-            this.bipedRightLeg.setRotationPoint(-1.9F, 11.0F, 0.0F);
-            copyModelAngles(this.bipedHead, this.bipedHeadwear);
-        } else
-            super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-    }
+	            this.LEFT_ARM.rotateAngleX = 0.017453292F * entityarmorstand.getLeftArmRotation().getX();
+	            this.LEFT_ARM.rotateAngleY = 0.017453292F * entityarmorstand.getLeftArmRotation().getY();
+	            this.LEFT_ARM.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftArmRotation().getZ();
+
+	            this.RIGHT_ARM.rotateAngleX = 0.017453292F * entityarmorstand.getRightArmRotation().getX();
+	            this.RIGHT_ARM.rotateAngleY = 0.017453292F * entityarmorstand.getRightArmRotation().getY();
+	            this.RIGHT_ARM.rotateAngleZ = 0.017453292F * entityarmorstand.getRightArmRotation().getZ();
+
+	            
+	            copyModelAngles(this.bipedHead, this.bipedHeadwear);
+	        } else
+	        	
+	        	
+//	        	if (entityIn.onGround){	
+	        this.Chestpiece.rotateAngleY = MathHelper.cos(limbSwing * 0.4662F ) * .25F * limbSwingAmount ;
+	        this.Chestpiece.rotationPointZ = MathHelper.cos(limbSwing * 0.4662F ) * 1F * limbSwingAmount ;
+//	        	}
+	       
+	        
+	       
+	        
+	        
+	        
+	        
+	      
+
+	       
+	        this.Chestpiece.offsetY = -MathHelper.cos(limbSwing * 0.4662F*2 ) * .05F * limbSwingAmount ;
+	       
+	        
+	        
+	        this.RIGHT_ARM.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F) * .8F * limbSwingAmount;
+	        this.LEFT_ARM.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F + (float) Math.PI) * .8F * limbSwingAmount  ;
+	        
+	        this.Right_Lower_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F) * .9F * limbSwingAmount;
+	        this.Left_Lower_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F + (float) Math.PI) * .9F * limbSwingAmount  ;
+
+
+	        this.Left_Lower_arm.rotateAngleX -= 0.1;
+	        this.Right_Lower_arm.rotateAngleX -= 0.1;
+	      
+	        if (this.Right_Lower_arm.rotateAngleX > 0){
+	        	this.Right_Lower_arm.rotateAngleX = 0;
+	        }
+	        if (this.Left_Lower_arm.rotateAngleX > 0){
+	        	this.Left_Lower_arm.rotateAngleX = 0;
+	        }
+	        
+	        if (isSneak)
+	        {
+	        	 if (entityIn instanceof EntityPlayer) {
+		    		  EntityPlayer entityplayer = (EntityPlayer) entityIn;
+//	        	if (entityplayer.capabilities.isFlying){
+	        		
+	        	this.Left_Lower_arm.rotateAngleX = 11F;
+	      	    this.Right_Lower_arm.rotateAngleX = 11F;
+	      	    
+	        	this.Chestpiece.rotateAngleX = 0.3F;
+	        	this.Chestpiece.rotationPointZ = -7F;
+	        	this.Chestpiece.rotationPointY = 2F;
+	        	
+	        	this.Chestpiece.offsetY = -.3F;
+	        	
+	        	this.TREAD.offsetY = 0.15F;
+	        	this.TREAD_1.offsetY = 0.15F;
+	        
+	        	
+//	        	}
+	        	if (entityplayer.capabilities.isFlying){
+	        		this.Chestpiece.rotateAngleX = 0.F;
+		        	this.Chestpiece.rotationPointZ = 0F;
+		        	this.Chestpiece.rotationPointY = 0F;
+	        	}
+	        	 }
+	        }else
+	        {
+	        	this.TREAD.offsetY = 0.05F;
+	        	this.TREAD_1.offsetY = 0.05F;
+	        	
+	        	this.Chestpiece.rotateAngleX = 0F;
+	        	this.Chestpiece.rotationPointZ = 0F;
+	        	this.Chestpiece.rotationPointY = 0F;
+	        	
+	        	        		
+	        	 
+	        }
+	        switch (this.leftArmPose)
+	        {
+	            case EMPTY:
+	                this.LEFT_ARM.rotateAngleY = 0.0F;
+	                break;
+	            case BLOCK:
+	                this.LEFT_ARM.rotateAngleX = this.LEFT_ARM.rotateAngleX * 0.5F - 0.9424779F;
+	                this.LEFT_ARM.rotateAngleY = 0.5235988F;
+	                break;
+	            case ITEM:
+	                this.LEFT_ARM.rotateAngleX = this.LEFT_ARM.rotateAngleX * 0.5F - ((float)Math.PI / 10F);
+	                this.LEFT_ARM.rotateAngleY = 0.0F;
+			default:
+				break;
+	        }
+
+	        switch (this.rightArmPose)
+	        {
+	            case EMPTY:
+	                this.RIGHT_ARM.rotateAngleY = 0.0F;
+	                break;
+	            case BLOCK:
+	                this.RIGHT_ARM.rotateAngleX = this.RIGHT_ARM.rotateAngleX * 0.5F - 0.9424779F;
+	                this.RIGHT_ARM.rotateAngleY = -0.5235988F;
+	                break;
+	            case ITEM:
+	                this.RIGHT_ARM.rotateAngleX = this.RIGHT_ARM.rotateAngleX * 0.7F - ((float)Math.PI / 10F);
+	                this.RIGHT_ARM.rotateAngleY = 0.0F;
+			default:
+				break;
+	        }
+	        
+	        if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+	        {
+	            this.RIGHT_ARM.rotateAngleY = -0.1F + this.bipedHead.rotateAngleY;
+	            this.LEFT_ARM.rotateAngleY = 0.1F + this.bipedHead.rotateAngleY + 0.4F;
+	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.bipedHead.rotateAngleX;
+	            this.LEFT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.bipedHead.rotateAngleX;
+	        }
+	        else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+	        {
+	            this.RIGHT_ARM.rotateAngleY = -0.1F + this.bipedHead.rotateAngleY - 0.4F;
+	            this.LEFT_ARM.rotateAngleY = 0.1F + this.bipedHead.rotateAngleY;
+	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.bipedHead.rotateAngleX;
+	            this.LEFT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.bipedHead.rotateAngleX;
+	        }
+	   
+	      
+	      if (!entityIn.onGround){
+	    	  if (entityIn instanceof EntityPlayer) 
+	    	  {
+	    		  EntityPlayer entityplayer = (EntityPlayer) entityIn;
+	    	  if (!entityplayer.capabilities.isFlying)
+	    	  	{
+	    		  if(entityplayer.motionY < 0)
+	    			  
+	    		  
+	        	 
+	        	 
+	        	 	this.LEFT_ARM.rotateAngleZ = -0.4F  *downwardPose;
+		        	this.RIGHT_ARM.rotateAngleZ = 0.4F  *downwardPose;
+	        	 
+	        	 	this.LEFT_ARM.rotateAngleX = 0.7F  *downwardPose;
+		        	this.RIGHT_ARM.rotateAngleX = 0.7F  *downwardPose;
+		        	
+		        	this.Left_Lower_arm.rotateAngleX = -1.1F  *downwardPose;
+		        	this.Right_Lower_arm.rotateAngleX = -1.1F  *downwardPose;
+		        	
+	        	
+	        	
+	        	this.Chestpiece.rotateAngleX= 0.5F *downwardPose;
+	        	this.Chestpiece.rotationPointZ = -5F*downwardPose;
+	        	this.Chestpiece.rotationPointY = 5F*downwardPose;
+	        	
+
+	    	  	}
+	    	}
+	    }
+	      
+	      this.LEFT_ARM.rotationPointX = 11F;
+	      this.RIGHT_ARM.rotationPointX = -11F;
+	      
+	      this.LEFT_ARM.rotationPointY = -3F;
+	      this.RIGHT_ARM.rotationPointY = -3F; 
+//	      
+//	      if (isSneak){
+//	    	  if (entityIn instanceof EntityPlayer) 
+//	    	  {
+//	    		  EntityPlayer entityplayer = (EntityPlayer) entityIn;
+//	    	  if (entityplayer.capabilities.isFlying){
+//	        		this.Chestpiece.rotateAngleX = 0.4F;
+//		        	this.Chestpiece.rotationPointZ = 0F;
+//		        	this.Chestpiece.rotationPointY = 0F;
+//	        	}
+//	      }
+//	    	  }
+//	      
+	            super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+    	}
+    	}
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	    
+    
+ 
+    
+
+
+	    public void setModelAttributes(ModelBase model)
+	    {
+	        super.setModelAttributes(model);
+
+	        if (model instanceof ModelBiped)
+	        {
+	            ModelBiped modelbiped = (ModelBiped)model;
+	            this.leftArmPose = modelbiped.leftArmPose;
+	            this.rightArmPose = modelbiped.rightArmPose;
+	            this.isSneak = modelbiped.isSneak;
+	        }
+	    }
+
+	    public void setVisible(boolean visible)
+	    {
+	        this.bipedHead.showModel = visible;
+	        this.bipedHeadwear.showModel = visible;
+	        this.bipedBody.showModel = visible;
+	      
+	        this.bipedRightLeg.showModel = visible;
+	        this.bipedLeftLeg.showModel = visible;
+	    }
+
+	    public void postRenderArm(float scale, EnumHandSide side)
+	    {
+	        this.getArmForSide(side).postRender(scale);
+	    }
+
+	    protected ModelRenderer getArmForSide(EnumHandSide side)
+	    {
+	        return side == EnumHandSide.LEFT ? this.LEFT_ARM : this.RIGHT_ARM;
+	    }
+
+	    protected EnumHandSide getMainHand(Entity entityIn)
+	    {
+	        if (entityIn instanceof EntityLivingBase)
+	        {
+	            EntityLivingBase entitylivingbase = (EntityLivingBase)entityIn;
+	            EnumHandSide enumhandside = entitylivingbase.getPrimaryHand();
+	            return entitylivingbase.swingingHand == EnumHand.MAIN_HAND ? enumhandside : enumhandside.opposite();
+	        }
+	        else
+	        {
+	            return EnumHandSide.RIGHT;
+	        }
+	    }
+
+	    @SideOnly(Side.CLIENT)
+	    public static enum ArmPose
+	    {
+	        EMPTY,
+	        ITEM,
+	        BLOCK,
+	        BOW_AND_ARROW;
+	    }
+    
 
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.rotateAngleX = x;

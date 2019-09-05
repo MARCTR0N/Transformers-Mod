@@ -3,6 +3,8 @@ package com.marctron.transformersmod.blocks.energonengine;
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.blocks.AbstractBlockContainer;
 import com.marctron.transformersmod.util.Reference;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -16,9 +18,10 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 
 public class BlockEnergonEngine extends AbstractBlockContainer {
-    public BlockEnergonEngine() {
-        super("energon_engine", Material.IRON);
+    public BlockEnergonEngine(String name, Material material) {
+        super(name , material);
         setBlockUnbreakable();
+        RegistryHandler.Registry.registerItemBlock(this);
 
     }
 

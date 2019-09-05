@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import javax.annotation.Nullable;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
@@ -49,9 +49,9 @@ public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int rend
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(null);
+		setCreativeTab(Main.tabAutobot);
 		setMaxStackSize(1);
-		ModItems.ITEMS.add(this);
+		
 	}
 
 	
@@ -91,7 +91,7 @@ public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int rend
 				ItemStack heldItem = player.inventory.getCurrentItem();//(EnumHand.MAIN_HAND);
 				if (heldItem != null)
 				{
-				if (heldItem.getItem() == ModItems.PHASE_SHIFTER)
+				if (heldItem.getItem() == RegistryHandler.ModItems.PHASE_SHIFTER)
 				{
 					
 					

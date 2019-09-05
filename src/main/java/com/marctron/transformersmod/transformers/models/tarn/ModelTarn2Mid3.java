@@ -4400,7 +4400,8 @@ public class ModelTarn2Mid3 extends ModelBiped {
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
-        GlStateManager.scale(0.7F, 0.7F, 0.7F);
+        GlStateManager.scale(0.8F, 0.8F, 0.8F);
+        GlStateManager.translate(0.0F, -10.0F * f5, 0.0F);
         TARNMODEL.render(f5);
         GlStateManager.popMatrix();
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);

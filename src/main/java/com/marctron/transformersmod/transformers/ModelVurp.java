@@ -1836,7 +1836,7 @@ public class ModelVurp extends ModelBiped {
 	        
 	        
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	        float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entityIn.motionY + 0.2))));
+	        float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entityIn.motionY + 0.01))));
 		    float downwardPose = (float) (1 / (1 + Math.exp(10 * (entityIn.motionY + 0.2))));
 		    
 	    	//this prevents helmets from always facing south, and the armor "breathing" on the stand
@@ -1847,17 +1847,17 @@ public class ModelVurp extends ModelBiped {
 	            this.Head.rotateAngleZ = 0.017453292F * entityarmorstand.getHeadRotation().getZ();
 	            this.Head.setRotationPoint(0.0F, 1.0F, 0.0F);
 
-	            this.bipedBody.rotateAngleX = 0.017453292F * entityarmorstand.getBodyRotation().getX();
-	            this.bipedBody.rotateAngleY = 0.017453292F * entityarmorstand.getBodyRotation().getY();
-	            this.bipedBody.rotateAngleZ = 0.017453292F * entityarmorstand.getBodyRotation().getZ();
+	            this.CHEST.rotateAngleX = 0.017453292F * entityarmorstand.getBodyRotation().getX();
+	            this.CHEST.rotateAngleY = 0.017453292F * entityarmorstand.getBodyRotation().getY();
+	            this.CHEST.rotateAngleZ = 0.017453292F * entityarmorstand.getBodyRotation().getZ();
 
-	            this.bipedLeftArm.rotateAngleX = 0.017453292F * entityarmorstand.getLeftArmRotation().getX();
-	            this.bipedLeftArm.rotateAngleY = 0.017453292F * entityarmorstand.getLeftArmRotation().getY();
-	            this.bipedLeftArm.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftArmRotation().getZ();
+	            this.RightArm_1.rotateAngleX = 0.017453292F * entityarmorstand.getLeftArmRotation().getX();
+	            this.RightArm_1.rotateAngleY = 0.017453292F * entityarmorstand.getLeftArmRotation().getY();
+	            this.RightArm_1.rotateAngleZ = 0.017453292F * entityarmorstand.getLeftArmRotation().getZ();
 
-	            this.bipedRightArm.rotateAngleX = 0.017453292F * entityarmorstand.getRightArmRotation().getX();
-	            this.bipedRightArm.rotateAngleY = 0.017453292F * entityarmorstand.getRightArmRotation().getY();
-	            this.bipedRightArm.rotateAngleZ = 0.017453292F * entityarmorstand.getRightArmRotation().getZ();
+	            this.RightArm.rotateAngleX = 0.017453292F * entityarmorstand.getRightArmRotation().getX();
+	            this.RightArm.rotateAngleY = 0.017453292F * entityarmorstand.getRightArmRotation().getY();
+	            this.RightArm.rotateAngleZ = 0.017453292F * entityarmorstand.getRightArmRotation().getZ();
 
 	            this.bipedLeftLeg.rotateAngleX = 0.017453292F * entityarmorstand.getLeftLegRotation().getX();
 	            this.bipedLeftLeg.rotateAngleY = 0.017453292F * entityarmorstand.getLeftLegRotation().getY();
@@ -1872,9 +1872,9 @@ public class ModelVurp extends ModelBiped {
 	        } else
 	        	
 	        	
-	        	
-	        this.CHEST.rotateAngleY = MathHelper.cos(limbSwing * 0.4662F ) * .2F * limbSwingAmount ;
-	        	
+	        	if (entityIn.onGround){	
+	        this.CHEST.rotateAngleY = MathHelper.cos(limbSwing * 0.4662F ) * .25F * limbSwingAmount ;
+	        	}
 	        this.RightLowerLeg.rotateAngleX =  MathHelper.cos(limbSwing * 0.4662F  ) * 2F * limbSwingAmount  ;
 	        this.RightLowerLeg_1.rotateAngleX =  MathHelper.cos(limbSwing * 0.4662F  + (float) Math.PI) * 2F * limbSwingAmount ;
 	        
@@ -1895,6 +1895,8 @@ public class ModelVurp extends ModelBiped {
 	        	this.RightLeg.rotateAngleX = 0f + MathHelper.cos(limbSwing * 0.4662F) * 1F * limbSwingAmount ;
 	        }
 	        
+	       
+	        
 	        
 	        if (this.RightLowerLeg_1.rotateAngleX < 0.1F){
 	        	this.RightLowerLeg_1.rotateAngleX = 0.1F* limbSwingAmount ;
@@ -1903,15 +1905,17 @@ public class ModelVurp extends ModelBiped {
 	        if (this.RightLowerLeg.rotateAngleX < 0.1F){
 	        	this.RightLowerLeg.rotateAngleX = 0.1F* limbSwingAmount;
 	        }
-	        
-	        if (this.RightLowerLeg_1.rotateAngleX > 1F){
-	        	this.RightLowerLeg_1.rotateAngleX = 1F* limbSwingAmount;
+	     
+	        if (this.RightLowerLeg_1.rotateAngleX > 1.F){
+	        	this.RightLowerLeg_1.rotateAngleX = 1.F* limbSwingAmount;
+	        }
+	     
+	        if (this.RightLowerLeg.rotateAngleX > 1.F){
+	        	this.RightLowerLeg.rotateAngleX = 1.F* limbSwingAmount;
 	        }
 	        
-	        if (this.RightLowerLeg.rotateAngleX > 1F){
-	        	this.RightLowerLeg.rotateAngleX = 1F* limbSwingAmount;
-	        }
-	        
+	      
+
 	        this.Head.offsetY = -MathHelper.cos(limbSwing * 0.4662F*2 ) * .05F * limbSwingAmount ;
 	        this.CHEST.offsetY = -MathHelper.cos(limbSwing * 0.4662F*2 ) * .05F * limbSwingAmount ;
 	        this.RightLeg.offsetY = -MathHelper.cos(limbSwing * 0.4662F*2 ) * .05F * limbSwingAmount ;
@@ -1937,6 +1941,9 @@ public class ModelVurp extends ModelBiped {
 	        
 	        if (isSneak)
 	        {
+	        	 if (entityIn instanceof EntityPlayer) { 
+		    		  EntityPlayer entityplayer = (EntityPlayer) entityIn;
+	        	if (!entityplayer.capabilities.isFlying){
 	        	this.CHEST.rotateAngleX = 0.3F;
 	        	this.CHEST.rotationPointZ = -3.5F;
 	        	this.CHEST.rotationPointY = 1F;
@@ -1971,7 +1978,8 @@ public class ModelVurp extends ModelBiped {
 	        	this.RightFoot.rotateAngleY = 0.15F;
 	        	this.RightFoot_1.rotateAngleY = -0.15F;
 	        	
-	        	
+	        	}
+	        	 }
 	        }else
 	        {
 	        	this.CHEST.rotateAngleX = 0F;
@@ -1989,13 +1997,15 @@ public class ModelVurp extends ModelBiped {
 	        	this.RightFoot_1.rotateAngleY = 0F;
 	        	
 	        	
+	        	this.RightLeg.rotationPointX = 1;
 	        	this.RightLeg.rotateAngleY = -0F;
 	        	this.RightLeg_1.rotateAngleY = 0F;
 	      
         		this.RightLeg.rotateAngleZ = -0.15F;
         		this.RightLeg_1.rotateAngleZ = 0.15F;
-        		}
-	        
+        		
+	        	 
+	        }
 	        switch (this.leftArmPose)
 	        {
 	            case EMPTY:
@@ -2045,6 +2055,84 @@ public class ModelVurp extends ModelBiped {
 	      this.bipedLeftArm.rotateAngleX += 0.1F;
 	      this.bipedRightArm.rotateAngleX += 0.1F;
 	      
+	      if (!entityIn.onGround){
+	    	  if (entityIn instanceof EntityPlayer) 
+	    	  {
+	    		  EntityPlayer entityplayer = (EntityPlayer) entityIn;
+	    	  if (!entityplayer.capabilities.isFlying)
+	    	  	{
+	    		  if(entityplayer.motionY < 0)
+	    			  
+	    		  
+	        	 this.RightLeg.rotateAngleZ = 0;
+	        	 this.RightLeg_1.rotateAngleZ = 0;
+	        	 this.RightLeg.rotateAngleY = 0;
+	        	 this.RightLeg_1.rotateAngleY = 0;
+	        	 
+	        	 	this.RightArm.rotateAngleZ = -0.4F  *downwardPose;
+		        	this.RightArm_1.rotateAngleZ = 0.4F  *downwardPose;
+	        	 
+	        	 	this.RightArm.rotateAngleX = 0.7F  *downwardPose;
+		        	this.RightArm_1.rotateAngleX = 0.7F  *downwardPose;
+		        	
+		        	this.RightLowerArm.rotateAngleX = -1.1F  *downwardPose;
+		        	this.RightLowerArm_1.rotateAngleX = -1.1F  *downwardPose;
+		        	
+	        	this.RightLeg.rotateAngleX = -1.8F *downwardPose;
+	        	this.RightLeg_1.rotateAngleX = -0.8F *downwardPose;
+	        	
+	        	this.RightLowerLeg.rotateAngleX = 2.3F *downwardPose;
+	        	this.RightLowerLeg_1.rotateAngleX = 1.2F *downwardPose;
+	        	
+	        	this.RightLeg.rotateAngleZ = -0.15F;
+        		this.RightLeg_1.rotateAngleZ = 0.15F;
+	        	
+	        	this.CHEST.rotateAngleX= 0.5F *downwardPose;
+	        	this.CHEST.rotationPointZ = -6F*downwardPose;
+	        	this.CHEST.rotationPointY = 1F*downwardPose;
+	        	
+	        	this.Head.rotationPointZ = -5F*downwardPose;
+	        	this.Head.rotationPointY = 1F;
+	        	this.Head.rotationPointY = 1.5F*downwardPose;
+	        	
+	        	
+//	        	if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) {
+//	        		f = 1F;
+//	        		  if(entityplayer.motionY > 0)	{
+//	        	 this.RightLeg.rotateAngleZ = 0;
+//	        	 this.RightLeg_1.rotateAngleZ = 0;
+//	        	 this.RightLeg.rotateAngleY = 0;
+//	        	 this.RightLeg_1.rotateAngleY = 0;
+//	        	 
+//	        	 	this.RightArm.rotateAngleZ = -0.4F *f *upwardPose;
+//		        	this.RightArm_1.rotateAngleZ = 0.4F *f *upwardPose;
+//	        	 
+//	        	 	this.RightArm.rotateAngleX = 0.7F *f *upwardPose;
+//		        	this.RightArm_1.rotateAngleX = 0.7F *f *upwardPose;
+//		        	
+//		        	this.RightLowerArm.rotateAngleX = -1.1F *f *upwardPose;
+//		        	this.RightLowerArm_1.rotateAngleX = -1.1F *f *upwardPose;
+//		        	
+//	        	this.RightLeg.rotateAngleX = -0.8F *f *upwardPose;
+//	        	this.RightLeg_1.rotateAngleX = -1.8F *f *upwardPose;
+//	        	
+//	        	this.RightLowerLeg.rotateAngleX = 1.2F *f *upwardPose;
+//	        	this.RightLowerLeg_1.rotateAngleX = 2.3F *f *upwardPose;
+//	        	
+//	        	this.RightLeg.rotateAngleZ = -0.15F;
+//       		this.RightLeg_1.rotateAngleZ = 0.15F;
+//	        	
+//	        	this.CHEST.rotateAngleX= 0.5F *f *upwardPose;
+//	        	this.CHEST.rotationPointZ = -6F *f *upwardPose;
+//	        	this.CHEST.rotationPointY = 1F *f *upwardPose;
+//	        	
+//	        	this.Head.rotationPointZ = -5F *f *upwardPose;
+//	        	this.Head.rotationPointY = 1F;
+//	        	this.Head.rotationPointY = 1.5F *f *upwardPose;
+//	        		  }
+	    	  	}
+	    	}
+	    }
 	      
 	      
 //	      float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entityIn.motionY + 0.2))));

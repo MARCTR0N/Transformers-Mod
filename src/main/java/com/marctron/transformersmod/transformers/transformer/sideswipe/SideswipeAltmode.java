@@ -1,6 +1,6 @@
 package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.ModelVurp;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeAltmode;

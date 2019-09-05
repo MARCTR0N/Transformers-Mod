@@ -1,7 +1,7 @@
 package com.marctron.transformersmod.transformers.transformer.tarn;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid1;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
@@ -36,7 +36,7 @@ public class TarnMid8 extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(Main.tabDecepticon);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+        
 
     }
 
@@ -55,45 +55,45 @@ public class TarnMid8 extends ItemArmor {
             public void run() {
 
 
-                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_HELMET) {
-                    if (world.isRemote) {
-
+//                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_HELMET) {
+//                    if (world.isRemote) {
+//
                         player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.TARN_HELMET));
-                        //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
-
-
-                    }
-                }
-
-                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_CHESTPLATE) {
-                    if (world.isRemote) {
-
+//                        //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
+//
+//
+//                    }
+//                }
+//
+//                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_CHESTPLATE) {
+//                    if (world.isRemote) {
+//
                         player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.TARN_CHESTPLATE));
-                        //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
-
-
-                    }
-                }
-
-
-                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_LEGGINGS) {
-                    if (world.isRemote) {
-
+//                        //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
+//
+//
+//                    }
+//                }
+//
+//
+//                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_LEGGINGS) {
+//                    if (world.isRemote) {
+//
                         player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.TARN_LEGGINGS));
-                        //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
-
-
-                    }
-                }
-                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_BOOTS) {
-                    if (world.isRemote) {
-
+//                        //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
+//
+//
+//                    }
+//                }
+//                if (itemStack.getItem() == RegistryHandler.ModItems.TARN_MID8_BOOTS) {
+//                    if (world.isRemote) {
+//
                         player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.TARN_BOOTS));
-                        //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
-
-
-                    }
-                }
+//                        //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
+//
+//
+//                    }
+//                }
             }
 
         }, 100);

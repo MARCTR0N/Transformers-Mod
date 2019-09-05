@@ -2,7 +2,6 @@ package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
-import com.marctron.transformersmod.init.ModItems;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,7 +34,7 @@ public class ItemStarSaber extends ItemSword {
 
         setMaxStackSize(1);
 
-        ModItems.ITEMS.add(this);
+        
 
         this.attackDamage = 1.0F;
     }

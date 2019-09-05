@@ -1,8 +1,9 @@
 package com.marctron.transformersmod.blocks;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModBlocks;
-import com.marctron.transformersmod.init.ModItems;
+
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,8 +19,9 @@ public class BlockGlassBase extends BlockBreakable {
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+//        ModBlocks.BLOCKS.add(this);
+//        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        RegistryHandler.Registry.registerItemBlock(this);
     }
 
     public int quantityDropped(Random random) {

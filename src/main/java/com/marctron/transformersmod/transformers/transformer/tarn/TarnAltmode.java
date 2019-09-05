@@ -1,6 +1,6 @@
 package com.marctron.transformersmod.transformers.transformer.tarn;
 
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarnAltmode;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
@@ -36,7 +36,7 @@ public class TarnAltmode extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+        
 
         Cooldown = cooldown;
 

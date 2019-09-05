@@ -1,7 +1,9 @@
 package com.marctron.transformersmod.cybertronworldgen;
 
 import com.marctron.transformersmod.init.ModBiomes;
-import com.marctron.transformersmod.init.ModBlocks;
+
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -42,7 +44,7 @@ public class ChunkGeneratorCybertron implements IChunkGenerator {
 
     protected WorldType terrainType;
     protected Biome biome = ModBiomes.CYBERTRON;
-    protected IBlockState baseBlock = ModBlocks.TRANSFORMIUM_BLOCK.getDefaultState();
+    protected IBlockState baseBlock = RegistryHandler.ModBlocks.TRANSFORMIUM_BLOCK.getDefaultState();
     protected IBlockState oceanBlock = Blocks.WATER.getDefaultState();
 
     protected NoiseGeneratorOctaves minLimitPerlinNoise;

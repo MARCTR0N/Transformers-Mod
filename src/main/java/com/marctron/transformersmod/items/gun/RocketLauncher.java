@@ -1,7 +1,7 @@
 package com.marctron.transformersmod.items.gun;
 
 import com.marctron.transformersmod.entity.EntityLargeRocket;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.resources.I18n;

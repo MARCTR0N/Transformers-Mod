@@ -2,7 +2,7 @@ package com.marctron.transformersmod.items.gun;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.entity.EntityBullet;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.util.NBTHelper;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;

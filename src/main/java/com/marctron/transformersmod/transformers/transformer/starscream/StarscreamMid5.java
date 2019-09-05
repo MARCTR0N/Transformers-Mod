@@ -1,6 +1,6 @@
 package com.marctron.transformersmod.transformers.transformer.starscream;
 
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid2;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
@@ -33,7 +33,7 @@ public class StarscreamMid5 extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+        
 
     }
 

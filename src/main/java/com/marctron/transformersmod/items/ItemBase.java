@@ -1,7 +1,9 @@
 package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item {
@@ -14,7 +16,7 @@ public class ItemBase extends Item {
         setCreativeTab(Main.tabTransformers);
         TOOLTIP = getUnlocalizedName() + ".tooltip.";
 
-        ModItems.ITEMS.add(this);
+        
     }
 }
 

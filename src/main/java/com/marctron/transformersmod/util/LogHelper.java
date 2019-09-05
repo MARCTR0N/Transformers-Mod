@@ -1,5 +1,6 @@
 package com.marctron.transformersmod.util;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
@@ -40,4 +41,9 @@ public class LogHelper {
     public static void warn(Object object) {
         log(Level.WARN, object);
     }
+
+	public static void fatal(String string, ResourceLocation registryName) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -1,7 +1,7 @@
 package com.marctron.transformersmod.transformers.transformer.vehicon;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
@@ -37,7 +37,7 @@ public class ArmorModelVehicon extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(Main.tabDecepticon);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+        
 
     }
 

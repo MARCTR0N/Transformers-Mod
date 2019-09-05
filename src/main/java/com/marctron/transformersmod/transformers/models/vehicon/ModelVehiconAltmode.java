@@ -984,6 +984,7 @@ public final class ModelVehiconAltmode extends ModelBiped {
         E_1.render(f5);
 
         shape41.render(f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
 
@@ -991,5 +992,15 @@ public final class ModelVehiconAltmode extends ModelBiped {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
+        
+    }
+    
+    @Override
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+    {
+    	this.WHEEL.rotateAngleX+= 1F *limbSwingAmount /3;
+    	this.WHEEL_1.rotateAngleX+= 1F *limbSwingAmount /3;
+    	this.WHEEL_2.rotateAngleX+= 1F *limbSwingAmount /3;
+    	this.WHEEL_3.rotateAngleX+= 1F *limbSwingAmount /3;
     }
 }

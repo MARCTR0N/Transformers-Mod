@@ -1,6 +1,6 @@
 package com.marctron.transformersmod.transformers.transformer.vehicon;
 
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
@@ -30,7 +30,7 @@ public final class VehiconMid2 extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);
-        ModItems.ITEMS.add(this);
+       
 
     }
 

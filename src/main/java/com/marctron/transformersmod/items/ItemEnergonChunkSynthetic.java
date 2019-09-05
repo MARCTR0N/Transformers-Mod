@@ -1,7 +1,7 @@
 package com.marctron.transformersmod.items;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,7 +32,7 @@ public class ItemEnergonChunkSynthetic extends ItemFood {
         setMaxStackSize(1);
 
 
-        ModItems.ITEMS.add(this);
+        
     }
 
     @Override

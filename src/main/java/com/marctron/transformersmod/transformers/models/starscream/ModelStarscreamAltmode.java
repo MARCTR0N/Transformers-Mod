@@ -3,6 +3,8 @@ package com.marctron.transformersmod.transformers.models.starscream;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.Vec3d;
 
 public final class ModelStarscreamAltmode extends ModelBiped {
     public ModelRenderer shape142_9;
@@ -274,7 +276,7 @@ public final class ModelStarscreamAltmode extends ModelBiped {
         Right_Wing_4.mirror = true;
         Right_Wing_4.setRotationPoint(4.5F, 4.0F, 8.0F);
         Right_Wing_4.addBox(-10.0F, 1.1F, 1.0F, 2, 3, 1, 0.0F);
-        setRotateAngle(Right_Wing_4, -1.5707963267948966F, 0.15707963267948966F, 1.5707963267948966F);
+        setRotateAngle(Right_Wing_4, -1.5707963267948966F, 0.15707963267948966F, 1.5707963267948966F);  //gg
         Right_Wing_2 = new ModelRenderer(this, "Right_Wing_2").setTextureOffset(20, 120);
         Right_Wing_2.mirror = true;
         Right_Wing_2.setRotationPoint(1.9F, 0.0F, 6.0F);
@@ -1494,6 +1496,7 @@ public final class ModelStarscreamAltmode extends ModelBiped {
         cockpit.render(f5);
         mainbody.render(f5);
         rightshoulder1.render(f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -1501,4 +1504,26 @@ public final class ModelStarscreamAltmode extends ModelBiped {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
+    
+    @Override
+  	 public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+	    {
+    	if (entityIn instanceof EntityPlayer) {
+  		  EntityPlayer entityplayer = (EntityPlayer) entityIn;
+  		Vec3d aim = entityIn.getLookVec();
+  		
+//            TURRET.rotateAngleY = (rotationYaw) / (180F / 3.14f);
+            cockpit.rotateAngleX = bipedHead.rotateAngleX;
+//            RIGHT_BARREL.rotateAngleX = (rotationPitch) / (180F / 3.14f);
+//            vehiclebase.rotateAngleY = -(float) Math.toRadians(TFRenderHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientEventHandler.renderTick)) * limbSwingAmount;
+        
+  		
+//  		cockpit.rotateAngleX -= 0.01F* aim.z - 0.5F;
+  		
+//  		cockpit.rotateAngleZ += 1F* aim.z;
+      
+  		
+    	
+    		}
+	    }
 }

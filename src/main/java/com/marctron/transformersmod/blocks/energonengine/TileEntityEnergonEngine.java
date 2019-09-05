@@ -1,6 +1,6 @@
 package com.marctron.transformersmod.blocks.energonengine;
 
-import com.marctron.transformersmod.init.ModItems;
+
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,10 +1,14 @@
 package com.marctron.transformersmod.blocks;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.init.ModBlocks;
-import com.marctron.transformersmod.init.ModItems;
+
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.BlockSourceImpl;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
@@ -28,17 +32,18 @@ public class ItemSpawner extends BlockDispenser {
     public static final PropertyBool TRIGGERED = PropertyBool.create("triggered");
     private final IBehaviorDispenseItem dropBehavior = new BehaviorDefaultDispenseItem();
 
-    public ItemSpawner(String name) {
+    public ItemSpawner(String name, Material iron, SoundType metal, MapColor color) {
 
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
         this.setLightLevel(0.3F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(TRIGGERED, Boolean.valueOf(false)));
+        setHardness(3);
 
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-
+//        ModBlocks.BLOCKS.add(this);
+//        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        RegistryHandler.Registry.registerItemBlock(this);
 
     }
 
