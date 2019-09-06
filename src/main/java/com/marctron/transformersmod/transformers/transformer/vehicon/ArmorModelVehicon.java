@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -27,8 +28,7 @@ import java.util.List;
 
 public class ArmorModelVehicon extends ItemArmor {
 
-    @SideOnly(Side.CLIENT)
-    private static ModelCustomArmor model = new ModelCustomArmor();
+    
 
 
     public ArmorModelVehicon(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
@@ -106,23 +106,23 @@ public class ArmorModelVehicon extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
-                model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
-                model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+                ArmorTypes.modelCustomArmor.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelCustomArmor.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelCustomArmor.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
+                ArmorTypes.modelCustomArmor.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelCustomArmor.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelCustomArmor.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+                ArmorTypes.modelCustomArmor.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
 
 
-                model.isSneak = _default.isSneak;
-                model.isRiding = _default.isRiding;
-                model.isChild = _default.isChild;
-                model.rightArmPose = _default.rightArmPose;
-                model.leftArmPose = _default.leftArmPose;
+                ArmorTypes.modelCustomArmor.isSneak = _default.isSneak;
+                ArmorTypes.modelCustomArmor.isRiding = _default.isRiding;
+                ArmorTypes.modelCustomArmor.isChild = _default.isChild;
+                ArmorTypes.modelCustomArmor.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelCustomArmor.leftArmPose = _default.leftArmPose;
 
 
-                return model;
+                return ArmorTypes.modelCustomArmor;
             }
         }
         return null;

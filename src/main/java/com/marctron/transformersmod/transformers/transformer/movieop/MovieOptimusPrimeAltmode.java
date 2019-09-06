@@ -1,21 +1,12 @@
 package com.marctron.transformersmod.transformers.transformer.movieop;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.annotation.Nullable;
 
-import com.marctron.transformersmod.Main;
-
 import com.marctron.transformersmod.proxy.ClientProxy;
-import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
-import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
-import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
-import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
-import com.marctron.transformersmod.util.handlers.SoundsHandler;
-
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -24,16 +15,10 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -240,8 +225,6 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 
 	
 
-	@SideOnly(Side.CLIENT)
-	private static ModelMovieOptimusPrimeAltmode model = new ModelMovieOptimusPrimeAltmode();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -259,21 +242,21 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 				
 					
 			
-					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-					model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-					model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-					model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-					model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-					model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-					model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+					ArmorTypes.modelMovieOptimusPrimeAltmode.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-					model.isSneak = _default.isSneak;
-					model.isRiding = _default.isRiding;
-					model.isChild = _default.isChild;
-					model.rightArmPose = _default.rightArmPose;
-					model.leftArmPose = _default.leftArmPose;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.isSneak = _default.isSneak;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.isRiding = _default.isRiding;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.isChild = _default.isChild;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.rightArmPose = _default.rightArmPose;
+					ArmorTypes.modelMovieOptimusPrimeAltmode.leftArmPose = _default.leftArmPose;
 
-					return model;
+					return ArmorTypes.modelMovieOptimusPrimeAltmode;
 				}
 			}
 			

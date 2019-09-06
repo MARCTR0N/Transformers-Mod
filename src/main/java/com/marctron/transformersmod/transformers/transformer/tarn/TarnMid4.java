@@ -3,6 +3,7 @@ package com.marctron.transformersmod.transformers.transformer.tarn;
 import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid4;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.model.ModelBiped;
@@ -27,8 +28,7 @@ import java.util.TimerTask;
 
 public class TarnMid4 extends ItemArmor {
 
-    @SideOnly(Side.CLIENT)
-    private static ModelTarn2Mid4 model = new ModelTarn2Mid4();
+    
 
     public TarnMid4(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -99,9 +99,9 @@ public class TarnMid4 extends ItemArmor {
 
         }, 80);
     }
-
-    @Override
     @SideOnly(Side.CLIENT)
+    @Nullable
+    @Override
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 
         if (!itemStack.isEmpty()) {
@@ -110,21 +110,21 @@ public class TarnMid4 extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-                model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-                model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+            	ArmorTypes.modelTarn2Mid4.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelTarn2Mid4.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelTarn2Mid4.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+            	ArmorTypes.modelTarn2Mid4.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelTarn2Mid4.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelTarn2Mid4.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+            	ArmorTypes.modelTarn2Mid4.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-                model.isSneak = _default.isSneak;
-                model.isRiding = _default.isRiding;
-                model.isChild = _default.isChild;
-                model.rightArmPose = _default.rightArmPose;
-                model.leftArmPose = _default.leftArmPose;
+            	ArmorTypes.modelTarn2Mid4.isSneak = _default.isSneak;
+            	ArmorTypes.modelTarn2Mid4.isRiding = _default.isRiding;
+            	ArmorTypes.modelTarn2Mid4.isChild = _default.isChild;
+            	ArmorTypes.modelTarn2Mid4.rightArmPose = _default.rightArmPose;
+            	ArmorTypes.modelTarn2Mid4.leftArmPose = _default.leftArmPose;
 
-                return model;
+                return ArmorTypes.modelTarn2Mid4;
             }
         }
 

@@ -1,8 +1,11 @@
 package com.marctron.transformersmod.transformers.transformer.tarn;
 
 
+import javax.annotation.Nullable;
+
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarnAltmode;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -21,8 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class TarnAltmode extends ItemArmor {
 
 
-    @SideOnly(Side.CLIENT)
-    private static ModelTarnAltmode model = new ModelTarnAltmode();
+    
     long cooldownTime2 = 200000000; // 2000 milliseconds
     long lastAttack2 = 0;
     long cooldownTime = 900; // 2000 milliseconds
@@ -145,9 +147,9 @@ public class TarnAltmode extends ItemArmor {
         }
 
     }
-
-    @Override
     @SideOnly(Side.CLIENT)
+    @Nullable
+    @Override
     public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 
         if (!itemStack.isEmpty()) {
@@ -156,23 +158,23 @@ public class TarnAltmode extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
-                model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
-                model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+                ArmorTypes.modelTarnAltmode.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelTarnAltmode.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelTarnAltmode.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
+                ArmorTypes.modelTarnAltmode.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelTarnAltmode.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelTarnAltmode.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+                ArmorTypes.modelTarnAltmode.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
 
 
-                model.isSneak = _default.isSneak;
-                model.isRiding = _default.isRiding;
-                model.isChild = _default.isChild;
-                model.rightArmPose = _default.rightArmPose;
-                model.leftArmPose = _default.leftArmPose;
+                ArmorTypes.modelTarnAltmode.isSneak = _default.isSneak;
+                ArmorTypes.modelTarnAltmode.isRiding = _default.isRiding;
+                ArmorTypes.modelTarnAltmode.isChild = _default.isChild;
+                ArmorTypes.modelTarnAltmode.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelTarnAltmode.leftArmPose = _default.leftArmPose;
 
 
-                return model;
+                return ArmorTypes.modelTarnAltmode;
             }
         }
         return null;

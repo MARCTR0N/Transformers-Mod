@@ -25,7 +25,7 @@ import scala.tools.nsc.Global.GlobalPhase;
 
 public class ModelVurp extends ModelBiped {
 	
-	private ModelAnimator animator;
+	
 	
 	public ModelRenderer shape117_3;
     public ModelRenderer shape44_9;
@@ -1659,7 +1659,7 @@ public class ModelVurp extends ModelBiped {
 
         
         
-        animator = ModelAnimator.create();
+        
     }
 
     @Override

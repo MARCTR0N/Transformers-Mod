@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -27,8 +28,7 @@ import java.util.List;
 
 public class ArmorModelSideswipe extends ItemArmor {
 
-    @SideOnly(Side.CLIENT)
-    private static SideswipeModel model = new SideswipeModel();
+    
 
     public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -113,23 +113,23 @@ public class ArmorModelSideswipe extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
-                model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
-                model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+            	ArmorTypes.modelSideswipe.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelSideswipe.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelSideswipe.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
+            	ArmorTypes.modelSideswipe.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelSideswipe.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelSideswipe.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+            	ArmorTypes.modelSideswipe.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
 
 
-                model.isSneak = _default.isSneak;
-                model.isRiding = _default.isRiding;
-                model.isChild = _default.isChild;
-                model.rightArmPose = _default.rightArmPose;
-                model.leftArmPose = _default.leftArmPose;
+            	ArmorTypes.modelSideswipe.isSneak = _default.isSneak;
+            	ArmorTypes.modelSideswipe.isRiding = _default.isRiding;
+            	ArmorTypes.modelSideswipe.isChild = _default.isChild;
+                ArmorTypes.modelSideswipe.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelSideswipe.leftArmPose = _default.leftArmPose;
 
 
-                return model;
+                return ArmorTypes.modelSideswipe;
             }
         }
         return null;

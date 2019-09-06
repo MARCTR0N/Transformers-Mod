@@ -946,7 +946,7 @@ public class RegistryHandler {
                   //Vurp
                     new Vurp("vurp_helmet", VURP_MATERIAL, 1, EntityEquipmentSlot.HEAD),
                     new Vurp("vurp_chestplate", VURP_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-                    new Vurp("vurp_leggings", VURP_MATERIAL, 1, EntityEquipmentSlot.LEGS),
+                    new Vurp("vurp_leggings", VURP_MATERIAL, 2, EntityEquipmentSlot.LEGS),
                     new Vurp("vurp_boots", VURP_MATERIAL, 1, EntityEquipmentSlot.FEET),
                     
             };

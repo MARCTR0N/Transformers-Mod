@@ -2,6 +2,7 @@ package com.marctron.transformersmod.transformers.transformer.starscream;
 
 
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid1;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.Minecraft;
@@ -23,9 +24,6 @@ import java.util.TimerTask;
 
 public class StarscreamMid6 extends ItemArmor {
 
-
-    @SideOnly(Side.CLIENT)
-    private static ModelStarscreamMid1 model = new ModelStarscreamMid1();
 
 
     public StarscreamMid6(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
@@ -189,21 +187,21 @@ public class StarscreamMid6 extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-                model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-                model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+            	ArmorTypes.modelStarscreamMid1.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelStarscreamMid1.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelStarscreamMid1.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+            	ArmorTypes.modelStarscreamMid1.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelStarscreamMid1.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelStarscreamMid1.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+            	ArmorTypes.modelStarscreamMid1.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-                model.isSneak = _default.isSneak;
-                model.isRiding = _default.isRiding;
-                model.isChild = _default.isChild;
-                model.rightArmPose = _default.rightArmPose;
-                model.leftArmPose = _default.leftArmPose;
+            	ArmorTypes.modelStarscreamMid1.isSneak = _default.isSneak;
+            	ArmorTypes.modelStarscreamMid1.isRiding = _default.isRiding;
+            	ArmorTypes.modelStarscreamMid1.isChild = _default.isChild;
+            	ArmorTypes.modelStarscreamMid1.rightArmPose = _default.rightArmPose;
+            	ArmorTypes.modelStarscreamMid1.leftArmPose = _default.leftArmPose;
 
-                return model;
+                return ArmorTypes.modelStarscreamMid1;
             }
         }
 

@@ -13,6 +13,7 @@ import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimu
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
+import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
@@ -240,8 +241,6 @@ public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int rend
 
 	
 
-	@SideOnly(Side.CLIENT)
-	private static MovieOptimusPrimeModel model = new MovieOptimusPrimeModel();
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -259,21 +258,21 @@ public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int rend
 				
 					
 			
-					model.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-					model.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-					model.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-					model.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-					model.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-					model.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-					model.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+				ArmorTypes.modelMovieOptimusPrime.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+				ArmorTypes.modelMovieOptimusPrime.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+				ArmorTypes.modelMovieOptimusPrime.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+				ArmorTypes.modelMovieOptimusPrime.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+				ArmorTypes.modelMovieOptimusPrime.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+				ArmorTypes.modelMovieOptimusPrime.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+				ArmorTypes.modelMovieOptimusPrime.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-					model.isSneak = _default.isSneak;
-					model.isRiding = _default.isRiding;
-					model.isChild = _default.isChild;
-					model.rightArmPose = _default.rightArmPose;
-					model.leftArmPose = _default.leftArmPose;
+				ArmorTypes.modelMovieOptimusPrime.isSneak = _default.isSneak;
+				ArmorTypes.modelMovieOptimusPrime.isRiding = _default.isRiding;
+				ArmorTypes.modelMovieOptimusPrime.isChild = _default.isChild;
+				ArmorTypes.modelMovieOptimusPrime.rightArmPose = _default.rightArmPose;
+				ArmorTypes.modelMovieOptimusPrime.leftArmPose = _default.leftArmPose;
 
-					return model;
+					return ArmorTypes.modelMovieOptimusPrime;
 				}
 			}
 			
