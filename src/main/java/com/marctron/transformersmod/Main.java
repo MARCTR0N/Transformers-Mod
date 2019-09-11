@@ -36,6 +36,9 @@ public class Main {
 
 
     public static File config;
+    
+    
+    
     public static CreativeTabs tabTransformers = new CreativeTabs("tabTransformersMod") {
 
         @Override
@@ -51,6 +54,7 @@ public class Main {
         }
 
     }.setBackgroundImageName("item_search.png");
+    
     public static CreativeTabs tabWeapons = new CreativeTabs("tabWeapons") {
 
         @Override
@@ -97,7 +101,9 @@ public class Main {
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+    	proxy.preInit(event);
+       
+    	GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
         
         logger = event.getModLog();
 
@@ -111,7 +117,7 @@ public class Main {
 
         //GunEntities.regEntities();
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
-        proxy.preInit(event);
+        
     }
 
     @EventHandler

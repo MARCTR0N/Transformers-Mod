@@ -19,12 +19,15 @@ public class SoundsHandler {
 
     public static SoundEvent TRANSFORMONE;
     public static SoundEvent TRANSFORMTWO;
+    
+    public static SoundEvent HAMMERPOUND;
 
     public static void init() {
         //size = SoundEvent.REGISTRY.getKeys().size();
 
         TRANSFORMONE = registerSound("transformation.transformone");
         TRANSFORMTWO = registerSound("transformation.transformtwo");
+        HAMMERPOUND = registerSound("misc.hammerpound");
     }
 
 

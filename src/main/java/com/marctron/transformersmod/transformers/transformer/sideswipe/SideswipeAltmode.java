@@ -2,8 +2,8 @@ package com.marctron.transformersmod.transformers.transformer.sideswipe;
 
 
 import com.marctron.transformersmod.proxy.ClientProxy;
-import com.marctron.transformersmod.transformers.ModelVurp;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeAltmode;
+import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;

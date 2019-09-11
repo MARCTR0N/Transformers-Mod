@@ -1,4 +1,15 @@
 {
+    "misc.hammerpound": {
+    "category": "player",
+    "subtitle": "misc.hammerpound",
+    "sounds": [
+      {
+        "name": "tm:misc/hammerpound",
+        "stream": true
+      }
+    ]
+  },
+
   "transformation.transformone": {
     "category": "player",
     "subtitle": "transformation.transformone",

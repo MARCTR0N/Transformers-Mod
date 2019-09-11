@@ -54,7 +54,7 @@ public final class VehiconAltmode extends ItemArmor {
         //player.motionZ = Math.min(3, player.motionZ);
 
         //world.spawnParticle(EnumParticleTypes.DRAGON_BREATH, player.posX, player.posY, player.posZ, 0, 0, 0);
-        world.spawnParticle(EnumParticleTypes.SUSPENDED_DEPTH, player.posX, player.posY, player.posZ, 0, 0, 0);
+//        world.spawnParticle(EnumParticleTypes.SUSPENDED_DEPTH, player.posX, player.posY, player.posZ, 0, 0, 0);
 
         player.fallDistance = 0;
         //player.capabilities.allowFlying = true;

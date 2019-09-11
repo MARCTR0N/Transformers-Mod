@@ -15,14 +15,20 @@ import com.marctron.transformersmod.blocks.ItemSpawner;
 import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 import com.marctron.transformersmod.entity.EntityBullet;
+import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
+import com.marctron.transformersmod.entity.render.RenderBullet;
+import com.marctron.transformersmod.entity.render.RenderRocket;
+import com.marctron.transformersmod.entity.render.RenderSwindle;
+import com.marctron.transformersmod.entity.render.RenderVehicon;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemEnergonMug;
 import com.marctron.transformersmod.items.ItemEnergonMugDark;
 import com.marctron.transformersmod.items.ItemEnergonMugRed;
 import com.marctron.transformersmod.items.ItemEnergonMugSynthetic;
+import com.marctron.transformersmod.items.ItemHammer;
 import com.marctron.transformersmod.items.ItemMedkit;
 import com.marctron.transformersmod.items.ItemPhaseShifter;
 import com.marctron.transformersmod.items.ItemStarSaber;
@@ -33,7 +39,6 @@ import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
-import com.marctron.transformersmod.transformers.Vurp;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid1;
@@ -74,6 +79,7 @@ import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelV
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid2;
+import com.marctron.transformersmod.transformers.transformer.vurp.Vurp;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.block.Block;
@@ -93,6 +99,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
@@ -151,6 +158,8 @@ public class RegistryHandler {
       //Relics
     	public static final Item PHASE_SHIFTER = null;
     	public static final Item STAR_SABER = null;
+    	
+    	public static final ItemHammer Hammer = null;
     	
       //TabIcons
     	public static final Item AMMO = null;
@@ -583,6 +592,8 @@ public class RegistryHandler {
             	  //Relics
             		new ItemStarSaber("star_saber", 200, SWORD_MATERIAL),
             		new ItemPhaseShifter("phase_shifter"),
+            		
+            		new ItemHammer("hammer", SWORD_MATERIAL, 200),
             		
             	  //TabIcons
             		new ItemBase("ammo"),
@@ -1019,8 +1030,6 @@ public class RegistryHandler {
             TileEntityHandler.registerTileEntities();
         }
         
-        
-
         @SubscribeEvent
         public static void entityRegistry(RegistryEvent.Register<EntityEntry> e) {
             final EntityEntry[] entry = {
@@ -1028,9 +1037,10 @@ public class RegistryHandler {
                     registerProjectile("bullet", EntityBullet.class, Reference.ENTITY_BULLET),
             		registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 1, true, 000000, 660066),
             		registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 1, true, 8983288, 16043109),
+            		registerEntity("decepticon_brute", EntityDecepticonBrute.class, Reference.ENTITY_DECEPTICON_BRUTE, 1, true, 8983288, 16043109),
                     
             };
-            // use
+            
             e.getRegistry().registerAll(entry);
         }
         
@@ -1046,7 +1056,7 @@ public class RegistryHandler {
         
         public static EntityEntry registerProjectile(String name, Class<? extends Entity> entity, int id) {
 			return createEntityBuilder(name).entity(entity).build();
-//            EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, 64, 1, true);
+
         }
         
         private static EntityEntry registerEntity(String name, Class<? extends Entity> cl, int trackRange, int frequency, boolean velocityUpdates) {
@@ -1070,7 +1080,7 @@ public class RegistryHandler {
     }
 
     
-    
+   
     
     
     @Mod.EventBusSubscriber(Side.CLIENT)
@@ -1088,4 +1098,6 @@ public class RegistryHandler {
                     });
         }
     }
+    
+    
 }

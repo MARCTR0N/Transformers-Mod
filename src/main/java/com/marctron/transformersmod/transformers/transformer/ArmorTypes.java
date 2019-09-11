@@ -1,6 +1,5 @@
 package com.marctron.transformersmod.transformers.transformer;
 
-import com.marctron.transformersmod.transformers.ModelVurp;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid2;
@@ -31,6 +30,7 @@ import com.marctron.transformersmod.transformers.models.tarn.TarnChest;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
+import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

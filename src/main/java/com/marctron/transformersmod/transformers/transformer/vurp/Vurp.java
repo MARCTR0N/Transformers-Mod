@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.transformer.tarn;
+package com.marctron.transformersmod.transformers.transformer.vurp;
 
 import com.marctron.transformersmod.Main;
 
@@ -14,12 +14,10 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -28,11 +26,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Tarn2 extends ItemArmor {
+public class Vurp extends ItemArmor {
 
     
 
-    public Tarn2(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public Vurp(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -43,7 +41,7 @@ public class Tarn2 extends ItemArmor {
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("IDW")));
+        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("TF Mod")));
     }
 
     @Override
@@ -51,16 +49,6 @@ public class Tarn2 extends ItemArmor {
 //			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0 ));
         player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         super.onArmorTick(world, player, itemStack);
-        
-        float moveX = (float) (player.posX - player.prevPosX)*2F;
-        float moveZ = (float) (player.posZ - player.prevPosZ)*2F;
-        float speed = MathHelper.sqrt(moveX * moveX + moveZ * moveZ);
-        float frame = Minecraft.getSystemTime() + 1;
-
-        if ( frame == 5 && speed > 0.03 ) {
-        	Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.5F, 0.5F);
-        }
-        
 
         if (itemStack.getItem() == RegistryHandler.ModItems.TARN_HELMET) {
             if (world.isRemote) {
@@ -104,21 +92,21 @@ public class Tarn2 extends ItemArmor {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-            	ArmorTypes.modelTarnLegs.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelTarnLegs.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelTarnLegs.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-                ArmorTypes.modelTarnLegs.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelTarnLegs.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelTarnLegs.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-                ArmorTypes.modelTarnLegs.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+            	ArmorTypes.modelVurp.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelVurp.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelVurp.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+                ArmorTypes.modelVurp.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelVurp.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelVurp.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+                ArmorTypes.modelVurp.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-                ArmorTypes.modelTarnLegs.isSneak = _default.isSneak;
-                ArmorTypes.modelTarnLegs.isRiding = _default.isRiding;
-                ArmorTypes.modelTarnLegs.isChild = _default.isChild;
-                ArmorTypes.modelTarnLegs.rightArmPose = _default.rightArmPose;
-                ArmorTypes.modelTarnLegs.leftArmPose = _default.leftArmPose;
+                ArmorTypes.modelVurp.isSneak = _default.isSneak;
+                ArmorTypes.modelVurp.isRiding = _default.isRiding;
+                ArmorTypes.modelVurp.isChild = _default.isChild;
+                ArmorTypes.modelVurp.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelVurp.leftArmPose = _default.leftArmPose;
 
-                return ArmorTypes.modelTarnLegs;
+                return ArmorTypes.modelVurp;
             }
         }
 

@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers;
+package com.marctron.transformersmod.transformers.models.vurp;
 
 import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;

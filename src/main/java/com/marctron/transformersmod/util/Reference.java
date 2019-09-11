@@ -11,6 +11,7 @@ public class Reference {
 
     public static final int ENTITY_VEHICON = 120;
     public static final int ENTITY_SWINDLE = 120;
+    public static final int ENTITY_DECEPTICON_BRUTE = 500;
 
     public static final int GUI_ENERGON_CRATE = 2;
     public static final int GUI_ENERGON_ENGINE = 3;
