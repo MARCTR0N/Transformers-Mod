@@ -311,14 +311,14 @@ public abstract class EntityDecepticon extends EntityCreature implements IEntity
     public boolean attackEntityFrom(DamageSource source, float damage) {
         boolean attack = super.attackEntityFrom(source, damage);
         if (attack) {
-            if (getHealth() > 0.0F && getAnimation() == NO_ANIMATION && playsHurtAnimation) {
-                AnimationHandler.INSTANCE.sendAnimationMessage(this, getHurtAnimation());
-            } else if (getHealth() <= 0.0F) {
-                if (currentAnim != null) {
-                    currentAnim.resetTask();
-                }
-                AnimationHandler.INSTANCE.sendAnimationMessage(this, getDeathAnimation());
-            }
+//            if (getHealth() > 0.0F && getAnimation() == NO_ANIMATION && playsHurtAnimation) {
+//                AnimationHandler.INSTANCE.sendAnimationMessage(this, getHurtAnimation());
+//            } else if (getHealth() <= 0.0F) {
+//                if (currentAnim != null) {
+//                    currentAnim.resetTask();
+//                }
+//                AnimationHandler.INSTANCE.sendAnimationMessage(this, getDeathAnimation());
+//            }
         }
         return attack;
     }

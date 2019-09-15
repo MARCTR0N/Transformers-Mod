@@ -97,7 +97,7 @@ public class EntityDecepticonBrute extends EntityDecepticon implements IAnimated
 
     private static final DataParameter<Boolean> ACTIVE = EntityDataManager.createKey(EntityDecepticonBrute.class, DataSerializers.BOOLEAN);
 
-    public ControlledAnimation walkAnim = new ControlledAnimation(10);
+//    public ControlledAnimation walkAnim = new ControlledAnimation(10);
 
     public boolean swingDirection;
 
@@ -318,20 +318,20 @@ public class EntityDecepticonBrute extends EntityDecepticon implements IAnimated
         float speed = MathHelper.sqrt(moveX * moveX + moveZ * moveZ);
         if (speed > 0.01) {
             if (getAnimation() == NO_ANIMATION) {
-                walkAnim.increaseTimer();
+//                walkAnim.increaseTimer();
             }
         } else {
-            walkAnim.decreaseTimer();
+//            walkAnim.decreaseTimer();
         }
         if (getAnimation() != NO_ANIMATION) {
-            walkAnim.decreaseTimer(2);
+//            walkAnim.decreaseTimer(2);
         }
 
         if (frame % 20 == 5 && speed > 0.03 && getAnimation() == NO_ANIMATION && active) {
             playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.5F, 0.5F);
         }
 
-        repelEntities(2.2F, 4, 2.2F, 2.2F);
+        repelEntities(1.1F, 2, 1.1F, 1.1F);
 
         if (!active) {
             addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 2, true, true));

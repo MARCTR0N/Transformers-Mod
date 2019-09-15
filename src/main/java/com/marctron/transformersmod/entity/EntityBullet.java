@@ -250,57 +250,89 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
     }
 
     //Copied from EntityArrow
+//    @Nullable
+//    protected Entity findEntityOnPath(Vec3d start, Vec3d end) {
+//        Entity closestEntity = null;
+//        double closestDistance = 0.0D;
+//
+//        AxisAlignedBB startAABB = getEntityBoundingBox();
+//        AxisAlignedBB endAABB = startAABB.offset(motionX, motionY, motionZ);
+//        Vec3d startCenter = getCenter(getEntityBoundingBox());
+//        Vec3d endCenter = getCenter(endAABB);
+//
+//        AxisAlignedBB area = new AxisAlignedBB(startCenter, endCenter).grow(startAABB.getAverageEdgeLength());
+//        List<Entity> possibleEntities = world.getEntitiesInAABBexcluding(this, area, BULLET_TARGETS::test);
+//        if (possibleEntities.isEmpty())
+//            return null;
+//
+//        //This will scan down the path of the projectile to its next position for any entities
+//
+//        //We'll use this AABB to scan down the path
+//        AxisAlignedBB movingAABB = new AxisAlignedBB(startAABB.minX, startAABB.minY, startAABB.minZ, startAABB.maxX, startAABB.maxY, startAABB.maxZ);
+//        //The direct distance between the centers of the start and end AABBs
+//        double distanceToEnd = startCenter.distanceTo(endCenter);
+//        //The direct distance we want to move the scanning AABB each iteration
+//        double stepMove = startAABB.getAverageEdgeLength() * 1.5;
+//        //How many iterations (minus the end position) it will take to scan the path
+//        int steps = (int) Math.floor(distanceToEnd / stepMove);
+//        //The vector we'll add to the scanning AABB every iteration
+//        Vec3d stepVec = steps == 0 ?
+//                new Vec3d(motionX, motionY, motionZ) :
+//                endCenter.subtract(startCenter).scale(1D / (double) steps);
+//
+//        for (int i = 0; i < steps; i++) {
+//            if (i > 0) movingAABB = movingAABB.offset(stepVec);
+//            List<Entity> list = getEntitiesInArea(movingAABB, possibleEntities);
+//            for (Entity entity : list) {
+//                if (entity != shooter) {
+//                    AxisAlignedBB aabb = entity.getEntityBoundingBox();
+//                    RayTraceResult raytraceresult = aabb.calculateIntercept(start, end);
+//                    if (raytraceresult != null) {
+//                        double distance = start.squareDistanceTo(raytraceresult.hitVec);
+//                        if (distance < closestDistance || closestDistance == 0.0D) {
+//                            closestEntity = entity;
+//                            closestDistance = distance;
+//                        }
+//                    }
+//                }
+//            }
+//            if (closestEntity != null)
+//                break;
+//        }
+//
+//        return closestEntity;
+//    }
+    
     @Nullable
-    protected Entity findEntityOnPath(Vec3d start, Vec3d end) {
-        Entity closestEntity = null;
-        double closestDistance = 0.0D;
+    protected Entity findEntityOnPath(Vec3d start, Vec3d end)
+    {
+        Entity entity = null;
+        List<Entity> list = this.world.getEntitiesInAABBexcluding(this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).grow(1.0D), BULLET_TARGETS::test);
+        double d0 = 0.0D;
 
-        AxisAlignedBB startAABB = getEntityBoundingBox();
-        AxisAlignedBB endAABB = startAABB.offset(motionX, motionY, motionZ);
-        Vec3d startCenter = getCenter(getEntityBoundingBox());
-        Vec3d endCenter = getCenter(endAABB);
+        for (int i = 0; i < list.size(); ++i)
+        {
+            Entity entity1 = list.get(i);
 
-        AxisAlignedBB area = new AxisAlignedBB(startCenter, endCenter).grow(startAABB.getAverageEdgeLength());
-        List<Entity> possibleEntities = world.getEntitiesInAABBexcluding(this, area, BULLET_TARGETS::test);
-        if (possibleEntities.isEmpty())
-            return null;
+            if (entity1 != this.shooter || this.ticksInAir >= 5)
+            {
+                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().grow(0.30000001192092896D);
+                RayTraceResult raytraceresult = axisalignedbb.calculateIntercept(start, end);
 
-        //This will scan down the path of the projectile to its next position for any entities
+                if (raytraceresult != null)
+                {
+                    double d1 = start.squareDistanceTo(raytraceresult.hitVec);
 
-        //We'll use this AABB to scan down the path
-        AxisAlignedBB movingAABB = new AxisAlignedBB(startAABB.minX, startAABB.minY, startAABB.minZ, startAABB.maxX, startAABB.maxY, startAABB.maxZ);
-        //The direct distance between the centers of the start and end AABBs
-        double distanceToEnd = startCenter.distanceTo(endCenter);
-        //The direct distance we want to move the scanning AABB each iteration
-        double stepMove = startAABB.getAverageEdgeLength() * 1.5;
-        //How many iterations (minus the end position) it will take to scan the path
-        int steps = (int) Math.floor(distanceToEnd / stepMove);
-        //The vector we'll add to the scanning AABB every iteration
-        Vec3d stepVec = steps == 0 ?
-                new Vec3d(motionX, motionY, motionZ) :
-                endCenter.subtract(startCenter).scale(1D / (double) steps);
-
-        for (int i = 0; i < steps; i++) {
-            if (i > 0) movingAABB = movingAABB.offset(stepVec);
-            List<Entity> list = getEntitiesInArea(movingAABB, possibleEntities);
-            for (Entity entity : list) {
-                if (entity != shooter) {
-                    AxisAlignedBB aabb = entity.getEntityBoundingBox();
-                    RayTraceResult raytraceresult = aabb.calculateIntercept(start, end);
-                    if (raytraceresult != null) {
-                        double distance = start.squareDistanceTo(raytraceresult.hitVec);
-                        if (distance < closestDistance || closestDistance == 0.0D) {
-                            closestEntity = entity;
-                            closestDistance = distance;
-                        }
+                    if (d1 < d0 || d0 == 0.0D)
+                    {
+                        entity = entity1;
+                        d0 = d1;
                     }
                 }
             }
-            if (closestEntity != null)
-                break;
         }
 
-        return closestEntity;
+        return entity;
     }
 
     @Override

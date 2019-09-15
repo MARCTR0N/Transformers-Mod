@@ -4,11 +4,15 @@ import org.lwjgl.input.Keyboard;
 
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.entity.render.RenderBullet;
 import com.marctron.transformersmod.entity.render.RenderDecepticonBrute;
+import com.marctron.transformersmod.entity.render.RenderDecepticonVehiconVariant1;
+import com.marctron.transformersmod.entity.render.RenderDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.render.RenderRocket;
 import com.marctron.transformersmod.entity.render.RenderSwindle;
 import com.marctron.transformersmod.entity.render.RenderVehicon;
@@ -47,8 +51,13 @@ public class ClientProxy implements IProxy {
     }
 
     public static void registerEntityRenderers() {
-        RenderingRegistry.registerEntityRenderingHandler(EntityVehicon.class, RenderVehicon::new);
+        
+        
         RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonBrute.class, RenderDecepticonBrute::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant1.class, RenderDecepticonVehiconVariant1::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant2.class, RenderDecepticonVehiconVariant2::new);
+        
+        RenderingRegistry.registerEntityRenderingHandler(EntityVehicon.class, RenderVehicon::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySwindle.class, RenderSwindle::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLargeRocket.class, RenderRocket::new);

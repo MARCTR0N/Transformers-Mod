@@ -4673,65 +4673,11 @@ public class ModelDecepticonBrute extends AdvancedModelBase
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, EntityDecepticonBrute entity) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         resetToDefaultPose();
-//        if (entity.getAnimation() != EntityDecepticonBrute.ACTIVATE_ANIMATION && entity.getAnimation() != EntityDecepticonBrute.DEACTIVATE_ANIMATION) {
-//            if (entity.isActive()) {
-//                shoulderLeft.rotateAngleZ -= 0.4;
-//                shoulderRight.rotateAngleZ += 0.35;
-//                shoulderLeft.rotateAngleY -= 0.3;
-//                shoulderRight.rotateAngleY += 0.2;
-//                upperArmLeft.rotateAngleZ += 0.5;
-//                upperArmRight.rotateAngleZ += 0.5;
-//                upperArmLeft.rotateAngleY -= 0.5;
-//                upperArmRight.rotateAngleY += 0.3;
-//                lowerArmLeft.rotateAngleZ += 1.5;
-//                lowerArmRight.rotateAngleZ -= 1.3;
-//                lowerArmLeft.rotateAngleY += 0.3;
-//                lowerArmRight.rotateAngleY += 0.7;
-//                handRight.rotateAngleZ += 0.3;
-//                handRight.rotateAngleX -= 0.2;
-//                handLeftJoint.rotateAngleX += 1.6;
-//                handLeftJoint.rotateAngleZ -= 0.5;
-//                axeHandle.rotateAngleY += 0.8;
-//
-//                head.rotateAngleY += f3 / (180f / (float) Math.PI);
-//                neck.rotateAngleX += f4 / (180f / (float) Math.PI);
-//            } else {
-//                shoulderLeft.rotateAngleZ -= 0.4;
-//                shoulderRight.rotateAngleZ += 0.4;
-//                shoulderLeft.rotateAngleY -= 0.4;
-//                shoulderRight.rotateAngleY += 0.4;
-//                upperArmLeft.rotateAngleZ += 0.5;
-//                upperArmRight.rotateAngleZ += 0.5;
-//                upperArmLeft.rotateAngleY -= 0.5;
-//                upperArmRight.rotateAngleY += 0.5;
-//                lowerArmLeft.rotateAngleZ += 1.5;
-//                lowerArmRight.rotateAngleZ -= 1.5;
-//                lowerArmLeft.rotateAngleY += 1;
-//                lowerArmRight.rotateAngleY += 1;
-//                axeBase.rotationPointY += 30;
-//                axeBase.rotationPointZ += 3.5;
-//                axeBase.rotateAngleY += 0.35;
-//                handRight.rotateAngleX -= 0.9;
-//                handRightJoint.rotateAngleZ -= 0.88;
-//                handRightJoint.rotateAngleX -= 0.2;
-//                handLeftJoint.rotateAngleY -= 0.3;
-//                handLeftJoint.rotateAngleX += 0.8;
-//                neck.rotateAngleX += 0.5;
-//                rootBox.rotationPointY -= 5;
-//                thighRightJoint.rotateAngleX += 0.35;
-//                thighRightJoint.rotateAngleY += 0.5;
-//                thighLeftJoint.rotateAngleX += 0.35;
-//                thighLeftJoint.rotateAngleY -= 0.5;
-//                calfRightJoint.rotateAngleX -= 0.6;
-//                calfLeftJoint.rotateAngleX -= 0.6;
-//                footLeft.rotateAngleX += 0.25;
-//                footRight.rotateAngleX += 0.25;
-//            }
-//        }
+
 
         float frame = entity.frame + LLibrary.PROXY.getPartialTicks();
         f = (float) ((4 * Math.PI * frame - 30 * MathHelper.sin((float) (0.1 * Math.PI * (frame - 9))) - 27 * Math.PI) / (4 * Math.PI)) + 5f;
-        f1 = (float) Math.pow(MathHelper.sin((float) (entity.walkAnim.getTimer() * Math.PI * 0.05)), 2);
+//        f1 = (float) Math.pow(MathHelper.sin((float) (entity.walkAnim.getTimer() * Math.PI * 0.05)), 2);
 
         float globalSpeed = (float) (Math.PI * 0.05) *1.2F;
         float globalDegree = 0.8F ;

@@ -62,78 +62,10 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 		}
 		
 		
-			if (!Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown())
-			{
-				if (!player.isCreative()){
-				player.capabilities.isFlying = false;
-				}
-				
-			}
-	
-			
-				
-			
-				ItemStack heldItem = player.inventory.getCurrentItem();//(EnumHand.MAIN_HAND);
-				if (heldItem != null)
-				{
-				if (heldItem.getItem() == RegistryHandler.ModItems.PHASE_SHIFTER)
-				{
-					
-					
-					if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown())
-					{
 						
-//						player.moveRelative(0F, -0.02F, 0.01F, 3F);
-						player.motionY -= 0.014F;
-						player.motionY = Math.min(0.25F, player.motionY);
-						
-					}
-					
-					if (Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown())
-					{
-					player.attackedAtYaw = 0F;
-					player.noClip = true;
-					player.setSprinting(true);
-					player.isImmuneToFire();
-					player.isImmuneToExplosions();
-					player.canBreatheUnderwater();
-					player.hurtResistantTime = 20;
-					
-					
-					
-					
-					if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown())
-					{
-						
-						player.motionY -= 0.0015F;
-						player.motionY = Math.min(0.25F, player.motionY);
-					}
-					
-					
-					
-					
-					
-					
-					
-						if (!Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown())
-						{
-						
-							player.capabilities.isFlying = true;
-						
-						}				
-					}
-				}				
 				
 				
-				
-//				
-//				if (player.getHeldItem(EnumHand.MAIN_HAND) != itemStack){
-//					if (itemStack.getItem() == ModItems.PHASE_SHIFTER){
-//						player.noClip = true;
-//					}
-//				
-//				}
-			}
+
 			
 			
 				if (world.isRemote) {
@@ -144,16 +76,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 					
 					
 					
-					if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) 
-						{
-						//player.limbSwing = 0F;
-						//player.limbSwingAmount = 20F;
-						
-						
-						
-										
-
-						}
+				
 					if (ClientProxy.ROBOT_MODE.isKeyDown()) {
 						
 						

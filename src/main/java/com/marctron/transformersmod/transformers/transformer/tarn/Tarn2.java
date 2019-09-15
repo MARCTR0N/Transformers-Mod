@@ -52,14 +52,7 @@ public class Tarn2 extends ItemArmor {
         player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         super.onArmorTick(world, player, itemStack);
         
-        float moveX = (float) (player.posX - player.prevPosX)*2F;
-        float moveZ = (float) (player.posZ - player.prevPosZ)*2F;
-        float speed = MathHelper.sqrt(moveX * moveX + moveZ * moveZ);
-        float frame = Minecraft.getSystemTime() + 1;
-
-        if ( frame == 5 && speed > 0.03 ) {
-        	Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.5F, 0.5F);
-        }
+      
         
 
         if (itemStack.getItem() == RegistryHandler.ModItems.TARN_HELMET) {

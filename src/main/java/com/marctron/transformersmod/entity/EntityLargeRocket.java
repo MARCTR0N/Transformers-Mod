@@ -18,7 +18,7 @@ public class EntityLargeRocket extends EntityRocket {
         super(worldIn);
     }
 
-    @SideOnly(Side.CLIENT)
+    
     public EntityLargeRocket(World worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
         super(worldIn, x, y, z, accelX, accelY, accelZ);
     }

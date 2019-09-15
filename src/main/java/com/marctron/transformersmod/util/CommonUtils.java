@@ -1,9 +1,13 @@
 package com.marctron.transformersmod.util;
 
 
+import java.util.Collections;
+import java.util.List;
+
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.util.handlers.EnumGuiID;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,9 +17,6 @@ import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by Mark on 12/02/2017.

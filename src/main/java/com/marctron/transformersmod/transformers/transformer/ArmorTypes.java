@@ -1,5 +1,6 @@
 package com.marctron.transformersmod.transformers.transformer;
 
+import com.marctron.transformersmod.transformers.models.ModelDecepticonVehicon;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid2;
@@ -83,9 +84,9 @@ public class ArmorTypes {
     }
     
 //Vehicon
-    public static ModelCustomArmor modelCustomArmor = new ModelCustomArmor();
+    public static ModelDecepticonVehicon modelCustomArmor = new ModelDecepticonVehicon();
     
-    public static ModelCustomArmor getModelCustomArmor() {
+    public static ModelDecepticonVehicon getModelCustomArmor() {
         return modelCustomArmor;
     }
     

@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityVehicon extends EntitySkeleton implements IAnimatedEntity {
+public class EntityVehicon extends EntitySkeleton  {
 
     public EntityVehicon(World worldIn) {
         super(worldIn);
@@ -51,34 +51,34 @@ public class EntityVehicon extends EntitySkeleton implements IAnimatedEntity {
         return super.getDeathSound();
     }
 
-	@Override
-	public int getAnimationTick() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setAnimationTick(int tick) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Animation getAnimation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setAnimation(Animation animation) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Animation[] getAnimations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public int getAnimationTick() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public void setAnimationTick(int tick) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public Animation getAnimation() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public void setAnimation(Animation animation) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public Animation[] getAnimations() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

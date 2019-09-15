@@ -519,8 +519,7 @@ public class ModelVehicon extends ModelBase {
     }
 
     @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
-                                  float headPitch, float scaleFactor, Entity entityIn) {
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,float headPitch, float scaleFactor, Entity entityIn) {
         this.Right_Leg.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F) * 1.4F * limbSwingAmount;
         this.Left_Leg.rotateAngleX = MathHelper.cos(limbSwing * 0.4662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 

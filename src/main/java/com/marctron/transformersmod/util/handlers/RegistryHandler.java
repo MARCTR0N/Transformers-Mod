@@ -16,6 +16,8 @@ import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
@@ -1033,11 +1035,13 @@ public class RegistryHandler {
         @SubscribeEvent
         public static void entityRegistry(RegistryEvent.Register<EntityEntry> e) {
             final EntityEntry[] entry = {
-            		registerProjectile("rocket", EntityLargeRocket.class, Reference.ENTITY_LARGE_ROCKET),
-                    registerProjectile("bullet", EntityBullet.class, Reference.ENTITY_BULLET),
+            		registerProjectile("rocket", EntityLargeRocket.class, Reference.ENTITY_LARGE_ROCKET, 2, 1, true),
+            		registerProjectile("bullet", EntityBullet.class, Reference.ENTITY_BULLET, 2, 1, true),
             		registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 1, true, 000000, 660066),
             		registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 1, true, 8983288, 16043109),
             		registerEntity("decepticon_brute", EntityDecepticonBrute.class, Reference.ENTITY_DECEPTICON_BRUTE, 1, true, 8983288, 16043109),
+            		registerEntity("decepticon_vehicon_1", EntityDecepticonVehiconVariant1.class, Reference.ENTITY_DECEPTICON_VEHICON_1, 1, true, 8983288, 16043109),
+            		registerEntity("decepticon_vehicon_2", EntityDecepticonVehiconVariant2.class, Reference.ENTITY_DECEPTICON_VEHICON_2, 1, true, 8983288, 16043109),
                     
             };
             
@@ -1054,10 +1058,12 @@ public class RegistryHandler {
             }
         }
         
-        public static EntityEntry registerProjectile(String name, Class<? extends Entity> entity, int id) {
-			return createEntityBuilder(name).entity(entity).build();
 
-        }
+        
+        public static EntityEntry registerProjectile(String name, Class<? extends Entity> entity, int id, int trackRange, int frequency, boolean velocityUpdates) 
+    	{
+			return createEntityBuilder(name).entity(entity).id(new ResourceLocation(Reference.MOD_ID + ":" + name), 2).tracker(trackRange, frequency, velocityUpdates).build();
+    	}
         
         private static EntityEntry registerEntity(String name, Class<? extends Entity> cl, int trackRange, int frequency, boolean velocityUpdates) {
             return createEntityBuilder(name).entity(cl).tracker(trackRange, frequency, velocityUpdates).build();

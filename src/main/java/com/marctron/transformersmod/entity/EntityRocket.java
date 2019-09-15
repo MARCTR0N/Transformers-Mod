@@ -68,7 +68,7 @@ public abstract class EntityRocket extends Entity {
     /**
      * Checks if the entity is in range to render.
      */
-    @SideOnly(Side.CLIENT)
+    
     public boolean isInRangeToRenderDist(double distance) {
         double d0 = this.getEntityBoundingBox().getAverageEdgeLength() * 4.0D;
 

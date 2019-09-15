@@ -1,13 +1,14 @@
 package com.marctron.transformersmod.items.gun;
 
 import com.marctron.transformersmod.entity.EntityBullet;
-
+import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -31,6 +32,15 @@ public class NeutronRepeater extends ItemGunBase {
     protected void spawnBullet(World world, EntityPlayer player) {
         player.getCooldownTracker().setCooldown(this, Cooldown);
         world.spawnEntity(new EntityBullet(world, player).setDamage(2f));
+//        world.spawnEntity(new EntityBullet(world, player, Cooldown));
+//        Vec3d aim = player.getLookVec();
+//        EntityBullet bullet = new EntityBullet(world, 1, 1, 1);
+//        bullet.setPosition(player.posX + aim.x * 1.5D, player.posY + aim.y + 1 * 1.5D, player.posZ + aim.z * 1.5D);
+//        bullet.motionX = aim.x * 0.05;
+//        bullet.motionY = aim.y * 0.05;
+//        bullet.motionZ = aim.z * 0.05;
+//        world.spawnEntity(bullet);
+
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
