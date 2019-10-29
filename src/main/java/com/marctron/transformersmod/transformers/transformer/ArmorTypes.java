@@ -1,6 +1,8 @@
 package com.marctron.transformersmod.transformers.transformer;
 
+
 import com.marctron.transformersmod.transformers.models.ModelDecepticonVehicon;
+import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrime;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid2;
@@ -11,7 +13,6 @@ import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimu
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid7;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid8;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid9;
-import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeAltmode;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid;
 import com.marctron.transformersmod.transformers.models.sideswipe.ModelSideswipeMid2;
@@ -21,6 +22,8 @@ import com.marctron.transformersmod.transformers.models.starscream.ModelStarscre
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid1;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid2;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid3;
+import com.marctron.transformersmod.transformers.models.subwoofer.ModelSubwoofer1;
+import com.marctron.transformersmod.transformers.models.subwoofer.ModelSubwoofer2;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid1;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid2;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid3;
@@ -28,7 +31,9 @@ import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid4;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarnAltmode;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarnLegs;
 import com.marctron.transformersmod.transformers.models.tarn.TarnChest;
-import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
+import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraMagnuspart1;
+import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraMagnuspart2;
+import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraMagnuspart3;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
@@ -38,6 +43,26 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ArmorTypes {
+	
+	
+//TFP Magnus	
+	public static ModelTFPUltraMagnuspart1 modelMagnuspart1 = new ModelTFPUltraMagnuspart1();
+    
+    public static ModelTFPUltraMagnuspart1 getMagnuspart1() {
+        return modelMagnuspart1;
+    }
+    
+    public static ModelTFPUltraMagnuspart2 modelMagnuspart2 = new ModelTFPUltraMagnuspart2();
+    
+    public static ModelTFPUltraMagnuspart2 getMagnuspart2() {
+        return modelMagnuspart2;
+    }
+    public static ModelTFPUltraMagnuspart3 modelMagnuspart3 = new ModelTFPUltraMagnuspart3();
+    
+    public static ModelTFPUltraMagnuspart3 getMagnuspart3() {
+        return modelMagnuspart3;
+    }
+	
 	
 //Tarn
     public static ModelTarnLegs modelTarnLegs = new ModelTarnLegs();
@@ -164,10 +189,26 @@ public static ModelSideswipeMid2 modelSideswipeMid2 = new ModelSideswipeMid2();
     public static ModelVurp getModelVurp() {
         return modelVurp;
     }
-//Movie Optimus Prime
-    public static MovieOptimusPrimeModel modelMovieOptimusPrime = new MovieOptimusPrimeModel();
     
-    public static MovieOptimusPrimeModel getModelMovieOptimusPrime() {
+//Subwoofer
+    
+    public static ModelSubwoofer1 modelSubwoofer1 = new ModelSubwoofer1();
+    
+    public static ModelSubwoofer1 getModelSubwoofer1() {
+        return modelSubwoofer1;
+    }
+    
+ public static ModelSubwoofer2 modelSubwoofer2 = new ModelSubwoofer2();
+    
+    public static ModelSubwoofer2 getModelSubwoofer2() {
+        return modelSubwoofer2;
+    }
+    
+    
+//Movie Optimus Prime
+    public static ModelMovieOptimusPrime modelMovieOptimusPrime = new ModelMovieOptimusPrime();
+    
+    public static ModelMovieOptimusPrime getModelMovieOptimusPrime() {
         return modelMovieOptimusPrime;
     }
     

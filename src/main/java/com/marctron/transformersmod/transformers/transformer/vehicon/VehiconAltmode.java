@@ -74,6 +74,7 @@ public final class VehiconAltmode extends ItemArmor {
 
 //				player.entityCollisionReduction = 0F ;
 
+        if (world.isRemote) {
         if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
 
             //player.setInvisible(true);
@@ -84,6 +85,7 @@ public final class VehiconAltmode extends ItemArmor {
                 player.moveRelative(0F, 0F, 0.025F, 3F);
             }
             //player.jumpMovementFactor = 0.001F;
+        }
         }
 
 

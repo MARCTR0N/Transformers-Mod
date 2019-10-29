@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "activated=false,facing=north,type=basic": { "model": "tm:energon_engine" },
+        "activated=false,facing=south,type=basic": { "model": "tm:energon_engine", "y": 180 },
+        "activated=false,facing=east,type=basic": { "model": "tm:energon_engine", "y": 90 },
+        "activated=false,facing=west,type=basic": { "model": "tm:energon_engine", "y": 270 },
+        "activated=false,facing=up,type=basic": { "model": "tm:energon_engine", "x": 270 },
+        "activated=false,facing=down,type=basic": { "model": "tm:energon_engine", "x": 90 },
+        "activated=true,facing=north,type=basic": { "model": "tm:energon_engine" },
+        "activated=true,facing=south,type=basic": { "model": "tm:energon_engine", "y": 180 },
+        "activated=true,facing=east,type=basic": { "model": "tm:energon_engine", "y": 90 },
+        "activated=true,facing=west,type=basic": { "model": "tm:energon_engine", "y": 270 },
+        "activated=true,facing=up,type=basic": { "model": "tm:energon_engine", "x": 270 },
+        "activated=true,facing=down,type=basic": { "model": "tm:energon_engine", "x": 90 },
+        "activated=false,facing=north,type=advanced": { "model": "tm:energon_engine" },
+        "activated=false,facing=south,type=advanced": { "model": "tm:energon_engine", "y": 180 },
+        "activated=false,facing=east,type=advanced": { "model": "tm:energon_engine", "y": 90 },
+        "activated=false,facing=west,type=advanced": { "model": "tm:energon_engine", "y": 270 },
+        "activated=false,facing=up,type=advanced": { "model": "tm:energon_engine", "x": 270 },
+        "activated=false,facing=down,type=advanced": { "model": "tm:energon_engine", "x": 90 },
+        "activated=true,facing=north,type=advanced": { "model": "tm:energon_engine" },
+        "activated=true,facing=south,type=advanced": { "model": "tm:energon_engine", "y": 180 },
+        "activated=true,facing=east,type=advanced": { "model": "tm:energon_engine", "y": 90 },
+        "activated=true,facing=west,type=advanced": { "model": "tm:energon_engine", "y": 270 },
+        "activated=true,facing=up,type=advanced": { "model": "tm:energon_engine", "x": 270 },
+        "activated=true,facing=down,type=advanced": { "model": "tm:energon_engine", "x": 90 }
+    }
+}

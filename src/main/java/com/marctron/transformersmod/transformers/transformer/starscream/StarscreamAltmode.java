@@ -83,7 +83,7 @@ public class StarscreamAltmode extends ModelVehicleBase {
 
         player.dropItem(true);
         
-        
+        if (world.isRemote) { 
         
         player.setSprinting(false);
         player.moveRelative(0F, 0F, 0.01F, 3F);
@@ -108,13 +108,15 @@ public class StarscreamAltmode extends ModelVehicleBase {
             player.moveRelative(0F, 0F, 0.01F, 3F);
 
         }
-
+        }
+        if (world.isRemote) { 
         if (Minecraft.getMinecraft().gameSettings.keyBindBack.isKeyDown()) {
             player.setSprinting(false);
             player.moveRelative(0F, 0F, -0.01F, 3F);
         }
+        }
 
-
+        if (world.isRemote) { 
         if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown()) {
 
 
@@ -125,6 +127,7 @@ public class StarscreamAltmode extends ModelVehicleBase {
                 player.moveRelative(0F, 0F, 0.01F, 3F);
             }
 
+        }
         }
         
         
@@ -168,7 +171,7 @@ public class StarscreamAltmode extends ModelVehicleBase {
         
         
         
-
+        if (world.isRemote) { 
         if (ClientProxy.ROBOT_MODE.isKeyDown()) {
 
 //				Timer timer = new Timer();
@@ -258,6 +261,7 @@ public class StarscreamAltmode extends ModelVehicleBase {
                     player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.THUNDERCRACKER_MID4_HELMET));
                 }
             }
+        }
 
 //					}
 //

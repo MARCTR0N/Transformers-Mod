@@ -61,10 +61,12 @@ public class SideswipeAltmode extends ItemArmor {
         player.cameraYaw = 0F;
         //player.moveRelative(0F, -1F, 0.F, 0F);
         player.eyeHeight = 0.4F;
+        if (world.isRemote) {
         if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
             if (player.onGround) {
                 player.moveRelative(0F, 0F, 0.035F, 3F);
             }
+        }
         }
 
 //			if (world.isRemote){

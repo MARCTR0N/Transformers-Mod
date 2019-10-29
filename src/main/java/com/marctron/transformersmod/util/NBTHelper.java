@@ -2,6 +2,7 @@ package com.marctron.transformersmod.util;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
@@ -201,4 +202,8 @@ public class NBTHelper {
 
         return stack.getTagCompound().getTagList(keyName, tagType);
     }
+
+    public static NBTBase getTag(ItemStack stack, String key) {
+		return stack.hasTagCompound() ? stack.getTagCompound().getTag(key) : null;
+	}
 }

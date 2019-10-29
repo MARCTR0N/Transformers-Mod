@@ -3890,7 +3890,8 @@ public class ModelMovieOptimusPrimeMid7 extends ModelBiped
     {
     	
         GlStateManager.pushMatrix();
-    	GlStateManager.scale(0.47F, 0.47F, 0.47F);
+    	GlStateManager.scale(0.7F, 0.7F, 0.7F);
+    	GlStateManager.translate(0.0F, -13F * f5, -0.F);
     	PRIME.render(f5);
     	GlStateManager.popMatrix();
       setRotationAngles(f, f1, f2, f3, f4, f5, entity);

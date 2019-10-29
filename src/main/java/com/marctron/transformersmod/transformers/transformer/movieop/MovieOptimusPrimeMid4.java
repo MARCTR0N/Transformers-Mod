@@ -11,7 +11,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid4;
-import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
+
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
@@ -111,22 +111,22 @@ public MovieOptimusPrimeMid4(String name, ArmorMaterial materialIn, int renderIn
 										
 									}
 									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS) {
-										
-									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS));
-										
-									}
-									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE) {
-										
-									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE));
-										
-									}
-									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_HELMET) {
-										
-									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_HELMET));
-									}
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS) {
+//										
+//									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS));
+//										
+//									}
+//									
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE) {
+//										
+//									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE));
+//										
+//									}
+//									
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_HELMET) {
+//										
+//									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID5_HELMET));
+//									}
 									
 									
 									

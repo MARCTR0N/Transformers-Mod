@@ -3308,12 +3308,13 @@ public class ModelTarnAltmode extends ModelBiped {
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 
+    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GlStateManager.pushMatrix();
         GlStateManager.scale(0.8F, 0.88F, 0.9F);
         super.render(entity, f, f1, f2, f3, f4, f5);
         TANK.render(f5);
         GlStateManager.popMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        
 
     }
 
@@ -3328,12 +3329,12 @@ public class ModelTarnAltmode extends ModelBiped {
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ticks, float rotationYaw, float rotationPitch, float scale, Entity entity) {
         super.setRotationAngles(limbSwing, limbSwingAmount, ticks, rotationYaw, rotationPitch, scale, entity);
 
-        if (entity instanceof EntityPlayer) {
+//        if (entity instanceof EntityPlayer) {
             TURRET.rotateAngleY = (rotationYaw) / (180F / 3.14f);
             LEFT_BARREL.rotateAngleX = (rotationPitch) / (180F / 3.14f);
             RIGHT_BARREL.rotateAngleX = (rotationPitch) / (180F / 3.14f);
 //            vehiclebase.rotateAngleY = -(float) Math.toRadians(TFRenderHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientEventHandler.renderTick)) * limbSwingAmount;
-        }
+//        }
 
 //        boolean flag = entity instanceof EntityLivingBase && ((EntityLivingBase)entity).getTicksElytraFlying() > 4;
 //        this.LEFT_BARREL.rotateAngleY = rotationYaw * 0.017453292F;

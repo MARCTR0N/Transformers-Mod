@@ -2636,7 +2636,8 @@ public class ModelMovieOptimusPrimeAltmode extends ModelBiped
     {
         
         GlStateManager.pushMatrix();
-    	GlStateManager.scale(0.56F, 0.56F, 0.56F);
+    	GlStateManager.scale(0.75F, 0.75F, 0.75F);
+    	GlStateManager.translate(0.0F, -11.5F * f5, -0.F);
     	TRUCK.render(f5);
        
     	GlStateManager.popMatrix();

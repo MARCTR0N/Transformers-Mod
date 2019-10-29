@@ -4832,7 +4832,7 @@ public class ModelDecepticonVehicon extends AdvancedModelBiped
         	float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
 		    float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
 		    
-		    Right_Leg.rotateAngleX= -1.5F*downwardPose *f1;
+//		    Right_Leg.rotateAngleX= -1.5F*downwardPose *f1;
         }
         
         if (this.isSneak)
@@ -4859,23 +4859,23 @@ public class ModelDecepticonVehicon extends AdvancedModelBiped
         	
         
         	
-        walk(Head, 2 * globalSpeed, 0.15F * globalDegree, true, 0, 0.75F, f, f1);
-        swing(Head, 1 * globalSpeed, 0.4F * globalDegree, true, 0, 0, f, f1);
+        walk(Head, 2 * globalSpeed, 0.001F * globalDegree, true, 0, 0.4F, f, f1);
+        swing(Head, 1 * globalSpeed, 0.4F * globalDegree, false, 0, 0, f, f1);
         
         bob(Torso, 2 * globalSpeed, 1 * height, false, f, f1);
-        walk(Torso, 2 * globalSpeed, 0.04F * globalDegree, false, 0, 0.75F, f, f1);
+        walk(Torso, 2 * globalSpeed, 0.001F * globalDegree, false, 0, 0.4F, f, f1);
         
-        swing(CHEST, 1 * globalSpeed, 0.4F * globalDegree, false, 0, 0, f, f1);
+        swing(CHEST, 1 * globalSpeed, 0.4F * globalDegree, true, 0, 0, f, f1);
         
         
-        flap(Right_Arm, 1 * globalSpeed, 0.3F * globalDegree, false, 0.5F, 0, f, f1);
-        flap(Right_Arm_1, 1 * globalSpeed, 0.3F * globalDegree, true, 0.5F, 0, f, f1);
+        flap(Right_Arm_1, 1 * globalSpeed, 0.3F * globalDegree, false, 0.5F, 0, f, f1);
+        flap(Right_Arm, 1 * globalSpeed, 0.3F * globalDegree, true, 0.5F, 0, f, f1);
         
-        walk(Right_Arm, 1 * globalSpeed,  1.5F * globalDegree, true, 0.6F, -0.9F, f, f1);
-        walk(Right_Arm_1, 1 * globalSpeed,  1.5F * globalDegree, false, 0.6F, 0.9F, f, f1);
+        walk(Right_Arm_1, 1 * globalSpeed,  1.7F * globalDegree, true, 0.5F, -.4F, f, f1);
+        walk(Right_Arm, 1 * globalSpeed,  1.7F * globalDegree, false, 0.5F, .4F, f, f1);
         
-        walk(LowerArm, 1 * globalSpeed,  1.F * globalDegree, true, -1.1F, 1F, f, f1);
-        walk(LowerArm_1, 1 * globalSpeed,  1.F * globalDegree, false, -1.1F, -1F, f, f1);
+        walk(LowerArm_1, 1 * globalSpeed,  1.F * globalDegree, true, -1.1F, 1F, f, f1);
+        walk(LowerArm, 1 * globalSpeed,  1.F * globalDegree, false, -1.1F, -1F, f, f1);
         
         
         

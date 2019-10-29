@@ -103,22 +103,22 @@ public MovieOptimusPrimeMid3(String name, ArmorMaterial materialIn, int renderIn
 										
 									}
 									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS) {
-										
-									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS));
-										
-									}
-									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE) {
-										
-									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE));
-										
-									}
-									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_HELMET) {
-										
-									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_HELMET));
-									}
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS) {
+//										
+//									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS));
+//										
+//									}
+//									
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE) {
+//										
+//									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE));
+//										
+//									}
+//									
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_HELMET) {
+//										
+//									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_HELMET));
+//									}
 									
 									
 									

@@ -1,15 +1,28 @@
 package com.marctron.transformersmod.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
 
 public class LogHelper {
+	
+	private static Logger logger;
+	
+	public static Logger getLogger() {
+		if (logger == null) {
+			logger = LogManager.getFormatterLogger(Reference.MOD_ID);
+		}
+		return logger;
+	}
+	
     public static void log(Level logLevel, Object object) {
         FMLLog.log(Reference.MOD_ID, logLevel, String.valueOf(object));
     }
 
+    
     public static void all(Object object) {
         log(Level.ALL, object);
     }

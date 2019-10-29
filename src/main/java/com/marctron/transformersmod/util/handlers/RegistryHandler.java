@@ -14,6 +14,7 @@ import com.marctron.transformersmod.blocks.EnergonoreBlock;
 import com.marctron.transformersmod.blocks.ItemSpawner;
 import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
+import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
@@ -21,10 +22,6 @@ import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
-import com.marctron.transformersmod.entity.render.RenderBullet;
-import com.marctron.transformersmod.entity.render.RenderRocket;
-import com.marctron.transformersmod.entity.render.RenderSwindle;
-import com.marctron.transformersmod.entity.render.RenderVehicon;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemEnergonMug;
 import com.marctron.transformersmod.items.ItemEnergonMugDark;
@@ -43,6 +40,15 @@ import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack1;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack2;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack3;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack4;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack5;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack6;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack7;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack8;
+import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack9;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid1;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid2;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid3;
@@ -66,6 +72,8 @@ import com.marctron.transformersmod.transformers.transformer.starscream.Starscre
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid4;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid5;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid6;
+import com.marctron.transformersmod.transformers.transformer.subwoofer.Subwoofer1;
+import com.marctron.transformersmod.transformers.transformer.subwoofer.Subwoofer2;
 import com.marctron.transformersmod.transformers.transformer.tarn.ArmorModelTarn;
 import com.marctron.transformersmod.transformers.transformer.tarn.Tarn2;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnAltmode;
@@ -77,6 +85,9 @@ import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid5;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid6;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid7;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid8;
+import com.marctron.transformersmod.transformers.transformer.tfpmagnus.TFPUltraMagnusPart1;
+import com.marctron.transformersmod.transformers.transformer.tfpmagnus.TFPUltraMagnusPart2;
+import com.marctron.transformersmod.transformers.transformer.tfpmagnus.TFPUltraMagnusPart3;
 import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
@@ -101,18 +112,15 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class RegistryHandler {
-	
 	
 	
 	
@@ -125,7 +133,8 @@ public class RegistryHandler {
     public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
     public static final ArmorMaterial VURP_MATERIAL = EnumHelper.addArmorMaterial("vurp_model", Reference.MOD_ID + ":vurp_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
-    
+    public static final ArmorMaterial SUBWOOFER_MATERIAL = EnumHelper.addArmorMaterial("subwoofer_model", Reference.MOD_ID + ":subwoofer_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
     public static final ArmorMaterial TARN_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn_model", Reference.MOD_ID + ":tarn_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
     public static final ArmorMaterial TARN2_MODEL_MATERIAL = EnumHelper.addArmorMaterial("tarn2_model", Reference.MOD_ID + ":tarn2_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
     public static final ArmorMaterial TARN_ALTMODE_MATERIAL = EnumHelper.addArmorMaterial("tarn_altmode_model", Reference.MOD_ID + ":tarn_altmode_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
@@ -143,6 +152,8 @@ public class RegistryHandler {
     public static final ArmorMaterial SIDESWIPE_MODEL_MATERIAL = EnumHelper.addArmorMaterial("sideswipe_model", Reference.MOD_ID + ":sideswipe_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
     public static final ArmorMaterial IRONHIDE_MATERIAL = EnumHelper.addArmorMaterial("ironhide_model", Reference.MOD_ID + ":ironhide_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+    
+    public static final ArmorMaterial MAGNUS_MATERIAL = EnumHelper.addArmorMaterial("magnus_model", Reference.MOD_ID + ":magnus_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
 
     //Armor Altmode
@@ -246,6 +257,19 @@ public class RegistryHandler {
         public static final Item VURP_LEGGINGS = null;
         public static final Item VURP_BOOTS = null;
         
+      //Subwoofer
+        public static final Item SUBWOOFER_HELMET = null;
+        public static final Item SUBWOOFER_CHESTPLATE = null;
+        public static final Item SUBWOOFER_LEGGINGS = null;
+        public static final Item SUBWOOFER_BOOTS = null;
+        
+      //TFP Ultra Magnus
+        public static final Item ULTRA_MAGNUS_HELMET = null;
+        public static final Item ULTRA_MAGNUS_CHESTPLATE = null;
+        public static final Item ULTRA_MAGNUS_LEGGINGS = null;
+        public static final Item ULTRA_MAGNUS_BOOTS = null;
+        
+        
       //Sideswipe
         public static final Item SIDESWIPE_HELMET = null;
         public static final Item SIDESWIPE_CHESTPLATE = null;
@@ -332,6 +356,18 @@ public class RegistryHandler {
         public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_CHESTPLATE = null;
         public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_LEGGINGS = null;
         public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_BOOTS = null;
+        
+        
+        
+        public static final MovieOptimusPrimeBack1 MOVIE_OPTIMUS_PRIME_BACK1_BOOTS = null;
+        public static final MovieOptimusPrimeBack2 MOVIE_OPTIMUS_PRIME_BACK2_BOOTS = null;
+        public static final MovieOptimusPrimeBack3 MOVIE_OPTIMUS_PRIME_BACK3_BOOTS = null;
+        public static final MovieOptimusPrimeBack4 MOVIE_OPTIMUS_PRIME_BACK4_BOOTS = null;
+        public static final MovieOptimusPrimeBack5 MOVIE_OPTIMUS_PRIME_BACK5_BOOTS = null;
+        public static final MovieOptimusPrimeBack6 MOVIE_OPTIMUS_PRIME_BACK6_BOOTS = null;
+        public static final MovieOptimusPrimeBack7 MOVIE_OPTIMUS_PRIME_BACK7_BOOTS = null;
+        public static final MovieOptimusPrimeBack8 MOVIE_OPTIMUS_PRIME_BACK8_BOOTS = null;
+        public static final MovieOptimusPrimeBack9 MOVIE_OPTIMUS_PRIME_BACK9_BOOTS = null;
         
       //Starscream
         public static final Starscream STARSCREAM_HELMET = null;
@@ -527,6 +563,9 @@ public class RegistryHandler {
 	    public static final Item TARN_MID8_CHESTPLATE = null;
 	    public static final Item TARN_MID8_LEGGINGS = null;
 	    public static final Item TARN_MID8_BOOTS = null;
+	    
+	  //Machinery 
+	    public static final Item CHIP = null;
     }
 
     @GameRegistry.ObjectHolder(Reference.MOD_ID)
@@ -557,8 +596,11 @@ public class RegistryHandler {
 //        public static final Block ENERGON_ENGINE = null;
 //        public static final Block ENERGON_STORAGE = null;
 //        public static final Block CREATIVE_GENERATOR = null;
+        
+        public static final Block ENERGON_ENGINE = null;
 
-        //Dyed Stuff
+        public static final Block ASSEMBLER = null;
+    //Dyed Stuff
 
         //Wool
         public static final Block WOOL_PALE_GREEN = null;
@@ -591,6 +633,12 @@ public class RegistryHandler {
         @SubscribeEvent
         public static void onItemRegister(RegistryEvent.Register<Item> event) {
             final Item[] items = {
+
+            		
+            	  //Machinery
+            		new ItemBase("chip"),
+            		
+            		
             	  //Relics
             		new ItemStarSaber("star_saber", 200, SWORD_MATERIAL),
             		new ItemPhaseShifter("phase_shifter"),
@@ -673,6 +721,12 @@ public class RegistryHandler {
             	    new ItemBase("dark_red_dye"),
             	    new ItemBase("dark_gray_dye"),
             	    new ItemBase("beige_dye"),
+            	    
+            	  //TFP Ultra Magnus
+            	    new TFPUltraMagnusPart1("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new TFPUltraMagnusPart1("ultra_magnus_chestplate", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new TFPUltraMagnusPart2("ultra_magnus_leggings", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new TFPUltraMagnusPart3("ultra_magnus_boots", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //Tarn
             	    new Tarn2("tarn_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
@@ -833,6 +887,16 @@ public class RegistryHandler {
                     new MovieOptimusPrimeMid9("movie_optimus_prime_mid9_leggings",  MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS),
                     new MovieOptimusPrimeMid9("movie_optimus_prime_mid9_boots",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
                     
+                    new MovieOptimusPrimeBack1("movie_optimus_prime_back1_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack2("movie_optimus_prime_back2_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack3("movie_optimus_prime_back3_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack4("movie_optimus_prime_back4_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack5("movie_optimus_prime_back5_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack6("movie_optimus_prime_back6_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack7("movie_optimus_prime_back7_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack8("movie_optimus_prime_back8_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    new MovieOptimusPrimeBack9("movie_optimus_prime_back9_boots", MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+                    
                  //Starscream
                     new Starscream("starscream_helmet",  STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
                     new Starscream("starscream_chestplate",  STARSCREAM_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST),
@@ -962,6 +1026,12 @@ public class RegistryHandler {
                     new Vurp("vurp_leggings", VURP_MATERIAL, 2, EntityEquipmentSlot.LEGS),
                     new Vurp("vurp_boots", VURP_MATERIAL, 1, EntityEquipmentSlot.FEET),
                     
+                  //Subwoofer
+                    new Subwoofer1("subwoofer_helmet", SUBWOOFER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+                    new Subwoofer1("subwoofer_chestplate", SUBWOOFER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+                    new Subwoofer2("subwoofer_leggings", SUBWOOFER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+                    new Subwoofer2("subwoofer_boots", SUBWOOFER_MATERIAL, 1, EntityEquipmentSlot.FEET),  
+                    
             };
             event.getRegistry().registerAll(items);
             event.getRegistry().registerAll(ITEM_BLOCKS.toArray(new ItemBlock[ITEM_BLOCKS.size()]));
@@ -994,12 +1064,18 @@ public class RegistryHandler {
 
             	    new BlockEnergonCrate("energon_crate_block").setHardness(3),
             	    
-            	   new BlockBase("space_bridge_block", Material.IRON).setHardness(3),
+            	   
+            	    
+            	    new BlockBase("space_bridge_block", Material.IRON).setHardness(3),
 
             	    //Machinery 
 //            	    new BlockEnergonEngine("energon_engine", Material.IRON).setHardness(3),
 //            	    new BlockEnergonStorage("energon_storage", Material.IRON).setHardness(3),
 //            	    new BlockCreativeGenerator("creative_engine", Material.IRON).setHardness(3),
+            	   
+//            	   new EnergonEngineBlock("energon_engine", Material.IRON).setHardness(2),
+            	    
+            	    new BlockAssembler("assembler", Material.IRON).setHardness(3),
 
             	//Dyed Stuff
 

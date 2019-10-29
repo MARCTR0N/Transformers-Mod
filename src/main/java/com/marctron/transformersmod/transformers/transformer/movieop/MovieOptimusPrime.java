@@ -9,9 +9,9 @@ import javax.annotation.Nullable;
 import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrime;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
-import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
@@ -235,7 +235,7 @@ public MovieOptimusPrime(String name, ArmorMaterial materialIn, int renderIndexI
 	
 
 	@SideOnly(Side.CLIENT)
-	private static MovieOptimusPrimeModel model = new MovieOptimusPrimeModel();
+	private static ModelMovieOptimusPrime model = new ModelMovieOptimusPrime();
 	
 	@Override
 	@SideOnly(Side.CLIENT)

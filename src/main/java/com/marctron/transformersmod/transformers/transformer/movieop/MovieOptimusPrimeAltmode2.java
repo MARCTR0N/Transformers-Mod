@@ -11,7 +11,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
-import com.marctron.transformersmod.transformers.models.movieop.MovieOptimusPrimeModel;
+
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
@@ -24,6 +24,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -108,25 +109,28 @@ public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int rend
 									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) {
 										
 									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_BOOTS));
-										
+									
+									player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
+									player.inventory.armorInventory.set(2, new ItemStack(Items.AIR));
+									player.inventory.armorInventory.set(3, new ItemStack(Items.AIR));
 									}
 									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS) {
-										
-									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_LEGGINGS));
-										
-									}
-									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE) {
-										
-									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_CHESTPLATE));
-										
-									}
-									
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET) {
-										
-									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_HELMET));
-									}
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS) {
+//										
+//									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_LEGGINGS));
+//										
+//									}
+//									
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE) {
+//										
+//									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_CHESTPLATE));
+//										
+//									}
+//									
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET) {
+//										
+//									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_HELMET));
+//									}
 									
 									
 									

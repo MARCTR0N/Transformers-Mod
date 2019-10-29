@@ -2078,7 +2078,8 @@ public class ModelTarnLegs extends ModelBiped {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        GlStateManager.pushMatrix();
+    	 setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    	GlStateManager.pushMatrix();
         GlStateManager.scale(0.535F, 0.535F, 0.535F);
         GlStateManager.translate(0.0F, 5.0F * f5, 0.0F);
 //      this.HEAD.render(f5);
@@ -2097,7 +2098,7 @@ public class ModelTarnLegs extends ModelBiped {
      
 //        super.render(entity, f, f1, f2, f3, f4, f5);
         GlStateManager.popMatrix();
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+       
     }
 
     @Override
