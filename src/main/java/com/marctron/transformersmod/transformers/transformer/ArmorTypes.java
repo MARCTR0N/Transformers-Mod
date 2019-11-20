@@ -37,13 +37,35 @@ import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraM
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.ModelBreakdownBody;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.ModelBreakdownLeftArm;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.ModelBreakdownRightArm;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ArmorTypes {
+
 	
+//WFC Breakdown	
+	public static ModelBreakdownBody modelBreakdownBody = new ModelBreakdownBody();
+    
+    public static ModelBreakdownBody getBreakdownBody() {
+        return modelBreakdownBody;
+    }
+    
+    public static ModelBreakdownLeftArm modelBreakdownLeftArm = new ModelBreakdownLeftArm();
+    
+    public static ModelBreakdownLeftArm getBreakdownLeftArm() {
+        return modelBreakdownLeftArm;
+    }
+    
+	public static ModelBreakdownRightArm modelBreakdownRightArm = new ModelBreakdownRightArm();
+    
+    public static ModelBreakdownRightArm getBreakdownRightArm() {
+        return modelBreakdownRightArm;
+    }
 	
 //TFP Magnus	
 	public static ModelTFPUltraMagnuspart1 modelMagnuspart1 = new ModelTFPUltraMagnuspart1();
