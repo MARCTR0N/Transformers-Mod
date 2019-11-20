@@ -93,6 +93,9 @@ import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltm
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid2;
 import com.marctron.transformersmod.transformers.transformer.vurp.Vurp;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.BreakdownBody;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.BreakdownLeftArm;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.BreakdownRightArm;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.block.Block;
@@ -130,6 +133,10 @@ public class RegistryHandler {
     public static final ToolMaterial SWORD_MATERIAL = EnumHelper.addToolMaterial("sword", 0, 1000, 2.0F, 4, 0);
 
     //Armor
+    
+    		//WFC
+    		public static final ArmorMaterial BREAKDOWN_MATERIAL = EnumHelper.addArmorMaterial("breakdown_model", Reference.MOD_ID + ":breakdown_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+    
     public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
     public static final ArmorMaterial VURP_MATERIAL = EnumHelper.addArmorMaterial("vurp_model", Reference.MOD_ID + ":vurp_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
@@ -251,6 +258,12 @@ public class RegistryHandler {
         public static final Item DARK_GRAY_DYE = null;
         public static final Item BEIGE_DYE = null;
     	
+      //Breakdown
+        public static final Item BREAKDOWN_HELMET = null;
+        public static final Item BREAKDOWN_CHESTPLATE = null;
+        public static final Item BREAKDOWN_LEGGINGS = null;
+        public static final Item BREAKDOWN_BOOTS = null;
+        
       //Vurp
         public static final Item VURP_HELMET = null;
         public static final Item VURP_CHESTPLATE = null;
@@ -721,6 +734,12 @@ public class RegistryHandler {
             	    new ItemBase("dark_red_dye"),
             	    new ItemBase("dark_gray_dye"),
             	    new ItemBase("beige_dye"),
+            	    
+            	  //Breakdown
+            	    new BreakdownBody("breakdown_helmet", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new BreakdownRightArm("breakdown_chestplate", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new BreakdownLeftArm("breakdown_leggings", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new BreakdownBody("breakdown_boots", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //TFP Ultra Magnus
             	    new TFPUltraMagnusPart1("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),

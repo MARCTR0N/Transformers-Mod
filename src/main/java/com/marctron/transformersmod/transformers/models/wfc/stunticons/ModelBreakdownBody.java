@@ -4,6 +4,7 @@ import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
 public class ModelBreakdownBody extends AdvancedModelBiped
@@ -120,7 +121,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape105_10;
     public AdvancedModelBipedRenderer shape1212_17;
     public AdvancedModelBipedRenderer shape929;
-    public AdvancedModelBipedRenderer lowerleg;
+    public AdvancedModelBipedRenderer LowerLeg;
     public AdvancedModelBipedRenderer shape10_28;
     public AdvancedModelBipedRenderer shape244_33;
     public AdvancedModelBipedRenderer Left_Leg;
@@ -181,7 +182,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape244_27;
     public AdvancedModelBipedRenderer shape254_1;
     public AdvancedModelBipedRenderer shape1200_1;
-    public AdvancedModelBipedRenderer lowerleg_1;
+    public AdvancedModelBipedRenderer LowerLeg_1;
     public AdvancedModelBipedRenderer shape1050_1;
     public AdvancedModelBipedRenderer shape1048_1;
     public AdvancedModelBipedRenderer shape1014_13;
@@ -307,7 +308,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape1212_2;
     public AdvancedModelBipedRenderer shape1046_11;
     public AdvancedModelBipedRenderer shape10_13;
-    public AdvancedModelBipedRenderer upperleg;
+    public AdvancedModelBipedRenderer upperLeg;
     public AdvancedModelBipedRenderer shape1014_4;
     public AdvancedModelBipedRenderer shape10_4;
     public AdvancedModelBipedRenderer upper_body;
@@ -369,7 +370,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape244_29;
     public AdvancedModelBipedRenderer shape1014_15;
     public AdvancedModelBipedRenderer shape1086;
-    public AdvancedModelBipedRenderer foot;
+    public AdvancedModelBipedRenderer Foot;
     public AdvancedModelBipedRenderer shape1011_1;
     public AdvancedModelBipedRenderer shape196_1;
     public AdvancedModelBipedRenderer shape244_14;
@@ -410,7 +411,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape147_1;
     public AdvancedModelBipedRenderer shape166_10;
     public AdvancedModelBipedRenderer shape929_1;
-    public AdvancedModelBipedRenderer foot_1;
+    public AdvancedModelBipedRenderer Foot_1;
     public AdvancedModelBipedRenderer shape923_2;
     public AdvancedModelBipedRenderer shape10_9;
     public AdvancedModelBipedRenderer shape1034_4;
@@ -580,7 +581,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape376_6;
     public AdvancedModelBipedRenderer shape197_3;
     public AdvancedModelBipedRenderer shape244_35;
-    public AdvancedModelBipedRenderer upperleg_1;
+    public AdvancedModelBipedRenderer upperLeg_1;
     public AdvancedModelBipedRenderer shape10_14;
     public AdvancedModelBipedRenderer shape825_1;
     public AdvancedModelBipedRenderer shape154;
@@ -1088,11 +1089,11 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape929.setRotationPoint(0.1F, -0.5F, 0.0F);
         shape929.addBox(-2.0F, 0.0F, 0.0F, 2, 2, 4, 0.0F);
         setRotateAngle(shape929, 0.0F, 0.0F, -0.4363323129985824F);
-        lowerleg = new AdvancedModelBipedRenderer(this, "lowerleg").setTextureOffset(0, 0);
-        lowerleg.mirror = true;
-        lowerleg.setRotationPoint(-0.3F, 1.0F, -1.5F);
-        lowerleg.addBox(-3.0F, 0.0F, 0.0F, 3, 4, 4, 0.0F);
-        setRotateAngle(lowerleg, 0.17453292519943295F, 0.0F, 0.0F);
+        LowerLeg = new AdvancedModelBipedRenderer(this, "LowerLeg").setTextureOffset(0, 0);
+        LowerLeg.mirror = true;
+        LowerLeg.setRotationPoint(-0.3F, 1.0F, -1.5F);
+        LowerLeg.addBox(-3.0F, 0.0F, 0.0F, 3, 4, 4, 0.0F);
+        setRotateAngle(LowerLeg, 0.17453292519943295F, 0.0F, 0.0F);
         shape10_28 = new AdvancedModelBipedRenderer(this, "shape10_28").setTextureOffset(222, 222);
         shape10_28.setRotationPoint(0.0F, 1.0F, 0.0F);
         shape10_28.addBox(-0.1F, 0.0F, 0.1F, 7, 5, 2, 0.0F);
@@ -1351,10 +1352,10 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1200_1.setRotationPoint(2.0F, 1.0F, 9.0F);
         shape1200_1.addBox(-3.0F, 0.0F, 0.0F, 3, 1, 3, 0.0F);
         setRotateAngle(shape1200_1, 0.17453292519943295F, 0.0F, -0.3490658503988659F);
-        lowerleg_1 = new AdvancedModelBipedRenderer(this, "lowerleg_1").setTextureOffset(0, 0);
-        lowerleg_1.setRotationPoint(0.3F, 1.0F, -1.5F);
-        lowerleg_1.addBox(0.0F, 0.0F, 0.0F, 3, 4, 4, 0.0F);
-        setRotateAngle(lowerleg_1, 0.17453292519943295F, 0.0F, 0.0F);
+        LowerLeg_1 = new AdvancedModelBipedRenderer(this, "LowerLeg_1").setTextureOffset(0, 0);
+        LowerLeg_1.setRotationPoint(0.3F, 1.0F, -1.5F);
+        LowerLeg_1.addBox(0.0F, 0.0F, 0.0F, 3, 4, 4, 0.0F);
+        setRotateAngle(LowerLeg_1, 0.17453292519943295F, 0.0F, 0.0F);
         shape1050_1 = new AdvancedModelBipedRenderer(this, "shape1050_1").setTextureOffset(0, 0);
         shape1050_1.setRotationPoint(0.0F, 1.05F, -1.0F);
         shape1050_1.addBox(0.0F, 0.0F, -1.0F, 1, 2, 2, 0.0F);
@@ -1892,10 +1893,10 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape10_13.setRotationPoint(0.0F, 5.0F, 0.0F);
         shape10_13.addBox(-1.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F);
         setRotateAngle(shape10_13, 0.0F, 0.0F, 1.2042771838760875F);
-        upperleg = new AdvancedModelBipedRenderer(this, "upperleg").setTextureOffset(400, 0);
-        upperleg.mirror = true;
-        upperleg.setRotationPoint(4.8F, 1.0F, -2.5F);
-        upperleg.addBox(-3.0F, 0.0F, 0.0F, 3, 15, 5, 0.0F);
+        upperLeg = new AdvancedModelBipedRenderer(this, "upperLeg").setTextureOffset(400, 0);
+        upperLeg.mirror = true;
+        upperLeg.setRotationPoint(4.8F, 1.0F, -2.5F);
+        upperLeg.addBox(-3.0F, 0.0F, 0.0F, 3, 15, 5, 0.0F);
         shape1014_4 = new AdvancedModelBipedRenderer(this, "shape1014_4").setTextureOffset(200, 0);
         shape1014_4.setRotationPoint(-5.0F, 0.0F, 0.0F);
         shape1014_4.addBox(0.0F, 0.0F, 0.0F, 2, 2, 1, 0.0F);
@@ -2157,11 +2158,11 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1086.mirror = true;
         shape1086.setRotationPoint(-0.5F, 0.0F, 0.0F);
         shape1086.addBox(-1.0F, 0.0F, 0.0F, 1, 10, 1, 0.0F);
-        foot = new AdvancedModelBipedRenderer(this, "foot").setTextureOffset(0, 0);
-        foot.mirror = true;
-        foot.setRotationPoint(2.5F, 1.65F, -9.3F);
-        foot.addBox(-6.0F, 0.0F, 0.0F, 6, 1, 6, 0.0F);
-        setRotateAngle(foot, -0.17453292519943295F, 0.0F, 0.0F);
+        Foot = new AdvancedModelBipedRenderer(this, "Foot").setTextureOffset(0, 0);
+        Foot.mirror = true;
+        Foot.setRotationPoint(2.5F, 1.65F, -9.3F);
+        Foot.addBox(-6.0F, 0.0F, 0.0F, 6, 1, 6, 0.0F);
+        setRotateAngle(Foot, -0.17453292519943295F, 0.0F, 0.0F);
         shape1011_1 = new AdvancedModelBipedRenderer(this, "shape1011_1").setTextureOffset(200, 222);
         shape1011_1.setRotationPoint(0.0F, 4.0F, 0.5F);
         shape1011_1.addBox(0.0F, 0.0F, 0.0F, 3, 10, 1, 0.0F);
@@ -2334,10 +2335,10 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape929_1.setRotationPoint(0.0F, 2.0F, 0.1F);
         shape929_1.addBox(-2.0F, 0.0F, 0.0F, 2, 9, 5, 0.0F);
         setRotateAngle(shape929_1, 0.0F, 0.0F, 0.5410520681182421F);
-        foot_1 = new AdvancedModelBipedRenderer(this, "foot_1").setTextureOffset(0, 0);
-        foot_1.setRotationPoint(-2.5F, 1.65F, -9.3F);
-        foot_1.addBox(0.0F, 0.0F, 0.0F, 6, 1, 6, 0.0F);
-        setRotateAngle(foot_1, -0.17453292519943295F, 0.0F, 0.0F);
+        Foot_1 = new AdvancedModelBipedRenderer(this, "Foot_1").setTextureOffset(0, 0);
+        Foot_1.setRotationPoint(-2.5F, 1.65F, -9.3F);
+        Foot_1.addBox(0.0F, 0.0F, 0.0F, 6, 1, 6, 0.0F);
+        setRotateAngle(Foot_1, -0.17453292519943295F, 0.0F, 0.0F);
         shape923_2 = new AdvancedModelBipedRenderer(this, "shape923_2").setTextureOffset(400, 0);
         shape923_2.mirror = true;
         shape923_2.setRotationPoint(-2.6F, 0.0F, 0.0F);
@@ -3061,9 +3062,9 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape244_35.setRotationPoint(-1.0F, 0.0F, 0.0F);
         shape244_35.addBox(-1.0F, 0.0F, 0.0F, 1, 1, 6, 0.0F);
         setRotateAngle(shape244_35, 0.0F, 0.0F, -0.7853981633974483F);
-        upperleg_1 = new AdvancedModelBipedRenderer(this, "upperleg_1").setTextureOffset(400, 0);
-        upperleg_1.setRotationPoint(-4.8F, 1.0F, -2.5F);
-        upperleg_1.addBox(0.0F, 0.0F, 0.0F, 3, 15, 5, 0.0F);
+        upperLeg_1 = new AdvancedModelBipedRenderer(this, "upperLeg_1").setTextureOffset(400, 0);
+        upperLeg_1.setRotationPoint(-4.8F, 1.0F, -2.5F);
+        upperLeg_1.addBox(0.0F, 0.0F, 0.0F, 3, 15, 5, 0.0F);
         shape10_14 = new AdvancedModelBipedRenderer(this, "shape10_14").setTextureOffset(200, 0);
         shape10_14.mirror = true;
         shape10_14.setRotationPoint(-1.0F, 0.0F, 0.0F);
@@ -3164,20 +3165,20 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1205_5.addBox(0.0F, 0.0F, 0.0F, 5, 2, 1, 0.0F);
         shape1212_10.addChild(shape1212_13);
         shape10_18.addChild(shape10_26);
-        foot.addChild(shape1196);
+        Foot.addChild(shape1196);
         croch.addChild(shape822);
         shape923_5.addChild(shape943_3);
         shape105_19.addChild(shape105_28);
-        upperleg.addChild(shape923_1);
+        upperLeg.addChild(shape923_1);
         shape1014_4.addChild(shape1014_6);
         shape1013_1.addChild(shape1014_9);
         shape1034_13.addChild(shape1034_14);
         shape105_7.addChild(shape105_9);
-        lowerleg.addChild(shape1212);
+        LowerLeg.addChild(shape1212);
         shape146.addChild(shape147);
         shape244_40.addChild(shape244_41);
         shape1.addChild(shape1_3);
-        lowerleg.addChild(shape1011);
+        LowerLeg.addChild(shape1011);
         shape1196_5.addChild(shape1196_6);
         shape1013_1.addChild(shape1014_10);
         rightchest.addChild(shape10);
@@ -3192,7 +3193,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape105_5.addChild(shape105_11);
         shape244_5.addChild(shape244_6);
         exhaust.addChild(shape252);
-        lowerleg_1.addChild(shape1009_2);
+        LowerLeg_1.addChild(shape1009_2);
         shape105_2.addChild(shape105_6);
         shape1046_12.addChild(shape1046_14);
         shape1013_1.addChild(shape1014_11);
@@ -3201,7 +3202,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape931_6.addChild(shape931_7);
         rightchest.addChild(shape10_2);
         shape1212_11.addChild(shape1212_16);
-        foot.addChild(shape1088);
+        Foot.addChild(shape1088);
         shape1029_1.addChild(shape1029_3);
         shape138.addChild(shape159);
         shape244_35.addChild(shape244_36);
@@ -3216,14 +3217,14 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1_4.addChild(shape1_15);
         shape10_17.addChild(shape10_20);
         shape159.addChild(shape160_1);
-        lowerleg.addChild(shape1009);
+        LowerLeg.addChild(shape1009);
         shape1111.addChild(shape1111_1);
         shape923_6.addChild(shape923_8);
         shape197_1.addChild(shape197_2);
         shape1029_4.addChild(shape1029_6);
         shape1034_6.addChild(shape1034_7);
         shape1023_1.addChild(shape1024_5);
-        upperleg.addChild(Left_Lower_Leg);
+        upperLeg.addChild(Left_Lower_Leg);
         Torso.addChild(croch);
         upper_body.addChild(shape317);
         Head.addChild(shape138);
@@ -3271,8 +3272,8 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape826_4.addChild(shape826_6);
         shape105_4.addChild(shape105_10);
         shape1212_11.addChild(shape1212_17);
-        upperleg.addChild(shape929);
-        Left_Lower_Leg.addChild(lowerleg);
+        upperLeg.addChild(shape929);
+        Left_Lower_Leg.addChild(LowerLeg);
         shape10_18.addChild(shape10_28);
         shape244_32.addChild(shape244_33);
         Torso.addChild(Left_Leg);
@@ -3319,7 +3320,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape160_8.addChild(shape160_9);
         shape1029.addChild(shape1029_2);
         shape844_2.addChild(shape844_3);
-        foot_1.addChild(shape1088_1);
+        Foot_1.addChild(shape1088_1);
         shape244_23.addChild(shape244_24);
         shape1089_14.addChild(shape1089_16);
         shape2.addChild(shape2_2);
@@ -3333,7 +3334,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape244_26.addChild(shape244_27);
         shape253.addChild(shape254_1);
         shape1211.addChild(shape1200_1);
-        Right_Lower_Leg.addChild(lowerleg_1);
+        Right_Lower_Leg.addChild(LowerLeg_1);
         shape1049_1.addChild(shape1050_1);
         shape1046_1.addChild(shape1048_1);
         shape1014_9.addChild(shape1014_13);
@@ -3344,8 +3345,8 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1200_10.addChild(shape1205_4);
         shape128_2.addChild(shape128_6);
         shape138.addChild(shape142_1);
-        lowerleg.addChild(Left_Foot);
-        foot_1.addChild(shape1196_4);
+        LowerLeg.addChild(Left_Foot);
+        Foot_1.addChild(shape1196_4);
         shape2.addChild(shape2_3);
         shape166_10.addChild(shape166_11);
         shape1034_2.addChild(shape1034_3);
@@ -3417,7 +3418,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1111_1.addChild(shape1111_2);
         shape244_38.addChild(shape244_39);
         shape105_3.addChild(shape105_7);
-        lowerleg.addChild(shape1212_1);
+        LowerLeg.addChild(shape1212_1);
         shape70.addChild(shape70_3);
         shape1212_7.addChild(shape1212_9);
         shape1_1.addChild(shape2_1);
@@ -3433,22 +3434,22 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape244_37.addChild(shape244_38);
         shape1200_1.addChild(shape1200_6);
         shape166_6.addChild(shape166_7);
-        foot_1.addChild(shape1089_15);
+        Foot_1.addChild(shape1089_15);
         shape931_2.addChild(shape931_3);
-        lowerleg.addChild(shape1056_1);
+        LowerLeg.addChild(shape1056_1);
         shape105_18.addChild(shape105_25);
         shape10_24.addChild(shape10_25);
         shape34_6.addChild(shape34_9);
         shape923_1.addChild(shape923_4);
         shape923_4.addChild(shape931_2);
-        lowerleg_1.addChild(shape1056_3);
+        LowerLeg_1.addChild(shape1056_3);
         shape70_1.addChild(shape70_5);
         shape105_1.addChild(shape105_2);
         shape1023.addChild(shape1029_1);
         shape376_1.addChild(shape376_8);
         shape1196_6.addChild(shape1196_7);
         rightchest_1.addChild(shape10_17);
-        upperleg.addChild(shape934);
+        upperLeg.addChild(shape934);
         shape1089.addChild(shape1089_2);
         shape1211.addChild(shape1200);
         upper_body.addChild(u);
@@ -3459,13 +3460,13 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1212.addChild(shape1212_2);
         shape1046_9.addChild(shape1046_11);
         shape10_2.addChild(shape10_13);
-        Left_Leg.addChild(upperleg);
+        Left_Leg.addChild(upperLeg);
         shape1014.addChild(shape1014_4);
         shape10.addChild(shape10_4);
         Chest.addChild(upper_body);
         shape159.addChild(shape166_1);
         shape826.addChild(shape826_2);
-        foot.addChild(shape1089);
+        Foot.addChild(shape1089);
         shape1200_8.addChild(shape1200_11);
         shape1049_2.addChild(shape1050_2);
         shape142.addChild(shape146);
@@ -3480,21 +3481,21 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1014_9.addChild(shape1023_1);
         shape1089_20.addChild(shape1089_21);
         shape938.addChild(shape941);
-        lowerleg_1.addChild(shape1012_2);
+        LowerLeg_1.addChild(shape1012_2);
         shape1046_13.addChild(shape1048_7);
         exhaust_4.addChild(shape244_28);
         shape1012.addChild(shape1012_1);
         shape1200_6.addChild(shape1200_7);
         shape376_3.addChild(shape376_12);
-        upperleg_1.addChild(shape929_2);
-        lowerleg_1.addChild(Right_Foot);
+        upperLeg_1.addChild(shape929_2);
+        LowerLeg_1.addChild(Right_Foot);
         exhaust_5.addChild(shape252_5);
         shape1056.addChild(shape1046);
         shape1108.addChild(shape1108_1);
         u.addChild(rightchest_1);
         shape70_1.addChild(shape70_4);
         shape317.addChild(shape317_3);
-        lowerleg_1.addChild(shape1212_10);
+        LowerLeg_1.addChild(shape1212_10);
         shape1_7.addChild(shape1_11);
         shape1034_9.addChild(shape1034_13);
         shape2_2.addChild(shape70);
@@ -3521,17 +3522,17 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape244_28.addChild(shape244_29);
         shape1014_13.addChild(shape1014_15);
         shape1009.addChild(shape1086);
-        Left_Foot.addChild(foot);
-        lowerleg_1.addChild(shape1011_1);
+        Left_Foot.addChild(Foot);
+        LowerLeg_1.addChild(shape1011_1);
         shape166_22.addChild(shape196_1);
         exhaust_2.addChild(shape244_14);
         shape1023_1.addChild(shape1033_1);
         rightchest_1.addChild(shape10_18);
         shape244.addChild(shape244_1);
-        lowerleg.addChild(shape1211);
+        LowerLeg.addChild(shape1211);
         shape30_2.addChild(shape34_8);
         shape1111_5.addChild(shape1111_7);
-        upperleg.addChild(shape923);
+        upperLeg.addChild(shape923);
         shape10_17.addChild(shape10_21);
         shape244_36.addChild(shape244_37);
         shape1212_1.addChild(shape1212_7);
@@ -3562,14 +3563,14 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape146_1.addChild(shape147_1);
         shape166_9.addChild(shape166_10);
         shape929.addChild(shape929_1);
-        Right_Foot.addChild(foot_1);
-        upperleg.addChild(shape923_2);
+        Right_Foot.addChild(Foot_1);
+        upperLeg.addChild(shape923_2);
         shape10_1.addChild(shape10_9);
         shape1034_3.addChild(shape1034_4);
         shape1046.addChild(shape1046_2);
         shape1200_2.addChild(shape1205);
         shape105_15.addChild(shape105_19);
-        lowerleg.addChild(shape1056);
+        LowerLeg.addChild(shape1056);
         shape244_30.addChild(shape244_31);
         shape1089_8.addChild(shape1089_9);
         shape923_9.addChild(shape931_6);
@@ -3585,7 +3586,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape837.addChild(shape838_1);
         shape30_2.addChild(shape31_1);
         shape1046_5.addChild(shape1046_7);
-        lowerleg_1.addChild(shape1056_2);
+        LowerLeg_1.addChild(shape1056_2);
         shape1034.addChild(shape1034_2);
         shape317.addChild(shape317_1);
         shape30.addChild(shape34_1);
@@ -3594,7 +3595,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         croch.addChild(shape837);
         shape923.addChild(shape943_1);
         shape1200_1.addChild(shape1200_5);
-        upperleg_1.addChild(shape923_7);
+        upperLeg_1.addChild(shape923_7);
         shape931.addChild(shape931_1);
         shape376_4.addChild(shape376_14);
         shape253.addChild(exhaust);
@@ -3625,13 +3626,13 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1089_20.addChild(shape1108_2);
         exhaust_1.addChild(shape244_7);
         shape823_3.addChild(shape844);
-        foot_1.addChild(shape1089_14);
+        Foot_1.addChild(shape1089_14);
         shape105_15.addChild(shape105_16);
         shape2.addChild(shape4);
         shape823_1.addChild(shape823_4);
         shape1023.addChild(shape1024_1);
         shape166_11.addChild(shape195);
-        lowerleg.addChild(shape1012);
+        LowerLeg.addChild(shape1012);
         shape160_1.addChild(shape160_6);
         shape923_5.addChild(shape943_2);
         shape30.addChild(shape30_1);
@@ -3648,7 +3649,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape166.addChild(shape166_6);
         shape160_7.addChild(shape160_8);
         shape1056_1.addChild(shape1046_5);
-        upperleg_1.addChild(shape923_5);
+        upperLeg_1.addChild(shape923_5);
         shape1211_1.addChild(shape1200_9);
         shape1023.addChild(shape1028);
         shape1200.addChild(shape1200_2);
@@ -3664,16 +3665,16 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape30_2.addChild(shape34_6);
         shape376_8.addChild(shape376_9);
         shape159.addChild(shape160);
-        upperleg_1.addChild(shape934_1);
+        upperLeg_1.addChild(shape934_1);
         shape10_2.addChild(shape10_15);
         shape1048_5.addChild(shape1049_2);
         shape105_16.addChild(shape105_20);
         chest.addChild(shape358);
         shape253_1.addChild(exhaust_3);
         shape244_15.addChild(shape244_16);
-        foot.addChild(shape1089_1);
+        Foot.addChild(shape1089_1);
         shape1056_3.addChild(shape1046_12);
-        upperleg_1.addChild(Right_Lower_Leg);
+        upperLeg_1.addChild(Right_Lower_Leg);
         shape244_2.addChild(shape244_3);
         shape941.addChild(shape942);
         shape1089_15.addChild(shape1089_22);
@@ -3691,7 +3692,7 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape154.addChild(shape154_2);
         shape1_4.addChild(shape1_14);
         shape105_15.addChild(shape105_18);
-        lowerleg_1.addChild(shape1212_11);
+        LowerLeg_1.addChild(shape1212_11);
         croch.addChild(shape820_1);
         exhaust_3.addChild(shape252_3);
         shape70.addChild(shape70_2);
@@ -3725,14 +3726,14 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1089_6.addChild(shape1108);
         upper_body.addChild(shape376_1);
         upper_body.addChild(shape376_5);
-        lowerleg.addChild(shape1009_1);
+        LowerLeg.addChild(shape1009_1);
         shape1111_4.addChild(shape1111_5);
         rightchest.addChild(shape10_1);
         shape826_4.addChild(shape826_5);
         shape376.addChild(shape376_6);
         shape160_9.addChild(shape197_3);
         exhaust_5.addChild(shape244_35);
-        Right_Leg.addChild(upperleg_1);
+        Right_Leg.addChild(upperLeg_1);
         shape10_2.addChild(shape10_14);
         shape823_4.addChild(shape825_1);
         shape138.addChild(shape154);
@@ -3741,29 +3742,37 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1089_22.addChild(shape1089_23);
         exhaust_3.addChild(shape244_21);
         Torso.addChild(torso2);
-        lowerleg_1.addChild(shape1009_3);
+        LowerLeg_1.addChild(shape1009_3);
         rightchest_1.addChild(shape10_19);
         shape253.addChild(exhaust_2);
         shape826_4.addChild(shape826_7);
-        upperleg_1.addChild(shape923_6);
+        upperLeg_1.addChild(shape923_6);
         shape1089_11.addChild(shape1089_12);
         shape233.addChild(shape233_2);
         exhaust_2.addChild(shape252_2);
         shape1.addChild(shape1_5);
         shape244_14.addChild(shape244_15);
-        lowerleg_1.addChild(shape1211_1);
+        LowerLeg_1.addChild(shape1211_1);
         shape244_18.addChild(shape244_19);
         shape244_25.addChild(shape244_26);
         shape34_1.addChild(shape34_4);
         shape1088_1.addChild(shape1111_4);
         shape1200_13.addChild(shape1205_5);
+        
+        updateDefaultPose();
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
+    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        
+        GlStateManager.pushMatrix();
+        GlStateManager.scale(0.45F, 0.45F, 0.45F);
+        GlStateManager.translate(-2.0F * f5, -1F * f5, -1);   
         Torso.render(f5);
-        Chest.render(f5);
+        Chest.render(f5);  
+        GlStateManager.popMatrix();
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)
@@ -3771,5 +3780,143 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     	ModelRenderer.rotateAngleX = x;
     	ModelRenderer.rotateAngleY = y;
     	ModelRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        resetToDefaultPose();
+        	
+        	float globalSpeed = 0.4F;
+            float globalDegree = 0.5F ;
+            float height = 2.F;
+            
+            
+            float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
+    		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
+    		
+    		if(isSneak){
+//    			  Head.rotationPointY = -11F;
+//    		      Head.rotationPointZ = -10F;
+    		      Chest.rotationPointY = 0F;
+    		      Chest.rotationPointZ = -6F;
+    		        
+//    		      Torso.rotateAngleX = 0.1F;
+    		      Chest.rotateAngleX = 0.4F;
+//    		      Chestplate.rotateAngleX = 0.02F;
+    		        
+//    		      Right_Arm.rotateAngleX = 0.3F;
+//    		      Left_Arm.rotateAngleX = 0.3F;
+//    		        
+//    		      Right_Arm.rotateAngleZ = 0.2F;
+//    		      Left_Arm.rotateAngleZ = -0.2F;
+//    		        
+//    		      Right_Lower_Arm.rotateAngleX = -1.3F;
+//    		      Left_Lower_Arm.rotateAngleX = -1.3F;
+//    		        
+//    		      Right_Lower_Arm.rotateAngleY = -0.2F;
+//    		      Left_Lower_Arm.rotateAngleY = 0.2F;
+    		      
+//    		      Right_Leg_1.rotationPointY = -26.5F;
+    	    		
+    		      Right_Leg.rotateAngleX = -0.9F;
+    		      Right_Leg.rotateAngleZ = -0.25F;
+    		      Right_Leg.rotateAngleY = -0.25F;
+    	    		
+    		      Right_Lower_Leg.rotateAngleX = 1.3F;
+    	    		
+    		      Right_Foot.rotateAngleX = -0.71F;
+    		      Right_Foot.rotateAngleZ = 0.4F;
+    		      
+    		      
+    		      
+//    		      Right_Leg_1.rotateAngleX = -1.3F;
+//    		      Right_Leg_1.rotateAngleZ = 0.25F;
+//    		      Right_Leg_1.rotateAngleY = 0.05F;
+//    	    		
+//    		      Right_Lower_Leg_1.rotateAngleX = 1.3F;
+//    	    		
+//    		      Right_Foot_1.rotateAngleX = -0.4F;
+//    		      Right_Foot_1.rotateAngleZ = -0.25F;
+    		}
+    		
+            if (!entity.onGround){
+              	
+              	this.Chest.rotateAngleX = .5F *downwardPose;
+              	this.Chest.rotationPointZ = -6F *downwardPose + -1;
+              	this.Chest.rotationPointY = 2F *downwardPose + -2;
+//              	this.Head.rotationPointZ = -15F *downwardPose + 3;
+//              	this.Head.rotationPointY = 3.5F *downwardPose +-16.5F;
+              	 
+//              	Right_Arm.rotateAngleX = 0.6F*downwardPose;
+//              	Left_Arm.rotateAngleX = 0.6F*downwardPose;
+//                
+//              	Right_Arm.rotateAngleZ = 0.4F *downwardPose;
+//                Left_Arm.rotateAngleZ = -0.4F *downwardPose;
+//                
+//                Right_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
+//                Left_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
+//                
+//                Right_Lower_Arm.rotateAngleY = -0.2F *downwardPose;
+//                Left_Lower_Arm.rotateAngleY = 0.2F *downwardPose;
+              	
+              	
+//              	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
+                
+                
+                Right_Leg.rotateAngleX = -1.F *downwardPose;
+                Right_Leg.rotateAngleZ = -.2F *downwardPose;
+                Right_Leg.rotateAngleY = -.2F *downwardPose;
+                Right_Lower_Leg.rotateAngleX = 1.6F *downwardPose;
+//                Right_Lower_Leg.rotateAngleZ = .5F *downwardPose;
+                
+//                Right_Leg_1.rotateAngleX = -1.7F *downwardPose;
+//                Right_Leg_1.rotateAngleZ = .2F *downwardPose;
+//                Right_Leg_1.rotateAngleY = .2F *downwardPose;
+//                Right_Lower_Leg_1.rotateAngleX = 2.3F *downwardPose;
+//                Right_Lower_Leg_1.rotateAngleZ = -.5F *downwardPose;
+                
+               }
+            
+//			walk(Right_Arm, 1 * globalSpeed,  1.F * globalDegree, true, 0.6F, 0.F, f, f1);
+//     	    walk(Left_Arm, 1 * globalSpeed,  -1.F * globalDegree, true, 0.6F, 0.F, f, f1);
+//            
+//            walk(Right_Lower_Arm, 1 * globalSpeed,  .9F * globalDegree, true, -.8F, 0.6F, f, f1);
+//            walk(Left_Lower_Arm, 1 * globalSpeed,  -.9F * globalDegree, true, -.8F, 0.6F, f, f1);
+        
+
+//            bob(Head, 2 *globalSpeed, height, false, f, f1);
+            bob(Chest, 2 *globalSpeed, 1* height, false, f, f1);
+            bob(Torso, 2 *globalSpeed, 1* height, false, f, f1);
+            
+//            Chest.rotateAngleX=0.5F * f1;
+//            Chest.rotationPointZ=-4 * f1;
+//            Chest.rotationPointY=1 * f1;
+            
+            walk(Chest, 2* globalSpeed, 0.1F* globalDegree, false, 0, 0, f, f1);
+            swing(Chest, 1F* globalSpeed, 0.2F* globalDegree, false, 0, 0, f, f1);
+            
+            walk(Head, 2* globalSpeed, 0.2F* globalDegree, true, 0, 0, f, f1);
+            swing(Head, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+            
+            walk(Right_Leg, 2* globalSpeed, -0.3F* globalDegree, true, 0, 0, f, f1);
+//            swing(Right_Leg, 1* globalSpeed, 0.4F* globalDegree, true, 0, 0, f, f1);
+            
+            walk(Right_Leg, 1 * globalSpeed,  0.99F * globalDegree, false, 0.5F, -0.2F, f, f1);        
+            walk(Right_Lower_Leg, 1 * globalSpeed,  .8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
+            walk(Right_Foot, 1 * globalSpeed,  .8F * globalDegree, true, -3F, 0.F, f, f1);
+            
+            walk(Left_Leg, 2* globalSpeed, -0.3F* globalDegree, true, 0, 0, f, f1);
+//            swing(Left_Leg, 1* globalSpeed, 0.4F* globalDegree, true, 0, 0, f, f1);
+            
+            walk(Left_Leg, 1 * globalSpeed,  -0.99F * globalDegree, false, 0.5F, -0.2F, f, f1);        
+            walk(Left_Lower_Leg, 1 * globalSpeed,  -.8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
+            walk(Left_Foot, 1 * globalSpeed,  -.8F * globalDegree, true, -3F, 0.F, f, f1);
+            
+            Head.rotateAngleY= bipedHead.rotateAngleY;
+            Head.rotateAngleX= bipedHead.rotateAngleX *0.9F;
+//            Head.rotationPointZ=-3F;
+//            Head.rotationPointX=-0;
+//            Head.rotationPointY=-19.F;
     }
 }

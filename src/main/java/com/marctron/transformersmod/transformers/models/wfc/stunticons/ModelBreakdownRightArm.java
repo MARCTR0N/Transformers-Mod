@@ -4,6 +4,7 @@ import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
 public class ModelBreakdownRightArm extends AdvancedModelBiped
@@ -811,12 +812,20 @@ public class ModelBreakdownRightArm extends AdvancedModelBiped
         shape430_9.addChild(shape430_10);
         shape616_20.addChild(shape616_25);
         shape406_2.addChild(shape406_3);
+        
+        updateDefaultPose();
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-        Right_Arm.render(f5);
+    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+  
+    	  GlStateManager.pushMatrix();
+          GlStateManager.scale(0.45F, 0.45F, 0.45F);
+          GlStateManager.translate(-2.0F * f5, -1F * f5, -1);   
+          Right_Arm.render(f5); 
+          GlStateManager.popMatrix();
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)
@@ -824,5 +833,21 @@ public class ModelBreakdownRightArm extends AdvancedModelBiped
     	ModelRenderer.rotateAngleX = x;
     	ModelRenderer.rotateAngleY = y;
     	ModelRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        resetToDefaultPose();
+        
+        float globalSpeed = 0.4F;
+        float globalDegree = 0.5F ;
+        float height = 2.F;
+        
+        bob(Right_Arm, 2 *globalSpeed, 1* height, false, f, f1);
+        
+        walk(Right_Arm, 1 * globalSpeed,  1.F * globalDegree, true, 0.6F, 0.F, f, f1);
+        
+        walk(Right_Lower_Arm, 1 * globalSpeed,  .9F * globalDegree, true, -.6F, 0.6F, f, f1);
     }
 }
