@@ -38,6 +38,9 @@ import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
+import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.renderers.RenderArmor;
+import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack1;
@@ -102,6 +105,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.SoundEvents;
@@ -645,7 +649,8 @@ public class RegistryHandler {
     	
         @SubscribeEvent
         public static void onItemRegister(RegistryEvent.Register<Item> event) {
-            final Item[] items = {
+
+        	final Item[] items = {
 
             		
             	  //Machinery
@@ -820,35 +825,35 @@ public class RegistryHandler {
             	    new VehiconAltmode("vehicon_altmode_boots",  VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET),
             		
             	  //Sideswipe
-            	    new ArmorModelSideswipe("sideswipe_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new ArmorModelSideswipe("sideswipe_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new ArmorModelSideswipe("sideswipe_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new ArmorModelSideswipe("sideswipe_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new ArmorModelSideswipe("sideswipe_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD, ClientProxy.RENDERER),
+            	    new ArmorModelSideswipe("sideswipe_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST, ClientProxy.RENDERER),
+            	    new ArmorModelSideswipe("sideswipe_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS, ClientProxy.RENDERER),
+            	    new ArmorModelSideswipe("sideswipe_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET, ClientProxy.RENDERER),
 
-            	    new SideswipeMid("sideswipe_mid_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new SideswipeMid("sideswipe_mid_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new SideswipeMid("sideswipe_mid_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new SideswipeMid("sideswipe_mid_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new SideswipeMid("sideswipe_mid_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid("sideswipe_mid_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid("sideswipe_mid_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid("sideswipe_mid_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET, ClientProxy.RENDERER_NO_ITEM),
 
-            	    new SideswipeMid2("sideswipe_mid2_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new SideswipeMid2("sideswipe_mid2_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new SideswipeMid2("sideswipe_mid2_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new SideswipeMid2("sideswipe_mid2_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new SideswipeMid2("sideswipe_mid2_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid2("sideswipe_mid2_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid2("sideswipe_mid2_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid2("sideswipe_mid2_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET, ClientProxy.RENDERER_NO_ITEM),
 
-            	    new SideswipeMid3("sideswipe_mid3_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new SideswipeMid3("sideswipe_mid3_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new SideswipeMid3("sideswipe_mid3_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new SideswipeMid3("sideswipe_mid3_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new SideswipeMid3("sideswipe_mid3_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid3("sideswipe_mid3_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid3("sideswipe_mid3_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid3("sideswipe_mid3_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET, ClientProxy.RENDERER_NO_ITEM),
 
-            	    new SideswipeMid4("sideswipe_mid4_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new SideswipeMid4("sideswipe_mid4_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new SideswipeMid4("sideswipe_mid4_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new SideswipeMid4("sideswipe_mid4_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new SideswipeMid4("sideswipe_mid4_helmet",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid4("sideswipe_mid4_chestplate",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.CHEST, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid4("sideswipe_mid4_leggings",  SIDESWIPE_MODEL_MATERIAL, 2, EntityEquipmentSlot.LEGS, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeMid4("sideswipe_mid4_boots",  SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET, ClientProxy.RENDERER_NO_ITEM),
 
-            	    new SideswipeAltmode("sideswipe_altmode_helmet",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new SideswipeAltmode("sideswipe_altmode_chestplate",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new SideswipeAltmode("sideswipe_altmode_leggings",  SIDESWIPE_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new SideswipeAltmode("sideswipe_altmode_boots",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new SideswipeAltmode("sideswipe_altmode_helmet",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.HEAD, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeAltmode("sideswipe_altmode_chestplate",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.CHEST, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeAltmode("sideswipe_altmode_leggings",  SIDESWIPE_ALTMODE_MATERIAL, 2, EntityEquipmentSlot.LEGS, ClientProxy.RENDERER_NO_ITEM),
+            	    new SideswipeAltmode("sideswipe_altmode_boots",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET, ClientProxy.RENDERER_NO_ITEM),
             	    
             	  //Movie Optimus Prime
                     new MovieOptimusPrimeAltmode2("movie_optimus_prime_helmet",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD),

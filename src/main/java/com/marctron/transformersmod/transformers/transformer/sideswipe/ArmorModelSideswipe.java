@@ -4,11 +4,14 @@ import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
+import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,7 +31,8 @@ import java.util.List;
 
 public class ArmorModelSideswipe extends ItemArmor {
 
-    
+	@SideOnly(Side.CLIENT)
+    private RenderLivingBase renderer;
 
     public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -36,8 +40,21 @@ public class ArmorModelSideswipe extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(Main.tabAutobot);
         setMaxStackSize(1);
-       
-
+    }
+	
+    public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, RenderLivingBase renderer) {
+        this(name, materialIn, renderIndexIn, equipmentSlotIn);
+        this.renderer = renderer;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public RenderLivingBase getRenderer() {
+    	return renderer;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void setRenderer(RenderLivingBase renderer) {
+    	this.renderer = renderer;
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
@@ -58,7 +75,7 @@ public class ArmorModelSideswipe extends ItemArmor {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
+        //player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 
 
         player.eyeHeight = 1.65F;
@@ -105,7 +122,7 @@ public class ArmorModelSideswipe extends ItemArmor {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public final ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
 
         if (!itemStack.isEmpty()) {
 

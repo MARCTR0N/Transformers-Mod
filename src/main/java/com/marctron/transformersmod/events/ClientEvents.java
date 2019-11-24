@@ -1,8 +1,17 @@
 package com.marctron.transformersmod.events;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 
@@ -30,6 +39,24 @@ public class ClientEvents {
             //Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED, 1F, 1F);
             //Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 1F, 1F);
         }
+    }
+    
+    @SubscribeEvent
+    public void onlivingRender(RenderLivingEvent.Pre event) {
+    	//System.out.println("Player Render Event");
+    	if (event.getEntity() instanceof AbstractClientPlayer) {
+    		AbstractClientPlayer player = (AbstractClientPlayer) event.getEntity();
+    		boolean flag = false;
+    		for (ItemStack stack : player.getArmorInventoryList()) {
+    			if (stack.getItem() instanceof ArmorModelSideswipe) {
+    				flag = true;
+    				((ArmorModelSideswipe)stack.getItem()).getRenderer().doRender(player, 0, 0, 0, player.getRotationYawHead(), event.getPartialRenderTick());
+    			}
+    		}
+    		if (flag) {
+    			event.setCanceled(true);
+    		}
+    	}
     }
 
 }

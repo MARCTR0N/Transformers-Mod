@@ -6,12 +6,14 @@ import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -20,17 +22,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SideswipeMid3 extends ItemArmor {
+public class SideswipeMid3 extends ArmorModelSideswipe {
 
 
     public SideswipeMid3(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
-        super(materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setCreativeTab(null);
-        setMaxStackSize(1);
-       
-
+        super(name, materialIn, renderIndexIn, equipmentSlotIn);
     }
 
 
@@ -45,10 +41,14 @@ public class SideswipeMid3 extends ItemArmor {
 //		
 //				}
 //			} 
+    
+    public SideswipeMid3(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, RenderLivingBase renderer) {
+    	super(name, materialIn, renderIndexIn, equipmentSlotIn, renderer);
+    }
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
+        //player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {

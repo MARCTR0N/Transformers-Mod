@@ -36,7 +36,7 @@ public class Main {
 
 
     public static File config;
-    
+        
     
     
     public static CreativeTabs tabTransformers = new CreativeTabs("tabTransformersMod") {
@@ -126,6 +126,7 @@ public class Main {
         // TODO: Should be instantiated in Forge related event RegistryEvent.Register<SoundEvent> -Toma
         SoundsHandler.init();
         GunEntities.regEntities();
+        
         proxy.init(event);
     }
 
