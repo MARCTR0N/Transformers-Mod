@@ -4324,8 +4324,8 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
     	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     	GlStateManager.pushMatrix();
         GlStateManager.scale(0.73F, 0.7F, 0.7F);
-        GlStateManager.translate(0.0F, 2F * f5, -0.15F);   
-        CHEST.render(f5);  
+        GlStateManager.translate(0.0F, 2F * f5, -0.15F);
+        CHEST.render(f5);
         GlStateManager.popMatrix();
         
     }

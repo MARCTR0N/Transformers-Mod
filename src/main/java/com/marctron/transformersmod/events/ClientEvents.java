@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.events;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -48,9 +49,11 @@ public class ClientEvents {
     		AbstractClientPlayer player = (AbstractClientPlayer) event.getEntity();
     		boolean flag = false;
     		for (ItemStack stack : player.getArmorInventoryList()) {
-    			if (stack.getItem() instanceof ArmorModelSideswipe) {
-    				flag = true;
-    				((ArmorModelSideswipe)stack.getItem()).getRenderer().doRender(player, 0, 0, 0, player.getRotationYawHead(), event.getPartialRenderTick());
+    			if (stack.getItem() instanceof ItemArmorTransformer) {
+    				if (!flag) {
+    					((ItemArmorTransformer)stack.getItem()).getRenderer().doRender(player, 0, 0, 0, player.getRotationYawHead(), event.getPartialRenderTick());
+        				flag = true;
+    				}
     			}
     		}
     		if (flag) {

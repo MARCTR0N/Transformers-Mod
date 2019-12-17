@@ -6,6 +6,7 @@ import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
 import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -29,10 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ArmorModelSideswipe extends ItemArmor {
-
-	@SideOnly(Side.CLIENT)
-    private RenderLivingBase renderer;
+public class ArmorModelSideswipe extends ItemArmorTransformer {
 
     public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -40,16 +38,6 @@ public class ArmorModelSideswipe extends ItemArmor {
         setRegistryName(name);
         setCreativeTab(Main.tabAutobot);
         setMaxStackSize(1);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public RenderLivingBase getRenderer() {
-    	return renderer;
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void setRenderer(RenderLivingBase renderer) {
-    	this.renderer = renderer;
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
