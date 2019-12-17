@@ -41,6 +41,7 @@ import com.marctron.transformersmod.items.gun.Scrapper;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack1;
@@ -263,323 +264,323 @@ public class RegistryHandler {
         public static final Item BEIGE_DYE = null;
     	
       //Breakdown
-        public static final Item BREAKDOWN_HELMET = null;
-        public static final Item BREAKDOWN_CHESTPLATE = null;
-        public static final Item BREAKDOWN_LEGGINGS = null;
-        public static final Item BREAKDOWN_BOOTS = null;
+        public static final ItemArmorTransformer BREAKDOWN_HELMET = null;
+        public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE = null;
+        public static final ItemArmorTransformer BREAKDOWN_LEGGINGS = null;
+        public static final ItemArmorTransformer BREAKDOWN_BOOTS = null;
         
       //Vurp
-        public static final Item VURP_HELMET = null;
-        public static final Item VURP_CHESTPLATE = null;
-        public static final Item VURP_LEGGINGS = null;
-        public static final Item VURP_BOOTS = null;
+        public static final ItemArmorTransformer VURP_HELMET = null;
+        public static final ItemArmorTransformer VURP_CHESTPLATE = null;
+        public static final ItemArmorTransformer VURP_LEGGINGS = null;
+        public static final ItemArmorTransformer VURP_BOOTS = null;
         
       //Subwoofer
-        public static final Item SUBWOOFER_HELMET = null;
-        public static final Item SUBWOOFER_CHESTPLATE = null;
-        public static final Item SUBWOOFER_LEGGINGS = null;
-        public static final Item SUBWOOFER_BOOTS = null;
+        public static final ItemArmorTransformer SUBWOOFER_HELMET = null;
+        public static final ItemArmorTransformer SUBWOOFER_CHESTPLATE = null;
+        public static final ItemArmorTransformer SUBWOOFER_LEGGINGS = null;
+        public static final ItemArmorTransformer SUBWOOFER_BOOTS = null;
         
       //TFP Ultra Magnus
-        public static final Item ULTRA_MAGNUS_HELMET = null;
-        public static final Item ULTRA_MAGNUS_CHESTPLATE = null;
-        public static final Item ULTRA_MAGNUS_LEGGINGS = null;
-        public static final Item ULTRA_MAGNUS_BOOTS = null;
+        public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET = null;
+        public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE = null;
+        public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS = null;
+        public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS = null;
         
         
       //Sideswipe
-        public static final Item SIDESWIPE_HELMET = null;
-        public static final Item SIDESWIPE_CHESTPLATE = null;
-        public static final Item SIDESWIPE_LEGGINGS = null;
-        public static final Item SIDESWIPE_BOOTS = null;
+        public static final ItemArmorTransformer SIDESWIPE_HELMET = null;
+        public static final ItemArmorTransformer SIDESWIPE_CHESTPLATE = null;
+        public static final ItemArmorTransformer SIDESWIPE_LEGGINGS = null;
+        public static final ItemArmorTransformer SIDESWIPE_BOOTS = null;
 
-        public static final Item SIDESWIPE_MID_HELMET = null;
-        public static final Item SIDESWIPE_MID_CHESTPLATE = null;
-        public static final Item SIDESWIPE_MID_LEGGINGS = null;
-        public static final Item SIDESWIPE_MID_BOOTS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID_HELMET = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID_CHESTPLATE = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID_LEGGINGS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID_BOOTS = null;
         
-        public static final Item SIDESWIPE_MID2_HELMET = null;
-        public static final Item SIDESWIPE_MID2_CHESTPLATE = null;
-        public static final Item SIDESWIPE_MID2_LEGGINGS = null;
-        public static final Item SIDESWIPE_MID2_BOOTS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID2_HELMET = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID2_CHESTPLATE = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID2_LEGGINGS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID2_BOOTS = null;
 
-        public static final Item SIDESWIPE_MID3_HELMET = null;
-        public static final Item SIDESWIPE_MID3_CHESTPLATE = null;
-        public static final Item SIDESWIPE_MID3_LEGGINGS = null;
-        public static final Item SIDESWIPE_MID3_BOOTS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID3_HELMET = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID3_CHESTPLATE = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID3_LEGGINGS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID3_BOOTS = null;
 
-        public static final Item SIDESWIPE_MID4_HELMET = null;
-        public static final Item SIDESWIPE_MID4_CHESTPLATE = null;
-        public static final Item SIDESWIPE_MID4_LEGGINGS = null;
-        public static final Item SIDESWIPE_MID4_BOOTS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID4_HELMET = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID4_CHESTPLATE = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID4_LEGGINGS = null;
+        public static final ItemArmorTransformer SIDESWIPE_MID4_BOOTS = null;
 
-        public static final Item SIDESWIPE_ALTMODE_HELMET = null;
-        public static final Item SIDESWIPE_ALTMODE_CHESTPLATE = null;
-        public static final Item SIDESWIPE_ALTMODE_LEGGINGS = null;
-        public static final Item SIDESWIPE_ALTMODE_BOOTS = null;
+        public static final ItemArmorTransformer SIDESWIPE_ALTMODE_HELMET = null;
+        public static final ItemArmorTransformer SIDESWIPE_ALTMODE_CHESTPLATE = null;
+        public static final ItemArmorTransformer SIDESWIPE_ALTMODE_LEGGINGS = null;
+        public static final ItemArmorTransformer SIDESWIPE_ALTMODE_BOOTS = null;
         
       //Movie Optimus Prime
-        public static final MovieOptimusPrimeAltmode2 MOVIE_OPTIMUS_PRIME_HELMET = null;
-        public static final MovieOptimusPrimeAltmode2 MOVIE_OPTIMUS_PRIME_CHESTPLATE = null;
-        public static final MovieOptimusPrimeAltmode2 MOVIE_OPTIMUS_PRIME_LEGGINGS = null;
-        public static final MovieOptimusPrimeAltmode2 MOVIE_OPTIMUS_PRIME_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BOOTS = null;
         
-        public static final MovieOptimusPrimeAltmode MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET = null;
-        public static final MovieOptimusPrimeAltmode MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE = null;
-        public static final MovieOptimusPrimeAltmode MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS = null;
-        public static final MovieOptimusPrimeAltmode MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid1 MOVIE_OPTIMUS_PRIME_MID1_HELMET = null;
-        public static final MovieOptimusPrimeMid1 MOVIE_OPTIMUS_PRIME_MID1_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid1 MOVIE_OPTIMUS_PRIME_MID1_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid1 MOVIE_OPTIMUS_PRIME_MID1_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID1_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID1_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID1_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID1_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid2 MOVIE_OPTIMUS_PRIME_MID2_HELMET = null;
-        public static final MovieOptimusPrimeMid2 MOVIE_OPTIMUS_PRIME_MID2_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid2 MOVIE_OPTIMUS_PRIME_MID2_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid2 MOVIE_OPTIMUS_PRIME_MID2_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID2_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID2_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID2_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID2_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid3 MOVIE_OPTIMUS_PRIME_MID3_HELMET = null;
-        public static final MovieOptimusPrimeMid3 MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid3 MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid3 MOVIE_OPTIMUS_PRIME_MID3_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID3_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID3_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid4 MOVIE_OPTIMUS_PRIME_MID4_HELMET = null;
-        public static final MovieOptimusPrimeMid4 MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid4 MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid4 MOVIE_OPTIMUS_PRIME_MID4_BOOTS = null;    
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID4_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID4_BOOTS = null;    
         
-        public static final MovieOptimusPrimeMid5 MOVIE_OPTIMUS_PRIME_MID5_HELMET = null;
-        public static final MovieOptimusPrimeMid5 MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid5 MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid5 MOVIE_OPTIMUS_PRIME_MID5_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID5_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID5_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID5_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID5_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid6 MOVIE_OPTIMUS_PRIME_MID6_HELMET = null;
-        public static final MovieOptimusPrimeMid6 MOVIE_OPTIMUS_PRIME_MID6_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid6 MOVIE_OPTIMUS_PRIME_MID6_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid6 MOVIE_OPTIMUS_PRIME_MID6_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID6_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID6_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID6_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID6_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid7 MOVIE_OPTIMUS_PRIME_MID7_HELMET = null;
-        public static final MovieOptimusPrimeMid7 MOVIE_OPTIMUS_PRIME_MID7_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid7 MOVIE_OPTIMUS_PRIME_MID7_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid7 MOVIE_OPTIMUS_PRIME_MID7_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID7_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID7_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID7_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID7_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid8 MOVIE_OPTIMUS_PRIME_MID8_HELMET = null;
-        public static final MovieOptimusPrimeMid8 MOVIE_OPTIMUS_PRIME_MID8_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid8 MOVIE_OPTIMUS_PRIME_MID8_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid8 MOVIE_OPTIMUS_PRIME_MID8_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID8_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID8_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID8_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID8_BOOTS = null;
         
-        public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_HELMET = null;
-        public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_CHESTPLATE = null;
-        public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_LEGGINGS = null;
-        public static final MovieOptimusPrimeMid9 MOVIE_OPTIMUS_PRIME_MID9_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID9_HELMET = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID9_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID9_LEGGINGS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_MID9_BOOTS = null;
         
         
         
-        public static final MovieOptimusPrimeBack1 MOVIE_OPTIMUS_PRIME_BACK1_BOOTS = null;
-        public static final MovieOptimusPrimeBack2 MOVIE_OPTIMUS_PRIME_BACK2_BOOTS = null;
-        public static final MovieOptimusPrimeBack3 MOVIE_OPTIMUS_PRIME_BACK3_BOOTS = null;
-        public static final MovieOptimusPrimeBack4 MOVIE_OPTIMUS_PRIME_BACK4_BOOTS = null;
-        public static final MovieOptimusPrimeBack5 MOVIE_OPTIMUS_PRIME_BACK5_BOOTS = null;
-        public static final MovieOptimusPrimeBack6 MOVIE_OPTIMUS_PRIME_BACK6_BOOTS = null;
-        public static final MovieOptimusPrimeBack7 MOVIE_OPTIMUS_PRIME_BACK7_BOOTS = null;
-        public static final MovieOptimusPrimeBack8 MOVIE_OPTIMUS_PRIME_BACK8_BOOTS = null;
-        public static final MovieOptimusPrimeBack9 MOVIE_OPTIMUS_PRIME_BACK9_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK1_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK2_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK3_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK4_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK5_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK6_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK7_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK8_BOOTS = null;
+        public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_BACK9_BOOTS = null;
         
       //Starscream
-        public static final Starscream STARSCREAM_HELMET = null;
-        public static final Starscream STARSCREAM_CHESTPLATE = null;
-        public static final Starscream STARSCREAM_LEGGINGS = null;
-        public static final Starscream STARSCREAM_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_BOOTS = null;
 
-        public static final StarscreamAltmode STARSCREAM_ALTMODE_HELMET = null;
-        public static final StarscreamAltmode STARSCREAM_ALTMODE_CHESTPLATE = null;
-        public static final StarscreamAltmode STARSCREAM_ALTMODE_LEGGINGS = null;
-        public static final StarscreamAltmode STARSCREAM_ALTMODE_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_ALTMODE_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_ALTMODE_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_ALTMODE_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_ALTMODE_BOOTS = null;
         
-        public static final StarscreamMid1 STARSCREAM_MID1_HELMET = null;
-        public static final StarscreamMid1 STARSCREAM_MID1_CHESTPLATE = null;
-        public static final StarscreamMid1 STARSCREAM_MID1_LEGGINGS = null;
-        public static final StarscreamMid1 STARSCREAM_MID1_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID1_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_MID1_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_MID1_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID1_BOOTS = null;
 
-        public static final StarscreamMid2 STARSCREAM_MID2_HELMET = null;
-        public static final StarscreamMid2 STARSCREAM_MID2_CHESTPLATE = null;
-        public static final StarscreamMid2 STARSCREAM_MID2_LEGGINGS = null;
-        public static final StarscreamMid2 STARSCREAM_MID2_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID2_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_MID2_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_MID2_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID2_BOOTS = null;
 
-        public static final StarscreamMid3 STARSCREAM_MID3_HELMET = null;
-        public static final StarscreamMid3 STARSCREAM_MID3_CHESTPLATE = null;
-        public static final StarscreamMid3 STARSCREAM_MID3_LEGGINGS = null;
-        public static final StarscreamMid3 STARSCREAM_MID3_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID3_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_MID3_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_MID3_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID3_BOOTS = null;
 
-        public static final StarscreamMid4 STARSCREAM_MID4_HELMET = null;
-        public static final StarscreamMid4 STARSCREAM_MID4_CHESTPLATE = null;
-        public static final StarscreamMid4 STARSCREAM_MID4_LEGGINGS = null;
-        public static final StarscreamMid4 STARSCREAM_MID4_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID4_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_MID4_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_MID4_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID4_BOOTS = null;
 
-        public static final StarscreamMid5 STARSCREAM_MID5_HELMET = null;
-        public static final StarscreamMid5 STARSCREAM_MID5_CHESTPLATE = null;
-        public static final StarscreamMid5 STARSCREAM_MID5_LEGGINGS = null;
-        public static final StarscreamMid5 STARSCREAM_MID5_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID5_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_MID5_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_MID5_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID5_BOOTS = null;
 
-        public static final StarscreamMid6 STARSCREAM_MID6_HELMET = null;
-        public static final StarscreamMid6 STARSCREAM_MID6_CHESTPLATE = null;
-        public static final StarscreamMid6 STARSCREAM_MID6_LEGGINGS = null;
-        public static final StarscreamMid6 STARSCREAM_MID6_BOOTS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID6_HELMET = null;
+        public static final ItemArmorTransformer STARSCREAM_MID6_CHESTPLATE = null;
+        public static final ItemArmorTransformer STARSCREAM_MID6_LEGGINGS = null;
+        public static final ItemArmorTransformer STARSCREAM_MID6_BOOTS = null;
         
       //Skywarp
-        public static final Starscream SKYWARP_HELMET = null;
-        public static final Starscream SKYWARP_CHESTPLATE = null;
-        public static final Starscream SKYWARP_LEGGINGS = null;
-        public static final Starscream SKYWARP_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_BOOTS = null;
 
-        public static final StarscreamAltmode SKYWARP_ALTMODE_HELMET = null;
-        public static final StarscreamAltmode SKYWARP_ALTMODE_CHESTPLATE = null;
-        public static final StarscreamAltmode SKYWARP_ALTMODE_LEGGINGS = null;
-        public static final StarscreamAltmode SKYWARP_ALTMODE_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_ALTMODE_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_ALTMODE_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_ALTMODE_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_ALTMODE_BOOTS = null;
         
-        public static final StarscreamMid1 SKYWARP_MID1_HELMET = null;
-        public static final StarscreamMid1 SKYWARP_MID1_CHESTPLATE = null;
-        public static final StarscreamMid1 SKYWARP_MID1_LEGGINGS = null;
-        public static final StarscreamMid1 SKYWARP_MID1_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_MID1_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_MID1_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_MID1_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_MID1_BOOTS = null;
 
-        public static final StarscreamMid2 SKYWARP_MID2_HELMET = null;
-        public static final StarscreamMid2 SKYWARP_MID2_CHESTPLATE = null;
-        public static final StarscreamMid2 SKYWARP_MID2_LEGGINGS = null;
-        public static final StarscreamMid2 SKYWARP_MID2_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_MID2_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_MID2_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_MID2_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_MID2_BOOTS = null;
 
-        public static final StarscreamMid3 SKYWARP_MID3_HELMET = null;
-        public static final StarscreamMid3 SKYWARP_MID3_CHESTPLATE = null;
-        public static final StarscreamMid3 SKYWARP_MID3_LEGGINGS = null;
-        public static final StarscreamMid3 SKYWARP_MID3_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_MID3_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_MID3_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_MID3_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_MID3_BOOTS = null;
 
-        public static final StarscreamMid4 SKYWARP_MID4_HELMET = null;
-        public static final StarscreamMid4 SKYWARP_MID4_CHESTPLATE = null;
-        public static final StarscreamMid4 SKYWARP_MID4_LEGGINGS = null;
-        public static final StarscreamMid4 SKYWARP_MID4_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_MID4_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_MID4_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_MID4_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_MID4_BOOTS = null;
 
-        public static final StarscreamMid5 SKYWARP_MID5_HELMET = null;
-        public static final StarscreamMid5 SKYWARP_MID5_CHESTPLATE = null;
-        public static final StarscreamMid5 SKYWARP_MID5_LEGGINGS = null;
-        public static final StarscreamMid5 SKYWARP_MID5_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_MID5_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_MID5_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_MID5_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_MID5_BOOTS = null;
 
-        public static final StarscreamMid6 SKYWARP_MID6_HELMET = null;
-        public static final StarscreamMid6 SKYWARP_MID6_CHESTPLATE = null;
-        public static final StarscreamMid6 SKYWARP_MID6_LEGGINGS = null;
-        public static final StarscreamMid6 SKYWARP_MID6_BOOTS = null;
+        public static final ItemArmorTransformer SKYWARP_MID6_HELMET = null;
+        public static final ItemArmorTransformer SKYWARP_MID6_CHESTPLATE = null;
+        public static final ItemArmorTransformer SKYWARP_MID6_LEGGINGS = null;
+        public static final ItemArmorTransformer SKYWARP_MID6_BOOTS = null;
         
       //Thundercracker
-        public static final Starscream THUNDERCRACKER_HELMET = null;
-        public static final Starscream THUNDERCRACKER_CHESTPLATE = null;
-        public static final Starscream THUNDERCRACKER_LEGGINGS = null;
-        public static final Starscream THUNDERCRACKER_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_BOOTS = null;
 
-        public static final StarscreamAltmode THUNDERCRACKER_ALTMODE_HELMET = null;
-        public static final StarscreamAltmode THUNDERCRACKER_ALTMODE_CHESTPLATE = null;
-        public static final StarscreamAltmode THUNDERCRACKER_ALTMODE_LEGGINGS = null;
-        public static final StarscreamAltmode THUNDERCRACKER_ALTMODE_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_ALTMODE_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_ALTMODE_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_ALTMODE_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_ALTMODE_BOOTS = null;
         
-        public static final StarscreamMid1 THUNDERCRACKER_MID1_HELMET = null;
-        public static final StarscreamMid1 THUNDERCRACKER_MID1_CHESTPLATE = null;
-        public static final StarscreamMid1 THUNDERCRACKER_MID1_LEGGINGS = null;
-        public static final StarscreamMid1 THUNDERCRACKER_MID1_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID1_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID1_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID1_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID1_BOOTS = null;
 
-        public static final StarscreamMid2 THUNDERCRACKER_MID2_HELMET = null;
-        public static final StarscreamMid2 THUNDERCRACKER_MID2_CHESTPLATE = null;
-        public static final StarscreamMid2 THUNDERCRACKER_MID2_LEGGINGS = null;
-        public static final StarscreamMid2 THUNDERCRACKER_MID2_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID2_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID2_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID2_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID2_BOOTS = null;
 
-        public static final StarscreamMid3 THUNDERCRACKER_MID3_HELMET = null;
-        public static final StarscreamMid3 THUNDERCRACKER_MID3_CHESTPLATE = null;
-        public static final StarscreamMid3 THUNDERCRACKER_MID3_LEGGINGS = null;
-        public static final StarscreamMid3 THUNDERCRACKER_MID3_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID3_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID3_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID3_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID3_BOOTS = null;
 
-        public static final StarscreamMid4 THUNDERCRACKER_MID4_HELMET = null;
-        public static final StarscreamMid4 THUNDERCRACKER_MID4_CHESTPLATE = null;
-        public static final StarscreamMid4 THUNDERCRACKER_MID4_LEGGINGS = null;
-        public static final StarscreamMid4 THUNDERCRACKER_MID4_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID4_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID4_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID4_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID4_BOOTS = null;
 
-        public static final StarscreamMid5 THUNDERCRACKER_MID5_HELMET = null;
-        public static final StarscreamMid5 THUNDERCRACKER_MID5_CHESTPLATE = null;
-        public static final StarscreamMid5 THUNDERCRACKER_MID5_LEGGINGS = null;
-        public static final StarscreamMid5 THUNDERCRACKER_MID5_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID5_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID5_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID5_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID5_BOOTS = null;
 
-        public static final StarscreamMid6 THUNDERCRACKER_MID6_HELMET = null;
-        public static final StarscreamMid6 THUNDERCRACKER_MID6_CHESTPLATE = null;
-        public static final StarscreamMid6 THUNDERCRACKER_MID6_LEGGINGS = null;
-        public static final StarscreamMid6 THUNDERCRACKER_MID6_BOOTS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID6_HELMET = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID6_CHESTPLATE = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID6_LEGGINGS = null;
+        public static final ItemArmorTransformer THUNDERCRACKER_MID6_BOOTS = null;
         
    	 //Vehicon
-	    public static final Item CUSTOM_HELMET = null;
-	    public static final Item CUSTOM_CHESTPLATE = null;
-	    public static final Item CUSTOM_LEGGINGS = null;
-	    public static final Item CUSTOM_BOOTS = null;
+	    public static final ItemArmorTransformer CUSTOM_HELMET = null;
+	    public static final ItemArmorTransformer CUSTOM_CHESTPLATE = null;
+	    public static final ItemArmorTransformer CUSTOM_LEGGINGS = null;
+	    public static final ItemArmorTransformer CUSTOM_BOOTS = null;
 
-	    public static final Item VEHICON_MID_HELMET = null;
-	    public static final Item VEHICON_MID_CHESTPLATE = null;
-	    public static final Item VEHICON_MID_LEGGINGS = null;
-	    public static final Item VEHICON_MID_BOOTS = null;
+	    public static final ItemArmorTransformer VEHICON_MID_HELMET = null;
+	    public static final ItemArmorTransformer VEHICON_MID_CHESTPLATE = null;
+	    public static final ItemArmorTransformer VEHICON_MID_LEGGINGS = null;
+	    public static final ItemArmorTransformer VEHICON_MID_BOOTS = null;
 	    
-	    public static final Item VEHICON_MID_2_HELMET = null;
-	    public static final Item VEHICON_MID_2_CHESTPLATE = null;
-	    public static final Item VEHICON_MID_2_LEGGINGS = null;
-	    public static final Item VEHICON_MID_2_BOOTS = null;
+	    public static final ItemArmorTransformer VEHICON_MID_2_HELMET = null;
+	    public static final ItemArmorTransformer VEHICON_MID_2_CHESTPLATE = null;
+	    public static final ItemArmorTransformer VEHICON_MID_2_LEGGINGS = null;
+	    public static final ItemArmorTransformer VEHICON_MID_2_BOOTS = null;
 
-	    public static final Item VEHICON_ALTMODE_HELMET = null;
-	    public static final Item VEHICON_ALTMODE_CHESTPLATE = null;
-	    public static final Item VEHICON_ALTMODE_LEGGINGS = null;
-	    public static final Item VEHICON_ALTMODE_BOOTS = null;
+	    public static final ItemArmorTransformer VEHICON_ALTMODE_HELMET = null;
+	    public static final ItemArmorTransformer VEHICON_ALTMODE_CHESTPLATE = null;
+	    public static final ItemArmorTransformer VEHICON_ALTMODE_LEGGINGS = null;
+	    public static final ItemArmorTransformer VEHICON_ALTMODE_BOOTS = null;
 	    
 	  //Tarn
-	    public static final Item TARN_HELMET = null;
-	    public static final Item TARN_CHESTPLATE = null;
-	    public static final Item TARN_LEGGINGS = null;
-	    public static final Item TARN_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_HELMET = null;
+	    public static final ItemArmorTransformer TARN_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_BOOTS = null;
 
-	    public static final Item TARN_MID1_HELMET = null;
-	    public static final Item TARN_MID1_CHESTPLATE = null;
-	    public static final Item TARN_MID1_LEGGINGS = null;
-	    public static final Item TARN_MID1_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID1_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID1_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID1_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID1_BOOTS = null;
 
-	    public static final Item TARN_MID2_HELMET = null;
-	    public static final Item TARN_MID2_CHESTPLATE = null;
-	    public static final Item TARN_MID2_LEGGINGS = null;
-	    public static final Item TARN_MID2_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID2_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID2_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID2_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID2_BOOTS = null;
 
-	    public static final Item TARN_MID3_HELMET = null;
-	    public static final Item TARN_MID3_CHESTPLATE = null;
-	    public static final Item TARN_MID3_LEGGINGS = null;
-	    public static final Item TARN_MID3_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID3_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID3_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID3_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID3_BOOTS = null;
 	    
-	    public static final Item TARN_MID4_HELMET = null;
-	    public static final Item TARN_MID4_CHESTPLATE = null;
-	    public static final Item TARN_MID4_LEGGINGS = null;
-	    public static final Item TARN_MID4_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID4_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID4_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID4_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID4_BOOTS = null;
 
-	    public static final Item TARN_ALTMODE_HELMET = null;
-	    public static final Item TARN_ALTMODE_CHESTPLATE = null;
-	    public static final Item TARN_ALTMODE_LEGGINGS = null;
-	    public static final Item TARN_ALTMODE_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_ALTMODE_HELMET = null;
+	    public static final ItemArmorTransformer TARN_ALTMODE_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_ALTMODE_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_ALTMODE_BOOTS = null;
 
-	    public static final Item TARN_MID5_HELMET = null;
-	    public static final Item TARN_MID5_CHESTPLATE = null;
-	    public static final Item TARN_MID5_LEGGINGS = null;
-	    public static final Item TARN_MID5_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID5_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID5_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID5_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID5_BOOTS = null;
 
-	    public static final Item TARN_MID6_HELMET = null;
-	    public static final Item TARN_MID6_CHESTPLATE = null;
-	    public static final Item TARN_MID6_LEGGINGS = null;
-	    public static final Item TARN_MID6_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID6_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID6_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID6_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID6_BOOTS = null;
 
-	    public static final Item TARN_MID7_HELMET = null;
-	    public static final Item TARN_MID7_CHESTPLATE = null;
-	    public static final Item TARN_MID7_LEGGINGS = null;
-	    public static final Item TARN_MID7_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID7_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID7_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID7_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID7_BOOTS = null;
 
-	    public static final Item TARN_MID8_HELMET = null;
-	    public static final Item TARN_MID8_CHESTPLATE = null;
-	    public static final Item TARN_MID8_LEGGINGS = null;
-	    public static final Item TARN_MID8_BOOTS = null;
+	    public static final ItemArmorTransformer TARN_MID8_HELMET = null;
+	    public static final ItemArmorTransformer TARN_MID8_CHESTPLATE = null;
+	    public static final ItemArmorTransformer TARN_MID8_LEGGINGS = null;
+	    public static final ItemArmorTransformer TARN_MID8_BOOTS = null;
 	    
 	  //Machinery 
 	    public static final Item CHIP = null;

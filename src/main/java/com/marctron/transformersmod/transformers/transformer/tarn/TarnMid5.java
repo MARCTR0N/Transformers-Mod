@@ -4,6 +4,7 @@ import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid4;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.model.ModelBiped;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TarnMid5 extends ItemArmor {
+public class TarnMid5 extends ItemArmorTransformer {
 
     
 

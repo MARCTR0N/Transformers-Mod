@@ -14,6 +14,7 @@ import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimu
 
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
@@ -42,12 +43,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MovieOptimusPrimeAltmode2 extends ItemArmor {
+public class MovieOptimusPrimeAltmode2 extends ItemArmorTransformer {
 	
 
 	
 
-public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+	public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -65,7 +66,6 @@ public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int rend
 	@Override
 	@SubscribeEvent
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 
 
 			

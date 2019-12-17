@@ -5,6 +5,7 @@ import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.ModelVehicleBase;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamAltmode;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -25,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class StarscreamAltmode extends ModelVehicleBase {
+public class StarscreamAltmode extends ItemArmorTransformer {
 
 
  

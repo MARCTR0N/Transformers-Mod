@@ -3,6 +3,7 @@ package com.marctron.transformersmod.transformers.transformer.vehicon;
 
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.model.ModelBiped;
@@ -20,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public final class VehiconMid extends ItemArmor {
+public final class VehiconMid extends ItemArmorTransformer {
 
    
 

@@ -4,6 +4,7 @@ package com.marctron.transformersmod.transformers.transformer.vehicon;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
@@ -22,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public final class VehiconAltmode extends ItemArmor {
+public final class VehiconAltmode extends ItemArmorTransformer {
 
     
     private Object ModelVehiconAltmode = 1f;

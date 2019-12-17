@@ -3,6 +3,7 @@ package com.marctron.transformersmod.transformers.transformer.starscream;
 
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid2;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.Minecraft;
@@ -23,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class StarscreamMid5 extends ItemArmor {
+public class StarscreamMid5 extends ItemArmorTransformer {
 
 
     public StarscreamMid5(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {

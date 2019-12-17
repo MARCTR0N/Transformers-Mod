@@ -11,6 +11,7 @@ import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid6;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 
@@ -31,7 +32,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MovieOptimusPrimeBack4 extends ItemArmor {
+public class MovieOptimusPrimeBack4 extends ItemArmorTransformer {
 	
 
 	
@@ -56,7 +57,6 @@ public MovieOptimusPrimeBack4(String name, ArmorMaterial materialIn, int renderI
 	@Override
 	@SubscribeEvent
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 //			player.fallDistance = 0;
 			//player.capabilities.allowFlying = true;
 			

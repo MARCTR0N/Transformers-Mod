@@ -13,6 +13,7 @@ import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimu
 
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscream;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
@@ -40,7 +41,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MovieOptimusPrimeMid1 extends ItemArmor  {
+public class MovieOptimusPrimeMid1 extends ItemArmorTransformer  {
 	
 
 	
@@ -70,7 +71,6 @@ public MovieOptimusPrimeMid1(String name, ArmorMaterial materialIn, int renderIn
 	@Override
 	@SubscribeEvent
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 //			player.fallDistance = 0;
 			//player.capabilities.allowFlying = true;
 			
