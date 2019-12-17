@@ -3,14 +3,10 @@ package com.marctron.transformersmod.transformers.transformer.vehicon;
 import com.marctron.transformersmod.Main;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
-import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
-import com.marctron.transformersmod.transformers.models.vehicon.ModelCustomArmor;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -98,9 +94,9 @@ public class ArmorModelVehicon extends ItemArmor {
         }
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
-    public final AdvancedModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
+    @Override
+    public final net.minecraft.client.model.ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, net.minecraft.client.model.ModelBiped _default) {
 
         if (!itemStack.isEmpty()) {
 

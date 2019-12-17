@@ -45,10 +45,7 @@ public class SideswipeAltmode extends ArmorModelSideswipe {
 //		
 //				}
 //			} 
-    
-    public SideswipeAltmode(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, RenderLivingBase renderer) {
-    	super(name, materialIn, renderIndexIn, equipmentSlotIn, renderer);
-    }
+   
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {

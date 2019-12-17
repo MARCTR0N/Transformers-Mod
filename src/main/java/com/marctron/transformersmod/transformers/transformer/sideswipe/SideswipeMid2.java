@@ -42,9 +42,6 @@ public class SideswipeMid2 extends ArmorModelSideswipe {
 //				}
 //			} 
 
-    public SideswipeMid2(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, RenderLivingBase renderer) {
-    	super(name, materialIn, renderIndexIn, equipmentSlotIn, renderer);
-    }
     
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {

@@ -41,11 +41,6 @@ public class ArmorModelSideswipe extends ItemArmor {
         setCreativeTab(Main.tabAutobot);
         setMaxStackSize(1);
     }
-	
-    public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, RenderLivingBase renderer) {
-        this(name, materialIn, renderIndexIn, equipmentSlotIn);
-        this.renderer = renderer;
-    }
     
     @SideOnly(Side.CLIENT)
     public RenderLivingBase getRenderer() {
