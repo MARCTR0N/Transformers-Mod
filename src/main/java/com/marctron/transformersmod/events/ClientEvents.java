@@ -47,11 +47,29 @@ public class ClientEvents {
     	//System.out.println("Player Render Event");
     	if (event.getEntity() instanceof AbstractClientPlayer) {
     		AbstractClientPlayer player = (AbstractClientPlayer) event.getEntity();
+    		AbstractClientPlayer renderingPlayer = Minecraft.getMinecraft().player;
     		boolean flag = false;
     		for (ItemStack stack : player.getArmorInventoryList()) {
     			if (stack.getItem() instanceof ItemArmorTransformer) {
     				if (!flag) {
-    					((ItemArmorTransformer)stack.getItem()).getRenderer().doRender(player, 0, 0, 0, player.getRotationYawHead(), event.getPartialRenderTick());
+    					double dx, dy, dz;
+    					if (player.equals(renderingPlayer)) {
+    						dx = dy = dz = 0;
+    					}
+    					else {
+    						double x1 = (player.posX - player.prevPosX) * event.getPartialRenderTick() + player.prevPosX;
+    						double y1 = (player.posY - player.prevPosY) * event.getPartialRenderTick() + player.prevPosY;
+    						double z1 = (player.posZ - player.prevPosZ) * event.getPartialRenderTick() + player.prevPosZ;
+    						
+    						double x2 = (renderingPlayer.posX - renderingPlayer.prevPosX) * event.getPartialRenderTick() + renderingPlayer.prevPosX;
+    						double y2 = (renderingPlayer.posY - renderingPlayer.prevPosY) * event.getPartialRenderTick() + renderingPlayer.prevPosY;
+    						double z2 = (renderingPlayer.posZ - renderingPlayer.prevPosZ) * event.getPartialRenderTick() + renderingPlayer.prevPosZ;
+    						
+    						dx = x1 - x2;
+    						dy = y1 - y2;
+    						dz = z1 - z2;
+    					}
+    					((ItemArmorTransformer)stack.getItem()).getRenderer().doRender(player, dx, dy, dz, player.getRotationYawHead(), event.getPartialRenderTick());
         				flag = true;
     				}
     			}
