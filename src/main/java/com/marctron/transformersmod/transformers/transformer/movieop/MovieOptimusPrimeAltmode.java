@@ -4,31 +4,35 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.marctron.transformersmod.network.packets.PacketInventory;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
+import cjminecraft.core.network.PacketHandler;
+import cjminecraft.core.util.NetworkUtils;
+import net.ilexiconn.llibrary.server.network.NetworkHandler;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.server.SPacketHeldItemChange;
-import net.minecraft.network.play.server.SPacketSoundEffect;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.NetworkSystem;
+import net.minecraft.network.Packet;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -36,6 +40,7 @@ public class MovieOptimusPrimeAltmode extends ItemArmorTransformer {
 	
 
 	
+
 
 public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -67,11 +72,18 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 //		
 //		player.inventory.getItemStack();
 //		player.inventory.getStackInSlot(36);
-		
-		if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
+//		if (world.isRemote){
+		if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown())
+		{
+			TFNetworkManager.sendToServer(new PacketInventory(1));
+			
+			
 //			player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
-			player.inventory.setInventorySlotContents(36, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
+			
+//			player.inventory.setInventorySlotContents(36, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
+			
 //			player.inventory.getStackInSlot(36);
+//		}
 		}
 //		player.inventory.markDirty();
 //		player.inventoryContainer.detectAndSendChanges();
@@ -94,6 +106,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 		}
 		}
 		 
+		 
 						
 				
 				
@@ -115,7 +128,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 					
 				
 					if (ClientProxy.ROBOT_MODE.isKeyDown()) {
-						player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1.0F);	
+//						player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1.0F);	
 						
 						if (world.isRemote && !(world.isRemote))
 						player.world.getEntityByID(4);
@@ -132,10 +145,10 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 								{
 									if ((player instanceof EntityPlayer )) {
 //										player.world.getPlayerEntityByName(getUnlocalizedName());
-										
+									
 									if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS) { 
 //										((EntityPlayerMP)this.player).connection.sendPacket(new SPacketSetSlot(-2, i, this.getStackInSlot(i)));
-//										((EntityPlayerMP)this.player).connection.sendPacket(new SPacketCollectItem());
+//										(EntityPlayerMP.connection.sendPacket(new SPacketCollectItem());
 									
 									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
 

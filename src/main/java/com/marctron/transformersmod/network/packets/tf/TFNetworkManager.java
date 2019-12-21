@@ -4,7 +4,10 @@ import com.marctron.transformersmod.network.packets.PacketInventory;
 import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
 import com.marctron.transformersmod.util.Reference;
 
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -43,4 +46,34 @@ private static <REQ extends IMessage, REPLY extends IMessage> void registerPacke
     networkWrapper.registerMessage(messageHandler, requestMessageType, packetId++, Side.CLIENT);
     networkWrapper.registerMessage(messageHandler, requestMessageType, packetId++, Side.SERVER);
 }
+
+
+public static void sendToServer(IMessage message){
+	networkWrapper.sendToServer(message);
+}
+
+public static void sendTo(IMessage message, EntityPlayerMP player){
+	networkWrapper.sendTo(message, player);
+}
+
+public static void sendToAllAround(IMessage message, TargetPoint point){
+	networkWrapper.sendToAllAround(message, point);
+}
+
+/**
+ * Will send the given packet to every player within 64 blocks of the XYZ of the XYZ packet.
+ * @param message
+ * @param world
+ */
+
+
+public static void sendToAll(IMessage message){
+	networkWrapper.sendToAll(message);
+}
+
+public static void sendToDimension(IMessage message, int dimensionId){
+	networkWrapper.sendToDimension(message, dimensionId);
+}
+
+
 }

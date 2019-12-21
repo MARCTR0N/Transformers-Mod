@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.network.packets;
 
 import com.marctron.transformersmod.proxy.ClientProxy;
+import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -15,7 +16,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class PacketInventoryHandler implements IMessageHandler<PacketInventory, IMessage> {
 
-	public static SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("mymodid");
+	public static SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MOD_ID);
 	
 	@Override
 	public IMessage onMessage(PacketInventory message, MessageContext ctx) {

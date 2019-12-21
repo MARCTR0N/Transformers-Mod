@@ -3,10 +3,10 @@ package com.marctron.transformersmod.network;
 import com.marctron.transformersmod.network.packets.PacketInventory;
 import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.item.EntityArmorStand;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
@@ -62,6 +62,27 @@ public class PacketHandler {
 		
 		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.CLIENT);
 	}
+	
+	public static void sendToServer(IMessage message){
+        INSTANCE.sendToServer(message);
+    }
+
+    public static void sendTo(IMessage message, EntityPlayerMP player){
+        INSTANCE.sendTo(message, player);
+    }
+
+    public static void sendToAllAround(IMessage message, TargetPoint point){
+        INSTANCE.sendToAllAround(message, point);
+    }
+    
+
+    public static void sendToAll(IMessage message){
+        INSTANCE.sendToAll(message);
+    }
+
+    public static void sendToDimension(IMessage message, int dimensionId){
+        INSTANCE.sendToDimension(message, dimensionId);
+    }
 	
 	
 }
