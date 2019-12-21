@@ -3,6 +3,8 @@ package com.marctron.transformersmod;
 import com.marctron.transformersmod.commands.CommandDimensionTeleport;
 import org.apache.logging.log4j.Logger;
 import com.marctron.transformersmod.init.*;
+import com.marctron.transformersmod.network.packets.PacketInventory;
+import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
 import com.marctron.transformersmod.proxy.IProxy;
 import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.GuiHandler;
@@ -21,7 +23,9 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.io.File;
 
@@ -99,6 +103,8 @@ public class Main {
 
     };
 
+	
+
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
     	proxy.preInit(event);
@@ -117,6 +123,8 @@ public class Main {
 
         //GunEntities.regEntities();
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+        
+
         
     }
 

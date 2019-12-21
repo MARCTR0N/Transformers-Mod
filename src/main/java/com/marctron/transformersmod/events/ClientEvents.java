@@ -3,12 +3,15 @@ package com.marctron.transformersmod.events;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -39,7 +42,9 @@ public class ClientEvents {
             //Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_BLAZE_HURT, 0.6F, 2F);
             //Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED, 1F, 1F);
             //Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 1F, 1F);
-        }
+        	}
+           
+        
     }
     
     @SubscribeEvent
@@ -77,7 +82,7 @@ public class ClientEvents {
     		if (flag) {
     			event.setCanceled(true);
     		}
-    	}
+    	}   	
     }
 
 }

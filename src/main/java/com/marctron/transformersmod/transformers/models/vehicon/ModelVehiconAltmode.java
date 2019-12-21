@@ -1,8 +1,11 @@
 package com.marctron.transformersmod.transformers.models.vehicon;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.entity.player.EntityPlayer;
 
 public final class ModelVehiconAltmode extends ModelBiped {
     public ModelRenderer shape78_7;
@@ -998,9 +1001,52 @@ public final class ModelVehiconAltmode extends ModelBiped {
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
     {
-    	this.WHEEL.rotateAngleX+= 1F *limbSwingAmount /3;
-    	this.WHEEL_1.rotateAngleX+= 1F *limbSwingAmount /3;
-    	this.WHEEL_2.rotateAngleX+= 1F *limbSwingAmount /3;
-    	this.WHEEL_3.rotateAngleX+= 1F *limbSwingAmount /3;
+    	float globalSpeed = 0.01F;
+    	float turnSpeed = 0.2F;
+    	float downwardPose = 0.001F* (float) (1 / (1 + Math.exp(10 * (entityIn.motionY + 0.2))));
+    	
+//    	if (entityIn instanceof EntityArmorStand) {
+//		this.WHEEL.rotateAngleX= 0;
+//		this.WHEEL_1.rotateAngleX= 0;
+//		this.WHEEL_2.rotateAngleX= 0;
+//		this.WHEEL_3.rotateAngleX= 0;
+//	}
+//    	
+    	if (entityIn instanceof EntityPlayer) {
+    		EntityPlayer entityplayer = (EntityPlayer) entityIn;
+    	if (Minecraft.getMinecraft().gameSettings.keyBindForward.isKeyDown()) {
+    	this.WHEEL.rotateAngleX+= globalSpeed;
+    	this.WHEEL_1.rotateAngleX+= globalSpeed;
+    	this.WHEEL_2.rotateAngleX+= globalSpeed;
+    	this.WHEEL_3.rotateAngleX+= globalSpeed;
+    	}
+    	if (entityplayer.onGround){
+//    	if (Minecraft.getMinecraft().gameSettings.keyBindRight.isKeyDown()) {
+    		if (entityplayer.velocityChanged)
+    		{
+        	if (this.WHEEL.rotateAngleY<0.3F)
+        	{
+    		this.WHEEL_2.rotateAngleY+= turnSpeed;
+    		if (this.WHEEL.rotateAngleY<0.3F)
+        	{
+        	this.WHEEL_2.rotateAngleY+= turnSpeed;
+        	}
+        	} else
+        			
+        			this.WHEEL.rotateAngleY= 0;
+        			this.WHEEL_2.rotateAngleY= 0;
+        	}
+    	
+    	}
+    	if (!entityplayer.onGround){
+    		E.rotateAngleX+= 1* downwardPose;
+    		E_1.rotateAngleX+= 1* downwardPose;
+            shape41.rotateAngleX+= 1* downwardPose;
+    	}else 
+    		E.rotateAngleX=0;
+    		E_1.rotateAngleX=0;
+    		shape41.rotateAngleX=0;
+    	}
+
     }
 }

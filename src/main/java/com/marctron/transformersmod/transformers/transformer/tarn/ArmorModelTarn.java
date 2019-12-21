@@ -13,6 +13,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
@@ -47,14 +48,15 @@ public class ArmorModelTarn extends ItemArmorTransformer {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-        ((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
+//        ((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
         super.onArmorTick(world, player, itemStack);
 
+        if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.TARN_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.TARN_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.TARN_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.TARN_BOOTS) { 
 
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_CHESTPLATE) {
+//        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_CHESTPLATE) 
             if (world.isRemote) {
                 if (ClientProxy.ALT_MODE.isKeyDown()) {
-                    player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.TARN_MID1_CHESTPLATE));
+                    player.inventory.armorInventory.set(2, new ItemStack(Items.AIR));
                     //player.inventory.armorInventory.set(2, new ItemStack(ModItems.VEHICON_ALTMODE_CHESTPLATE));
 
                 }

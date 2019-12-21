@@ -63,7 +63,7 @@ public class TarnAltmode extends ItemArmorTransformer {
         player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         player.limbSwingAmount = 0f;
 
-        player.dropItem(true);
+//        player.dropItem(true);
 
         player.cameraPitch = 0F;
         player.cameraYaw = 0F;

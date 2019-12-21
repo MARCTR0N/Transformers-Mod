@@ -39,7 +39,9 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.internal.NetworkModHolder.NetworkChecker;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -47,6 +49,21 @@ public class MovieOptimusPrimeAltmode2 extends ItemArmorTransformer {
 	
 
 	
+
+	private int tick;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public MovieOptimusPrimeAltmode2(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -65,10 +82,16 @@ public class MovieOptimusPrimeAltmode2 extends ItemArmorTransformer {
 	
 	@Override
 	@SubscribeEvent
+	
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-
-
-			
+		
+		
+		
+//		if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) { 
+//			
+//				System.out.println("oof");
+//		}
+			player.eyeHeight=2.4F;
 			
 				if (world.isRemote) {
 					
@@ -106,13 +129,19 @@ public class MovieOptimusPrimeAltmode2 extends ItemArmorTransformer {
 								{
 								
 										
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) {
-										
-									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_BOOTS));
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET ) {
 									
+									if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) { 
+
+//										System.out.println("Fuck");
+//										if ( player.inventoryContainer.inventorySlots.contains(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_HELMET)){
+									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID1_BOOTS));
+								
+									Minecraft.getMinecraft().player.playSound(SoundsHandler.WFCPRIMEROBOT, 1.F, 1.0F);	
 									player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
 									player.inventory.armorInventory.set(2, new ItemStack(Items.AIR));
 									player.inventory.armorInventory.set(3, new ItemStack(Items.AIR));
+//									player.inventoryContainer.inventorySlots.get(1);
 									}
 									
 //									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS) {
@@ -144,7 +173,7 @@ public class MovieOptimusPrimeAltmode2 extends ItemArmorTransformer {
 						
 						
 			
-						
+					
 						
 					}
 				}

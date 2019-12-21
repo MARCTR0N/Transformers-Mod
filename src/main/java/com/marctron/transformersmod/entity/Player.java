@@ -1,6 +1,9 @@
 package com.marctron.transformersmod.entity;
 
 import com.marctron.transformersmod.items.gun.IGun;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
@@ -26,7 +29,28 @@ public class Player {
         EntityLivingBase entity = event.getEntity();
 
         if (entity instanceof EntityPlayer) {
+        
             EntityPlayer player = (EntityPlayer) entity;
+            
+            for (ItemStack stack : player.getArmorInventoryList()) {
+    			if (!(stack.getItem() instanceof ItemArmorTransformer)) {
+    				player.eyeHeight= 1.62F;
+    			}
+    		}
+            
+        
+            if (entity instanceof EntityPlayer) {
+                
+               
+                
+                for (ItemStack stack : player.getArmorInventoryList()) {
+        			if (stack.getItem() instanceof ItemArmorTransformer) {
+        				
+        			}
+        		}
+        	}
+            
+            
             if (player.getHeldItemMainhand().getItem() instanceof IGun) {
 
                 RenderLivingBase renderer = event.getRenderer();

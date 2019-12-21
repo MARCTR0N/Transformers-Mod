@@ -182,7 +182,7 @@ public class MovieOptimusPrime extends ItemArmorTransformer {
 									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BOOTS) {
 										
 									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS));
-										
+									Minecraft.getMinecraft().player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1F);	
 									}
 									
 									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS) {

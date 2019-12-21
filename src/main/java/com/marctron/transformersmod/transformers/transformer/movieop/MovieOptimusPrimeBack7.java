@@ -66,7 +66,8 @@ public MovieOptimusPrimeBack7(String name, ArmorMaterial materialIn, int renderI
 			
 			
 			
-				if (world.isRemote) {
+//				if (world.isRemote) 
+				{
 					
 
 					
@@ -93,7 +94,7 @@ public MovieOptimusPrimeBack7(String name, ArmorMaterial materialIn, int renderI
 								
 							
 								
-								if (world.isRemote)
+//								if (world.isRemote)
 								{
 								
 										

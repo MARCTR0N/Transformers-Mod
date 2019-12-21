@@ -44,7 +44,7 @@ public final class VehiconAltmode extends ItemArmorTransformer {
         player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         //System.out.println("Ooga Booga");
 
-        player.dropItem(true);
+//        player.dropItem(true);
 
 
         //((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.SPEED, 80, 15));

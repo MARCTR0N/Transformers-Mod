@@ -9,6 +9,30 @@
       }
     ]
   },
+  
+  
+    "transformation.wfcprimerobot": {
+    "category": "player",
+    "subtitle": "transformation.transform_robot",
+    "sounds": [
+      {
+        "name": "tm:transformation/transform_robot",
+        "stream": true
+      }
+    ]
+  },
+  
+     "transformation.wfcprimevehicle": {
+    "category": "player",
+    "subtitle": "transformation.transform_vehicle",
+    "sounds": [
+      {
+        "name": "tm:transformation/transform_vehicle",
+        "stream": true
+      }
+    ]
+  },
+  
 
   "transformation.transformone": {
     "category": "player",

@@ -20,6 +20,9 @@ public class SoundsHandler {
     public static SoundEvent TRANSFORMONE;
     public static SoundEvent TRANSFORMTWO;
     
+    public static SoundEvent WFCPRIMEROBOT;
+    public static SoundEvent WFCPRIMEVEHICLE;
+    
     public static SoundEvent HAMMERPOUND;
 
     public static void init() {
@@ -27,6 +30,10 @@ public class SoundsHandler {
 
         TRANSFORMONE = registerSound("transformation.transformone");
         TRANSFORMTWO = registerSound("transformation.transformtwo");
+        
+        WFCPRIMEROBOT = registerSound("transformation.wfcprimerobot");
+        WFCPRIMEVEHICLE = registerSound("transformation.wfcprimevehicle");
+        
         HAMMERPOUND = registerSound("misc.hammerpound");
     }
 

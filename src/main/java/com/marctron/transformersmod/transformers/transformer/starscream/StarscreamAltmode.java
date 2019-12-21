@@ -82,7 +82,7 @@ public class StarscreamAltmode extends ItemArmorTransformer {
         player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         player.fallDistance = 0;
 
-        player.dropItem(true);
+//        player.dropItem(true);
         
         if (world.isRemote) { 
         

@@ -8,19 +8,23 @@ import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
+import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.network.play.server.SPacketHeldItemChange;
+import net.minecraft.network.play.server.SPacketSoundEffect;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -47,9 +51,36 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 	}
 	
 	
+	
 	@Override
 	@SubscribeEvent
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+		player.getCollisionBorderSize();
+		player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.7F, player.getEntityBoundingBox().minZ + 0.6F));
+
+		player.width = 0.6F; 
+		player.height = 0.8F;
+		
+		
+//		player.inventory.getTimesChanged();
+//		
+//		player.inventory.getItemStack();
+//		player.inventory.getStackInSlot(36);
+		
+		if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
+//			player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
+			player.inventory.setInventorySlotContents(36, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
+//			player.inventory.getStackInSlot(36);
+		}
+//		player.inventory.markDirty();
+//		player.inventoryContainer.detectAndSendChanges();
+	        
+	        
+	           
+//		 ((EntityPlayerMP)this.player).connection.sendPacket(new SPacketSetSlot(-2, i, this.getStackInSlot(i)));
+		
+//	        ((EntityPlayerMP)this.player).connection.sendPacket(new SPacketHeldItemChange());
+//	        ((EntityPlayerMP)this.player).connection.sendPacket(new SPacketSoundEffect(SoundsHandler.WFCPRIMEVEHICLE, null, player.posX, player.posY, player.posZ, 1, 1));
 		
 		player.cameraPitch = 0F;
 		player.cameraYaw = 0F;
@@ -61,20 +92,25 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 			}
 		}
 		}
-		
+		 int i = storeItemStack(itemStack);
 						
 				
 				
 
 			
 			
-				if (world.isRemote) {
+//				if (world.isRemote) 
+				{
 					
 
 					
+				
+
+//			        if (player instanceof AbstractClientPlayer) {
+			        
+//			            EntityPlayer player = (EntityPlayer) entity;
 					
-					
-					
+					 
 					
 				
 					if (ClientProxy.ROBOT_MODE.isKeyDown()) {
@@ -91,18 +127,31 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 								
 							
 								
-								if (world.isRemote)
+//								if (world.isRemote)
 								{
-								
+//									if ((player instanceof EntityPlayer)) {
 										
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS) {
-										
+									if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS) { 
+//										((EntityPlayerMP)this.player).connection.sendPacket(new SPacketSetSlot(-2, i, this.getStackInSlot(i)));
+//										((EntityPlayerMP)this.player).connection.sendPacket(new SPacketCollectItem());
+									
 									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
+
+//										player.inventory.setInventorySlotContents(36, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
+										
 									player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
 									player.inventory.armorInventory.set(2, new ItemStack(Items.AIR));
 									player.inventory.armorInventory.set(3, new ItemStack(Items.AIR));
+									Minecraft.getMinecraft().player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1.0F);	
+//									player.inventory.markDirty();
+//									player.inventoryContainer.detectAndSendChanges();
+//									player.inventoryContainer.sendContainerToPlayer()
+							
 									
-									}
+//									player.inventoryContainer.inventorySlots.notifyAll();
+									
+											
+										}
 									
 //									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS) {
 //										
@@ -133,11 +182,11 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 						
 						
 			
-						
+					}
 						
 					}
 				}
-			} 
+//			} 
 			
 			
 			

@@ -14,6 +14,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -50,13 +51,13 @@ public class Tarn2 extends ItemArmorTransformer {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 //			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0 ));
-        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
+//        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         super.onArmorTick(world, player, itemStack);
         
       
-        
+        if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.TARN_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.TARN_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.TARN_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.TARN_BOOTS) {
 
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_HELMET) {
+       
             if (world.isRemote) {
                 if (ClientProxy.ALT_MODE.isKeyDown()) {
                     player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.TARN_MID1_HELMET));
@@ -64,22 +65,22 @@ public class Tarn2 extends ItemArmorTransformer {
                     Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 0.3F, 1.9F);
                 }
             }
-        }
+        
 
 
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_LEGGINGS) {
+        
             if (world.isRemote) {
                 if (ClientProxy.ALT_MODE.isKeyDown()) {
-                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.TARN_MID1_LEGGINGS));
+                    player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
                     //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
 
                 }
             }
-        }
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_BOOTS) {
+        
+        
             if (world.isRemote) {
                 if (ClientProxy.ALT_MODE.isKeyDown()) {
-                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.TARN_MID1_BOOTS));
+                    player.inventory.armorInventory.set(0, new ItemStack(Items.AIR));
                     //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
 
                 }
