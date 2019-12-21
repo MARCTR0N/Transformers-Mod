@@ -1,5 +1,6 @@
 package com.marctron.transformersmod.proxy;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -22,4 +23,10 @@ public class ServerProxy implements IProxy {
     public void postInit(FMLPostInitializationEvent e) {
 
     }
+
+	@Override
+	public EntityPlayer getPlayer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

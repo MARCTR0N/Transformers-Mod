@@ -12,6 +12,7 @@ import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -92,14 +93,14 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 			}
 		}
 		}
-		 int i = storeItemStack(itemStack);
+		 
 						
 				
 				
 
 			
 			
-//				if (world.isRemote) 
+				if (world.isRemote) 
 				{
 					
 
@@ -114,10 +115,10 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 					
 				
 					if (ClientProxy.ROBOT_MODE.isKeyDown()) {
+						player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1.0F);	
 						
-						
-				
-						
+						if (world.isRemote && !(world.isRemote))
+						player.world.getEntityByID(4);
 
 						
 						
@@ -127,9 +128,10 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 								
 							
 								
-//								if (world.isRemote)
+								if (world.isRemote)
 								{
-//									if ((player instanceof EntityPlayer)) {
+									if ((player instanceof EntityPlayer )) {
+//										player.world.getPlayerEntityByName(getUnlocalizedName());
 										
 									if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_BOOTS) { 
 //										((EntityPlayerMP)this.player).connection.sendPacket(new SPacketSetSlot(-2, i, this.getStackInSlot(i)));
@@ -142,7 +144,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 									player.inventory.armorInventory.set(1, new ItemStack(Items.AIR));
 									player.inventory.armorInventory.set(2, new ItemStack(Items.AIR));
 									player.inventory.armorInventory.set(3, new ItemStack(Items.AIR));
-									Minecraft.getMinecraft().player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1.0F);	
+									player.playSound(SoundsHandler.WFCPRIMEVEHICLE, 1F, 1.0F);	
 //									player.inventory.markDirty();
 //									player.inventoryContainer.detectAndSendChanges();
 //									player.inventoryContainer.sendContainerToPlayer()
@@ -180,7 +182,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 						
 						
 						
-						
+								}
 			
 					}
 						

@@ -81,7 +81,8 @@ public MovieOptimusPrimeMid9(String name, ArmorMaterial materialIn, int renderIn
 			
 			
 			
-				if (world.isRemote) {
+				if (world.isRemote) 
+				{
 					
 
 					

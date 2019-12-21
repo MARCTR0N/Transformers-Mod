@@ -25,11 +25,11 @@ public class PacketInventoryHandler implements IMessageHandler<PacketInventory, 
 	    int amount = message.getToSend();
 	    // Execute the action on the main server thread by adding it as a scheduled task
 //	    if (ClientProxy.ROBOT_MODE.isKeyDown()) {
-	    if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
+//	    if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
 	    serverPlayer.getServerWorld().addScheduledTask(() -> {
 	      serverPlayer.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, amount));
 	    });
-	    }
+//	    }
 	    // No response packet
 	    return null;
 	}

@@ -93,7 +93,8 @@ public class MovieOptimusPrimeAltmode2 extends ItemArmorTransformer {
 //		}
 			player.eyeHeight=2.4F;
 			
-				if (world.isRemote) {
+				if (world.isRemote)
+				{
 					
 
 					

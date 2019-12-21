@@ -55,6 +55,7 @@ import com.marctron.transformersmod.util.handlers.RegistryHandler.ModItems;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -73,6 +74,9 @@ public class ClientProxy implements IProxy {
 	public static RenderArmor RENDERER;
 	public static RenderArmorNoItem RENDERER_NO_ITEM;
 
+	private Minecraft mc = Minecraft.getMinecraft();
+
+	
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
@@ -422,5 +426,11 @@ public class ClientProxy implements IProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntitySwindle.class, RenderSwindle::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLargeRocket.class, RenderRocket::new);
+    }
+    
+    
+    public EntityPlayer getPlayer()
+    {
+        return mc.player;
     }
 }

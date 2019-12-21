@@ -59,6 +59,8 @@ public class PacketHandler {
 		INSTANCE.registerMessage(PacketReturnWorker.Handler.class, PacketReturnWorker.class, nextID(), Side.CLIENT);
 		INSTANCE.registerMessage(PacketReturnEnergyDifference.Handler.class, PacketReturnEnergyDifference.class,
 				nextID(), Side.CLIENT);
+		
+		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.CLIENT);
 	}
 	
 	

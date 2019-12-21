@@ -102,7 +102,7 @@ public MovieOptimusPrimeBack8(String name, ArmorMaterial materialIn, int renderI
 								
 							
 								
-//								if (world.isRemote)
+								if (world.isRemote)
 								{
 								
 										
