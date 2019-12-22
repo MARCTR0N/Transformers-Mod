@@ -15,6 +15,27 @@ public class PacketHandler {
 	
 //	EntityPlayer player = Minecraft.getMinecraft().player
 	
+	public static void sendToServer(IMessage message){
+        INSTANCE.sendToServer(message);
+    }
+
+    public static void sendTo(IMessage message, EntityPlayerMP player){
+        INSTANCE.sendTo(message, player);
+    }
+
+    public static void sendToAllAround(IMessage message, TargetPoint point){
+        INSTANCE.sendToAllAround(message, point);
+    }
+    
+
+    public static void sendToAll(IMessage message){
+        INSTANCE.sendToAll(message);
+    }
+
+    public static void sendToDimension(IMessage message, int dimensionId){
+        INSTANCE.sendToDimension(message, dimensionId);
+    }
+	
 	/**
 	 * The instance of packet handler, for use to be able to send messages
 	 */
@@ -49,7 +70,7 @@ public class PacketHandler {
 		// Server packets
 		INSTANCE.registerMessage(PacketGetWorker.Handler.class, PacketGetWorker.class, nextID(), Side.SERVER);
 		
-		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.SERVER);
+//		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.SERVER);
 		
 		INSTANCE.registerMessage(PacketGetEnergyDifference.Handler.class, PacketGetEnergyDifference.class, nextID(), 
 				Side.SERVER);
@@ -60,29 +81,10 @@ public class PacketHandler {
 		INSTANCE.registerMessage(PacketReturnEnergyDifference.Handler.class, PacketReturnEnergyDifference.class,
 				nextID(), Side.CLIENT);
 		
-		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.CLIENT);
+//		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.CLIENT);
 	}
 	
-	public static void sendToServer(IMessage message){
-        INSTANCE.sendToServer(message);
-    }
-
-    public static void sendTo(IMessage message, EntityPlayerMP player){
-        INSTANCE.sendTo(message, player);
-    }
-
-    public static void sendToAllAround(IMessage message, TargetPoint point){
-        INSTANCE.sendToAllAround(message, point);
-    }
-    
-
-    public static void sendToAll(IMessage message){
-        INSTANCE.sendToAll(message);
-    }
-
-    public static void sendToDimension(IMessage message, int dimensionId){
-        INSTANCE.sendToDimension(message, dimensionId);
-    }
+	
 	
 	
 }

@@ -51,26 +51,18 @@ public class PacketInventory implements IMessage{
 	public static class Handler implements IMessageHandler<PacketInventory, IMessage>
 	
 	{
-	@Override
-	public IMessage onMessage(PacketInventory message, MessageContext ctx) {
-		// This is the player the packet was sent to the server from
-	    EntityPlayerMP serverPlayer = ctx.getServerHandler().player;
-	    // The value that was sent
-	    int amount = message.getToSend();
-	    // Execute the action on the main server thread by adding it as a scheduled task
-//	    if (ClientProxy.ROBOT_MODE.isKeyDown()) {
-//	    if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
-	    serverPlayer.getServerWorld().addScheduledTask(() -> {
-	      serverPlayer.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, amount));
-//	      if (ClientProxy.ROBOT_MODE.isKeyDown()) {
-	    	  serverPlayer.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, amount));
-	    	  System.out.println("fuck");
-//	      }
-	    });
-//	    }
-	    // No response packet
-	    return null;
-	}
+		@Override public IMessage onMessage(PacketInventory message, MessageContext ctx) {
+		    // This is the player the packet was sent to the server from
+		    EntityPlayerMP serverPlayer = ctx.getServerHandler().player;
+		    // The value that was sent
+		    int amount = message.toSend;
+		    // Execute the action on the main server thread by adding it as a scheduled task
+		    serverPlayer.getServerWorld().addScheduledTask(() -> {
+		      serverPlayer.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, amount));
+		    });
+		    // No response packet
+		    return null;
+		  }
 	}
 	
 	

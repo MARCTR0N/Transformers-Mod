@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.marctron.transformersmod.network.packets.PacketInventory;
+
 import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
@@ -13,7 +14,6 @@ import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
 import cjminecraft.core.network.PacketHandler;
-import cjminecraft.core.util.NetworkUtils;
 import net.ilexiconn.llibrary.server.network.NetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -59,7 +59,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 	
 	
 	@Override
-	@SubscribeEvent
+//	@SubscribeEvent
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 		player.getCollisionBorderSize();
 		player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.7F, player.getEntityBoundingBox().minZ + 0.6F));
@@ -67,15 +67,16 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 		player.width = 0.6F; 
 		player.height = 0.8F;
 		
-		
 //		player.inventory.getTimesChanged();
-//		
 //		player.inventory.getItemStack();
 //		player.inventory.getStackInSlot(36);
-//		if (world.isRemote){
+//		System.out.println(TFNetworkManager.networkWrapper);
+		if (world.isRemote){
+			System.out.println(TFNetworkManager.networkWrapper);
 		if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown())
 		{
-			TFNetworkManager.sendToServer(new PacketInventory(1));
+			TFNetworkManager.networkWrapper.sendToServer(new PacketInventory(1));
+			System.out.println(TFNetworkManager.networkWrapper);
 			
 			
 //			player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
@@ -83,7 +84,7 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 //			player.inventory.setInventorySlotContents(36, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));
 			
 //			player.inventory.getStackInSlot(36);
-//		}
+		}
 		}
 //		player.inventory.markDirty();
 //		player.inventoryContainer.detectAndSendChanges();

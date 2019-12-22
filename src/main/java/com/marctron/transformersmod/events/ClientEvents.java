@@ -1,5 +1,8 @@
 package com.marctron.transformersmod.events;
 
+import com.marctron.transformersmod.network.packets.PacketInventory;
+import com.marctron.transformersmod.network.packets.tf.MessageUpdateArmor;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
@@ -37,6 +40,10 @@ public class ClientEvents {
            
         
         if (ClientProxy.ROBOT_MODE.isKeyDown()) {
+        	
+//        	TFNetworkManager.networkWrapper.sendToServer(new PacketInventory(1));
+			
+        	
             //Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 0.3F, 1.8F);
             //Minecraft.getMinecraft().player.sendMessage(new TextComponentString ("*Transformation*") );
             //Minecraft.getMinecraft().player.playSound(SoundEvents.ENTITY_BLAZE_HURT, 0.6F, 2F);

@@ -3,8 +3,10 @@ package com.marctron.transformersmod;
 import com.marctron.transformersmod.commands.CommandDimensionTeleport;
 import org.apache.logging.log4j.Logger;
 import com.marctron.transformersmod.init.*;
+import com.marctron.transformersmod.network.PacketHandler;
 import com.marctron.transformersmod.network.packets.PacketInventory;
 import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.IProxy;
 import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.GuiHandler;
@@ -104,7 +106,8 @@ public class Main {
     };
 
 	
-
+    public static SimpleNetworkWrapper network;
+    
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
     	proxy.preInit(event);
@@ -122,7 +125,21 @@ public class Main {
 //        EntityInit.registerEntities();
 
         //GunEntities.regEntities();
+        
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+//        
+//        network = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MOD_ID);
+//        network.registerMessage(new PacketInventory.Handler(), PacketInventory.class, 2, Side.SERVER);
+        
+       
+        TFNetworkManager.registerPackets();
+        
+      
+        
+        
+
+//		network.registerMessage(new PacketUpdatePedestal.Handler(), PacketUpdatePedestal.class, 0, Side.CLIENT);
+//		network.registerMessage(new PacketRequestUpdatePedestal.Handler(), PacketRequestUpdatePedestal.class, 1, Side.SERVER);
         
 
         
