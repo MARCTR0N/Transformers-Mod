@@ -25,6 +25,10 @@ public class PacketInventory implements IMessage{
 	  public PacketInventory(int toSend) {
 	    this.setToSend(toSend); 
 	  }
+	  
+	  public PacketInventory() {
+		    
+		  }
 	
 	
 
