@@ -72,12 +72,11 @@ public MovieOptimusPrimeAltmode(String name, ArmorMaterial materialIn, int rende
 //		player.inventory.getStackInSlot(36);
 //		System.out.println(TFNetworkManager.networkWrapper);
 //		if (world.isRemote){
-			System.out.println(TFNetworkManager.networkWrapper);
 		if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown())
 		{
 			TFNetworkManager.networkWrapper.sendToServer(new PacketInventory());
-			System.out.println("Yuck!");
-			System.out.println(TFNetworkManager.networkWrapper);
+			//System.out.println("Yuck!");
+			//System.out.println(TFNetworkManager.networkWrapper);
 			
 			
 //			player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_BACK1_BOOTS));

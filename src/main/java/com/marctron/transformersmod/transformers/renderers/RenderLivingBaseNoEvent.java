@@ -45,6 +45,10 @@ public abstract class RenderLivingBaseNoEvent<T extends EntityLivingBase> extend
     {
         return this.mainModel;
     }
+    
+    public List<LayerRenderer<T>> getLayerRenderers() {
+    	return this.layerRenderers;
+    }
 
     /**
      * Returns a rotation angle that is inbetween two other rotation angles. par1 and par2 are the angles between which

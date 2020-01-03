@@ -2,12 +2,14 @@ package com.marctron.transformersmod.transformers.models;
 
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 
 import net.ilexiconn.llibrary.LLibrary;
 import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.ilexiconn.llibrary.client.model.tools.AdvancedModelBase;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -4797,11 +4799,11 @@ public class ModelDecepticonVehicon extends AdvancedModelBiped
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.LowerArm;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.LowerArm_1;
+    	//setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 //    	animate(f, f1, f2, f3, f4, f5, entity);
     	GlStateManager.pushMatrix();
-        GlStateManager.scale(0.57F, 0.57F, 0.57F);
-        GlStateManager.translate(0.0F, 18.0F * f5, -0.15F);
         Torso.render(f5);
         GlStateManager.popMatrix();
     }
@@ -4815,7 +4817,9 @@ public class ModelDecepticonVehicon extends AdvancedModelBiped
     
     
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        GlStateManager.scale(0.57F, 0.57F, 0.57F);
+        GlStateManager.translate(0.0F, 18.0F * f5, -0.15F);
+        //super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         resetToDefaultPose();
         
 //        float frame = entity.frame + LLibrary.PROXY.getPartialTicks();

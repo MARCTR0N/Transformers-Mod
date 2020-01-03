@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.transformers.models.tarn;
 
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -5912,11 +5914,25 @@ public class ModelTarn2 extends ModelBiped {
         LEFT_LOWER_LEG.addChild(LEFT_LOWER_LEG_29);
         TREADARM_3.addChild(shape220_87);
 
+        this.bipedHead.addChild(Head);
+
+        this.bipedBody.addChild(CHEST);
+
+        this.bipedLeftArm.addChild(LEFT_ARM);
+
+        this.bipedLeftLeg.addChild(LEFT_LEG);
+
+        this.bipedRightArm.addChild(RIGHT_ARM);
+
+        this.bipedRightLeg.addChild(RIGHT_ARM);
 
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.bipedLeftArm;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.bipedRightArm;
+    	this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         super.render(entity, f, f1, f2, f3, f4, f5);
     }
 

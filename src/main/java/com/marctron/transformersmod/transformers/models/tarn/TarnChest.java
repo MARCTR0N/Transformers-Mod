@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.transformers.models.tarn;
 
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
@@ -3398,10 +3400,11 @@ public class TarnChest extends ModelBiped {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-    	 setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.Left_Lower_arm;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.Right_Lower_arm;
+    	 //setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GlStateManager.pushMatrix();
-        GlStateManager.scale(0.535F, 0.535F, 0.535F);
-        GlStateManager.translate(0.0F, -13.0F * f5, -0.15F);
+        //this.bipedBody.render(f5);
         super.render(entity, f, f1, f2, f3, f4, f5);
         GlStateManager.popMatrix();
        
@@ -3415,6 +3418,8 @@ public class TarnChest extends ModelBiped {
 
 	        
 
+            GlStateManager.scale(0.535F, 0.535F, 0.535F);
+            GlStateManager.translate(0.0F, -13.0F * scaleFactor, -0.15F);
 	        if (this.isSneak)
 	        {
 	            
@@ -3666,7 +3671,7 @@ public class TarnChest extends ModelBiped {
 //	      }
 //	    	  }
 //	      
-	            super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+	            //super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
     	}
     	}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

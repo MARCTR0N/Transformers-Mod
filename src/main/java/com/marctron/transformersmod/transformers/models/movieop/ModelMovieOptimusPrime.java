@@ -2,11 +2,17 @@ package com.marctron.transformersmod.transformers.models.movieop;
 
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
+import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.util.EnumHandSide;
 
 public class ModelMovieOptimusPrime extends AdvancedModelBiped
 {
@@ -4315,18 +4321,21 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
         shape96.addChild(shape95_1);
         nono.addChild(shape20_1);
         shoulder1_1.addChild(shape157_28);
-        
+                        
         updateDefaultPose();
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    	GlStateManager.pushMatrix();
-        GlStateManager.scale(0.73F, 0.7F, 0.7F);
-        GlStateManager.translate(0.0F, 2F * f5, -0.15F);
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.LEFT_LOWER_ARM;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RIGHT_LOWER_ARM;
+    	//setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    	//RIGHT_ARM.rotateAngleX = (float) Math.sin(f2 / 25);
+    	//GlStateManager.pushMatrix();
+        //GlStateManager.scale(0.73F, 0.7F, 0.7F);
+        //GlStateManager.translate(0.0F, 2F * f5, -0.15F);
         CHEST.render(f5);
-        GlStateManager.popMatrix();
+        //GlStateManager.popMatrix();
         
     }
     
@@ -4338,7 +4347,8 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
     
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        GlStateManager.scale(0.73F, 0.7F, 0.7F);
+        GlStateManager.translate(0.0F, 2F * f5, -0.15F);
         resetToDefaultPose();
         	
         	float globalSpeed = 0.3F;
@@ -4463,6 +4473,8 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
             walk(RIGHT_LEG_1, 1 * globalSpeed,  0.99F * globalDegree, false, 0.6F, -0.2F, f, f1);        
             walk(RIGHT_LOWER_LEG_1, 1 * globalSpeed,  .8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
             walk(RIGHT_FOOT_1, 1 * globalSpeed,  .8F * globalDegree, true, -3F, 0.F, f, f1);
+            
+            super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
             
             HEAD.rotateAngleY= bipedHead.rotateAngleY;
             HEAD.rotateAngleX= bipedHead.rotateAngleX *0.9F;
