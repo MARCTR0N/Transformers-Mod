@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.models.wfc.stunticons;
+package com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown;
 
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
@@ -921,7 +921,10 @@ public class ModelBreakdownLeftArm extends AdvancedModelBiped
         GlStateManager.scale(0.45F, 0.45F, 0.45F);
         GlStateManager.translate(-2.0F * f5, -1F * f5, -1);   
         Left_Arm.render(f5); 
+        
+        
         GlStateManager.popMatrix();
+        
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)
@@ -934,6 +937,7 @@ public class ModelBreakdownLeftArm extends AdvancedModelBiped
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        
         resetToDefaultPose();
         
         float globalSpeed = 0.4F;

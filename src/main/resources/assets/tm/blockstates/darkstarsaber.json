@@ -1,0 +1,51 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "custom": { "flip-v": true },
+        "model": "tm:test6.obj"
+    },
+    "variants": {
+        "inventory": 
+        [
+        {
+            "transform": {
+                "thirdperson_lefthand": {
+                    "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 90 } ],
+                    "translation": [ 0.075, 1.25, 0.6 ],
+                    "scale": 0.02
+                },
+                "thirdperson_righthand": {
+                    "rotation": [ { "x": 0 }, { "y": 0 }, { "z": -90 } ],
+                    "translation": [ -0.075, 1.25, 0.6 ],
+                    "scale": 0.02
+                },
+                "gui": {
+                    "rotation": [ { "x": 60 }, { "y": -45 }, { "z": 0 } ],
+                    "translation": [ -0.2, -0.1, 0 ],
+                    "scale": 0.01
+                },
+                "firstperson_righthand": {
+                    "rotation": [ { "x": 0 }, { "y": 0 }, { "z": -90} ],
+                    "translation": [ 0.7, 0.15, -0.5 ],
+                    "scale": 0.018
+                },
+                "firstperson_lefthand": {
+                    "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 90 } ],
+                    "translation": [ 0.9, 0.15, -0.5 ],
+                    "scale": 0.018
+                },
+                "ground": {
+                    "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 0 } ],
+                    "translation": [ 0, 0.1, 0.55 ],
+                    "scale": 0.02
+                },
+                "fixed": {
+                    "rotation": [ { "x": -90 }, { "y": 0 }, { "z": 0 } ],
+                    "translation": [ 0.15, 0.5, 0 ],
+                    "scale": 0.015
+                }
+            }
+        }
+        ]
+    }
+}

@@ -33,9 +33,9 @@ public class TarnMid4 extends ItemArmorTransformer {
 
     public TarnMid4(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
+        
         setRegistryName(name);
-        setCreativeTab(Main.tabDecepticon);
+        setCreativeTab(null);
         setMaxStackSize(1);
         
 

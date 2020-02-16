@@ -16,7 +16,7 @@ public class ItemEnergonMugDark extends ItemFood {
 
     public ItemEnergonMugDark(String name, int amount, boolean isWolfFood, PotionEffect... potionEffects) {
         super(amount, isWolfFood);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

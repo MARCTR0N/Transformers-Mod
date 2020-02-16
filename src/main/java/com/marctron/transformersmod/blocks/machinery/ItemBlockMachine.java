@@ -22,7 +22,7 @@ public class ItemBlockMachine extends ItemBlockEnergy {
 	public ItemBlockMachine(Block block) {
 		super(block, 100000, 1000, 1000);
 		if(!(block instanceof IMetaBlockName)) { //Makes sure that the block implements IMetaBlockName
-			throw new IllegalArgumentException(String.format("The given Block %s is not an instance of IMetaBlockName!", block.getUnlocalizedName()));
+			throw new IllegalArgumentException(String.format("The given Block %s is not an instance of IMetaBlockName!", block.getLocalizedName()));
 		}
 		this.setHasSubtypes(true); //Says the block has meta data
 		this.setMaxDamage(0);
@@ -31,10 +31,7 @@ public class ItemBlockMachine extends ItemBlockEnergy {
 	/**
 	 * Changes the unlocalized name
 	 */
-	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName() + "." + ((IMetaBlockName) this.block).getSpecialName(stack);
-	}
+	
 
 	/**
 	 * Fixes a bug with not placing the correct variant of the block

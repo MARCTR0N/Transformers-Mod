@@ -25,7 +25,7 @@ public class ItemStarSaber extends ItemSword {
 
     public ItemStarSaber(String name, int cooldown, ToolMaterial material) {
         super(material);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

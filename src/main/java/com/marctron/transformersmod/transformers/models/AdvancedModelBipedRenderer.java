@@ -332,7 +332,7 @@ public class AdvancedModelBipedRenderer extends ModelRenderer {
         return this;
     }
 
-    public void transitionTo(AdvancedModelRenderer to, float timer, float maxTime) {
+    public void transitionTo(AdvancedModelBipedRenderer to, float timer, float maxTime) {
         this.rotateAngleX += ((to.rotateAngleX - this.rotateAngleX) / maxTime) * timer;
         this.rotateAngleY += ((to.rotateAngleY - this.rotateAngleY) / maxTime) * timer;
         this.rotateAngleZ += ((to.rotateAngleZ - this.rotateAngleZ) / maxTime) * timer;

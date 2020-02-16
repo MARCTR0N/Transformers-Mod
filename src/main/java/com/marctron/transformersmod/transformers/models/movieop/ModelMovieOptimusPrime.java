@@ -1,21 +1,37 @@
 package com.marctron.transformersmod.transformers.models.movieop;
 
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
+import com.marctron.transformersmod.items.gun.IGun;
+import com.marctron.transformersmod.items.gun.ItemGunBase;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 
+import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityArmorStand;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.MathHelper;
 
 public class ModelMovieOptimusPrime extends AdvancedModelBiped
 {
+	private long lastPress = 0;
+	private long cooldownTime = 1000; // 1000 milliseconds	
+	private long time;
+	
+	private ModelAnimator animator;
+	
+	public AdvancedModelBipedRenderer RIGHT_HAND;
+	public AdvancedModelBipedRenderer LEFT_HAND;
     public AdvancedModelBipedRenderer shape157_46;
     public AdvancedModelBipedRenderer shape157_38;
     public AdvancedModelBipedRenderer shape8_2;
@@ -702,6 +718,7 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape95_1;
     public AdvancedModelBipedRenderer shape20_1;
     public AdvancedModelBipedRenderer shape157_28;
+	private int animation;
 
     public ModelMovieOptimusPrime()
     {
@@ -3636,6 +3653,20 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
         shape157_28.mirror = true;
         shape157_28.setRotationPoint(-7.7F, 0.0F, 4.7F);
         shape157_28.addBox(-0.5F, 0.0F, -2.0F, 4, 5, 5, 0.0F);
+        
+        RIGHT_HAND = new AdvancedModelBipedRenderer(this, "RIGHT_HAND").setTextureOffset(0, 457);
+        RIGHT_HAND.setRotationPoint(2.0F, 3.0F, 0.5F);
+        RIGHT_HAND.addBox(-3.0F, 0.0F, -1.9F, 3, 6, 3, 0.0F);
+        
+        LEFT_HAND = new AdvancedModelBipedRenderer(this, "LEFT_HAND").setTextureOffset(0, 457);
+        LEFT_HAND.mirror = true;
+        LEFT_HAND.setRotationPoint(-2.0F, 3.0F, 0.5F);
+        LEFT_HAND.addBox(0.0F, 0.0F, -1.9F, 3, 6, 3, 0.0F);
+        
+        RIGHT_LOWER_ARM.addChild(RIGHT_HAND);
+        LEFT_LOWER_ARM.addChild(LEFT_HAND);
+        
+        
         torso.addChild(shape157_46);
         torso.addChild(shape157_38);
         nono.addChild(shape8_2);
@@ -4327,15 +4358,33 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.LEFT_LOWER_ARM;
-    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RIGHT_LOWER_ARM;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.LEFT_HAND;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RIGHT_HAND;
     	//setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     	//RIGHT_ARM.rotateAngleX = (float) Math.sin(f2 / 25);
     	//GlStateManager.pushMatrix();
         //GlStateManager.scale(0.73F, 0.7F, 0.7F);
         //GlStateManager.translate(0.0F, 2F * f5, -0.15F);
+//    	super.render(entity, f, f1, f2, f3, f4, f5);
+		if (!bipedLeftLeg.isHidden && !bipedRightLeg.isHidden && !bipedLeftArm.isHidden && !bipedRightArm.isHidden
+				&& !bipedBody.isHidden && !bipedHead.isHidden) {
+			bipedLeftLeg.isHidden = true;
+			bipedRightLeg.isHidden = true;
+			bipedLeftArm.isHidden = true;
+			bipedRightArm.isHidden = true;
+			bipedBody.isHidden = true;
+			bipedHead.isHidden = true;
+		}
         CHEST.render(f5);
         //GlStateManager.popMatrix();
+        animate(f, f1, f2, f3, f4, f5, entity);
+        GlStateManager.pushMatrix();
+//        GlStateManager.disableLighting();
+//        GlStateManager.disableDepth();
+//        GlStateManager.disableOutlineMode();
+//        GlStateManager.disableCull();
+//        GlStateManager.disableBlend();
+        GlStateManager.popMatrix();
         
     }
     
@@ -4345,26 +4394,52 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
         ModelRenderer.rotateAngleZ = z;
     }
     
+    private void animate(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+		 
+//		 animator.update((AdvancedEntityPlayer) entity);
+//		 AdvancedEntityPlayer entityAdvancedPlayer = (AdvancedEntityPlayer) entity;
+//	        setRotationAngles(f, f1, f2, f3, f4, f5, entityAdvancedPlayer);
+//
+//	        if (entityAdvancedPlayer.getAnimation() == AdvancedEntityPlayer.ATTACK_ANIMATION) {
+//	            animator.setStaticKeyframe(6);
+//                animator.startKeyframe(15);
+//                
+//                animator.rotate(RIGHT_ARM, 1, 0, 0);
+//                
+//                animator.endKeyframe();
+//	        }
+		
+	}
+
+    
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+    	
+    	
         GlStateManager.scale(0.73F, 0.7F, 0.7F);
         GlStateManager.translate(0.0F, 2F * f5, -0.15F);
+       
+        
         resetToDefaultPose();
         	
-        	float globalSpeed = 0.3F;
+        	float globalSpeed = 0.35F;
             float globalDegree = 0.5F ;
             float height = 3.F;
             
-            
-            float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
-    		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
+            int backwardInverter = 1;
+           
+
+            float upwardPose = (float) (1 / (1 + Math.exp(-10 * (entity.motionY + 0.2))));
+            float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
     		
     		if(isSneak){
 //    			  Head.rotationPointY = -11F;
 //    		      Head.rotationPointZ = -10F;
     		      CHEST.rotationPointY = 0F;
     		      CHEST.rotationPointZ = -6F;
-    		        
+    		      
+//    		     bob(CHEST, 0.2F*globalSpeed, -0.5F *height, false, f2, 1);
+    		      
 //    		      Torso.rotateAngleX = 0.1F;
     		      CHEST.rotateAngleX = 0.4F;
 //    		      Chestplate.rotateAngleX = 0.02F;
@@ -4404,42 +4479,86 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
     		      RIGHT_FOOT_1.rotateAngleZ = -0.25F;
     		}
     		
-            if (!entity.onGround){
-              	
-              	this.CHEST.rotateAngleX = .5F *downwardPose;
-              	this.CHEST.rotationPointZ = -6F *downwardPose + -1;
-              	this.CHEST.rotationPointY = 2F *downwardPose + -2;
-//              	this.HEAD.rotationPointZ = -15F *downwardPose + 3;
-//              	this.HEAD.rotationPointY = 3.5F *downwardPose +-16.5F;
-              	 
-              	RIGHT_ARM.rotateAngleX = 0.6F*downwardPose;
-              	LEFT_ARM.rotateAngleX = 0.6F*downwardPose;
+    		if (entity instanceof EntityPlayer){
+    			EntityPlayer player = (EntityPlayer) entity;
+            if (!player.onGround  && !player.capabilities.isFlying){
+            	
+            	//Jump and Falling 
+        		RIGHT_LEG.rotateAngleX += 0.2 * upwardPose;
+        		RIGHT_LEG_1.rotateAngleX -= 1 * upwardPose;
+        		RIGHT_LOWER_LEG.rotateAngleX += 0.3 * upwardPose;
+        		RIGHT_LOWER_LEG_1.rotateAngleX += 1.5 * upwardPose;
+        		
+        		walk(RIGHT_LEG, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, 0, 0, f1, 1);
+                walk(RIGHT_LEG_1, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, 0, 0, f1, 1);
+                walk(RIGHT_LOWER_LEG, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, -2.2F * backwardInverter, 0F, f1, 1);
+                walk(RIGHT_LOWER_LEG_1, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, -2.2F * backwardInverter, 0F, f1, 1);
                 
-              	RIGHT_ARM.rotateAngleZ = 0.4F *downwardPose;
-                LEFT_ARM.rotateAngleZ = -0.4F *downwardPose;
+                RIGHT_LEG.rotateAngleX -= 1.2 * downwardPose;
+                RIGHT_LEG_1.rotateAngleX -= 0.2 * downwardPose;
+                RIGHT_LOWER_LEG.rotateAngleX += 2 * downwardPose;
+                RIGHT_LOWER_LEG_1.rotateAngleX += 0.5 * downwardPose;
                 
-                RIGHT_LOWER_ARM.rotateAngleX = -1.1F *downwardPose;
-                LEFT_LOWER_ARM.rotateAngleX = -1.1F *downwardPose;
+                this.RIGHT_LEG.rotateAngleX -= .5F *downwardPose;
+                this.RIGHT_LEG_1.rotateAngleX -= .5F *downwardPose;
+     
                 
-                RIGHT_LOWER_ARM.rotateAngleY = -0.2F *downwardPose;
-                LEFT_LOWER_ARM.rotateAngleY = 0.2F *downwardPose;
-//              	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
+                this.CHEST.rotateAngleX = .5F *downwardPose;
+	          	this.CHEST.rotationPointZ = -6F *downwardPose + -1;
+	          	this.CHEST.rotationPointY = 2F *downwardPose + -2;
                 
-                
-                RIGHT_LEG.rotateAngleX = -1.F *downwardPose;
-                RIGHT_LEG.rotateAngleZ = -.2F *downwardPose;
-                RIGHT_LEG.rotateAngleY = -.2F *downwardPose;
-                RIGHT_LOWER_LEG.rotateAngleX = 1.6F *downwardPose;
-//                RIGHT_LOWER_LEG.rotateAngleZ = .5F *downwardPose;
-                
-                RIGHT_LEG_1.rotateAngleX = -1.7F *downwardPose;
-                RIGHT_LEG_1.rotateAngleZ = .2F *downwardPose;
-                RIGHT_LEG_1.rotateAngleY = .2F *downwardPose;
-                RIGHT_LOWER_LEG_1.rotateAngleX = 2.3F *downwardPose;
-//                RIGHT_LOWER_LEG_1.rotateAngleZ = -.5F *downwardPose;
-                
-               }
+	          	
+	        	RIGHT_ARM.rotateAngleX = 0.6F*downwardPose;
+	        	LEFT_ARM.rotateAngleX = 0.6F*downwardPose;
             
+	        	RIGHT_ARM.rotateAngleZ = 0.4F *downwardPose;
+	        	LEFT_ARM.rotateAngleZ = -0.4F *downwardPose;
+            
+	        	RIGHT_LOWER_ARM.rotateAngleX = -1.1F *downwardPose;
+	        	LEFT_LOWER_ARM.rotateAngleX = -1.1F *downwardPose;
+            
+	        	RIGHT_LOWER_ARM.rotateAngleY = -0.2F *downwardPose;
+	        	LEFT_LOWER_ARM.rotateAngleY = 0.2F *downwardPose;
+                //-----
+            	
+//              	
+//              	this.CHEST.rotateAngleX = .5F *downwardPose;
+//              	this.CHEST.rotationPointZ = -6F *downwardPose + -1;
+//              	this.CHEST.rotationPointY = 2F *downwardPose + -2;
+////              	this.HEAD.rotationPointZ = -15F *downwardPose + 3;
+////              	this.HEAD.rotationPointY = 3.5F *downwardPose +-16.5F;
+//              	 
+//              	RIGHT_ARM.rotateAngleX = 0.6F*downwardPose;
+//              	LEFT_ARM.rotateAngleX = 0.6F*downwardPose;
+//                
+//              	RIGHT_ARM.rotateAngleZ = 0.4F *downwardPose;
+//                LEFT_ARM.rotateAngleZ = -0.4F *downwardPose;
+//                
+//                RIGHT_LOWER_ARM.rotateAngleX = -1.1F *downwardPose;
+//                LEFT_LOWER_ARM.rotateAngleX = -1.1F *downwardPose;
+//                
+//                RIGHT_LOWER_ARM.rotateAngleY = -0.2F *downwardPose;
+//                LEFT_LOWER_ARM.rotateAngleY = 0.2F *downwardPose;
+////              	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
+//                
+//                
+//                RIGHT_LEG.rotateAngleX = -1.F *downwardPose;
+//                RIGHT_LEG.rotateAngleZ = -.2F *downwardPose;
+//                RIGHT_LEG.rotateAngleY = -.2F *downwardPose;
+//                RIGHT_LOWER_LEG.rotateAngleX = 1.6F *downwardPose;
+////                RIGHT_LOWER_LEG.rotateAngleZ = .5F *downwardPose;
+//                
+//                RIGHT_LEG_1.rotateAngleX = -1.7F *downwardPose;
+//                RIGHT_LEG_1.rotateAngleZ = .2F *downwardPose;
+//                RIGHT_LEG_1.rotateAngleY = .2F *downwardPose;
+//                RIGHT_LOWER_LEG_1.rotateAngleX = 2.3F *downwardPose;
+////                RIGHT_LOWER_LEG_1.rotateAngleZ = -.5F *downwardPose;
+            	}
+              }
+    		
+    		
+    		EntityPlayer player = (EntityPlayer) entity;
+            if (player.onGround || player.capabilities.isFlying){
         	walk(RIGHT_ARM, 1 * globalSpeed,  1.F * globalDegree, true, 0.6F, 0.F, f, f1);
             walk(LEFT_ARM, 1 * globalSpeed,  -1.F * globalDegree, true, 0.6F, 0.F, f, f1);
             
@@ -4448,32 +4567,36 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
         
 
 //            bob(HEAD, 2 *globalSpeed, height, false, f, f1);
-            bob(CHEST, 2 *globalSpeed, 1* height, false, f, f1);
+            bob(CHEST, 2 *globalSpeed, 0.7f* height, false, f, f1);
             
 //            CHEST.rotateAngleX=0.5F * f1;
 //            CHEST.rotationPointZ=-4 * f1;
 //            CHEST.rotationPointY=1 * f1;
             
-            walk(CHEST, 2* globalSpeed, 0.2F* globalDegree, false, 0, 0, f, f1);
-            swing(CHEST, 1F* globalSpeed, 0.3F* globalDegree, false, 0, 0, f, f1);
+            
+            swing(RIGHT_LOWER_ARM, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+            swing(LEFT_LOWER_ARM, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
             
             walk(HEAD, 2* globalSpeed, 0.2F* globalDegree, true, 0, 0, f, f1);
             swing(HEAD, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
             
-            walk(RIGHT_LEG, 2* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
-            swing(RIGHT_LEG, 1* globalSpeed, 0.4F* globalDegree, true, 0, 0, f, f1);
+            	walk(CHEST, 2* globalSpeed, 0.2F* globalDegree, false, 0, 0, f, f1);
+                swing(CHEST, 1F* globalSpeed, 0.3F* globalDegree, false, 0, 0, f, f1);
+            	
+                walk(RIGHT_LEG, 2* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+                swing(RIGHT_LEG, 1* globalSpeed, 0.4F* globalDegree, true, 0, 0, f, f1);
             
-            walk(RIGHT_LEG, 1 * globalSpeed,  -0.99F * globalDegree, false, 0.6F, -0.2F, f, f1);        
-            walk(RIGHT_LOWER_LEG, 1 * globalSpeed,  -.8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
-            walk(RIGHT_FOOT, 1 * globalSpeed,  -.8F * globalDegree, true, -3F, 0.F, f, f1);
+                walk(RIGHT_LEG, 1 * globalSpeed,  -0.99F * globalDegree, false, 0.6F, -0.2F, f, f1);        
+                walk(RIGHT_LOWER_LEG, 1 * globalSpeed,  -.8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
+                walk(RIGHT_FOOT, 1 * globalSpeed,  -.8F * globalDegree, true, -3F, 0.F, f, f1);
             
-            walk(RIGHT_LEG_1, 2* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
-            swing(RIGHT_LEG_1, 1* globalSpeed, 0.4F* globalDegree, true, 0, 0, f, f1);
+                walk(RIGHT_LEG_1, 2* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+                swing(RIGHT_LEG_1, 1* globalSpeed, 0.4F* globalDegree, true, 0, 0, f, f1);
             
-            walk(RIGHT_LEG_1, 1 * globalSpeed,  0.99F * globalDegree, false, 0.6F, -0.2F, f, f1);        
-            walk(RIGHT_LOWER_LEG_1, 1 * globalSpeed,  .8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
-            walk(RIGHT_FOOT_1, 1 * globalSpeed,  .8F * globalDegree, true, -3F, 0.F, f, f1);
-            
+                walk(RIGHT_LEG_1, 1 * globalSpeed,  0.99F * globalDegree, false, 0.6F, -0.2F, f, f1);        
+                walk(RIGHT_LOWER_LEG_1, 1 * globalSpeed,  .8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
+                walk(RIGHT_FOOT_1, 1 * globalSpeed,  .8F * globalDegree, true, -3F, 0.F, f, f1);
+            }
             super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
             
             HEAD.rotateAngleY= bipedHead.rotateAngleY;
@@ -4481,9 +4604,206 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 //            HEAD.rotationPointZ=-3F;
 //            HEAD.rotationPointX=-0;
 //            HEAD.rotationPointY=-19.F;
+            
+            this.HEAD.setScale(0.1F, 0.1F, 0.1F);
+            
+            switch (this.leftArmPose)
+	        {
+	            case EMPTY:
+	                this.LEFT_ARM.rotateAngleY = 0.0F;
+	                break;
+	            case BLOCK:
+	            	  this.LEFT_ARM.rotateAngleX = this.LEFT_ARM.rotateAngleX * 0.5F - 0.9424779F + 0.4F;
+		                this.LEFT_ARM.rotateAngleY = 0.5235988F;
+		                this.LEFT_LOWER_ARM.rotateAngleY = 0.4F;
+		                this.LEFT_LOWER_ARM.rotateAngleX = -1F;
+		                this.LEFT_HAND.rotateAngleZ= -0.3F;
+		                this.LEFT_HAND.rotateAngleX= 0.8F;
+		                this.LEFT_HAND.rotateAngleY= -0.3F;
+		                this.LEFT_HAND.rotationPointX=-2F;	
+		                this.LEFT_HAND.rotationPointY=7F;	                
+		                this.LEFT_HAND.rotationPointZ=-8F;
+		                this.LEFT_HAND.setScale(0.1F, 0.1F, 0.1F);
+	                break;
+	            case ITEM:
+	                this.LEFT_ARM.rotateAngleX = this.LEFT_ARM.rotateAngleX * 0.5F - ((float)Math.PI / 10F);
+	                this.LEFT_ARM.rotateAngleY = 0.0F;
+	                this.LEFT_LOWER_ARM.rotateAngleX = this.LEFT_LOWER_ARM.rotateAngleX * 0.5F - ((float)Math.PI / 10F);
+			default:
+				break;
+	        }
+
+	        switch (this.rightArmPose)
+	        {
+	            case EMPTY:
+	                this.RIGHT_ARM.rotateAngleY = 0.0F;
+	                break;
+	            case BLOCK:
+	                this.RIGHT_ARM.rotateAngleX = this.RIGHT_ARM.rotateAngleX * 0.5F - 0.9424779F + 0.4F;
+	                this.RIGHT_ARM.rotateAngleY = -0.5235988F;
+	                this.RIGHT_LOWER_ARM.rotateAngleY = -0.4F;
+	                this.RIGHT_LOWER_ARM.rotateAngleX = -1F;
+	                this.RIGHT_HAND.rotateAngleZ= 0.3F;
+	                this.RIGHT_HAND.rotateAngleX= 0.8F;
+	                this.RIGHT_HAND.rotateAngleY= 0.3F;
+	                this.RIGHT_HAND.rotationPointX=3F;	
+	                this.RIGHT_HAND.rotationPointY=8F;	                
+	                this.RIGHT_HAND.rotationPointZ=-7F;
+	                this.RIGHT_HAND.setScale(0.1F, 0.1F, 0.1F);
+	                
+	                break;
+	            case ITEM:
+	                this.RIGHT_ARM.rotateAngleX = this.RIGHT_ARM.rotateAngleX * 0.7F - ((float)Math.PI / 10F);
+	                this.RIGHT_ARM.rotateAngleY = 0.0F;
+	                this.RIGHT_LOWER_ARM.rotateAngleX = this.RIGHT_LOWER_ARM.rotateAngleX * 0.7F - ((float)Math.PI / 10F);
+			default:
+				break;
+	        }
+	        //IDLE
+	        walk(CHEST, 0.08F, 0.05F, false, 1, 0.1F, f2, 1F);
+	        walk(RIGHT_LEG, 0.08F, 0.05F, true, 1, 0.1F, f2, 1F);
+	        walk(RIGHT_LEG_1, 0.08F, 0.05F, true, 1, 0.1F, f2, 1F);
+	        if(!isSneak){
+	        	walk(RIGHT_LEG, 0.08F, 0.05F, true, 1, 0.1F, f2, 1F);
+		        walk(RIGHT_LEG_1, 0.08F, 0.05F, true, 1, 0.1F, f2, 1F);
+	        
+		        walk(RIGHT_LOWER_LEG, 0.08F, 0.1F, false, 1, 0.1F, f2, 1F);
+		        walk(RIGHT_LOWER_LEG_1, 0.08F, 0.1F, false, 1, 0.1F, f2, 1F);
+	        
+		        walk(RIGHT_FOOT, 0.08F, 0.05F, true, 1, 0.1F, f2, 1F);
+		        walk(RIGHT_FOOT_1, 0.08F, 0.05F, true, 1, 0.1F, f2, 1F);
+	        }
+	        walk(HEAD, 0.08F, 0.05F, true, 1, 0, f2, 1F);
+	        walk(RIGHT_ARM, 0.08F, 0.05F, true, 1, 0, f2, 1F);
+	        walk(LEFT_ARM, 0.08F, 0.05F, true, 1, 0, f2, 1F);
+
+	        flap(RIGHT_ARM, 0.08F, 0.04F, true, 1, 0, f2, 1F);
+	        flap(LEFT_ARM, 0.08F, 0.04F, false, 1, 0, f2, 1F);
+	        walk(RIGHT_LOWER_ARM, 0.08F, 0.1F, true, 1, 0, f2, 1F);
+	        walk(LEFT_LOWER_ARM, 0.08F, 0.1F, true, 1, 0, f2, 1F);
+	        
+	        if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+	        {
+	            this.RIGHT_ARM.rotateAngleY = -0.1F + this.HEAD.rotateAngleY;
+//	            this.LEFT_ARM.rotateAngleY = 0.1F + this.HEAD.rotateAngleY + 0.4F;
+	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX;
+//	            this.LEFT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX;
+	        }
+	        
+	        if (entity instanceof EntityPlayer)
+	        {
+	        	ItemStack stack = ((EntityPlayer) entity).getHeldItemMainhand();
+//	        	if(((EntityPlayerSP) entity).inventory.getCurrentItem() instanceof IGun)
+	        	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
+                    IGun nbt = ((IGun) stack.getItem());
+                    if (nbt.getBoolean("Gun")) {
+	        		
+	            this.RIGHT_ARM.rotateAngleY = this.HEAD.rotateAngleY;
+	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX*0.5F + 0.4F;
+	            swing(RIGHT_ARM, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+	            walk(RIGHT_ARM, 2* globalSpeed, 0.2F* globalDegree, true, 0, 0, f, f1);
+	            this.RIGHT_LOWER_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX*0.5F + 1F;
+	            
+//		        walk(RIGHT_ARM, 0.08F, -0.05F, true, 1, 0, f2, 1F);
+//		        flap(RIGHT_ARM, 0.08F, -0.04F, true, 1, 0, f2, 1F);
+//		        walk(RIGHT_LOWER_ARM, 0.08F, -0.1F, true, 1, 0, f2, 1F);
+//	            this.CHEST.rotateAngleY = this.HEAD.rotateAngleY;
+                    }
+	        	}
+	        	
+	        	if (stack.getItem() instanceof ItemGunBase) {
+                    IGun nbt = ((IGun) stack.getItem());
+                    if (nbt.getBoolean("Gun")) {
+	        		
+	            this.RIGHT_ARM.rotateAngleY = this.HEAD.rotateAngleY;
+	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX + 0.4F;
+	            swing(RIGHT_ARM, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+	            walk(RIGHT_ARM, 2* globalSpeed, 0.2F* globalDegree, true, 0, 0, f, f1);
+	            this.RIGHT_LOWER_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX + 1F;
+                    }
+	        	}
+	        }
+	        
+	        else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+	        {
+//	            this.RIGHT_ARM.rotateAngleY = -0.1F + this.HEAD.rotateAngleY - 0.4F;
+	            this.LEFT_ARM.rotateAngleY = 0.1F + this.HEAD.rotateAngleY;
+//	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX;
+	            this.LEFT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX;
+	        }
+	        
+	      
+	        
+	        if(Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown())
+	        {
+//	        	rotateTo(RIGHT_ARM, LEFT_ARM, f);
+//	        	swing(RIGHT_ARM, 0.5F, 1F, false, 0, 0, f2, 1f);
+//	        	RIGHT_ARM.rotateAngleX = bipedRightArm.rotateAngleX;
+//	        	RIGHT_ARM.rotateAngleY = bipedRightArm.rotateAngleY;
+//	        	RIGHT_ARM.rotateAngleZ = bipedRightArm.rotateAngleZ;  
+//	        	
+//	        	RIGHT_LOWER_ARM.rotateAngleX = bipedRightArm.rotateAngleX;
+//	        	RIGHT_LOWER_ARM.rotateAngleY = bipedRightArm.rotateAngleY;
+//	        	RIGHT_LOWER_ARM.rotateAngleZ = bipedRightArm.rotateAngleZ;  
+	        	
+//	        	swing(RIGHT_ARM, 0.2F* globalSpeed, 1F *globalDegree, false, 0F, 0.1F, 1, 1);
+//	        	progressRotationPrev(RIGHT_ARM, 1, -1, 0, 0, 1);
+//	        	progressRotationPrev(RIGHT_ARM, 1, -1, 0, 0, 1);
+////	        		System.out.println("oof");
+//					
+//					RIGHT_ARM.rotateAngleX=-0.1F;
+//					animation = 1;
+//					if(animation == 1)
+//					{
+//						RIGHT_ARM.rotateAngleX=-0.2F;	
+//						animation = 2;
+//						if(animation == 2)
+//						{
+//							RIGHT_ARM.rotateAngleX=-0.3F;
+//							animation = 3;
+//							if(animation == 3)
+//							{
+//								RIGHT_ARM.rotateAngleX=-0.4F;
+//								animation = 4;
+//								if(animation == 4)
+//								{
+//									
+//									animation = 5;
+//									if(animation == 5)
+//									{
+//									
+//										animation = 6;
+//										if(animation == 6)
+//										{
+//											
+//											animation = 7;
+//											if(animation == 7)
+//											{
+//												
+//												animation = 8;
+//												if(animation == 8)
+//												{
+//													
+//													
+//												}
+//											}
+//										}
+//									}
+//								}
+//							}
+//						}
+//		        	}
+	        	}
+	        
+	        
+	        
+//	        ThighWheel.rotateAngleX =0;
+	        }
+    	
+    protected ModelRenderer getArmForSide(EnumHandSide side)
+    {
+        return side == EnumHandSide.LEFT ? this.LEFT_ARM : this.RIGHT_ARM;
     }
     
-
-
     
 }

@@ -1,11 +1,14 @@
 package com.marctron.transformersmod.transformers.models.movieop;
 
-import net.minecraft.client.model.ModelBiped;
+import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
+
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelBase;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelMovieOptimusPrimeAltmode extends ModelBiped
+public class ModelMovieOptimusPrimeAltmode extends AdvancedModelBiped
 {
     public ModelRenderer shape508_30;
     public ModelRenderer shape92_11;
@@ -2629,6 +2632,8 @@ public class ModelMovieOptimusPrimeAltmode extends ModelBiped
         shape508_208.addChild(shape508_214);
         shape508_140.addChild(shape508_146);
         shape508_8.addChild(shape508_31);
+        
+        updateDefaultPose();
     }
 
     @Override
@@ -2638,6 +2643,18 @@ public class ModelMovieOptimusPrimeAltmode extends ModelBiped
         GlStateManager.pushMatrix();
     	GlStateManager.scale(0.75F, 0.75F, 0.75F);
     	GlStateManager.translate(0.0F, -11.5F * f5, -0.F);
+//    	GlStateManager.rotate(-90, 1, 0, 0);
+    	super.render(entity, f, f1, f2, f3, f4, f5);
+    	if (!bipedLeftLeg.isHidden && !bipedRightLeg.isHidden&& !bipedLeftArm.isHidden && !bipedRightArm.isHidden && !bipedBody.isHidden && !bipedHead.isHidden)
+    	{
+    		bipedLeftLeg.isHidden = true;
+    		bipedRightLeg.isHidden = true;
+    		bipedLeftArm.isHidden = true;
+    		bipedRightArm.isHidden = true;
+    		bipedBody.isHidden = true;
+    		bipedHead.isHidden = true;
+    	}
+    	
     	TRUCK.render(f5);
        
     	GlStateManager.popMatrix();
@@ -2649,5 +2666,59 @@ public class ModelMovieOptimusPrimeAltmode extends ModelBiped
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+    {
+    	
+    	super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+    	resetToDefaultPose();
+
+    	
+//    	 if (entityIn instanceof EntityPlayer)
+//         {
+//             EntityPlayer player = (EntityPlayer) entityIn;
+             
+             
+             TRUCK.rotateAngleY = (float) ((netHeadYaw) / (180F / Math.PI));
+//    			TRUCK.rotateAngleY = bipedHead.rotateAngleY;
+        
+             
+             
+              
+//             TRUCK.rotateAngleX = (float) (Math.PI / 2 - TFRenderHelper.getMotionY(player) - (player == Minecraft.getMinecraft().player && player.onGround ? 0.0784000015258789 : 0));
+//             TRUCK.rotateAngleY = -(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick));
+
+//             float wheelSpinSpeed = (TFHelper.FORWARD_VELOCITY.get(player) < 0 ? -limbSwing : limbSwing) * 0.8F;
+//
+//             for (ModelRenderer modelRenderer : new ModelRenderer[] {vehicleWheelR, vehicleWheelL, vehicleWheelBackR, vehicleWheelBackL})
+//             {
+//                 modelRenderer.rotateAngleX = wheelSpinSpeed;
+//             }
+//             TRUCK.rotateAngleY = -(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationPitch, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick));
+
+//             TRUCK.rotateAngleX = (float) (Math.PI *2.023 - TFRenderHelper.getMotionY(player) - (player == Minecraft.getMinecraft().player && player.onGround ? 0.0784000015258789 : -0.1F));
+//             TRUCK.rotateAngleY = -(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick));
+
+             
+             
+//             ---JETMODE---
+//             TRUCK.rotateAngleX = (float) (Math.PI / 2 - TFRenderHelper.getMotionY(player) - (player == Minecraft.getMinecraft().player && player.onGround ? 0.0784000015258789 : 0));
+//             TRUCK.rotateAngleY = -(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick));
+
+//         }
+    }
+    
+    @Override
+    public void setVisible(boolean visible) {
+//    	super.setVisible(visible);
+//        this.bipedLeftArm.showModel = false;
+//        this.bipedRightArm.showModel = false;
+//        this.bipedLeftLeg.showModel = false;
+//        this.bipedRightLeg.showModel = false;
+//        this.bipedBody.showModel = false;
+//        this.bipedHead.showModel = false;
+//        this.bipedDeadmau5Head.showModel = visible;
     }
 }

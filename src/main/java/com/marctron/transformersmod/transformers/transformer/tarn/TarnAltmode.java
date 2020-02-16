@@ -35,7 +35,7 @@ public class TarnAltmode extends ItemArmorTransformer {
 
     public TarnAltmode(String name, int cooldown, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
+        
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);

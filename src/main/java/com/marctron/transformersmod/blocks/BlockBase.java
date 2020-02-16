@@ -12,7 +12,7 @@ import net.minecraft.item.ItemBlock;
 public class BlockBase extends Block {
     public BlockBase(String name, Material material) {
         super(material);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

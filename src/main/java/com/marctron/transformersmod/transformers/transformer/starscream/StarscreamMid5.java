@@ -29,7 +29,7 @@ public class StarscreamMid5 extends ItemArmorTransformer {
 
     public StarscreamMid5(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);

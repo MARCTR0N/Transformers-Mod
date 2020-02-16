@@ -56,7 +56,7 @@ public class MachineBlock extends BlockContainer implements IMetaBlockName, ITil
 	public MachineBlock(String unlocalizedName) {
 		super(Material.IRON); // The blocks material
 		
-		  setUnlocalizedName(unlocalizedName);
+		  
 	      setRegistryName(unlocalizedName);
 	      setCreativeTab(Main.tabTransformers);
 	      RegistryHandler.Registry.registerItemBlock(this); 

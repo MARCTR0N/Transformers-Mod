@@ -1,12 +1,31 @@
 package com.marctron.transformersmod.transformers.models;
 
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
-import net.minecraft.client.model.ModelBase;
+import java.util.List;
+import java.util.Map;
+
+import com.google.common.collect.Maps;
+
+import net.ilexiconn.llibrary.client.model.ModelAnimator;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.TextureOffset;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 
 public class AdvancedModelBiped extends ModelBiped {
-    private float movementScale = 1.0F;
+	private float movementScale = 1.0F;
+    private final Map<String, TextureOffset> modelTextureMap = Maps.newHashMap();
+    
+    protected void setTextureOffset(String partName, int x, int y) {
+        this.modelTextureMap.put(partName, new TextureOffset(x, y));
+    }
+
+    public TextureOffset getTextureOffset(String partName) {
+        return this.modelTextureMap.get(partName);
+    }
+    
 
     /**
      * Sets the default pose to the current pose of this model
@@ -199,4 +218,74 @@ public class AdvancedModelBiped extends ModelBiped {
             return MathHelper.sin(f * speed) * f1 * degree - f1 * degree;
         }
     }
+    
+    public void setRotateAngle(AdvancedModelBipedRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void rotate(ModelAnimator animator, AdvancedModelBipedRenderer model, float x, float y, float z) {
+        animator.rotate(model, (float) Math.toRadians(x), (float) Math.toRadians(y), (float) Math.toRadians(z));
+    }
+
+    public void rotateMinus(ModelAnimator animator, AdvancedModelBipedRenderer model, float x, float y, float z) {
+        animator.rotate(model, (float) Math.toRadians(x) - model.defaultRotationX, (float) Math.toRadians(y) - model.defaultRotationY, (float) Math.toRadians(z) - model.defaultRotationZ);
+    }
+
+    public void progressRotation(AdvancedModelBipedRenderer model, float progress, float rotX, float rotY, float rotZ, float divisor) {
+        model.rotateAngleX += progress * (rotX - model.defaultRotationX) / divisor;
+        model.rotateAngleY += progress * (rotY - model.defaultRotationY) / divisor;
+        model.rotateAngleZ += progress * (rotZ - model.defaultRotationZ) / divisor;
+    }
+
+    public void progressRotationPrev(AdvancedModelBipedRenderer model, float progress, float rotX, float rotY, float rotZ, float divisor) {
+        model.rotateAngleX += progress * (rotX) / divisor;
+        model.rotateAngleY += progress * (rotY) / divisor;
+        model.rotateAngleZ += progress * (rotZ) / divisor;
+    }
+
+    public void progressPosition(AdvancedModelBipedRenderer model, float progress, float x, float y, float z, float divisor) {
+        model.rotationPointX += progress * (x - model.defaultPositionX) / divisor;
+        model.rotationPointY += progress * (y - model.defaultPositionY) / divisor;
+        model.rotationPointZ += progress * (z - model.defaultPositionZ) / divisor;
+    }
+
+    public void progressPositionPrev(AdvancedModelBipedRenderer model, float progress, float x, float y, float z, float divisor) {
+        model.rotationPointX += progress * x / divisor;
+        model.rotationPointY += progress * y / divisor;
+        model.rotationPointZ += progress * z / divisor;
+    }
+
+    
+    protected void rotateTo(AdvancedModelBipedRenderer rotating, AdvancedModelBipedRenderer to, float f)
+    {
+        float rotXDif = to.rotateAngleX - rotating.rotateAngleX;
+        float rotYDif = to.rotateAngleY - rotating.rotateAngleY;
+        float rotZDif = to.rotateAngleZ - rotating.rotateAngleZ;
+
+        float posXDif = to.rotationPointX - rotating.rotationPointX;
+        float posYDif = to.rotationPointY - rotating.rotationPointY;
+        float posZDif = to.rotationPointZ - rotating.rotationPointZ;
+
+        float offsetXDif = to.offsetX - rotating.offsetX;
+        float offsetYDif = to.offsetY - rotating.offsetY;
+        float offsetZDif = to.offsetZ - rotating.offsetZ;
+
+        rotating.rotateAngleX += rotXDif * f;
+        rotating.rotateAngleY += rotYDif * f;
+        rotating.rotateAngleZ += rotZDif * f;
+
+        rotating.offsetX += offsetXDif * f;
+        rotating.offsetY += offsetYDif * f;
+        rotating.offsetZ += offsetZDif * f;
+
+        rotating.rotationPointX += posXDif * f;
+        rotating.rotationPointY += posYDif * f;
+        rotating.rotationPointZ += posZDif * f;
+    }
+    
+    
+ 
+   
 }

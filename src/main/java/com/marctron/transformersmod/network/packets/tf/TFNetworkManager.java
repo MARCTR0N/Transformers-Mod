@@ -1,11 +1,12 @@
 package com.marctron.transformersmod.network.packets.tf;
 
-import com.marctron.transformersmod.network.packets.PacketInventory;
-import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
+import com.marctron.transformersmod.network.packets.PacketDrivingSound;
+import com.marctron.transformersmod.network.packets.PacketShootRocket;
+import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrime;
+import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrimeStealth;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -42,7 +43,10 @@ public static void registerPackets()
 //    registerPacket(MessageSetTileData.Handler.class, MessageSetTileData.class);
 //    registerPacket(MessageConnectReceiver.Handler.class, MessageConnectReceiver.class);
     registerPacket(MessageUpdateArmor.Handler.class, MessageUpdateArmor.class);
-    registerPacket(PacketInventory.Handler.class, PacketInventory.class);
+    registerPacket(PacketMovieOptimusPrime.Handler.class, PacketMovieOptimusPrime.class);
+    registerPacket(PacketMovieOptimusPrimeStealth.Handler.class, PacketMovieOptimusPrimeStealth.class);
+    registerPacket(PacketShootRocket.Handler.class, PacketShootRocket.class);
+    registerPacket(PacketDrivingSound.Handler.class, PacketDrivingSound.class);
    
 }
 
@@ -83,5 +87,9 @@ public static void sendToDimension(IMessage message, int dimensionId){
 	networkWrapper.sendToDimension(message, dimensionId);
 }
 
+public static void init()
+{
+
+}
 
 }

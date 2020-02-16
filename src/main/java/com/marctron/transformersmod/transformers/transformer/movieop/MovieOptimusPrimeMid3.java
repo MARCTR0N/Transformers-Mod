@@ -39,7 +39,7 @@ public class MovieOptimusPrimeMid3 extends ItemArmorTransformer  {
 
 public MovieOptimusPrimeMid3(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
-		setUnlocalizedName(name);
+		
 		setRegistryName(name);
 		setCreativeTab(null);
 		setMaxStackSize(1);
@@ -83,53 +83,53 @@ public MovieOptimusPrimeMid3(String name, ArmorMaterial materialIn, int renderIn
 						
 
 						
-						Timer timer = new Timer();
-						timer.schedule(new TimerTask() {
-							
-							@Override
-							public void run() {
-								
-								
-
-								
-							
-								
-								if (world.isRemote)
-								{
-								
-										
-									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_BOOTS) {
-										
-									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_BOOTS));
-										
-									}
-									
-//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS) {
+//						Timer timer = new Timer();
+//						timer.schedule(new TimerTask() {
+//							
+//							@Override
+//							public void run() {
+//								
+//								
+//
+//								
+//							
+//								
+//								if (world.isRemote)
+//								{
+//								
 //										
-//									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS));
+//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_BOOTS) {
+//										
+//									player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_BOOTS));
 //										
 //									}
 //									
-//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE) {
-//										
-//									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE));
-//										
-//									}
+////									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_LEGGINGS) {
+////										
+////									player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_LEGGINGS));
+////										
+////									}
+////									
+////									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_CHESTPLATE) {
+////										
+////									player.inventory.armorInventory.set(2, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_CHESTPLATE));
+////										
+////									}
+////									
+////									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_HELMET) {
+////										
+////									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_HELMET));
+////									}
 //									
-//									if (itemStack.getItem() == RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID3_HELMET) {
-//										
-//									player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.MOVIE_OPTIMUS_PRIME_MID4_HELMET));
-//									}
-									
-									
-									
-											
-								
-								}
-								
-							}
-						
-						}, 50);
+//									
+//									
+//											
+//								
+//								}
+//								
+//							}
+//						
+//						}, 50);
 						
 						
 						

@@ -1,7 +1,6 @@
 package com.marctron.transformersmod.network;
 
-import com.marctron.transformersmod.network.packets.PacketInventory;
-import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
+import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrime;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
@@ -84,7 +83,10 @@ public class PacketHandler {
 //		INSTANCE.registerMessage(PacketInventoryHandler.class, PacketInventory.class, nextID(), Side.CLIENT);
 	}
 	
-	
+	public static void init()
+	{
+
+	}
 	
 	
 }

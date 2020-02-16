@@ -14,7 +14,7 @@ public class ItemBase extends Item {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
-        TOOLTIP = getUnlocalizedName() + ".tooltip.";
+        TOOLTIP = name + ".tooltip.";
 
         
     }

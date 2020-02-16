@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.util;
 
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+
 public class Reference {
 
     public static final String MOD_ID = "tm";
@@ -23,5 +25,8 @@ public class Reference {
 
     public static final int ENTITY_LARGE_ROCKET = 70;
     public static final int ENTITY_BULLET = 69;
+    
+    public static final String MENASOR = Reference.MOD_ID + ":menasor_model_layer_1";
+	public static final int ENTITY_PLAYER_DUMMY = 10;
 
 }

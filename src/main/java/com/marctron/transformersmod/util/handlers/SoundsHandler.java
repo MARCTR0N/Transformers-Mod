@@ -24,6 +24,9 @@ public class SoundsHandler {
     public static SoundEvent WFCPRIMEVEHICLE;
     
     public static SoundEvent HAMMERPOUND;
+    
+    public static SoundEvent CARDRIVESTART;
+    public static SoundEvent CARDRIVE;
 
     public static void init() {
         //size = SoundEvent.REGISTRY.getKeys().size();
@@ -35,6 +38,9 @@ public class SoundsHandler {
         WFCPRIMEVEHICLE = registerSound("transformation.wfcprimevehicle");
         
         HAMMERPOUND = registerSound("misc.hammerpound");
+        
+        CARDRIVE = registerSound("misc.cardrive");
+        CARDRIVESTART = registerSound("misc.cardrivestart");	
     }
 
 

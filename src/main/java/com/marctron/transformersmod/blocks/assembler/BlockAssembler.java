@@ -32,7 +32,7 @@ public class BlockAssembler extends Block implements ITileEntityProvider, IEnabl
 {
     public BlockAssembler(String name, Material material) {
         super(material);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

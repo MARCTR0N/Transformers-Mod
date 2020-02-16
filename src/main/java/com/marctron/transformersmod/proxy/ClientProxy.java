@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.proxy;
 
+import javax.annotation.Nullable;
+
 import org.lwjgl.input.Keyboard;
 
 import com.marctron.transformersmod.entity.EntityBullet;
@@ -17,59 +19,49 @@ import com.marctron.transformersmod.entity.render.RenderRocket;
 import com.marctron.transformersmod.entity.render.RenderSwindle;
 import com.marctron.transformersmod.entity.render.RenderVehicon;
 import com.marctron.transformersmod.events.ClientEvents;
-import com.marctron.transformersmod.transformers.models.sideswipe.SideswipeModel;
+//import com.marctron.transformersmod.fpr.RFP2;
+//import com.marctron.transformersmod.fpr.RFP2Keybind;
+//import com.marctron.transformersmod.fpr.State;
+//import com.marctron.transformersmod.fpr.playerdummy.EntityPlayerDummy;
+//import com.marctron.transformersmod.fpr.playerdummy.RenderPlayerDummy;
+import com.marctron.transformersmod.items.ACHILLESA4;
+import com.marctron.transformersmod.items.DARKSTARSABER;
 import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack1;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack2;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack3;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack4;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack5;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack6;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack7;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack8;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack9;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid1;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid2;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid3;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid4;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid5;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid6;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid7;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid8;
-import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid9;
-import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
-import com.marctron.transformersmod.transformers.transformer.starscream.Starscream;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamAltmode;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid1;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid2;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid3;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid4;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid5;
-import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid6;
 import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.RegistryHandler.ModItems;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 
 public class ClientProxy implements IProxy {
 
     public static final KeyBinding ALT_MODE = new KeyBinding("key.transform", Keyboard.KEY_X, "category.transformers");
     public static final KeyBinding ROBOT_MODE = new KeyBinding("key.robotmode", Keyboard.KEY_Y, "category.transformers");
+    
+//    public static RFP2Keybind keybindArmsToggle         = new RFP2Keybind("key.arms.desc", Keyboard.KEY_SEMICOLON, "key.rfp2.category");
+//    public static RFP2Keybind keybindModToggle          = new RFP2Keybind("key.mod.desc", Keyboard.KEY_APOSTROPHE, "key.rfp2.category");
+//    public static RFP2Keybind keybindHeadRotationToggle = new RFP2Keybind("key.head.desc", Keyboard.KEY_H, "key.rfp2.category");
+// 
 
 	public static RenderArmor RENDERER;
 	public static RenderArmorNoItem RENDERER_NO_ITEM;
@@ -82,18 +74,65 @@ public class ClientProxy implements IProxy {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
         ClientRegistry.registerKeyBinding(ALT_MODE);
+        
+   
         registerEntityRenderers();
+        
+        OBJLoader.INSTANCE.addDomain(Reference.MOD_ID);
+        
+        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonBrute.class, RenderDecepticonBrute::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant1.class, RenderDecepticonVehiconVariant1::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant2.class, RenderDecepticonVehiconVariant2::new);
+        
+        RenderingRegistry.registerEntityRenderingHandler(EntityVehicon.class, RenderVehicon::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySwindle.class, RenderSwindle::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityLargeRocket.class, RenderRocket::new);
+        
+     // Register entity rendering handler for the player dummy
+//        RenderingRegistry.registerEntityRenderingHandler(EntityPlayerDummy.class, RenderPlayerDummy::new);
+
     }
 
     @Override
     public void init(FMLInitializationEvent e) {
+    	
+//    	MinecraftForge.EVENT_BUS.register(new DetectDriving());
+
+    	
+    	
     	RENDERER = new RenderArmor(Minecraft.getMinecraft().getRenderManager(), false);
     	RENDERER_NO_ITEM = new RenderArmorNoItem(Minecraft.getMinecraft().getRenderManager(), false);
-        //Breakdown
+    
+      //Menasor
+    	ModItems.MENASOR_HELMET.setRenderer(RENDERER);
+        ModItems.MENASOR_CHESTPLATE.setRenderer(RENDERER);
+        ModItems.MENASOR_LEGGINGS.setRenderer(RENDERER);
+        ModItems.MENASOR_BOOTS.setRenderer(RENDERER);
+    	
+      //Motormaster
+    	ModItems.MOTORMASTER_HELMET.setRenderer(RENDERER);
+        ModItems.MOTORMASTER_CHESTPLATE.setRenderer(RENDERER);
+        ModItems.MOTORMASTER_LEGGINGS.setRenderer(RENDERER);
+        ModItems.MOTORMASTER_BOOTS.setRenderer(RENDERER);
+    	
+      //Breakdown
         ModItems.BREAKDOWN_HELMET.setRenderer(RENDERER);
         ModItems.BREAKDOWN_CHESTPLATE.setRenderer(RENDERER);
         ModItems.BREAKDOWN_LEGGINGS.setRenderer(RENDERER);
         ModItems.BREAKDOWN_BOOTS.setRenderer(RENDERER);
+        
+      //Dragstrip
+        ModItems.DRAGSTRIP_HELMET.setRenderer(RENDERER);
+        ModItems.DRAGSTRIP_CHESTPLATE.setRenderer(RENDERER);
+        ModItems.DRAGSTRIP_LEGGINGS.setRenderer(RENDERER);
+        ModItems.DRAGSTRIP_BOOTS.setRenderer(RENDERER);
+        
+      //Deadend
+        ModItems.DEADEND_HELMET.setRenderer(RENDERER);
+        ModItems.DEADEND_CHESTPLATE.setRenderer(RENDERER);
+        ModItems.DEADEND_LEGGINGS.setRenderer(RENDERER);
+        ModItems.DEADEND_BOOTS.setRenderer(RENDERER);
         
       //Vurp
         ModItems.VURP_HELMET.setRenderer(RENDERER);
@@ -146,6 +185,27 @@ public class ClientProxy implements IProxy {
         ModItems.SIDESWIPE_ALTMODE_BOOTS.setRenderer(RENDERER_NO_ITEM);
         
       //Movie Optimus Prime
+        	//Stealth
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_HELMET.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_CHESTPLATE.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_LEGGINGS.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_BOOTS.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_HELMET.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_CHESTPLATE.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_LEGGINGS.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_BOOTS.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_HELMET.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_CHESTPLATE.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_LEGGINGS.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_BOOTS.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_HELMET.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_CHESTPLATE.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_LEGGINGS.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_BOOTS.setRenderer(RENDERER_NO_ITEM);
+        
         ModItems.MOVIE_OPTIMUS_PRIME_HELMET.setRenderer(RENDERER);
         ModItems.MOVIE_OPTIMUS_PRIME_CHESTPLATE.setRenderer(RENDERER);
         ModItems.MOVIE_OPTIMUS_PRIME_LEGGINGS.setRenderer(RENDERER);
@@ -407,25 +467,45 @@ public class ClientProxy implements IProxy {
 	    ModItems.TARN_MID8_CHESTPLATE.setRenderer(RENDERER_NO_ITEM);
 	    ModItems.TARN_MID8_LEGGINGS.setRenderer(RENDERER_NO_ITEM);
 	    ModItems.TARN_MID8_BOOTS.setRenderer(RENDERER_NO_ITEM);
+	    
+	    
+	    
+	    
+	    
+	    RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.ACHILLESA4, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ACHILLESA4.name, "inventory"));
+	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.ACHILLESA4, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ACHILLESA4.name,"inventory"));
 
+	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name, "inventory"));
+	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name,"inventory"));
+
+	    
+	    // Register player dummy entity
+//        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "PlayerDummy"), EntityPlayerDummy.class, "PlayerDummy", Reference.ENTITY_PLAYER_DUMMY, Reference.MOD_ID, 5, 100, false);
+
+	 
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent e) {
-
+//    	RFP2.state = new State();
     }
 
     public static void registerEntityRenderers() {
         
         
-        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonBrute.class, RenderDecepticonBrute::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant1.class, RenderDecepticonVehiconVariant1::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant2.class, RenderDecepticonVehiconVariant2::new);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonBrute.class, RenderDecepticonBrute::new);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant1.class, RenderDecepticonVehiconVariant1::new);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant2.class, RenderDecepticonVehiconVariant2::new);
+//        
+//        RenderingRegistry.registerEntityRenderingHandler(EntityVehicon.class, RenderVehicon::new);
+//        RenderingRegistry.registerEntityRenderingHandler(EntitySwindle.class, RenderSwindle::new);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
+//        RenderingRegistry.registerEntityRenderingHandler(EntityLargeRocket.class, RenderRocket::new);
         
-        RenderingRegistry.registerEntityRenderingHandler(EntityVehicon.class, RenderVehicon::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntitySwindle.class, RenderSwindle::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityLargeRocket.class, RenderRocket::new);
+     // Register player dummy entity
+//        RenderingRegistry.registerEntityRenderingHandler(EntityPlayerDummy.class, RenderPlayerDummy::new);
+
     }
     
     
@@ -433,4 +513,19 @@ public class ClientProxy implements IProxy {
     {
         return mc.player;
     }
+    
+    @Override
+	@Nullable
+	public EntityLivingBase getEntityLivingBase(MessageContext context, int entityID)
+	{
+		final EntityPlayer player = context.side.isClient() ? Minecraft.getMinecraft().player : context.getServerHandler().player;
+		final Entity entity = player.world.getEntityByID(entityID);
+		return entity instanceof EntityLivingBase ? (EntityLivingBase) entity : null;
+	}
+
+	@Override
+	public void serverStarting(FMLServerStartingEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 }

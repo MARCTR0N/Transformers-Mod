@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 public class BlockEnergonStorage extends Block {
     public BlockEnergonStorage(String name, Material material) {
         super(material);
-        setUnlocalizedName(name);
+      
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
         RegistryHandler.Registry.registerItemBlock(this);

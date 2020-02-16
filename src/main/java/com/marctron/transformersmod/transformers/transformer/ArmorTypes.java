@@ -22,6 +22,10 @@ import com.marctron.transformersmod.transformers.models.starscream.ModelStarscre
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid1;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid2;
 import com.marctron.transformersmod.transformers.models.starscream.ModelStarscreamMid3;
+import com.marctron.transformersmod.transformers.models.stealth.movieop.ModelMovieOptimusPrimeAltmodeWeaponized;
+import com.marctron.transformersmod.transformers.models.stealth.movieop.ModelMovieOptimusPrimeAltmodeWeaponizedMid1;
+import com.marctron.transformersmod.transformers.models.stealth.movieop.ModelMovieOptimusPrimeAltmodeWeaponizedMid2;
+import com.marctron.transformersmod.transformers.models.stealth.movieop.ModelMovieOptimusPrimeAltmodeWeaponizedMid3;
 import com.marctron.transformersmod.transformers.models.subwoofer.ModelSubwoofer1;
 import com.marctron.transformersmod.transformers.models.subwoofer.ModelSubwoofer2;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid1;
@@ -37,9 +41,13 @@ import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraM
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
-import com.marctron.transformersmod.transformers.models.wfc.stunticons.ModelBreakdownBody;
-import com.marctron.transformersmod.transformers.models.wfc.stunticons.ModelBreakdownLeftArm;
-import com.marctron.transformersmod.transformers.models.wfc.stunticons.ModelBreakdownRightArm;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown.ModelBreakdownBody;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown.ModelBreakdownLeftArm;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown.ModelBreakdownRightArm;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.deadend.ModelDeadendpartB;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.dragstrip.ModelDragstrip;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.menasor.ModelMenasor;
+import com.marctron.transformersmod.transformers.models.wfc.stunticons.motormaster.ModelMotormasterpartB;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -47,6 +55,33 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ArmorTypes {
 
+//WFC Motormaster
+	public static ModelMenasor modelMenasor = new ModelMenasor();
+	    
+	public static ModelMenasor getModelMenasor() {
+	    return modelMenasor;
+	}	
+	
+//WFC Motormaster
+	public static ModelMotormasterpartB modelMotormaster = new ModelMotormasterpartB();
+    
+    public static ModelMotormasterpartB getModelMotormaster() {
+        return modelMotormaster;
+    }
+	
+//WFC Deadend
+	public static ModelDeadendpartB modelDeadend = new ModelDeadendpartB();
+    
+    public static ModelDeadendpartB getModelDeadend() {
+        return modelDeadend;
+    }
+	
+//WFC Dragstrip
+	public static ModelDragstrip modelDragstrip = new ModelDragstrip();
+    
+    public static ModelDragstrip getModelDragstrip() {
+        return modelDragstrip;
+    }
 	
 //WFC Breakdown	
 	public static ModelBreakdownBody modelBreakdownBody = new ModelBreakdownBody();
@@ -228,6 +263,32 @@ public static ModelSideswipeMid2 modelSideswipeMid2 = new ModelSideswipeMid2();
     
     
 //Movie Optimus Prime
+    //Stealth
+    	public static ModelMovieOptimusPrimeAltmodeWeaponized modelMovieOptimusPrimeAltmodeWeaponized = new ModelMovieOptimusPrimeAltmodeWeaponized();
+    
+    	public static ModelMovieOptimusPrimeAltmodeWeaponized getModelMovieOptimusPrimeAltmodeWeaponized() {
+    		return modelMovieOptimusPrimeAltmodeWeaponized;
+    	}
+    	
+    	public static ModelMovieOptimusPrimeAltmodeWeaponizedMid1 modelMovieOptimusPrimeAltmodeWeaponizedMid1 = new ModelMovieOptimusPrimeAltmodeWeaponizedMid1();
+        
+    	public static ModelMovieOptimusPrimeAltmodeWeaponizedMid1 getModelMovieOptimusPrimeAltmodeWeaponizedMid1() {
+    		return modelMovieOptimusPrimeAltmodeWeaponizedMid1;
+    	}
+    	
+    	public static ModelMovieOptimusPrimeAltmodeWeaponizedMid2 modelMovieOptimusPrimeAltmodeWeaponizedMid2 = new ModelMovieOptimusPrimeAltmodeWeaponizedMid2();
+        
+    	public static ModelMovieOptimusPrimeAltmodeWeaponizedMid2 getModelMovieOptimusPrimeAltmodeWeaponizedMid2() {
+    		return modelMovieOptimusPrimeAltmodeWeaponizedMid2;
+    	}
+    	
+    	public static ModelMovieOptimusPrimeAltmodeWeaponizedMid3 modelMovieOptimusPrimeAltmodeWeaponizedMid3 = new ModelMovieOptimusPrimeAltmodeWeaponizedMid3();
+        
+    	public static ModelMovieOptimusPrimeAltmodeWeaponizedMid3 getModelMovieOptimusPrimeAltmodeWeaponizedMid3() {
+    		return modelMovieOptimusPrimeAltmodeWeaponizedMid3;
+    	}
+    	
+    
     public static ModelMovieOptimusPrime modelMovieOptimusPrime = new ModelMovieOptimusPrime();
     
     public static ModelMovieOptimusPrime getModelMovieOptimusPrime() {

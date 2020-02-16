@@ -50,7 +50,7 @@ public class ArmorModelTarn extends ItemArmorTransformer {
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 //        ((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0));
         super.onArmorTick(world, player, itemStack);
-
+        player.eyeHeight=2.F;
         if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.TARN_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.TARN_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.TARN_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.TARN_BOOTS) { 
 
 //        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_CHESTPLATE) 

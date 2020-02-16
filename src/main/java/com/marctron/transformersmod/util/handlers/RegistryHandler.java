@@ -22,6 +22,9 @@ import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
+import com.marctron.transformersmod.init.ModPotionTypes;
+import com.marctron.transformersmod.items.ACHILLESA4;
+import com.marctron.transformersmod.items.DARKSTARSABER;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemEnergonMug;
 import com.marctron.transformersmod.items.ItemEnergonMugDark;
@@ -38,9 +41,6 @@ import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
-import com.marctron.transformersmod.proxy.ClientProxy;
-import com.marctron.transformersmod.transformers.renderers.RenderArmor;
-import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
@@ -62,6 +62,10 @@ import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimu
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid7;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid8;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeMid9;
+import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponized;
+import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid1;
+import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid2;
+import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid3;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
@@ -97,16 +101,19 @@ import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltm
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid2;
 import com.marctron.transformersmod.transformers.transformer.vurp.Vurp;
-import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.BreakdownBody;
-import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.BreakdownLeftArm;
-import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.BreakdownRightArm;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Menasor;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownBody;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownLeftArm;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownRightArm;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.deadend.Deadend;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.dragstrip.Dragstrip;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.SoundEvents;
@@ -115,6 +122,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -141,7 +149,16 @@ public class RegistryHandler {
     
     		//WFC
     		public static final ArmorMaterial BREAKDOWN_MATERIAL = EnumHelper.addArmorMaterial("breakdown_model", Reference.MOD_ID + ":breakdown_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
-    
+    		
+    		public static final ArmorMaterial DRAGSTRIP_MATERIAL = EnumHelper.addArmorMaterial("dragstrip_model", Reference.MOD_ID + ":dragstrip_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+    		public static final ArmorMaterial DEADEND_MATERIAL = EnumHelper.addArmorMaterial("deadend_model", Reference.MOD_ID + ":deadend_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+    		public static final ArmorMaterial MOTORMASTER_MATERIAL = EnumHelper.addArmorMaterial("motormaster_model", Reference.MOD_ID + ":motormaster_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+    		public static final ArmorMaterial MENASOR_MATERIAL = EnumHelper.addArmorMaterial("menasor_model", Reference.MOD_ID + ":menasor_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+    		
     public static final ArmorMaterial CUSTOM_MODEL_MATERIAL = EnumHelper.addArmorMaterial("custom_model", Reference.MOD_ID + ":custom_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
     public static final ArmorMaterial VURP_MATERIAL = EnumHelper.addArmorMaterial("vurp_model", Reference.MOD_ID + ":vurp_model", 10, new int[]{3, 3, 3, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
@@ -206,8 +223,10 @@ public class RegistryHandler {
         public static final Item LIMB = null;
         public static final Item SPARK_CHAMBER = null;
         public static final Item TRANSFORMATION_COG = null;
-        public static final Item A_INSGINIA = null;
-        public static final Item D_INSGINIA = null;
+        public static final Item AUTOBOT_INSGINIA = null;
+        public static final Item DECEPTICON_INSGINIA = null;
+        public static final Item A_I = null;
+        public static final Item D_I = null;
         public static final Item ADVANCED_CIRCUIT = null;
         public static final Item BASIC_CIRCUIT = null;
         public static final Item ALLOY = null;
@@ -269,6 +288,31 @@ public class RegistryHandler {
         public static final ItemArmorTransformer BREAKDOWN_LEGGINGS = null;
         public static final ItemArmorTransformer BREAKDOWN_BOOTS = null;
         
+      //Dragstrip
+        public static final ItemArmorTransformer DRAGSTRIP_HELMET = null;
+        public static final ItemArmorTransformer DRAGSTRIP_CHESTPLATE = null;
+        public static final ItemArmorTransformer DRAGSTRIP_LEGGINGS = null;
+        public static final ItemArmorTransformer DRAGSTRIP_BOOTS = null;
+        
+      //Deadend
+        public static final ItemArmorTransformer DEADEND_HELMET = null;
+        public static final ItemArmorTransformer DEADEND_CHESTPLATE = null;
+        public static final ItemArmorTransformer DEADEND_LEGGINGS = null;
+        public static final ItemArmorTransformer DEADEND_BOOTS = null;
+        
+      //Motormaster
+        public static final ItemArmorTransformer MOTORMASTER_HELMET = null;
+        public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE = null;
+        public static final ItemArmorTransformer MOTORMASTER_LEGGINGS = null;
+        public static final ItemArmorTransformer MOTORMASTER_BOOTS = null;
+        
+      //Menasor
+        public static final ItemArmorTransformer MENASOR_HELMET = null;
+        public static final ItemArmorTransformer MENASOR_CHESTPLATE = null;
+        public static final ItemArmorTransformer MENASOR_LEGGINGS = null;
+        public static final ItemArmorTransformer MENASOR_BOOTS = null;
+        
+        
       //Vurp
         public static final ItemArmorTransformer VURP_HELMET = null;
         public static final ItemArmorTransformer VURP_CHESTPLATE = null;
@@ -320,6 +364,27 @@ public class RegistryHandler {
         public static final ItemArmorTransformer SIDESWIPE_ALTMODE_BOOTS = null;
         
       //Movie Optimus Prime
+        //Stealth
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_HELMET = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_CHESTPLATE = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_LEGGINGS = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_BOOTS = null;
+        	
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_HELMET = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_CHESTPLATE = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_LEGGINGS = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID1_BOOTS = null;
+        	
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_HELMET = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_CHESTPLATE = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_LEGGINGS = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID2_BOOTS = null;
+        	
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_HELMET = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_CHESTPLATE = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_LEGGINGS = null;
+        	public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_ALTMODE_WEAPONIZED_MID3_BOOTS = null;
+        
         public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_HELMET = null;
         public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_CHESTPLATE = null;
         public static final ItemArmorTransformer MOVIE_OPTIMUS_PRIME_LEGGINGS = null;
@@ -584,6 +649,11 @@ public class RegistryHandler {
 	    
 	  //Machinery 
 	    public static final Item CHIP = null;
+	    
+	    
+	  //OBJ
+	    public static final Item ACHILLESA4 = null;
+	    public static final Item DARKSTARSABER = null;
     }
 
     @GameRegistry.ObjectHolder(Reference.MOD_ID)
@@ -653,6 +723,10 @@ public class RegistryHandler {
 
         	final Item[] items = {
 
+        		  //OBJ
+        			new ACHILLESA4("achillesa4"),
+        			new DARKSTARSABER("darkstarsaber"),
+        			
             		
             	  //Machinery
             		new ItemBase("chip"),
@@ -686,6 +760,8 @@ public class RegistryHandler {
             	    new ItemBase("transformation_cog"),
             	    new ItemBase("autobot_insignia"),
             	    new ItemBase("decepticon_insignia"),
+            	    new ItemBase("a_i"),
+            	    new ItemBase("d_i"),
             	    new ItemBase("advanced_circuit"),
             	    new ItemBase("basic_circuit"),
             	    new ItemBase("alloy"),
@@ -746,6 +822,30 @@ public class RegistryHandler {
             	    new BreakdownRightArm("breakdown_chestplate", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
             	    new BreakdownLeftArm("breakdown_leggings", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
             	    new BreakdownBody("breakdown_boots", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    
+            	  //Dragstrip
+            	    new Dragstrip("dragstrip_helmet", DRAGSTRIP_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new Dragstrip("dragstrip_chestplate", DRAGSTRIP_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new Dragstrip("dragstrip_leggings", DRAGSTRIP_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new Dragstrip("dragstrip_boots", DRAGSTRIP_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    
+            	  //Deadend
+            	    new Deadend("deadend_helmet", DEADEND_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new Deadend("deadend_chestplate", DEADEND_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new Deadend("deadend_leggings", DEADEND_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new Deadend("deadend_boots", DEADEND_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    
+            	  //Menasor
+            	    new Menasor("menasor_helmet", MENASOR_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new Menasor("menasor_chestplate", MENASOR_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new Menasor("menasor_leggings", MENASOR_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new Menasor("menasor_boots", MENASOR_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    
+            	  //Motormaster
+            	    new Motormaster("motormaster_helmet", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new Motormaster("motormaster_chestplate", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new Motormaster("motormaster_leggings", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new Motormaster("motormaster_boots", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //TFP Ultra Magnus
             	    new TFPUltraMagnusPart1("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
@@ -857,6 +957,27 @@ public class RegistryHandler {
             	    new SideswipeAltmode("sideswipe_altmode_boots",  SIDESWIPE_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //Movie Optimus Prime
+            	    //Stealth
+            	    	new MovieOptimusPrimeAltmodeWeaponized("movie_optimus_prime_altmode_weaponized_helmet",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MovieOptimusPrimeAltmodeWeaponized("movie_optimus_prime_altmode_weaponized_chestplate",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MovieOptimusPrimeAltmodeWeaponized("movie_optimus_prime_altmode_weaponized_leggings",  MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MovieOptimusPrimeAltmodeWeaponized("movie_optimus_prime_altmode_weaponized_boots",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid1("movie_optimus_prime_altmode_weaponized_mid1_helmet",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid1("movie_optimus_prime_altmode_weaponized_mid1_chestplate",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid1("movie_optimus_prime_altmode_weaponized_mid1_leggings",  MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid1("movie_optimus_prime_altmode_weaponized_mid1_boots",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid2("movie_optimus_prime_altmode_weaponized_mid2_helmet",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid2("movie_optimus_prime_altmode_weaponized_mid2_chestplate",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid2("movie_optimus_prime_altmode_weaponized_mid2_leggings",  MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid2("movie_optimus_prime_altmode_weaponized_mid2_boots",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid3("movie_optimus_prime_altmode_weaponized_mid3_helmet",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid3("movie_optimus_prime_altmode_weaponized_mid3_chestplate",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid3("movie_optimus_prime_altmode_weaponized_mid3_leggings",  MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MovieOptimusPrimeAltmodeWeaponizedMid3("movie_optimus_prime_altmode_weaponized_mid3_boots",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
                     new MovieOptimusPrimeAltmode2("movie_optimus_prime_helmet",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.HEAD),
                     new MovieOptimusPrimeAltmode2("movie_optimus_prime_chestplate",  MOVIE_OPTIMUS_PRIME_MATERIAL, 1, EntityEquipmentSlot.CHEST),
                     new MovieOptimusPrimeAltmode2("movie_optimus_prime_leggings",  MOVIE_OPTIMUS_PRIME_MATERIAL, 2, EntityEquipmentSlot.LEGS),
@@ -1143,6 +1264,8 @@ public class RegistryHandler {
             		registerEntity("decepticon_brute", EntityDecepticonBrute.class, Reference.ENTITY_DECEPTICON_BRUTE, 1, true, 8983288, 16043109),
             		registerEntity("decepticon_vehicon_1", EntityDecepticonVehiconVariant1.class, Reference.ENTITY_DECEPTICON_VEHICON_1, 1, true, 8983288, 16043109),
             		registerEntity("decepticon_vehicon_2", EntityDecepticonVehiconVariant2.class, Reference.ENTITY_DECEPTICON_VEHICON_2, 1, true, 8983288, 16043109),
+            		
+//            		registerEntity("playerdummy", EntityPlayerDummy.class, Reference.ENTITY_PLAYER_DUMMY, 1, true),
                     
             };
             
@@ -1200,11 +1323,33 @@ public class RegistryHandler {
                     });
 
             ForgeRegistries.ITEMS.getValuesCollection().stream().filter(item -> item.getRegistryName().getResourceDomain().equals(Reference.MOD_ID))
+           
                     .forEach(item -> {
                         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
                     });
+             
         }
+        
+        @SubscribeEvent
+    	public static void onPotionRegister(RegistryEvent.Register<PotionType> event) {
+    		ModPotionTypes.registerPotionTypes();
+    		System.out.println("gagagugu");
+    	}
     }
     
+    
+
+    
+//    @Mod.EventBusSubscriber(Side.CLIENT)
+//    public static class ModelRegistry {
+//    @SubscribeEvent
+//	public static void onRegisterItems(RegistryEvent.Register<Item> event) {
+//		final IForgeRegistry<Item> registry = event.getRegistry();
+//		final Item[] items = {
+//				
+//		};
+//		registry.registerAll(items);
+//	}
+//    }
     
 }

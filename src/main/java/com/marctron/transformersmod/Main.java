@@ -1,21 +1,39 @@
 package com.marctron.transformersmod;
 
-import com.marctron.transformersmod.commands.CommandDimensionTeleport;
+import java.io.File;
+import java.util.ArrayList;
+
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-import com.marctron.transformersmod.init.*;
-import com.marctron.transformersmod.network.PacketHandler;
-import com.marctron.transformersmod.network.packets.PacketInventory;
-import com.marctron.transformersmod.network.packets.PacketInventoryHandler;
+import org.lwjgl.input.Keyboard;
+
+import com.marctron.transformersmod.commands.CommandDimensionTeleport;
+import com.marctron.transformersmod.init.CybertronWorldGen;
+import com.marctron.transformersmod.init.GunEntities;
+import com.marctron.transformersmod.init.ModRecipes;
 import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.IProxy;
+import com.marctron.transformersmod.resize.potions.PotionGrowth;
+import com.marctron.transformersmod.resize.potions.PotionShrinking;
+//import com.marctron.transformersmod.sounds.DetectDriving;
 import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.GuiHandler;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.world.generators.ModWorldGen;
 import com.marctron.transformersmod.world.generators.WorldGenCustomStructures;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -27,12 +45,14 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-
-import java.io.File;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class Main {
+	
+	public static EntityLivingBase entity ;
+	
+	public static final Potion SHRINKING = new PotionShrinking("shrinking", entity);
+	public static final Potion GROWTH = new PotionGrowth("growth");
 
     @Instance
     public static Main instance;
@@ -43,7 +63,7 @@ public class Main {
 
     public static File config;
         
-    
+
     
     public static CreativeTabs tabTransformers = new CreativeTabs("tabTransformersMod") {
 
@@ -78,7 +98,7 @@ public class Main {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(RegistryHandler.ModItems.D_INSGINIA);
+            return new ItemStack(RegistryHandler.ModItems.D_I);
         };
 
         @Override
@@ -93,10 +113,8 @@ public class Main {
 
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(RegistryHandler.ModItems.A_INSGINIA);
-        }
-
-        ;
+            return new ItemStack(RegistryHandler.ModItems.A_I);
+        };
 
         @Override
         public boolean hasSearchBar() {
@@ -133,8 +151,8 @@ public class Main {
         
        
         TFNetworkManager.registerPackets();
-        
-      
+    
+
         
         
 
@@ -147,10 +165,12 @@ public class Main {
 
     @EventHandler
     public static void init(FMLInitializationEvent event) {
+    	
         ModRecipes.init();
         // TODO: Should be instantiated in Forge related event RegistryEvent.Register<SoundEvent> -Toma
         SoundsHandler.init();
         GunEntities.regEntities();
+//        MinecraftForge.EVENT_BUS.register(new DetectDriving());
         
         proxy.init(event);
     }
@@ -162,6 +182,8 @@ public class Main {
 
     public static void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+        
+      
     }
 
     @EventHandler
@@ -169,5 +191,6 @@ public class Main {
         event.registerServerCommand(new CommandDimensionTeleport());
     }
 
-
+    
+    
 }

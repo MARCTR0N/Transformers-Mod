@@ -10,6 +10,28 @@
     ]
   },
   
+  "misc.cardrive": {
+    "category": "player",
+    "subtitle": "misc.cardrive",
+    "sounds": [
+      {
+        "name": "tm:misc/cardrive",
+        "stream": true
+      }
+    ]
+  },
+  
+  "misc.cardrivestart": {
+    "category": "player",
+    "subtitle": "misc.cardrivestart",
+    "sounds": [
+      {
+        "name": "tm:misc/cardrivestart",
+        "stream": true
+      }
+    ]
+  },
+  
   
     "transformation.wfcprimerobot": {
     "category": "player",

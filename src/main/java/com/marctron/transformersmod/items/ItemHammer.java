@@ -32,7 +32,7 @@ public class ItemHammer extends ItemSword {
 	
     public ItemHammer(String name, ToolMaterial material, int cooldown) {
     	super(material);
-    	setUnlocalizedName(name);
+    	
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
         

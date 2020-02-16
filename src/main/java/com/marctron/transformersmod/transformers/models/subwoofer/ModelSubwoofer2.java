@@ -6,6 +6,7 @@ import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRender
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class ModelSubwoofer2 extends AdvancedModelBiped
 {
@@ -2411,8 +2412,33 @@ public class ModelSubwoofer2 extends AdvancedModelBiped
         
         float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
 		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
-        
-        
+	      int backwardInverter = 1;
+		
+		//Sneaking
+        if (isSneak){
+        	
+			
+        	Croach.rotateAngleX= 0.1F;
+			
+			
+			RightLeg.rotateAngleX= -1;
+			LeftLeg.rotateAngleX= -1;
+			
+			RightLeg.rotateAngleY= 0.2F;
+			LeftLeg.rotateAngleY= -0.2F;
+			
+			RightFoot.rotateAngleX= -0.3F;
+			LeftFoot.rotateAngleX= -0.3F;
+			
+			RightLowerLeg.rotateAngleX= 1.2F;
+			LeftLowerLeg.rotateAngleX= 1.2F;
+			
+//			Croach.rotationPointY= 12.5F;
+			
+        } 
+		
+		
+      //walking
         walk(RightLeg, 1 * globalSpeed,  1F * globalDegree, false, 0.6F, -0.2F, f, f1);        
         walk(RightLowerLeg, 1 * globalSpeed,  .8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
         walk(RightFoot, 1 * globalSpeed,  .8F * globalDegree, true, -3F, 0.F, f, f1);
@@ -2422,5 +2448,45 @@ public class ModelSubwoofer2 extends AdvancedModelBiped
         walk(LeftLeg, 1 * globalSpeed,  -1F * globalDegree, false, 0.6F, -0.2F, f, f1);        
         walk(LeftLowerLeg, 1 * globalSpeed,  -.8F * globalDegree, false, -1.1F, 0.8F, f, f1);     
         walk(LeftFoot, 1 * globalSpeed,  -.8F * globalDegree, true, -3F, 0.F, f, f1);
+        
+      //idle
+       
+        if(!isSneak){
+        walk(Croach, 0.08F, 0.01F, false, 0, 0.f, f2, 1);
+        walk(RightLeg, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+        walk(LeftLeg, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+        walk(RightLowerLeg, 0.08F, 0.1F, false, 0, 0.f, f2, 1);
+        walk(LeftLowerLeg, 0.08F, 0.1F, false, 0, 0.f, f2, 1);
+        walk(RightFoot, 0.08F, 0.02F, true, 0, 0.f, f2, 1);
+        walk(LeftFoot, 0.08F, 0.02F, true, 0, 0.f, f2, 1);
+        bob(Croach, 0.08F, 0.01F, false, f2, 1);}
+        
+      //Jump and Falling 
+        if (entity instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) entity;
+			if (!player.onGround  && !player.capabilities.isFlying){
+					RightLeg.rotateAngleX += 0.2 * upwardPose;
+					LeftLeg.rotateAngleX -= 0.8 * upwardPose;
+					RightLowerLeg.rotateAngleX += 0.3 * upwardPose;
+					LeftLowerLeg.rotateAngleX += 1.5 * upwardPose;
+		
+					walk(RightLeg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, 0, 0, f1, 1);
+					walk(LeftLeg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, 0, 0, f1, 1);
+					walk(RightLowerLeg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, -2.2F * backwardInverter, 0F, f1, 1);
+					walk(LeftLowerLeg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, -2.2F * backwardInverter, 0F, f1, 1);
+        
+					RightLeg.rotateAngleX -= 1.2 * downwardPose;
+					LeftLeg.rotateAngleX += 0.7 * downwardPose;
+					RightLowerLeg.rotateAngleX += 2 * downwardPose;
+					LeftLowerLeg.rotateAngleX += 0.5 * downwardPose;
+        
+					this.RightLeg.rotateAngleX -= .5F *downwardPose;
+					this.LeftLeg.rotateAngleX -= .5F *downwardPose;
+
+        
+					this.Croach.rotateAngleX = -.2F *downwardPose;
+			}
+        }
+        
     }
 }

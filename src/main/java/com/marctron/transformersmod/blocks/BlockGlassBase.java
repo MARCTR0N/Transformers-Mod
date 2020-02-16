@@ -15,7 +15,7 @@ import java.util.Random;
 public class BlockGlassBase extends BlockBreakable {
     public BlockGlassBase(String name, Material material, boolean ignoreSimilarity) {
         super(material, ignoreSimilarity);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

@@ -3087,9 +3087,9 @@
   "display": {
     "thirdperson_righthand": {
       "translation": [
-        0.7,
+        -1,
         6.2608,
-        -2.086
+        -2.15
       ],
       "scale": [
         1.5,

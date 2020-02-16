@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.transformer.wfc.stunticons;
+package com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown;
 
 import java.util.List;
 
@@ -28,11 +28,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BreakdownRightArm extends ItemArmorTransformer {
+public class BreakdownLeftArm extends ItemArmorTransformer {
 
     
 
-    public BreakdownRightArm(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public BreakdownLeftArm(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -43,7 +43,7 @@ public class BreakdownRightArm extends ItemArmorTransformer {
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("IDW")));
+        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("WFC")));
     }
 
     @Override
@@ -97,21 +97,21 @@ public class BreakdownRightArm extends ItemArmorTransformer {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-//            	ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-//                ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-                ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-//                ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-//                ArmorTypes.modelBreakdownRightArm.Right_Arm.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+//            	ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+//                ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+//                ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+//                ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+//                ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+                ArmorTypes.modelBreakdownLeftArm.Left_Arm.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-                ArmorTypes.modelBreakdownRightArm.isSneak = _default.isSneak;
-                ArmorTypes.modelBreakdownRightArm.isRiding = _default.isRiding;
-                ArmorTypes.modelBreakdownRightArm.isChild = _default.isChild;
-                ArmorTypes.modelBreakdownRightArm.rightArmPose = _default.rightArmPose;
-                ArmorTypes.modelBreakdownRightArm.leftArmPose = _default.leftArmPose;
+                ArmorTypes.modelBreakdownLeftArm.isSneak = _default.isSneak;
+                ArmorTypes.modelBreakdownLeftArm.isRiding = _default.isRiding;
+                ArmorTypes.modelBreakdownLeftArm.isChild = _default.isChild;
+                ArmorTypes.modelBreakdownLeftArm.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelBreakdownLeftArm.leftArmPose = _default.leftArmPose;
 
-                return ArmorTypes.modelBreakdownRightArm;
+                return ArmorTypes.modelBreakdownLeftArm;
             }
         }
 

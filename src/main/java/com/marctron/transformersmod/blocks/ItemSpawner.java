@@ -34,7 +34,7 @@ public class ItemSpawner extends BlockDispenser {
 
     public ItemSpawner(String name, Material iron, SoundType metal, MapColor color) {
 
-        setUnlocalizedName(name);
+        
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
         this.setLightLevel(0.3F);

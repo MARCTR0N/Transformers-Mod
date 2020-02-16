@@ -8,9 +8,9 @@ public class ItemBasic extends Item {
 
     public ItemBasic(String itemName) {
         setCreativeTab(Main.tabTransformers);
-        setUnlocalizedName(itemName);
+//        setUnlocalizedName(itemName);
         setRegistryName(itemName);
-        TOOLTIP = getUnlocalizedName() + ".tooltip.";
+        TOOLTIP = itemName + ".tooltip.";
     }
 
 

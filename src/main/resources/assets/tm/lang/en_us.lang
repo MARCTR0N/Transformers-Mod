@@ -41,6 +41,16 @@ item.custom_helmet.name=§5Vehicon Head
 item.custom_boots.name=§5Vehicon Feet
 item.custom_chestplate.name=§5Vehicon Torso
 
+item.breakdown_leggings.name=§5Breakdown Legs
+item.breakdown_helmet.name=§5Breakdown Head
+item.breakdown_boots.name=§5Breakdown Feet
+item.breakdown_chestplate.name=§5Breakdown Torso
+
+item.vurp_leggings.name=§5Vurp Legs
+item.vurp_helmet.name=§5Vurp Head
+item.vurp_boots.name=§5Vurp Feet
+item.vurp_chestplate.name=§5Vurp Torso
+
 item.thundercracker_leggings.name=§5Thundercracker Legs
 item.thundercracker_helmet.name=§5Thundercracker Head
 item.thundercracker_boots.name=§5Thundercracker Feet
@@ -59,12 +69,22 @@ item.skywarp_chestplate.name=§5Skywarp Torso
 item.sideswipe_leggings.name=§4Sideswipe Legs
 item.sideswipe_helmet.name=§4Sideswipe Head
 item.sideswipe_boots.name=§4Sideswipe Feet
-item.sideswipe_chestplateleggings.name=§4Sideswipe Torso
+item.sideswipe_chestplate.name=§4Sideswipe Torso
 
-item.movie_optimus_prime_hestplate.name=§4Optimus Prime Torso
+item.movie_optimus_prime_chestplate.name=§4Optimus Prime Torso
 item.movie_optimus_prime_helmet.name=§4Optimus Prime Head
 item.movie_optimus_prime_boots.name=§4Optimus Prime Feet
-item.movie_optimus_prime_.name=§4Optimus Prime Legs
+item.movie_optimus_prime_leggings.name=§4Optimus Prime Legs
+
+item.ultra_magnus_leggings.name=§4Ultra Magnus Legs
+item.ultra_magnus_helmet.name=§4Ultra Magnus Head
+item.ultra_magnus_boots.name=§4Ultra Magnus Feet
+item.ultra_magnus_chestplate.name=§4Ultra Magnus Torso
+
+item.subwoofer_leggings.name=§4Subwoofer Legs
+item.subwoofer_helmet.name=§4Subwoofer Head
+item.subwoofer_boots.name=§4Subwoofer Feet
+item.subwoofer_chestplate.name=§4Subwoofer Torso
 
 
 item.EMP_Shotgun_Shell.name=§8EMP Shotgun Shell

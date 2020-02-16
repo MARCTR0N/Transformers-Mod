@@ -36,14 +36,14 @@ public class TFPUltraMagnusPart3 extends ItemArmorTransformer {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.tabDecepticon);
+        setCreativeTab(Main.tabAutobot);
         setMaxStackSize(1);
        
 
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("IDW")));
+        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("TFP")));
     }
 
     @Override

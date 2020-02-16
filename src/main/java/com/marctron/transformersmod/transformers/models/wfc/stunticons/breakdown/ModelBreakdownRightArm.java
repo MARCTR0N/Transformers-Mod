@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.models.wfc.stunticons;
+package com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown;
 
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;

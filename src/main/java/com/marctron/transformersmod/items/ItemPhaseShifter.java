@@ -1,17 +1,27 @@
 package com.marctron.transformersmod.items;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.network.packets.PacketDrivingSound;
+import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrime;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemPhaseShifter extends Item {
 
@@ -19,11 +29,11 @@ public class ItemPhaseShifter extends Item {
     private PotionEffect[] effects;
 
     public ItemPhaseShifter(String name) {
-        setUnlocalizedName(name);
+        
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 
-        TOOLTIP = getUnlocalizedName() + ".tooltip.";
+        TOOLTIP = name + ".tooltip.";
         setMaxStackSize(1);
 
       
@@ -55,17 +65,18 @@ public class ItemPhaseShifter extends Item {
     }
 
 
-//	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn){
-//		
-//		ItemStack itemstack = playerIn.getHeldItem(handIn);
-//		
-//		if (playerIn.noClip = true) {
-//			playerIn.noClip = false;
-//		} else
-//			playerIn.noClip = true;
-//		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-//		
-//	}
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn){
+		
+		ItemStack itemstack = player.getHeldItem(handIn);
+		
+//		if (Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown())
+//		TFNetworkManager.networkWrapper.sendToServer(new PacketDrivingSound());
+//		player.noClip=true;
+//		System.out.println("noClip");
+		
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+		
+	}
 
 
 //	public static void onUpdate(World world, EntityPlayer player, ItemStack itemStack, EnumHand hand)

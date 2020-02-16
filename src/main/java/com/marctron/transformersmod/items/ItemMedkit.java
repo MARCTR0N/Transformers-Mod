@@ -18,7 +18,7 @@ public class ItemMedkit extends Item {
     int Cooldown;
 
     public ItemMedkit(String name, int StackSize, int health, int cooldown) {
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

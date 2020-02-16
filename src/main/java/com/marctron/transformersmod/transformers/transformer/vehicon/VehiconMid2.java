@@ -27,7 +27,7 @@ public final class VehiconMid2 extends ItemArmorTransformer {
 
     public VehiconMid2(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
-        setUnlocalizedName(name);
+        
         setRegistryName(name);
         setCreativeTab(null);
         setMaxStackSize(1);

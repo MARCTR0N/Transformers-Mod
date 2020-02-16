@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.transformer.wfc.stunticons;
+package com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class BreakdownBody extends ItemArmorTransformer {
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("IDW")));
+        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("WFC")));
     }
 
     @Override

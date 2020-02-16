@@ -26,7 +26,7 @@ public class BlockEnergonCrate extends BlockContainer {
 
     public BlockEnergonCrate(String name) {
         super(Material.ANVIL);
-        setUnlocalizedName(name);
+        
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
         this.setLightLevel(0.15F);

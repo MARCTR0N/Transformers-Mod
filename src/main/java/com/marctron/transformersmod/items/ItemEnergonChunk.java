@@ -22,7 +22,7 @@ public class ItemEnergonChunk extends ItemFood {
 
     public ItemEnergonChunk(String name, int amount, boolean isWolfFood, int StackSize, int health, int cooldown) {
         super(amount, isWolfFood);
-        setUnlocalizedName(name);
+       
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

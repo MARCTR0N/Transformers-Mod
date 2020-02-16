@@ -6,6 +6,7 @@ import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRender
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class ModelSubwoofer1 extends AdvancedModelBiped
 {
@@ -3714,7 +3715,38 @@ public class ModelSubwoofer1 extends AdvancedModelBiped
         
         float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
 		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
-        
+	  //Sneaking
+        if (isSneak){
+//        	this.RIGHT_HAND.rotationPointY=-70*f5;
+//            this.LEFT_HAND.rotationPointY=-70*f5;
+//            
+//            this.RIGHT_HAND.rotationPointX=-5*f5;
+//            this.LEFT_HAND.rotationPointX=-5*f5;
+        	
+        	RightArm.rotateAngleX = 0.3F;
+			LeftArm.rotateAngleX = 0.3F;
+	
+			RightArm.rotateAngleZ = 0.4F;
+			LeftArm.rotateAngleZ = -0.4F;
+
+			RightLowerArm.rotateAngleX = -1.1F;
+			LeftLowerArm.rotateAngleX = -1.1F;
+
+			RightLowerArm.rotateAngleY = -0.2F;
+			LeftLowerArm.rotateAngleY = 0.2F;
+			
+			Chest.rotateAngleX= 0.3F;
+			Torso.rotateAngleX= 0.1F;
+			Head.rotateAngleX= -0.2F;
+			
+			
+			
+//			Torso.rotationPointY= 12.5F;
+			
+        }
+		
+		
+      //walking
 		walk(RightArm, 1 * globalSpeed,  1.F * globalDegree, true, 0.6F, 0.F, f, f1);
         walk(LeftArm, 1 * globalSpeed,  -1.F * globalDegree, true, 0.6F, 0.F, f, f1);
         
@@ -3728,5 +3760,42 @@ public class ModelSubwoofer1 extends AdvancedModelBiped
         swing(Head, 1F* globalSpeed, 0.5F* globalDegree, false, 0, 0, f, f1);
         Head.rotateAngleY= bipedHead.rotateAngleY;
         Head.rotateAngleX= bipedHead.rotateAngleX *0.9F;
+        
+      //idle
+        flap(RightArm, 0.08F, 0.05F, true, 0, 0.f, f2, 1);
+        flap(LeftArm, 0.08F, 0.05F, false, 0, 0.f, f2, 1);
+        walk(Chest, 0.08F, 0.05F, false, 0, 0.1f, f2, 1);
+       
+        
+        walk(RightArm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+        walk(LeftArm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+        walk(RightLowerArm, 0.08F, 0.05F, false, 0, 0.f, f2, 1);
+        walk(LeftLowerArm, 0.08F, 0.05F, false, 0, 0.f, f2, 1);
+        swing(RightLowerArm, 0.08F, 0.1F, false, 0, -0.1f, f2, 1);
+        swing(LeftLowerArm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+        
+      //Jump and Falling 
+        if (entity instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) entity;
+			if (!player.onGround  && !player.capabilities.isFlying){
+
+        
+					this.Chest.rotateAngleX = 0.4F *downwardPose;
+
+      	
+					RightArm.rotateAngleX = 0.6F*downwardPose;
+					LeftArm.rotateAngleX = 0.6F*downwardPose;
+      	
+					RightArm.rotateAngleZ = 0.4F *downwardPose;
+					LeftArm.rotateAngleZ = -0.4F *downwardPose;
+    
+					RightLowerArm.rotateAngleX = -1.1F *downwardPose;
+					LeftLowerArm.rotateAngleX = -1.1F *downwardPose;
+    
+					RightLowerArm.rotateAngleY = -0.2F *downwardPose;
+					LeftLowerArm.rotateAngleY = 0.2F *downwardPose;
+				}
+			}
+        
     }
 }
