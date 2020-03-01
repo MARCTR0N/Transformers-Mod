@@ -3,11 +3,13 @@ package com.marctron.transformersmod.transformers.models.wfc.stunticons.deadend;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.items.gun.ItemGunBase;
+import com.marctron.transformersmod.transformers.IAnimatedArmor;
+import com.marctron.transformersmod.transformers.ModelArmorAnimator;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.deadend.Deadend;
 
-import net.ilexiconn.llibrary.client.model.ModelAnimator;
+import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -21,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModelDeadendpartB extends ModelDeadendpartA
 {
 	public static int attackTimer;
-	private ModelAnimator animator;
+	private ModelArmorAnimator animator;
 	
     public AdvancedModelBipedRenderer shape282_17;
     public AdvancedModelBipedRenderer shape808_18;
@@ -5241,8 +5243,8 @@ public class ModelDeadendpartB extends ModelDeadendpartA
     
     public void animate(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 
     {
-//        animator.update((EntityDecepticonBrute) entity);
-//        EntityDecepticonBrute entityDecepticonBrute = (EntityDecepticonBrute) entity;
+//        animator.update((Deadend) entity);
+//       
 //        EntityPlayer entityPlayer = (EntityPlayer) entity;
 //        setRotationAngles(f, f1, f2, f3, f4, f5, entityPlayer);
 //        

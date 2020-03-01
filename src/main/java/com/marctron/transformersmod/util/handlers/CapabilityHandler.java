@@ -4,6 +4,7 @@ import com.marctron.transformersmod.capabilities.DefaultEntityAnimator;
 import com.marctron.transformersmod.capabilities.EntityAnimatorProvider;
 import com.marctron.transformersmod.util.Reference;
 
+import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -21,6 +22,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
 public class CapabilityHandler {
+
+	public static final Animation PUNCH_ANIMATION = null;
+
+	 private static final Animation[] ANIMATIONS = {
+			 PUNCH_ANIMATION
+		    };
 
 	@SubscribeEvent
 	public static void capAttachEventEntity(AttachCapabilitiesEvent<Entity> event) {
@@ -40,8 +47,14 @@ public class CapabilityHandler {
 		}
 		
 		//set animations here I guess, or you could move this event to a new class.
+		Animation PUNCH_ANIMATION = Animation.create(130);
 		
 	}
+	
+	    public static Animation[] getAnimations() {
+	        return ANIMATIONS;
+	    }
+	  
 	
 	public static void registerCaps() {
 		CapabilityManager.INSTANCE.register(IAnimatedEntity.class, new IStorage<IAnimatedEntity>() {
@@ -53,5 +66,7 @@ public class CapabilityHandler {
 			public void readNBT(Capability<IAnimatedEntity> capability, IAnimatedEntity instance, EnumFacing side, NBTBase nbt) {}
 		}, DefaultEntityAnimator::new);
 	}
+
+	
 	
 }

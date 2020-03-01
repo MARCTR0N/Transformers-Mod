@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.transformer.tfpmagnus;
+package com.marctron.transformersmod.transformers.transformer.tfp.megatron;
 
 import java.util.List;
 
@@ -17,26 +17,24 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TFPUltraMagnusPart3 extends ItemArmorTransformer {
+public class TFPMegatron extends ItemArmorTransformer {
 
     
 
-    public TFPUltraMagnusPart3(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public TFPMegatron(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.tabAutobot);
+        setCreativeTab(Main.tabDecepticon);
         setMaxStackSize(1);
        
 
@@ -49,9 +47,11 @@ public class TFPUltraMagnusPart3 extends ItemArmorTransformer {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 //			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0 ));
-        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
-        super.onArmorTick(world, player, itemStack);
-        
+//        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
+    	if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() ==RegistryHandler.ModItems.TFPMEGATRON_HELMET&& player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() ==RegistryHandler.ModItems.TFPMEGATRON_CHESTPLATE&& player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() ==  RegistryHandler.ModItems.TFPMEGATRON_LEGGINGS&& player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() ==  RegistryHandler.ModItems.TFPMEGATRON_BOOTS) 
+	    {
+        player.eyeHeight=2.F;
+	    }
       
         
 
@@ -97,31 +97,24 @@ public class TFPUltraMagnusPart3 extends ItemArmorTransformer {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-            	ArmorTypes.modelMagnuspart1.Head.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelMagnuspart1.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelMagnuspart1.Croach.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-                ArmorTypes.modelMagnuspart1.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelMagnuspart1.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelMagnuspart1.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-                ArmorTypes.modelMagnuspart3.Left_Leg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+            	ArmorTypes.modelTFPMegatron.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelTFPMegatron.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelTFPMegatron.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+                ArmorTypes.modelTFPMegatron.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelTFPMegatron.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelTFPMegatron.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+                ArmorTypes.modelTFPMegatron.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-                ArmorTypes.modelMagnuspart1.isSneak = _default.isSneak;
-                ArmorTypes.modelMagnuspart1.isRiding = _default.isRiding;
-                ArmorTypes.modelMagnuspart1.isChild = _default.isChild;
-                ArmorTypes.modelMagnuspart1.rightArmPose = _default.rightArmPose;
-                ArmorTypes.modelMagnuspart1.leftArmPose = _default.leftArmPose;
+                ArmorTypes.modelTFPMegatron.isSneak = _default.isSneak;
+                ArmorTypes.modelTFPMegatron.isRiding = _default.isRiding;
+                ArmorTypes.modelTFPMegatron.isChild = _default.isChild;
+                ArmorTypes.modelTFPMegatron.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelTFPMegatron.leftArmPose = _default.leftArmPose;
 
-                return ArmorTypes.modelMagnuspart3;
+                return ArmorTypes.modelTFPMegatron;
             }
         }
 
         return null;
     }
 }
-	
-	
-
-
-	
-
-

@@ -35,9 +35,11 @@ import com.marctron.transformersmod.transformers.models.tarn.ModelTarn2Mid4;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarnAltmode;
 import com.marctron.transformersmod.transformers.models.tarn.ModelTarnLegs;
 import com.marctron.transformersmod.transformers.models.tarn.TarnChest;
+import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPMagnus;
 import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraMagnuspart1;
 import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraMagnuspart2;
 import com.marctron.transformersmod.transformers.models.tfpmagnus.ModelTFPUltraMagnuspart3;
+import com.marctron.transformersmod.transformers.models.tfpmegatron.ModelMegatron;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
@@ -101,12 +103,25 @@ public class ArmorTypes {
     public static ModelBreakdownRightArm getBreakdownRightArm() {
         return modelBreakdownRightArm;
     }
+    
+    //TFP Megatron	
+    public static ModelMegatron modelTFPMegatron = new ModelMegatron();
+        
+        public static ModelMegatron getTFPMegatron() {
+            return modelTFPMegatron;
+        }
 	
 //TFP Magnus	
-	public static ModelTFPUltraMagnuspart1 modelMagnuspart1 = new ModelTFPUltraMagnuspart1();
+public static ModelTFPUltraMagnuspart1 modelMagnuspart1 = new ModelTFPUltraMagnuspart1();
     
     public static ModelTFPUltraMagnuspart1 getMagnuspart1() {
         return modelMagnuspart1;
+    }
+    
+	public static ModelTFPMagnus modelTFPMagnus = new ModelTFPMagnus();
+    
+    public static ModelTFPMagnus getTFPMagnus() {
+        return modelTFPMagnus;
     }
     
     public static ModelTFPUltraMagnuspart2 modelMagnuspart2 = new ModelTFPUltraMagnuspart2();

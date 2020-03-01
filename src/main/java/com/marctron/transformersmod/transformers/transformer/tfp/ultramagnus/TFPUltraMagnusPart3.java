@@ -1,4 +1,4 @@
-package com.marctron.transformersmod.transformers.transformer.tfpmagnus;
+package com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus;
 
 import java.util.List;
 
@@ -28,11 +28,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TFPUltraMagnusPart1 extends ItemArmorTransformer {
+public class TFPUltraMagnusPart3 extends ItemArmorTransformer {
 
     
 
-    public TFPUltraMagnusPart1(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public TFPUltraMagnusPart3(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -103,7 +103,7 @@ public class TFPUltraMagnusPart1 extends ItemArmorTransformer {
                 ArmorTypes.modelMagnuspart1.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
                 ArmorTypes.modelMagnuspart1.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
                 ArmorTypes.modelMagnuspart1.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-                ArmorTypes.modelMagnuspart2.Left_Leg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+                ArmorTypes.modelMagnuspart3.Left_Leg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
 
                 ArmorTypes.modelMagnuspart1.isSneak = _default.isSneak;
                 ArmorTypes.modelMagnuspart1.isRiding = _default.isRiding;
@@ -111,7 +111,7 @@ public class TFPUltraMagnusPart1 extends ItemArmorTransformer {
                 ArmorTypes.modelMagnuspart1.rightArmPose = _default.rightArmPose;
                 ArmorTypes.modelMagnuspart1.leftArmPose = _default.leftArmPose;
 
-                return ArmorTypes.modelMagnuspart1;
+                return ArmorTypes.modelMagnuspart3;
             }
         }
 

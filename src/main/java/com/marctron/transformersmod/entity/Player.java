@@ -6,6 +6,7 @@ import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.deadend.Deadend;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
@@ -56,11 +57,12 @@ public class Player {
         
             EntityPlayer player = (EntityPlayer) entity;
            
-            for (ItemStack stack : player.getArmorInventoryList()) {
+            for (ItemStack stack : player.getArmorInventoryList()) {	    {
     			if (!(stack.getItem() instanceof ItemArmorTransformer)) {
     				player.eyeHeight= 1.62F;
     				player.stepHeight=1;
     			}
+    		    }
     			
     		}
             

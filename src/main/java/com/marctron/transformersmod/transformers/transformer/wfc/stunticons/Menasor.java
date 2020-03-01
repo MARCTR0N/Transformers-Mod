@@ -44,7 +44,7 @@ public class Menasor extends ItemArmorTransformer{
 //					player.motionX=player.motionX * 1.05F;
 //					player.motionZ=player.motionZ * 1.05F;
 		}
-//			player.eyeHeight=5f;
+			player.eyeHeight=2.3f;
 	}
 	
 	@Override

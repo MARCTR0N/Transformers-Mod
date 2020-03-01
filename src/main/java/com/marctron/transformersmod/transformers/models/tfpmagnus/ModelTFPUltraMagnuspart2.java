@@ -7,7 +7,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
+public class ModelTFPUltraMagnuspart2 extends ModelTFPUltraMagnuspart1
 {
     public AdvancedModelBipedRenderer shape872_176;
     public AdvancedModelBipedRenderer shape872_82;
@@ -17,7 +17,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape873_197;
     public AdvancedModelBipedRenderer shape873_236;
     public AdvancedModelBipedRenderer shape873_45;
-    public AdvancedModelBipedRenderer Left_Lower_Leg;
+    public AdvancedModelBipedRenderer Right_Lower_Leg;
     public AdvancedModelBipedRenderer shape865_24;
     public AdvancedModelBipedRenderer shape872_116;
     public AdvancedModelBipedRenderer shape865_27;
@@ -44,7 +44,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape873_2;
     public AdvancedModelBipedRenderer shape872_127;
     public AdvancedModelBipedRenderer shape872_136;
-    public AdvancedModelBipedRenderer Left_Leg;
+    public AdvancedModelBipedRenderer Right_Leg;
     public AdvancedModelBipedRenderer shape873_209;
     public AdvancedModelBipedRenderer shape872_5;
     public AdvancedModelBipedRenderer shape865_2;
@@ -208,7 +208,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
     public AdvancedModelBipedRenderer shape872_87;
     public AdvancedModelBipedRenderer shape872_166;
     public AdvancedModelBipedRenderer shape873_258;
-    public AdvancedModelBipedRenderer Left_Foot;
+    public AdvancedModelBipedRenderer Right_Foot;
     public AdvancedModelBipedRenderer shape873_89;
     public AdvancedModelBipedRenderer shape873;
     public AdvancedModelBipedRenderer shape872_10;
@@ -670,10 +670,10 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape873_45 = new AdvancedModelBipedRenderer(this, "shape873_45").setTextureOffset(200, 200);
         shape873_45.setRotationPoint(0.0F, -0.1F, 1.0F);
         shape873_45.addBox(1.2999999999999998F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
-        Left_Lower_Leg = new AdvancedModelBipedRenderer(this, "Left_Lower_Leg").setTextureOffset(0, 0);
-        Left_Lower_Leg.setRotationPoint(4.0F, 18.5F, 0.0F);
-        Left_Lower_Leg.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
-        setRotateAngle(Left_Lower_Leg, 0.08726646259971647F, 0.0F, 0.0F);
+        Right_Lower_Leg = new AdvancedModelBipedRenderer(this, "Right_Lower_Leg").setTextureOffset(0, 0);
+        Right_Lower_Leg.setRotationPoint(4.0F, 18.5F, 0.0F);
+        Right_Lower_Leg.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
+        setRotateAngle(Right_Lower_Leg, 0.08726646259971647F, 0.0F, 0.0F);
         shape865_24 = new AdvancedModelBipedRenderer(this, "shape865_24").setTextureOffset(0, 0);
         shape865_24.setRotationPoint(0.0F, 4.6F, 0.3F);
         shape865_24.addBox(0.0F, 0.0F, -2.0F, 3, 3, 5, 0.0F);
@@ -778,10 +778,10 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_136.setRotationPoint(0.0F, 0.0F, 2.0F);
         shape872_136.addBox(0.0F, 0.0F, 0.0F, 2, 3, 2, 0.0F);
         setRotateAngle(shape872_136, -0.3490658503988659F, 0.0F, 0.0F);
-        Left_Leg = new AdvancedModelBipedRenderer(this, "Left_Leg").setTextureOffset(400, 0);
-        Left_Leg.setRotationPoint(2.9F, -31.3F, 5.0F);
-        Left_Leg.addBox(0.0F, -1.0F, -3.0F, 6, 6, 6, 0.0F);
-        setRotateAngle(Left_Leg, -0.06981317007977318F, 0.0F, -0.06981317007977318F);
+        Right_Leg = new AdvancedModelBipedRenderer(this, "Right_Leg").setTextureOffset(400, 0);
+        Right_Leg.setRotationPoint(2.9F, -31.3F, 5.0F);
+        Right_Leg.addBox(0.0F, -1.0F, -3.0F, 6, 6, 6, 0.0F);
+        setRotateAngle(Right_Leg, -0.06981317007977318F, 0.0F, -0.06981317007977318F);
         shape873_209 = new AdvancedModelBipedRenderer(this, "shape873_209").setTextureOffset(200, 200);
         shape873_209.setRotationPoint(0.0F, -0.1F, 1.0F);
         shape873_209.addBox(1.2999999999999998F, 0.0F, 0.0F, 1, 1, 1, 0.0F);
@@ -1418,10 +1418,10 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape873_258 = new AdvancedModelBipedRenderer(this, "shape873_258").setTextureOffset(200, 200);
         shape873_258.setRotationPoint(0.0F, -0.1F, 0.0F);
         shape873_258.addBox(2.0F, 0.0F, 0.0F, 1, 3, 2, 0.0F);
-        Left_Foot = new AdvancedModelBipedRenderer(this, "Left_Foot").setTextureOffset(0, 0);
-        Left_Foot.setRotationPoint(-0.7F, 30.0F, -0.3F);
-        Left_Foot.addBox(-0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F);
-        setRotateAngle(Left_Foot, 0.0F, 0.0F, 0.06981317007977318F);
+        Right_Foot = new AdvancedModelBipedRenderer(this, "Right_Foot").setTextureOffset(0, 0);
+        Right_Foot.setRotationPoint(-0.7F, 30.0F, -0.3F);
+        Right_Foot.addBox(-0.5F, -0.5F, -0.5F, 1, 1, 1, 0.0F);
+        setRotateAngle(Right_Foot, 0.0F, 0.0F, 0.06981317007977318F);
         shape873_89 = new AdvancedModelBipedRenderer(this, "shape873_89").setTextureOffset(200, 200);
         shape873_89.mirror = true;
         shape873_89.setRotationPoint(0.0F, -0.1F, 1.0F);
@@ -3075,7 +3075,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_98.addChild(shape873_197);
         shape872_119.addChild(shape873_236);
         shape872_22.addChild(shape873_45);
-        Left_Leg.addChild(Left_Lower_Leg);
+        Right_Leg.addChild(Right_Lower_Leg);
         shape865_21.addChild(shape865_24);
         shape872_115.addChild(shape872_116);
         shape865_25.addChild(shape865_27);
@@ -3217,7 +3217,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_53.addChild(shape873_105);
         u.addChild(u_1);
         shape872_47.addChild(shape873_93);
-        Left_Lower_Leg.addChild(shape865);
+        Right_Lower_Leg.addChild(shape865);
         shape861.addChild(shape861_1);
         shape875_1.addChild(shape875_2);
         shape872_13.addChild(shape873_25);
@@ -3265,7 +3265,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_86.addChild(shape872_87);
         shape872_165.addChild(shape872_166);
         shape872_129.addChild(shape873_258);
-        Left_Lower_Leg.addChild(Left_Foot);
+        Right_Lower_Leg.addChild(Right_Foot);
         shape872_45.addChild(shape873_89);
         shape872.addChild(shape873);
         shape872_9.addChild(shape872_10);
@@ -3306,14 +3306,14 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_158.addChild(shape872_159);
         shape872_48.addChild(shape873_94);
         shape872_164.addChild(shape872_165);
-        Left_Lower_Leg.addChild(er);
+        Right_Lower_Leg.addChild(er);
         shape872_107.addChild(shape873_215);
         shape872_11.addChild(shape872_12);
         shape872_132.addChild(shape873_264);
         shape872_17.addChild(shape873_33);
         shape872_20.addChild(shape872_21);
         shape872_155.addChild(shape873_299);
-        Left_Leg.addChild(u);
+        Right_Leg.addChild(u);
         shape865_21.addChild(shape865_22);
         shape872_136.addChild(shape873_273);
         shape872_76.addChild(shape873_151);
@@ -3427,7 +3427,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_85.addChild(shape873_169);
         shape872_85.addChild(shape872_86);
         shape872_141.addChild(shape872_142);
-        Left_Leg.addChild(e);
+        Right_Leg.addChild(e);
         shape872_70.addChild(shape873_140);
         shape872_41.addChild(shape873_80);
         shape872_105.addChild(shape873_210);
@@ -3453,11 +3453,11 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape1035.addChild(shape1035_1);
         shape872_153.addChild(shape872_154);
         shape875_2.addChild(shape865_1);
-        Left_Leg.addChild(s123_2);
+        Right_Leg.addChild(s123_2);
         shape1035.addChild(shape1035_5);
         shape872_93.addChild(shape873_187);
         shape872_75.addChild(shape872_76);
-        Left_Lower_Leg.addChild(Wheel_2);
+        Right_Lower_Leg.addChild(Wheel_2);
         shape872_134.addChild(shape872_135);
         shape872_170.addChild(shape873_314);
         shape872_109.addChild(shape873_253);
@@ -3476,7 +3476,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_16.addChild(shape873_31);
         shape872_102.addChild(shape872_103);
         shape872_126.addChild(shape873_250);
-        Left_Lower_Leg.addChild(shape1035);
+        Right_Lower_Leg.addChild(shape1035);
         shape872_15.addChild(shape873_28);
         shape872_157.addChild(shape872_158);
         shape872_156.addChild(shape872_157);
@@ -3498,7 +3498,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         p.addChild(shape865_3);
         shape872_58.addChild(shape873_116);
         shape872_174.addChild(shape873_318);
-        Left_Leg.addChild(i_1);
+        Right_Leg.addChild(i_1);
         shape1035.addChild(shape1035_3);
         shape872_64.addChild(shape873_129);
         shape872_39.addChild(shape873_77);
@@ -3508,7 +3508,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_97.addChild(shape872_98);
         shape872_112.addChild(shape872_113);
         shape872_142.addChild(shape873_284);
-        Left_Leg.addChild(s123);
+        Right_Leg.addChild(s123);
         shape872_127.addChild(shape873_255);
         shape872_132.addChild(shape872_133);
         shape872_155.addChild(shape872_156);
@@ -3566,19 +3566,19 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_79.addChild(shape872_80);
         shape872_104.addChild(shape872_105);
         shape872_17.addChild(shape873_32);
-        Left_Lower_Leg.addChild(Wheel);
+        Right_Lower_Leg.addChild(Wheel);
         shape872_139.addChild(shape873_278);
         shape4146_1.addChild(shape4146_5);
         shape872_37.addChild(shape872_55);
         shape872_53.addChild(shape873_104);
-        Left_Leg.addChild(s123_1);
+        Right_Leg.addChild(s123_1);
         shape4146_4.addChild(shape4146_9);
         shape872_131.addChild(shape873_263);
         shape872_130.addChild(shape873_260);
         nou_1.addChild(shape872_162);
         shape872_104.addChild(shape873_208);
         shape872_129.addChild(shape873_259);
-        Left_Foot.addChild(shape4146);
+        Right_Foot.addChild(shape4146);
         shape4146_2.addChild(shape4146_16);
         shape865_24.addChild(shape865_26);
         shape872_89.addChild(shape873_177);
@@ -3597,7 +3597,7 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_44.addChild(shape873_87);
         shape872_58.addChild(shape873_117);
         shape872_74.addChild(shape873_146);
-        Left_Lower_Leg.addChild(Wheel_3);
+        Right_Lower_Leg.addChild(Wheel_3);
         shape872_79.addChild(shape873_156);
         shape872_59.addChild(shape873_119);
         shape872_163.addChild(shape873_307);
@@ -3637,14 +3637,14 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
         shape872_65.addChild(shape873_130);
         shape865_6.addChild(shape865_8);
         shape872_62.addChild(shape873_124);
-        Left_Leg.addChild(i);
+        Right_Leg.addChild(i);
         shape872_148.addChild(shape872_149);
         shape872_120.addChild(shape873_238);
         shape872_99.addChild(shape872_100);
         shape872_84.addChild(shape873_166);
         shape872_125.addChild(shape873_248);
         shape872_78.addChild(shape872_79);
-        Left_Lower_Leg.addChild(Wheel_1);
+        Right_Lower_Leg.addChild(Wheel_1);
         shape872_24.addChild(shape872_25);
         shape872_158.addChild(shape873_302);
         shape872_26.addChild(shape873_52);
@@ -3699,13 +3699,13 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+//    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 //    	animate(f, f1, f2, f3, f4, f5, entity);
-    	GlStateManager.pushMatrix();
-        GlStateManager.scale(0.4F, 0.4F, 0.4F);
-        GlStateManager.translate(0.0F, 35.0F * f5, -0.15F);
-        Left_Leg.render(f5);
-        GlStateManager.popMatrix();
+//    	GlStateManager.pushMatrix();
+//        GlStateManager.scale(0.4F, 0.4F, 0.4F);
+//        GlStateManager.translate(0.0F, 35.0F * f5, -0.15F);
+//        Right_Leg.render(f5);
+//        GlStateManager.popMatrix();
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)
@@ -3716,39 +3716,43 @@ public class ModelTFPUltraMagnuspart2 extends AdvancedModelBiped
     }
     
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-    	super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    	resetToDefaultPose();
-  
-    	if (this.isSneak)
-        {
-    		Left_Leg.rotationPointY = -26.5F;
-    		
-    		Left_Leg.rotateAngleX = -0.7F;
-    		Left_Leg.rotateAngleZ = -0.25F;
-    		
-    		Left_Lower_Leg.rotateAngleX = 1.2F;
-    		
-    		Left_Foot.rotateAngleX = -0.5F;
-    		Left_Foot.rotateAngleZ = 0.25F;
-        }
-    	
-    	float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
-		 float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
-        
-        if (!entity.onGround){
-       	 this.Left_Leg.rotateAngleX = -1.5F *downwardPose;
-       	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
-        }
-    	
-    	 float globalSpeed = 0.38F;
-         float globalDegree = 0.5F ;
-         float height = 3F;
-    	
-         bob(Left_Leg, 2 *globalSpeed, height, false, f, f1);
-                 
-    	 walk(Left_Leg, 1 * globalSpeed,  1.F * globalDegree, false, 0.6F, -0.5F, f, f1);         
-         walk(Left_Lower_Leg, 1 * globalSpeed,  1.F * globalDegree, false, -1.1F, 1F, f, f1);
-         walk(Left_Foot, 1 * globalSpeed,  0.8F * globalDegree, true, -3F, -0.3F, f, f1);
+////    	super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+//    	resetToDefaultPose();
+//  
+////    	 GlStateManager.scale(0.4F, 0.4F, 0.4F);
+////         GlStateManager.translate(0.0F, 35.0F * f5, -0.15F);
+//    	
+//    	
+//    	if (this.isSneak)
+//        {
+//    		Right_Leg.rotationPointY = -26.5F;
+//    		
+//    		Right_Leg.rotateAngleX = -0.7F;
+//    		Right_Leg.rotateAngleZ = -0.25F;
+//    		
+//    		Right_Lower_Leg.rotateAngleX = 1.2F;
+//    		
+//    		Right_Foot.rotateAngleX = -0.5F;
+//    		Right_Foot.rotateAngleZ = 0.25F;
+//        }
+//    	
+//    	float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
+//		 float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
+//        
+//        if (!entity.onGround){
+//       	 this.Right_Leg.rotateAngleX = -1.5F *downwardPose;
+//       	 this.Right_Lower_Leg.rotateAngleX = 2.F *downwardPose;
+//        }
+//    	
+//    	 float globalSpeed = 0.38F;
+//         float globalDegree = 0.5F ;
+//         float height = 3F;
+//    	
+//         bob(Right_Leg, 2 *globalSpeed, height, false, f, f1);
+//                 
+//    	 walk(Right_Leg, 1 * globalSpeed,  1.F * globalDegree, false, 0.6F, -0.5F, f, f1);         
+//         walk(Right_Lower_Leg, 1 * globalSpeed,  1.F * globalDegree, false, -1.1F, 1F, f, f1);
+//         walk(Right_Foot, 1 * globalSpeed,  0.8F * globalDegree, true, -3F, -0.3F, f, f1);
          
          
     }

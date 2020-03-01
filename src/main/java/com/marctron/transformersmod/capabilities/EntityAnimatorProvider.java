@@ -33,7 +33,7 @@ public class EntityAnimatorProvider implements ICapabilityProvider {
 
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		return hasCapability(capability, facing) ? null : ANIMATED_ENTITY_CAP.cast(instance);
+		return hasCapability(capability, facing) ? ANIMATED_ENTITY_CAP.cast(instance) : null;
 	}
 
 }

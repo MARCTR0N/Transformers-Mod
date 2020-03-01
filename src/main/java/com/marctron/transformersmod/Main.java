@@ -1,11 +1,8 @@
 package com.marctron.transformersmod;
 
 import java.io.File;
-import java.util.ArrayList;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.input.Keyboard;
 
 import com.marctron.transformersmod.commands.CommandDimensionTeleport;
 import com.marctron.transformersmod.init.CybertronWorldGen;
@@ -17,23 +14,17 @@ import com.marctron.transformersmod.resize.potions.PotionGrowth;
 import com.marctron.transformersmod.resize.potions.PotionShrinking;
 //import com.marctron.transformersmod.sounds.DetectDriving;
 import com.marctron.transformersmod.util.Reference;
+import com.marctron.transformersmod.util.handlers.CapabilityHandler;
 import com.marctron.transformersmod.util.handlers.GuiHandler;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.world.generators.ModWorldGen;
 import com.marctron.transformersmod.world.generators.WorldGenCustomStructures;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -129,6 +120,8 @@ public class Main {
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
     	proxy.preInit(event);
+    	
+    	CapabilityHandler.registerCaps();
        
     	GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
         

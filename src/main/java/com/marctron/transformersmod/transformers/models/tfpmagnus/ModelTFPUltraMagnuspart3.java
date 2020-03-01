@@ -7,7 +7,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelTFPUltraMagnuspart3 extends AdvancedModelBiped
+public class ModelTFPUltraMagnuspart3 extends ModelTFPUltraMagnuspart2
 {
     public AdvancedModelBipedRenderer shape872_71;
     public AdvancedModelBipedRenderer shape873_150;
@@ -3749,13 +3749,13 @@ public class ModelTFPUltraMagnuspart3 extends AdvancedModelBiped
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+//    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 //    	animate(f, f1, f2, f3, f4, f5, entity);
-    	GlStateManager.pushMatrix();
-        GlStateManager.scale(0.4F, 0.4F, 0.4F);
-        GlStateManager.translate(0.0F, 35.0F * f5, -0.15F);
-        Left_Leg.render(f5);
-        GlStateManager.popMatrix();
+//    	GlStateManager.pushMatrix();
+//        GlStateManager.scale(0.4F, 0.4F, 0.4F);
+//        GlStateManager.translate(0.0F, 35.0F * f5, -0.15F);
+//        Left_Leg.render(f5);
+//      GlStateManager.popMatrix();
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)
@@ -3766,41 +3766,45 @@ public class ModelTFPUltraMagnuspart3 extends AdvancedModelBiped
     }
     
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-    	super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    	resetToDefaultPose();
-    	
-    	if (this.isSneak)
-        {
-    		Left_Leg.rotationPointY = -26.5F;
-    		
-    		Left_Leg.rotateAngleX = -0.7F;
-    		Left_Leg.rotateAngleZ = 0.25F;
-    		
-    		Left_Lower_Leg.rotateAngleX = 1.2F;
-    		
-    		Left_Foot.rotateAngleX = -0.5F;
-    		Left_Foot.rotateAngleZ = -0.25F;
-        }
-    	
-    	
-    	 float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
-		 float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
-        
-        if (!entity.onGround){
-       	 this.Left_Leg.rotateAngleX = -0.8F *downwardPose;
-       	 this.Left_Lower_Leg.rotateAngleX = 1.3F *downwardPose;
-        }
-        
-    	float globalSpeed = 0.38F;
-        float globalDegree = 0.5F ;
-        float height = 3F;
-   	
-        bob(Left_Leg, 2 *globalSpeed, height, false, f, f1);
-               
-   	 	walk(Left_Leg, 1 * globalSpeed,  -1.F * globalDegree, false, 0.6F, -0.5F, f, f1);        
-        walk(Left_Lower_Leg, 1 * globalSpeed,  -1.F * globalDegree, false, -1.1F, 1F, f, f1);     
-        walk(Left_Foot, 1 * globalSpeed,  -0.8F * globalDegree, true, -3F, -0.3F, f, f1);
-        
+////    	super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+//    	resetToDefaultPose();
+//    	
+////    	GlStateManager.scale(0.4F, 0.4F, 0.4F);
+////        GlStateManager.translate(0.0F, 35.0F * f5, -0.15F);
+//    	
+//    	
+//    	if (this.isSneak)
+//        {
+//    		Left_Leg.rotationPointY = -26.5F;
+//    		
+//    		Left_Leg.rotateAngleX = -0.7F;
+//    		Left_Leg.rotateAngleZ = 0.25F;
+//    		
+//    		Left_Lower_Leg.rotateAngleX = 1.2F;
+//    		
+//    		Left_Foot.rotateAngleX = -0.5F;
+//    		Left_Foot.rotateAngleZ = -0.25F;
+//        }
+//    	
+//    	
+//    	 float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
+//		 float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
+//        
+//        if (!entity.onGround){
+//       	 this.Left_Leg.rotateAngleX = -0.8F *downwardPose;
+//       	 this.Left_Lower_Leg.rotateAngleX = 1.3F *downwardPose;
+//        }
+//        
+//    	float globalSpeed = 0.38F;
+//        float globalDegree = 0.5F ;
+//        float height = 3F;
+//   	
+//        bob(Left_Leg, 2 *globalSpeed, height, false, f, f1);
+//               
+//   	 	walk(Left_Leg, 1 * globalSpeed,  -1.F * globalDegree, false, 0.6F, -0.5F, f, f1);        
+//        walk(Left_Lower_Leg, 1 * globalSpeed,  -1.F * globalDegree, false, -1.1F, 1F, f, f1);     
+//        walk(Left_Foot, 1 * globalSpeed,  -0.8F * globalDegree, true, -3F, -0.3F, f, f1);
+//        
        
     }
 }

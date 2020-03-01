@@ -5,11 +5,13 @@ import java.util.List;
 import org.lwjgl.opengl.GL11;
 
 import com.marctron.transformersmod.capabilities.EntityAnimatorProvider;
+import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.items.gun.ItemGunBase;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+import com.marctron.transformersmod.util.handlers.CapabilityHandler;
 
 import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.ilexiconn.llibrary.server.animation.Animation;
@@ -4402,9 +4404,17 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
     		IAnimatedEntity animator = entitylivingbaseIn.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
     		animation = animator.getAnimation();
     		tick = animator.getAnimationTick() + partialTickTime;
+    		
+    		
     	}
     	
     	//do stuff with the animation info
+//    	if (CapabilityHandler.getAnimation() == CapabilityHandler.PUNCH_ANIMATION) {
+    	animator.setAnimation(CapabilityHandler.PUNCH_ANIMATION);
+    	animator.startKeyframe(15);
+    	animator.rotate(RIGHT_ARM, -0.5F, 0.2F, 1.8F);
+    	animator.endKeyframe();
+//    	}
     }
     
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z) {

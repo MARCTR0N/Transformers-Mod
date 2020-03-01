@@ -93,9 +93,8 @@ import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid5;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid6;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid7;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid8;
-import com.marctron.transformersmod.transformers.transformer.tfpmagnus.TFPUltraMagnusPart1;
-import com.marctron.transformersmod.transformers.transformer.tfpmagnus.TFPUltraMagnusPart2;
-import com.marctron.transformersmod.transformers.transformer.tfpmagnus.TFPUltraMagnusPart3;
+import com.marctron.transformersmod.transformers.transformer.tfp.megatron.TFPMegatron;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.TFPUltraMagnus;
 import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
@@ -183,6 +182,8 @@ public class RegistryHandler {
     public static final ArmorMaterial IRONHIDE_MATERIAL = EnumHelper.addArmorMaterial("ironhide_model", Reference.MOD_ID + ":ironhide_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
     
     public static final ArmorMaterial MAGNUS_MATERIAL = EnumHelper.addArmorMaterial("magnus_model", Reference.MOD_ID + ":magnus_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+
+    public static final ArmorMaterial MEGATRON_MATERIAL = EnumHelper.addArmorMaterial("megatron_model", Reference.MOD_ID + ":megatron_model", 20, new int[]{7, 8, 8, 9}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
 
 
     //Armor Altmode
@@ -282,6 +283,13 @@ public class RegistryHandler {
         public static final Item DARK_GRAY_DYE = null;
         public static final Item BEIGE_DYE = null;
     	
+        
+      //TFP Megatron
+        public static final ItemArmorTransformer TFPMEGATRON_HELMET = null;
+        public static final ItemArmorTransformer TFPMEGATRON_CHESTPLATE = null;
+        public static final ItemArmorTransformer TFPMEGATRON_LEGGINGS = null;
+        public static final ItemArmorTransformer TFPMEGATRON_BOOTS = null;
+        
       //Breakdown
         public static final ItemArmorTransformer BREAKDOWN_HELMET = null;
         public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE = null;
@@ -817,6 +825,15 @@ public class RegistryHandler {
             	    new ItemBase("dark_gray_dye"),
             	    new ItemBase("beige_dye"),
             	    
+            	    
+            	    
+            	  //TFP Megatron
+            	    new TFPMegatron("tfpmegatron_helmet", MEGATRON_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new TFPMegatron("tfpmegatron_chestplate", MEGATRON_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new TFPMegatron("tfpmegatron_leggings", MEGATRON_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new TFPMegatron("tfpmegatron_boots", MEGATRON_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    
+            	    
             	  //Breakdown
             	    new BreakdownBody("breakdown_helmet", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
             	    new BreakdownRightArm("breakdown_chestplate", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
@@ -848,10 +865,10 @@ public class RegistryHandler {
             	    new Motormaster("motormaster_boots", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //TFP Ultra Magnus
-            	    new TFPUltraMagnusPart1("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-            	    new TFPUltraMagnusPart1("ultra_magnus_chestplate", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-            	    new TFPUltraMagnusPart2("ultra_magnus_leggings", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-            	    new TFPUltraMagnusPart3("ultra_magnus_boots", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    new TFPUltraMagnus("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    new TFPUltraMagnus("ultra_magnus_chestplate", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    new TFPUltraMagnus("ultra_magnus_leggings", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    new TFPUltraMagnus("ultra_magnus_boots", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //Tarn
             	    new Tarn2("tarn_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),

@@ -38,10 +38,10 @@ public class ClientEvents {
 	
 	@SubscribeEvent
     public void onMouseInput(MouseInputEvent event) {
-		if (Minecraft.getMinecraft().gameSettings.keyBindAttack.isPressed())
-		{
-			ModelDeadendpartB.attackTimer = 40;
-		}
+//		if (Minecraft.getMinecraft().gameSettings.keyBindAttack.isPressed())
+//		{
+//			ModelDeadendpartB.attackTimer = 40;
+//		}
 //			System.out.println("KeyPressed");
 //			TFNetworkManager.networkWrapper.sendToServer(new PacketShootRocket());
 			

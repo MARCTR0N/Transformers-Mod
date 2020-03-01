@@ -1,20 +1,11 @@
 package com.marctron.transformersmod.transformers.models.tfpmagnus;
 
-import com.marctron.transformersmod.entity.EntityDecepticonBrute;
-import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 
-import net.ilexiconn.llibrary.LLibrary;
 import net.ilexiconn.llibrary.client.model.ModelAnimator;
-import net.ilexiconn.llibrary.client.model.tools.AdvancedModelBase;
-
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityArmorStand;
-import net.minecraft.util.math.MathHelper;
 
 public class ModelTFPUltraMagnuspart1 extends AdvancedModelBiped
 {
@@ -2640,20 +2631,35 @@ public class ModelTFPUltraMagnuspart1 extends AdvancedModelBiped
         Helmet.addChild(shape37);
         shape232_12.addChild(shape232_13);
         
+        LEFT_HAND1 = new AdvancedModelBipedRenderer(this, "LEFT_HAND1").setTextureOffset(0, 457);
+	    LEFT_HAND1.mirror = true;
+	    LEFT_HAND1.setRotationPoint(-2.0F, 16.5F, 1.0F);
+	    LEFT_HAND1.addBox(0.0F, 0.0F, -1.9F, 3, 2, 3, 0.0F);
+	    RIGHT_HAND1 = new AdvancedModelBipedRenderer(this, "RIGHT_HAND1").setTextureOffset(0, 457);
+	    RIGHT_HAND1.mirror = true;
+	    RIGHT_HAND1.setRotationPoint(-1.0F, 16.5F, 1.0F);
+	    RIGHT_HAND1.addBox(0.0F, 0.0F, -1.9F, 3, 2, 3, 0.0F);
+	     
+	    Left_Lower_Arm.addChild(LEFT_HAND1);
+	    Right_Lower_Arm.addChild(RIGHT_HAND1);
+        
         updateDefaultPose();
     }
 
+    public AdvancedModelBipedRenderer LEFT_HAND1;
+	public AdvancedModelBipedRenderer RIGHT_HAND1;
+    
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+//    	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 //    	animate(f, f1, f2, f3, f4, f5, entity);
-    	GlStateManager.pushMatrix();
-        GlStateManager.scale(0.4F, 0.4F, 0.4F);
-        GlStateManager.translate(0.0F, -14.0F * f5, -0.15F);
-        Head.render(f5);
-        Croach.render(f5);
-        GlStateManager.popMatrix();
+//    	GlStateManager.pushMatrix();
+//        GlStateManager.scale(0.4F, 0.4F, 0.4F);
+//        GlStateManager.translate(0.0F, -14.0F * f5, -0.15F);
+//        Head.render(f5);
+//        Croach.render(f5);
+//        GlStateManager.popMatrix();
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)
@@ -2663,101 +2669,201 @@ public class ModelTFPUltraMagnuspart1 extends AdvancedModelBiped
         ModelRenderer.rotateAngleZ = z;
     }
     
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        resetToDefaultPose();
-        
-        
-        
-        if (this.isSneak)
-        {
-        Head.rotationPointY = -11F;
-        Head.rotationPointZ = -10F;
-        Croach.rotationPointY = 3F;
-        Croach.rotationPointZ = -6F;
-        
-        Torso.rotateAngleX = 0.1F;
-        Croach.rotateAngleX = 0.2F;
-        Chestplate.rotateAngleX = 0.02F;
-        
-        Right_Arm.rotateAngleX = 0.3F;
-        Left_Arm.rotateAngleX = 0.3F;
-        
-        Right_Arm.rotateAngleZ = 0.2F;
-        Left_Arm.rotateAngleZ = -0.2F;
-        
-        Right_Lower_Arm.rotateAngleX = -1.1F;
-        Left_Lower_Arm.rotateAngleX = -1.1F;
-        
-        Right_Lower_Arm.rotateAngleY = -0.2F;
-        Left_Lower_Arm.rotateAngleY = 0.2F;
-    	}
-        
-        float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
-		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
-       
-        
-        if (!entity.onGround){
-          	this.Torso.rotateAngleX = .2F *downwardPose;
-          	this.Croach.rotateAngleX = .3F *downwardPose;
-          	this.Croach.rotationPointZ = -6F *downwardPose + -1;
-          	this.Croach.rotationPointY = 2F *downwardPose + -2;
-          	this.Head.rotationPointZ = -15F *downwardPose + 3;
-          	this.Head.rotationPointY = 3.5F *downwardPose +-16.5F;
-          	 
-          	Right_Arm.rotateAngleX = 0.4F*downwardPose;
-            Left_Arm.rotateAngleX = 0.4F*downwardPose;
-            
-            Right_Arm.rotateAngleZ = 0.4F *downwardPose;
-            Left_Arm.rotateAngleZ = -0.4F *downwardPose;
-            
-            Right_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
-            Left_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
-            
-            Right_Lower_Arm.rotateAngleY = -0.2F *downwardPose;
-            Left_Lower_Arm.rotateAngleY = 0.2F *downwardPose;
-//          	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
-            
-           }else{
-//        	   this.Head.rotationPointZ = 3F;
-//        	   this.Head.rotationPointY = -17F;
-           }
-        	   
-        
-        float globalSpeed = 0.38F;
-        float globalDegree = 0.5F ;
-        float height = 3F;
-        
-        Head.rotateAngleY= bipedHead.rotateAngleY;
-        Head.rotateAngleX= bipedHead.rotateAngleX *0.7F;
-        
-        
-        
-        bob(Head, 2 *globalSpeed, height, false, f, f1);
-        bob(Croach, 2 *globalSpeed, height, false, f, f1);
-        
-        walk(Torso, 2 *globalSpeed, 0.05F *globalDegree, false, 0F, 0F, f, f1);
-//        move(Head, 2 *globalSpeed, 0.2F *globalDegree, false, 0F, 0F, f, f1);
-        swing(Torso, 1 * globalSpeed, 0.5F * globalDegree, false, 0F, 0F, f, f1);
-        swing(Chestplate, 1 * globalSpeed, 0.15F * globalDegree, false, 0F, 0F, f, f1);
-        
-        walk(Left_Arm, 1 * globalSpeed,  1.F * globalDegree, true, 0.6F, 0.F, f, f1);
-        walk(Right_Arm, 1 * globalSpeed,  -1.F * globalDegree, true, 0.6F, 0.F, f, f1);
-        
-        walk(Left_Lower_Arm, 1 * globalSpeed,  1.F * globalDegree, true, -1.3F, 0.6F, f, f1);
-        walk(Right_Lower_Arm, 1 * globalSpeed,  -1.F * globalDegree, true, -1.3F, 0.6F, f, f1);
-        
-        
-        
-		 if (entity instanceof EntityArmorStand) {
-	            EntityArmorStand entityarmorstand = (EntityArmorStand) entity;
-//	            this.Head.rotateAngleX = 0.3F * entityarmorstand.getHeadRotation().getX();
-//	            this.Head.rotateAngleY = 0.3F * entityarmorstand.getHeadRotation().getY();
-//	            this.Head.rotateAngleZ = 0.3F * entityarmorstand.getHeadRotation().getZ();
-//	            this.Head.setRotationPoint(0.0F, 1.0F, 0.0F);
-
-	         
-	            copyModelAngles(this.bipedHead, this.Head);
-	        }
-    }
+//    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+////        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+//        resetToDefaultPose();
+//        
+////        GlStateManager.scale(0.4F, 0.4F, 0.4F);
+////        GlStateManager.translate(0.0F, -14.0F * f5, -0.15F);
+//  //items,guns, etc.
+//        
+//        switch (this.leftArmPose)
+//        {
+//            case EMPTY:
+//                this.Left_Arm.rotateAngleY = 0.0F;
+//                break;
+//            case BLOCK:
+//            	 this.Left_Arm.rotateAngleX = this.Left_Arm.rotateAngleX * 0.5F - 0.9424779F + 0.4F;
+//	                this.Left_Arm.rotateAngleY = 0.5235988F;
+//	                this.Left_Lower_Arm.rotateAngleY = 0.4F;
+//	                this.Left_Lower_Arm.rotateAngleX = -1F;
+////	                this.LEFT_HAND.rotateAngleZ= -0.3F;
+////	                this.LEFT_HAND.rotateAngleX= 0.8F;
+////	                this.LEFT_HAND.rotateAngleY= -0.3F;
+////	                this.LEFT_HAND.rotationPointX=-2F;	
+////	                this.LEFT_HAND.rotationPointY=7F;	                
+////	                this.LEFT_HAND.rotationPointZ=-8F;
+////	                this.LEFT_HAND.setScale(0.1F, 0.1F, 0.1F);
+//                break;
+//            case ITEM:
+//                this.Left_Arm.rotateAngleX = this.Left_Arm.rotateAngleX * 0.5F - ((float)Math.PI / 10F);
+//                this.Left_Arm.rotateAngleY = 0.0F;
+//                this.Left_Lower_Arm.rotateAngleX = this.Left_Lower_Arm.rotateAngleX * 0.5F - ((float)Math.PI / 10F);
+//		default:
+//			break;
+//        }
+//
+//        switch (this.rightArmPose)
+//        {
+//            case EMPTY:
+//                this.Right_Arm.rotateAngleY = 0.0F;
+//                break;
+//            case BLOCK:
+//                this.Right_Arm.rotateAngleX = this.Right_Arm.rotateAngleX * 0.5F - 0.9424779F + 0.4F;
+//                this.Right_Arm.rotateAngleY = -0.5235988F;
+//                this.Right_Lower_Arm.rotateAngleY = -0.4F;
+//                this.Right_Lower_Arm.rotateAngleX = -1F;
+////                this.RIGHT_HAND.rotateAngleZ= 0.3F;
+////                this.RIGHT_HAND.rotateAngleX= 0.8F;
+////                this.RIGHT_HAND.rotateAngleY= 0.3F;
+////                this.RIGHT_HAND.rotationPointX=3F;	
+////                this.RIGHT_HAND.rotationPointY=8F;	                
+////                this.RIGHT_HAND.rotationPointZ=-7F;
+////                this.RIGHT_HAND.setScale(0.1F, 0.1F, 0.1F);
+//                
+//                break;
+//            case ITEM:
+//                this.Right_Arm.rotateAngleX = this.Right_Arm.rotateAngleX * 0.7F - ((float)Math.PI / 10F);
+//                this.Right_Arm.rotateAngleY = 0.0F;
+//                this.Right_Lower_Arm.rotateAngleX = this.Right_Lower_Arm.rotateAngleX * 0.7F - ((float)Math.PI / 10F);
+//		default:
+//			break;
+//        }
+//        
+//        if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+//        {
+//            this.Right_Arm.rotateAngleY = -0.1F + this.Head.rotateAngleY;
+//            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX;
+//        }
+//        
+//        if (entity instanceof EntityPlayer)
+//        {
+//        	ItemStack stack = ((EntityPlayer) entity).getHeldItemMainhand();
+//        	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
+//                IGun nbt = ((IGun) stack.getItem());
+//                if (nbt.getBoolean("Gun")) {
+//        		
+//            this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+//            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 0.4F;
+//            swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+//            walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+//            this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 1F;
+//
+//                }
+//        	}
+//        	
+//        	if (stack.getItem() instanceof ItemGunBase) {
+//                IGun nbt = ((IGun) stack.getItem());
+//                if (nbt.getBoolean("Gun")) {
+//        		
+//            this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+//            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 0.4F;
+//            swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+//            walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+//            this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 1F;
+//                }
+//        	}
+//        }
+//        
+//        else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+//        {
+//            this.Left_Arm.rotateAngleY = 0.1F + this.Head.rotateAngleY;
+//            this.Left_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX;
+//        }
+//    
+//        
+//        
+//        if (this.isSneak)
+//        {
+//        Head.rotationPointY = -11F;
+//        Head.rotationPointZ = -10F;
+//        Croach.rotationPointY = 3F;
+//        Croach.rotationPointZ = -6F;
+//        
+//        Torso.rotateAngleX = 0.1F;
+//        Croach.rotateAngleX = 0.2F;
+//        Chestplate.rotateAngleX = 0.02F;
+//        
+//        Right_Arm.rotateAngleX = 0.3F;
+//        Left_Arm.rotateAngleX = 0.3F;
+//        
+//        Right_Arm.rotateAngleZ = 0.2F;
+//        Left_Arm.rotateAngleZ = -0.2F;
+//        
+//        Right_Lower_Arm.rotateAngleX = -1.1F;
+//        Left_Lower_Arm.rotateAngleX = -1.1F;
+//        
+//        Right_Lower_Arm.rotateAngleY = -0.2F;
+//        Left_Lower_Arm.rotateAngleY = 0.2F;
+//    	}
+//        
+//        float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
+//		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
+//       
+//        
+//        if (!entity.onGround){
+//          	this.Torso.rotateAngleX = .2F *downwardPose;
+//          	this.Croach.rotateAngleX = .3F *downwardPose;
+//          	this.Croach.rotationPointZ = -6F *downwardPose + -1;
+//          	this.Croach.rotationPointY = 2F *downwardPose + -2;
+//          	this.Head.rotationPointZ = -15F *downwardPose + 3;
+//          	this.Head.rotationPointY = 3.5F *downwardPose +-16.5F;
+//          	 
+//          	Right_Arm.rotateAngleX = 0.4F*downwardPose;
+//            Left_Arm.rotateAngleX = 0.4F*downwardPose;
+//            
+//            Right_Arm.rotateAngleZ = 0.4F *downwardPose;
+//            Left_Arm.rotateAngleZ = -0.4F *downwardPose;
+//            
+//            Right_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
+//            Left_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
+//            
+//            Right_Lower_Arm.rotateAngleY = -0.2F *downwardPose;
+//            Left_Lower_Arm.rotateAngleY = 0.2F *downwardPose;
+////          	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
+//            
+//           }else{
+////        	   this.Head.rotationPointZ = 3F;
+////        	   this.Head.rotationPointY = -17F;
+//           }
+//        	   
+//        
+//        float globalSpeed = 0.38F;
+//        float globalDegree = 0.5F ;
+//        float height = 3F;
+//        
+//        Head.rotateAngleY= bipedHead.rotateAngleY;
+//        Head.rotateAngleX= bipedHead.rotateAngleX *0.7F;
+//        
+//        
+//        
+//        bob(Head, 2 *globalSpeed, height, false, f, f1);
+//        bob(Croach, 2 *globalSpeed, height, false, f, f1);
+//        
+//        walk(Torso, 2 *globalSpeed, 0.05F *globalDegree, false, 0F, 0F, f, f1);
+////        move(Head, 2 *globalSpeed, 0.2F *globalDegree, false, 0F, 0F, f, f1);
+//        swing(Torso, 1 * globalSpeed, 0.5F * globalDegree, false, 0F, 0F, f, f1);
+//        swing(Chestplate, 1 * globalSpeed, 0.15F * globalDegree, false, 0F, 0F, f, f1);
+//        
+//        walk(Left_Arm, 1 * globalSpeed,  1.F * globalDegree, true, 0.6F, 0.F, f, f1);
+//        walk(Right_Arm, 1 * globalSpeed,  -1.F * globalDegree, true, 0.6F, 0.F, f, f1);
+//        
+//        walk(Left_Lower_Arm, 1 * globalSpeed,  1.F * globalDegree, true, -1.3F, 0.6F, f, f1);
+//        walk(Right_Lower_Arm, 1 * globalSpeed,  -1.F * globalDegree, true, -1.3F, 0.6F, f, f1);
+//        
+//        
+//        
+////		 if (entity instanceof EntityArmorStand) {
+////	            EntityArmorStand entityarmorstand = (EntityArmorStand) entity;
+//////	            this.Head.rotateAngleX = 0.3F * entityarmorstand.getHeadRotation().getX();
+//////	            this.Head.rotateAngleY = 0.3F * entityarmorstand.getHeadRotation().getY();
+//////	            this.Head.rotateAngleZ = 0.3F * entityarmorstand.getHeadRotation().getZ();
+//////	            this.Head.setRotationPoint(0.0F, 1.0F, 0.0F);
+////
+////	         
+////	            copyModelAngles(this.bipedHead, this.Head);
+////	        }
+//        
+//        
+//    }
 }

@@ -104,6 +104,12 @@ public class ClientProxy implements IProxy {
     	RENDERER = new RenderArmor(Minecraft.getMinecraft().getRenderManager(), false);
     	RENDERER_NO_ITEM = new RenderArmorNoItem(Minecraft.getMinecraft().getRenderManager(), false);
     
+      //Megatron
+    	ModItems.TFPMEGATRON_HELMET.setRenderer(RENDERER);
+        ModItems.TFPMEGATRON_CHESTPLATE.setRenderer(RENDERER);
+        ModItems.TFPMEGATRON_LEGGINGS.setRenderer(RENDERER);
+        ModItems.TFPMEGATRON_BOOTS.setRenderer(RENDERER);
+    	
       //Menasor
     	ModItems.MENASOR_HELMET.setRenderer(RENDERER);
         ModItems.MENASOR_CHESTPLATE.setRenderer(RENDERER);
