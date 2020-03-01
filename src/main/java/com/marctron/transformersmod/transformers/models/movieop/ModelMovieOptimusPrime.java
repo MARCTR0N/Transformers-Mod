@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
+import com.marctron.transformersmod.capabilities.EntityAnimatorProvider;
 import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.items.gun.ItemGunBase;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
@@ -11,11 +12,14 @@ import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRender
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 
 import net.ilexiconn.llibrary.client.model.ModelAnimator;
+import net.ilexiconn.llibrary.server.animation.Animation;
+import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
@@ -4386,6 +4390,21 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 //        GlStateManager.disableBlend();
         GlStateManager.popMatrix();
         
+    }
+    
+    @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	
+    	Animation animation = IAnimatedEntity.NO_ANIMATION;
+    	float tick = 0;
+    	
+    	if (entitylivingbaseIn.hasCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null)) {
+    		IAnimatedEntity animator = entitylivingbaseIn.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
+    		animation = animator.getAnimation();
+    		tick = animator.getAnimationTick() + partialTickTime;
+    	}
+    	
+    	//do stuff with the animation info
     }
     
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z) {
