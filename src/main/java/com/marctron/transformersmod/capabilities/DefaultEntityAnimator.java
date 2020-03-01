@@ -22,6 +22,9 @@ public class DefaultEntityAnimator implements IAnimatedEntity {
 				this.currentAnimation = IAnimatedEntity.NO_ANIMATION;
 			}
 		}
+		else {
+			this.tick = 0;
+		}
 	}
 
 	@Override
@@ -32,6 +35,7 @@ public class DefaultEntityAnimator implements IAnimatedEntity {
 	@Override
 	public void setAnimation(Animation animation) {
 		currentAnimation = animation;
+		this.tick = 0;
 	}
 
 	@Override

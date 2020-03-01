@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @EventBusSubscriber
 public class CapabilityHandler {
 
-	public static final Animation PUNCH_ANIMATION = null;
+	public static final Animation PUNCH_ANIMATION = Animation.create(130);
 
 	 private static final Animation[] ANIMATIONS = {
 			 PUNCH_ANIMATION
@@ -41,13 +41,23 @@ public class CapabilityHandler {
 		
 		EntityLivingBase entity = event.getEntityLiving();
 		
+		IAnimatedEntity animator = null;
+		
 		if (entity.hasCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null)) {
-			IAnimatedEntity animator = entity.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
+			animator = entity.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
 			animator.setAnimationTick(animator.getAnimationTick() + 1);
 		}
 		
+		if (animator != null) {
+		
+			if (entity.isSwingInProgress && entity.swingProgressInt == 0) {
+				entity.isSwingInProgress = false;
+				animator.setAnimation(PUNCH_ANIMATION);
+			}
+		
+		}
+		
 		//set animations here I guess, or you could move this event to a new class.
-		Animation PUNCH_ANIMATION = Animation.create(130);
 		
 	}
 	

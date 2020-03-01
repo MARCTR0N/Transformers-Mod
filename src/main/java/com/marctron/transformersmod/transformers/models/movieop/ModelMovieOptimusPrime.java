@@ -34,7 +34,7 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 	private long cooldownTime = 1000; // 1000 milliseconds	
 	private long time;
 	
-	private ModelAnimator animator;
+	private ModelAnimator animator = ModelAnimator.create();
 	
 	public AdvancedModelBipedRenderer RIGHT_HAND;
 	public AdvancedModelBipedRenderer LEFT_HAND;
@@ -4364,23 +4364,27 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.LEFT_HAND;
-    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RIGHT_HAND;
+    	for (ItemStack stack : entity.getArmorInventoryList()) {
+    		if (stack.getItem() instanceof ItemArmorTransformer) {
+		    	((ModelBiped)((ItemArmorTransformer)stack.getItem()).getRenderer().getMainModel()).bipedLeftArm = this.LEFT_HAND;
+		    	((ModelBiped)((ItemArmorTransformer)stack.getItem()).getRenderer().getMainModel()).bipedRightArm = this.RIGHT_HAND;
+    		}
+    	}
     	//setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     	//RIGHT_ARM.rotateAngleX = (float) Math.sin(f2 / 25);
     	//GlStateManager.pushMatrix();
         //GlStateManager.scale(0.73F, 0.7F, 0.7F);
         //GlStateManager.translate(0.0F, 2F * f5, -0.15F);
 //    	super.render(entity, f, f1, f2, f3, f4, f5);
-		if (!bipedLeftLeg.isHidden && !bipedRightLeg.isHidden && !bipedLeftArm.isHidden && !bipedRightArm.isHidden
-				&& !bipedBody.isHidden && !bipedHead.isHidden) {
-			bipedLeftLeg.isHidden = true;
-			bipedRightLeg.isHidden = true;
-			bipedLeftArm.isHidden = true;
-			bipedRightArm.isHidden = true;
-			bipedBody.isHidden = true;
-			bipedHead.isHidden = true;
-		}
+//		if (!bipedLeftLeg.isHidden && !bipedRightLeg.isHidden && !bipedLeftArm.isHidden && !bipedRightArm.isHidden
+//				&& !bipedBody.isHidden && !bipedHead.isHidden) {
+			bipedLeftLeg.isHidden = false;
+			bipedRightLeg.isHidden = false;
+			bipedLeftArm.isHidden = false;
+			bipedRightArm.isHidden = false;
+			bipedBody.isHidden = false;
+			bipedHead.isHidden = false;
+//		}
         CHEST.render(f5);
         //GlStateManager.popMatrix();
         animate(f, f1, f2, f3, f4, f5, entity);
@@ -4397,24 +4401,18 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
     @Override
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
     	
-    	Animation animation = IAnimatedEntity.NO_ANIMATION;
-    	float tick = 0;
-    	
-    	if (entitylivingbaseIn.hasCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null)) {
-    		IAnimatedEntity animator = entitylivingbaseIn.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
-    		animation = animator.getAnimation();
-    		tick = animator.getAnimationTick() + partialTickTime;
+    	if (this.bipedBody.showModel && entitylivingbaseIn.hasCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null)) {
     		
-    		
+    		IAnimatedEntity animationState = entitylivingbaseIn.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
+    		this.animator.update(animationState);
+        	
+        	//do stuff with the animation info
+        	if (this.animator.setAnimation(CapabilityHandler.PUNCH_ANIMATION)) {
+	        	this.animator.startKeyframe(15);
+	        	this.animator.rotate(RIGHT_ARM, -0.5F, 0.2F, 1.8F);
+	        	this.animator.endKeyframe();
+        	}
     	}
-    	
-    	//do stuff with the animation info
-//    	if (CapabilityHandler.getAnimation() == CapabilityHandler.PUNCH_ANIMATION) {
-    	animator.setAnimation(CapabilityHandler.PUNCH_ANIMATION);
-    	animator.startKeyframe(15);
-    	animator.rotate(RIGHT_ARM, -0.5F, 0.2F, 1.8F);
-    	animator.endKeyframe();
-//    	}
     }
     
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z) {

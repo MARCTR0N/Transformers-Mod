@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
 
 public class EmptyPlayerModel extends ModelPlayer {
@@ -41,11 +42,23 @@ public class EmptyPlayerModel extends ModelPlayer {
 	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-		if (entityIn instanceof EntityLivingBase && entityIn.getArmorInventoryList().iterator().next().getItem() instanceof ItemArmorTransformer) {
-			ItemArmorTransformer item = (ItemArmorTransformer) entityIn.getArmorInventoryList().iterator().next().getItem();
-			ModelBiped model = item.getArmorModel((EntityLivingBase) entityIn, entityIn.getArmorInventoryList().iterator().next(), EntityEquipmentSlot.CHEST, this);
-			if ( model != null) {
-				model.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+		if (entityIn instanceof EntityLivingBase) {
+			boolean flag = false;
+			for (ItemStack stack : entityIn.getArmorInventoryList()) {
+				if (stack.getItem() instanceof ItemArmorTransformer) {
+					ItemArmorTransformer item = (ItemArmorTransformer) stack.getItem();
+					ModelBiped model = item.getArmorModel((EntityLivingBase) entityIn, stack, EntityEquipmentSlot.CHEST, this);
+					if ( model != null) {
+						if (flag) {
+							model.setVisible(false);
+						}
+						else {
+							model.setVisible(true);
+							model.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+							flag = true;
+						}
+					}
+				}
 			}
 		}
 		//super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
