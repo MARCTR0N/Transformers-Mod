@@ -15,6 +15,7 @@ import com.marctron.transformersmod.blocks.ItemSpawner;
 import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
+import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
@@ -125,6 +126,7 @@ import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -1344,7 +1346,7 @@ public class RegistryHandler {
                     .forEach(item -> {
                         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
                     });
-             
+             ModelLoaderRegistry.registerLoader(new BBGunLoader());
         }
         
         @SubscribeEvent

@@ -1,6 +1,9 @@
-package com.marctron.transformersmod.util;
+package com.marctron.transformersmod.util.client;
 
 import com.marctron.transformersmod.items.ItemBasicMeta;
+import com.marctron.transformersmod.util.LogHelper;
+import com.marctron.transformersmod.util.Reference;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
