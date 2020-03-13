@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import org.lwjgl.input.Keyboard;
 
+import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
@@ -26,6 +27,7 @@ import com.marctron.transformersmod.events.ClientEvents;
 //import com.marctron.transformersmod.fpr.playerdummy.RenderPlayerDummy;
 import com.marctron.transformersmod.items.ACHILLESA4;
 import com.marctron.transformersmod.items.DARKSTARSABER;
+import com.marctron.transformersmod.items.M1_GARAND_FULL;
 import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
 import com.marctron.transformersmod.util.Reference;
@@ -57,6 +59,7 @@ public class ClientProxy implements IProxy {
 
     public static final KeyBinding ALT_MODE = new KeyBinding("key.transform", Keyboard.KEY_X, "category.transformers");
     public static final KeyBinding ROBOT_MODE = new KeyBinding("key.robotmode", Keyboard.KEY_Y, "category.transformers");
+    public static final KeyBinding RELOAD = new KeyBinding("key.reload", Keyboard.KEY_R, "category.transformers");
     
 //    public static RFP2Keybind keybindArmsToggle         = new RFP2Keybind("key.arms.desc", Keyboard.KEY_SEMICOLON, "key.rfp2.category");
 //    public static RFP2Keybind keybindModToggle          = new RFP2Keybind("key.mod.desc", Keyboard.KEY_APOSTROPHE, "key.rfp2.category");
@@ -74,6 +77,7 @@ public class ClientProxy implements IProxy {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
         ClientRegistry.registerKeyBinding(ALT_MODE);
+        ClientRegistry.registerKeyBinding(RELOAD);
         
    
         registerEntityRenderers();
@@ -481,7 +485,10 @@ public class ClientProxy implements IProxy {
 	    RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.ACHILLESA4, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ACHILLESA4.name, "inventory"));
 	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.ACHILLESA4, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ACHILLESA4.name,"inventory"));
-
+	    
+	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.M1_GARAND_FULL, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + M1_GARAND_FULL.name, "inventory"));
+	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.M1_GARAND_FULL, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + M1_GARAND_FULL.name,"inventory"));
+	    
 	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name, "inventory"));
 	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name,"inventory"));
 

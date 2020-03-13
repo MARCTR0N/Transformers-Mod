@@ -4408,8 +4408,34 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
         	
         	//do stuff with the animation info
         	if (this.animator.setAnimation(CapabilityHandler.PUNCH_ANIMATION)) {
-	        	this.animator.startKeyframe(15);
-	        	this.animator.rotate(RIGHT_ARM, -0.5F, 0.2F, 1.8F);
+        		
+	        	this.animator.startKeyframe(5);
+//	        	this.animator.rotate(RIGHT_ARM, -0.8F, 0.2F, 0.2F);
+//	        	this.animator.rotate(RIGHT_LOWER_ARM, -0.8F, 0.2F, 0.F);
+	        	this.animator.rotate(CHEST, 0F, 0.2F, 0.F);
+	        	this.animator.rotate(RIGHT_LEG, 0F, -0.2F, -0.01F);
+	        	this.animator.rotate(RIGHT_LEG_1, 0F, -0.2F, 0.01F);
+	        	this.animator.endKeyframe();
+	        	
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(RIGHT_ARM, -0.8F, 0.2F, 0.F);
+	        	this.animator.rotate(RIGHT_LOWER_ARM, -0.8F, 0.2F, 0.F);
+	        	this.animator.rotate(LEFT_ARM, 0.3F, 0.1F, -0.1F);
+	        	this.animator.rotate(LEFT_LOWER_ARM, -0.8F, 0.F, 0.F);
+	        	this.animator.endKeyframe();
+	        	
+	        	
+	        	this.animator.startKeyframe(2);
+	        	
+	        	this.animator.rotate(RIGHT_ARM, -0.8F, 0.2F, 0.F);
+	        	this.animator.rotate(RIGHT_LOWER_ARM, -0.8F, 0.2F, 0.F);
+	        	this.animator.rotate(LEFT_ARM, 0.3F, 0.1F, -0.1F);
+	        	this.animator.rotate(LEFT_LOWER_ARM, -0.8F, 0.F, 0.F);
+	        	this.animator.endKeyframe();
+	        	
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(RIGHT_ARM, 0.F, 0.F, 0F);
+	        	this.animator.rotate(LEFT_ARM, 0.F, 0.F, 0F);
 	        	this.animator.endKeyframe();
         	}
     	}
@@ -4827,10 +4853,11 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 //	        ThighWheel.rotateAngleX =0;
 	        }
     	
-    protected ModelRenderer getArmForSide(EnumHandSide side)
-    {
-        return side == EnumHandSide.LEFT ? this.LEFT_ARM : this.RIGHT_ARM;
-    }
+//    protected ModelRenderer getArmForSide(EnumHandSide side)
+//    {
+//		return null;
+////        return side == EnumHandSide.LEFT ? this.LEFT_ARM : this.RIGHT_ARM;
+//    }
     
     
 }

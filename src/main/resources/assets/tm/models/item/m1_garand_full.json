@@ -1,0 +1,241 @@
+{
+    "submodels": [
+        {
+            "model": "this:action",
+            "predicates": {
+                "slide": [
+                    {
+                        "value": "variable",
+                        "transformation": {
+                            "translation": [0, 0, 0.03]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "model": "this:bolt",
+            "predicates": {
+                "slide": [
+                    {
+                    	"order": 0,
+                        "value": {
+                        	"min": 0.0,
+                        	"max": 1.0,
+                        	"scale": true
+                        },
+                        "transformation": {
+                            "rotation": [0, 0, -30],
+                            "center": [-0.03125, 0.1709375, 0.0946875]
+                        }
+                    },
+                    {
+                    	"order": 0,
+                    	"value": {
+                    		"min": 1.0001,
+                    		"max": 4.0
+                    	},
+                    	"transformation": {
+                    		"rotation": [0, 0, -30],
+                            "center": [-0.03125, 0.1709375, 0.0946875]
+                    	}
+                    },
+                    {
+                    	"order": 1,
+                    	"value": {
+                    		"min": 0.8,
+                    		"max": 4.0,
+                    		"scale": true,
+                    		"local": true
+                    	},
+                    	"transformation": {
+                    		"rotation": [1.5, 0, 0],
+                            "center": [-0.03125, 0.1709375, 0.0946875]
+                    	}
+                    },
+                    {
+                    	"order": 2,
+                    	"value": {
+                    		"min": 0.8,
+                    		"max": 4.0,
+                    		"scale": true,
+                    		"local": true
+                    	},
+                    	"transformation": {
+                    		"translation": [0, 0, 0.03]
+                    	}
+                    }
+                ]
+            }
+        },
+        {
+        	"model": "receiver:m1_garand_clip.bbmodel",
+        	"predicates": {
+        		"mag": [
+        			{
+        				"order": 0,
+        				"value": 0,
+        				"transformation": {
+        					"scale": [0, 0, 0]
+        				}
+        			},
+        			{
+        				"order": 1,
+        				"value": "variable",
+        				"transformation": {
+        					"translation": [0, -0.0625, 0]
+        				}
+        			}
+        		]
+        	}
+        },
+        {
+        	"model": "receiver:bullet30-06.bbmodel",
+        	"predicates": {
+        		"chambered": [
+        			{
+        				"value": 0,
+        				"order": 1,
+        				"transformation": {
+        					"scale": [0, 0, 0]
+        				}
+        			}
+        		],
+        		"slide": [
+        			{
+        				"value": "default",
+        				"transformation": {
+        					"translation": [0, 0, -0.11]
+        				}
+        			},
+        			{
+        				"value": "variable",
+        				"order": 2,
+        				"transformation": {
+        					"translation": [0, 0, 0.03]
+        				}
+        			}
+        		]
+        	}
+        }
+    ],
+  "basetransformation": {
+    "predicates": {
+      "fired": {
+        "FIRST_PERSON_LEFT_HAND": [
+          {
+            "value": "variable",
+            "order": 2,
+            "transformation": {
+              "translation": [0, 0, 0.0625]
+            }
+          }
+        ],
+        "FIRST_PERSON_RIGHT_HAND": [
+          {
+            "value": "variable",
+            "order": 2,
+            "transformation": {
+              "translation": [0, 0, 0.0625]
+            }
+          }
+        ],
+        "THIRD_PERSON_LEFT_HAND": [
+          {
+            "value": "variable",
+            "order": 2,
+            "transformation": {
+              "translation": [0, 0, 0.0625]
+            }
+          }
+        ],
+        "THIRD_PERSON_RIGHT_HAND": [
+          {
+            "value": "variable",
+            "order": 2,
+            "transformation": {
+              "translation": [0, 0, 0.0625]
+            }
+          }
+        ]
+      },
+      "ads": {
+        "FIRST_PERSON_LEFT_HAND": [
+          {
+            "value": "variable",
+            "order": 3,
+            "transformation": {
+              "translation": [-0.21625, 0.16375, 0.1875]
+            }
+          }
+        ],
+        "FIRST_PERSON_RIGHT_HAND": [
+          {
+            "value": "variable",
+            "order": 3,
+            "transformation": {
+              "translation": [-0.21625, 0.16375, 0.1875]
+            }
+          }
+        ]
+      },
+      "check": {
+        "FIRST_PERSON_LEFT_HAND": [
+          {
+            "value": "variable",
+            "order": 0,
+            "transformation": {
+              "center": [0, 0.25, 0],
+              "rotation": [0, 0, 18]
+            }
+          },
+          {
+            "value": "variable",
+            "order": 1,
+            "transformation": {
+              "center": [0, 0, 0],
+              "rotation": [0, 20, 0]
+            }
+          }
+        ],
+        "FIRST_PERSON_RIGHT_HAND": [
+          {
+            "value": "variable",
+            "order": 0,
+            "transformation": {
+              "center": [0, 0.125, 0],
+              "rotation": [0, 0, -16],
+              "translation": [0, 0, -0.0625]
+            }
+          },
+          {
+            "value": "variable",
+            "order": 1,
+            "transformation": {
+              "translation": [0, 0, 0],
+              "rotation": [0, -20, 0]
+            }
+          }
+        ],
+        "THIRD_PERSON_LEFT_HAND": [
+          {
+            "value": "variable",
+            "transformation": {
+              "translation": [0, 0.4, 0.8],
+              "rotation": [0, -10, 10]
+            }
+          }
+        ],
+        "THIRD_PERSON_RIGHT_HAND": [
+          {
+            "value": "variable",
+            "transformation": {
+              "translation": [0, 0.4, 0.1],
+              "rotation": [0, 10, -10]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

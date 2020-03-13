@@ -35,6 +35,7 @@ import com.marctron.transformersmod.items.ItemHammer;
 import com.marctron.transformersmod.items.ItemMedkit;
 import com.marctron.transformersmod.items.ItemPhaseShifter;
 import com.marctron.transformersmod.items.ItemStarSaber;
+import com.marctron.transformersmod.items.M1_GARAND_FULL;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
@@ -200,6 +201,10 @@ public class RegistryHandler {
 
     @GameRegistry.ObjectHolder(Reference.MOD_ID)
     public static final class ModItems {
+    	
+      //BB
+    	public static final Item M1_GARAND_FULL =null;
+    	
       //Relics
     	public static final Item PHASE_SHIFTER = null;
     	public static final Item STAR_SABER = null;
@@ -736,6 +741,9 @@ public class RegistryHandler {
         		  //OBJ
         			new ACHILLESA4("achillesa4"),
         			new DARKSTARSABER("darkstarsaber"),
+        			
+        		  //BB
+        			new M1_GARAND_FULL("m1_garand_full"),
         			
             		
             	  //Machinery
@@ -1352,7 +1360,7 @@ public class RegistryHandler {
         @SubscribeEvent
     	public static void onPotionRegister(RegistryEvent.Register<PotionType> event) {
     		ModPotionTypes.registerPotionTypes();
-    		System.out.println("gagagugu");
+    		
     	}
     }
     
