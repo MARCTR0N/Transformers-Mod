@@ -69,7 +69,7 @@
             }
         },
         {
-        	"model": "receiver:m1_garand_clip.bbmodel",
+        	"model": "tm:m1_garand_clip.bbmodel",
         	"predicates": {
         		"mag": [
         			{
@@ -90,7 +90,7 @@
         	}
         },
         {
-        	"model": "receiver:bullet30-06.bbmodel",
+        	"model": "tm:bullet30-06.bbmodel",
         	"predicates": {
         		"chambered": [
         			{

@@ -486,8 +486,8 @@ public class ClientProxy implements IProxy {
 	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.ACHILLESA4, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ACHILLESA4.name, "inventory"));
 	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.ACHILLESA4, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + ACHILLESA4.name,"inventory"));
 	    
-	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.M1_GARAND_FULL, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + M1_GARAND_FULL.name, "inventory"));
-	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.M1_GARAND_FULL, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + M1_GARAND_FULL.name,"inventory"));
+	    //renderItem.getItemModelMesher().register(RegistryHandler.ModItems.M1_GARAND_FULL, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + M1_GARAND_FULL.name, "inventory"));
+	    //ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.M1_GARAND_FULL, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + M1_GARAND_FULL.name,"inventory"));
 	    
 	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name, "inventory"));
 	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name,"inventory"));

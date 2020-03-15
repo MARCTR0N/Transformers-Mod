@@ -743,7 +743,7 @@ public class RegistryHandler {
         			new DARKSTARSABER("darkstarsaber"),
         			
         		  //BB
-        			new M1_GARAND_FULL("m1_garand_full"),
+        			new M1_GARAND_FULL("m1_garand_full.bbmodel"),
         			
             		
             	  //Machinery

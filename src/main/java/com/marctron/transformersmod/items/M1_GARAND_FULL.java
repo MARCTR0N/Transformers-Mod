@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 
 public class M1_GARAND_FULL extends Item{
 
-	public static final String name = "m1_garand_full";
+	public static final String name = "m1_garand_full.bbmodel";
 		
 		 protected final String TOOLTIP;
 
