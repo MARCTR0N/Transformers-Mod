@@ -98,6 +98,7 @@ public class Main {
         }
 
     };
+    
     public static Logger logger;
     
     public static CreativeTabs tabAutobot = new CreativeTabs("tabAutobot") {
@@ -105,6 +106,19 @@ public class Main {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(RegistryHandler.ModItems.A_I);
+        };
+
+        @Override
+        public boolean hasSearchBar() {
+            return false;
+        }
+
+    };
+    public static CreativeTabs tabFisk = new CreativeTabs("tabFisk") {
+
+        @Override
+        public ItemStack getTabIconItem() {
+            return new ItemStack(RegistryHandler.ModItems.ENERGON_CRYSTAL);
         };
 
         @Override

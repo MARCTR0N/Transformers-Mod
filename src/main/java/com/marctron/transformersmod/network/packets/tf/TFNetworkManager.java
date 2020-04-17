@@ -2,8 +2,10 @@ package com.marctron.transformersmod.network.packets.tf;
 
 import com.marctron.transformersmod.network.packets.PacketDrivingSound;
 import com.marctron.transformersmod.network.packets.PacketShootRocket;
+import com.marctron.transformersmod.network.packets.motormaster.PacketMotormaster;
 import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrime;
 import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrimeStealth;
+import com.marctron.transformersmod.network.packets.tfp.magnus.PacketTFPMagnus;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -44,6 +46,8 @@ public static void registerPackets()
 //    registerPacket(MessageConnectReceiver.Handler.class, MessageConnectReceiver.class);
     registerPacket(MessageUpdateArmor.Handler.class, MessageUpdateArmor.class);
     registerPacket(PacketMovieOptimusPrime.Handler.class, PacketMovieOptimusPrime.class);
+    registerPacket(PacketMotormaster.Handler.class, PacketMotormaster.class);
+    registerPacket(PacketTFPMagnus.Handler.class, PacketTFPMagnus.class);
     registerPacket(PacketMovieOptimusPrimeStealth.Handler.class, PacketMovieOptimusPrimeStealth.class);
     registerPacket(PacketShootRocket.Handler.class, PacketShootRocket.class);
     registerPacket(PacketDrivingSound.Handler.class, PacketDrivingSound.class);

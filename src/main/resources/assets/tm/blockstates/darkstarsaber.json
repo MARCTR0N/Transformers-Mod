@@ -17,7 +17,7 @@
                 "thirdperson_righthand": {
                     "rotation": [ { "x": 0 }, { "y": 0 }, { "z": -90 } ],
                     "translation": [ -0.075, 1.25, 0.6 ],
-                    "scale": 0.02
+                    "scale": 0.03
                 },
                 "gui": {
                     "rotation": [ { "x": 60 }, { "y": -45 }, { "z": 0 } ],

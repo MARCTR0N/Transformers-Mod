@@ -33,6 +33,17 @@
   },
   
   
+     "transformation.tfptransform": {
+    "category": "player",
+    "subtitle": "transformation.tfptransform",
+    "sounds": [
+      {
+        "name": "tm:transformation/tfptransform",
+        "stream": true
+      }
+    ]
+  },
+  
     "transformation.wfcprimerobot": {
     "category": "player",
     "subtitle": "transformation.transform_robot",

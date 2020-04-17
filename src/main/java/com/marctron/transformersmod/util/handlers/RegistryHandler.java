@@ -96,7 +96,30 @@ import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid6;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid7;
 import com.marctron.transformersmod.transformers.transformer.tarn.TarnMid8;
 import com.marctron.transformersmod.transformers.transformer.tfp.megatron.TFPMegatron;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.TFPMagnusAltmode;
 import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.TFPUltraMagnus;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid1;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid10;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid11;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid12;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid13;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid14;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid15;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid16;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid17;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid18;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid19;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid2;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid20;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid21;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid22;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid3;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid4;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid5;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid6;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid7;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid8;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.transformation.TFPMagnusMid9;
 import com.marctron.transformersmod.transformers.transformer.vehicon.ArmorModelVehicon;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconAltmode;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
@@ -109,6 +132,22 @@ import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.brea
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.deadend.Deadend;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.dragstrip.Dragstrip;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.MotormasterAltmode;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid1;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid10;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid11;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid12;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid13;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid14;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid15;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid2;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid3;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid4;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid5;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid6;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid7;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid8;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid9;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.block.Block;
@@ -213,6 +252,7 @@ public class RegistryHandler {
     	
       //TabIcons
     	public static final Item AMMO = null;
+    	public static final Item ENERGON_CRYSTAL = null;
     	
       //Consumables
         public static final Item MEDKIT = null;
@@ -321,6 +361,89 @@ public class RegistryHandler {
         public static final ItemArmorTransformer MOTORMASTER_LEGGINGS = null;
         public static final ItemArmorTransformer MOTORMASTER_BOOTS = null;
         
+        	//transformation
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID1 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID1 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID1 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID1 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID2 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID2 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID2 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID2 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID3 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID3 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID3 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID3 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID4 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID4 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID4 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID4 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID5 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID5 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID5 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID5 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID6 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID6 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID6 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID6 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID7 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID7 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID7 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID7 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID8 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID8 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID8 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID8 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID9 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID9 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID9 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID9 = null;
+        	
+         	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID10 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID10 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID10 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID10 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID11 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID11 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID11 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID11 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID12 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID12 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID12 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID12 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID13 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID13 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID13 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID13 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID14 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID14 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID14 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID14 = null;
+        	
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_MID15 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_MID15 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_MID15 = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_MID15 = null;
+        	
+        	//Altmode
+        	public static final ItemArmorTransformer MOTORMASTER_HELMET_ALTMODE = null;
+        	public static final ItemArmorTransformer MOTORMASTER_CHESTPLATE_ALTMODE = null;
+        	public static final ItemArmorTransformer MOTORMASTER_LEGGINGS_ALTMODE = null;
+        	public static final ItemArmorTransformer MOTORMASTER_BOOTS_ALTMODE = null;
+        	
+        
       //Menasor
         public static final ItemArmorTransformer MENASOR_HELMET = null;
         public static final ItemArmorTransformer MENASOR_CHESTPLATE = null;
@@ -345,7 +468,122 @@ public class RegistryHandler {
         public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE = null;
         public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS = null;
         public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS = null;
-        
+        	//transformation
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID1 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID1 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID1 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID1 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID2 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID2 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID2 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID2 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID3 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID3 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID3 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID3 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID4 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID4 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID4 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID4 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID5 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID5 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID5 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID5 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID6 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID6 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID6 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID6 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID7 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID7 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID7 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID7 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID8 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID8 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID8 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID8 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID9 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID9 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID9 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID9 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID10 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID10 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID10 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID10 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID11 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID11 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID11 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID11 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID12 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID12 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID12 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID12 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID13 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID13 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID13 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID13 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID14 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID14 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID14 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID14 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID15 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID15 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID15 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID15 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID16 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID16 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID16 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID16 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID17 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID17 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID17 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID17 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID18 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID18 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID18 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID18 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID19 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID19 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID19 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID19 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID20 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID20 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID20 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID20 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID21 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID21 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID21 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID21 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_MID22 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_MID22 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_MID22 = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_MID22 = null;
+        		
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_HELMET_ALTMODE = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_CHESTPLATE_ALTMODE = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_LEGGINGS_ALTMODE = null;
+        		public static final ItemArmorTransformer ULTRA_MAGNUS_BOOTS_ALTMODE = null;
+        		
         
       //Sideswipe
         public static final ItemArmorTransformer SIDESWIPE_HELMET = null;
@@ -758,6 +996,7 @@ public class RegistryHandler {
             		
             	  //TabIcons
             		new ItemBase("ammo"),
+            		new ItemBase("energon_crystal"),
             		
             	  //Consumables
             	    new ItemMedkit("medkit", 3, 10, 100),
@@ -873,12 +1112,209 @@ public class RegistryHandler {
             	    new Motormaster("motormaster_chestplate", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
             	    new Motormaster("motormaster_leggings", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
             	    new Motormaster("motormaster_boots", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	//transformation
+            	    	new MotormasterMid1("motormaster_helmet_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid1("motormaster_chestplate_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid1("motormaster_leggings_mid1", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid1("motormaster_boots_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid2("motormaster_helmet_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid2("motormaster_chestplate_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid2("motormaster_leggings_mid2", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid2("motormaster_boots_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid3("motormaster_helmet_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid3("motormaster_chestplate_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid3("motormaster_leggings_mid3", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid3("motormaster_boots_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid4("motormaster_helmet_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid4("motormaster_chestplate_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid4("motormaster_leggings_mid4", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid4("motormaster_boots_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid5("motormaster_helmet_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid5("motormaster_chestplate_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid5("motormaster_leggings_mid5", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid5("motormaster_boots_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid6("motormaster_helmet_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid6("motormaster_chestplate_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid6("motormaster_leggings_mid6", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid6("motormaster_boots_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid7("motormaster_helmet_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid7("motormaster_chestplate_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid7("motormaster_leggings_mid7", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid7("motormaster_boots_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid8("motormaster_helmet_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid8("motormaster_chestplate_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid8("motormaster_leggings_mid8", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid8("motormaster_boots_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid9("motormaster_helmet_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid9("motormaster_chestplate_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid9("motormaster_leggings_mid9", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid9("motormaster_boots_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid10("motormaster_helmet_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid10("motormaster_chestplate_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid10("motormaster_leggings_mid10", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid10("motormaster_boots_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),           	    	
+            	    	
+            	    	new MotormasterMid11("motormaster_helmet_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid11("motormaster_chestplate_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid11("motormaster_leggings_mid11", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid11("motormaster_boots_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid12("motormaster_helmet_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid12("motormaster_chestplate_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid12("motormaster_leggings_mid12", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid12("motormaster_boots_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid13("motormaster_helmet_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid13("motormaster_chestplate_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid13("motormaster_leggings_mid13", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid13("motormaster_boots_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid14("motormaster_helmet_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid14("motormaster_chestplate_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid14("motormaster_leggings_mid14", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid14("motormaster_boots_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	new MotormasterMid15("motormaster_helmet_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterMid15("motormaster_chestplate_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterMid15("motormaster_leggings_mid15", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterMid15("motormaster_boots_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	//Altmode
+            	    	new MotormasterAltmode("motormaster_helmet_altmode", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    	new MotormasterAltmode("motormaster_chestplate_altmode", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    	new MotormasterAltmode("motormaster_leggings_altmode", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    	new MotormasterAltmode("motormaster_boots_altmode", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	
+            	    	
             	    
             	  //TFP Ultra Magnus
             	    new TFPUltraMagnus("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
             	    new TFPUltraMagnus("ultra_magnus_chestplate", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
             	    new TFPUltraMagnus("ultra_magnus_leggings", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
             	    new TFPUltraMagnus("ultra_magnus_boots", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    	//transformation
+            	    		new TFPMagnusMid1("ultra_magnus_helmet_mid1", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid1("ultra_magnus_chestplate_mid1", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid1("ultra_magnus_leggings_mid1", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid1("ultra_magnus_boots_mid1", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid2("ultra_magnus_helmet_mid2", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid2("ultra_magnus_chestplate_mid2", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid2("ultra_magnus_leggings_mid2", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid2("ultra_magnus_boots_mid2", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid3("ultra_magnus_helmet_mid3", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid3("ultra_magnus_chestplate_mid3", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid3("ultra_magnus_leggings_mid3", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid3("ultra_magnus_boots_mid3", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid4("ultra_magnus_helmet_mid4", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid4("ultra_magnus_chestplate_mid4", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid4("ultra_magnus_leggings_mid4", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid4("ultra_magnus_boots_mid4", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid5("ultra_magnus_helmet_mid5", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid5("ultra_magnus_chestplate_mid5", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid5("ultra_magnus_leggings_mid5", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid5("ultra_magnus_boots_mid5", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid6("ultra_magnus_helmet_mid6", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid6("ultra_magnus_chestplate_mid6", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid6("ultra_magnus_leggings_mid6", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid6("ultra_magnus_boots_mid6", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid7("ultra_magnus_helmet_mid7", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid7("ultra_magnus_chestplate_mid7", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid7("ultra_magnus_leggings_mid7", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid7("ultra_magnus_boots_mid7", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid8("ultra_magnus_helmet_mid8", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid8("ultra_magnus_chestplate_mid8", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid8("ultra_magnus_leggings_mid8", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid8("ultra_magnus_boots_mid8", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid9("ultra_magnus_helmet_mid9", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid9("ultra_magnus_chestplate_mid9", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid9("ultra_magnus_leggings_mid9", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid9("ultra_magnus_boots_mid9", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid10("ultra_magnus_helmet_mid10", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid10("ultra_magnus_chestplate_mid10", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid10("ultra_magnus_leggings_mid10", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid10("ultra_magnus_boots_mid10", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid11("ultra_magnus_helmet_mid11", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid11("ultra_magnus_chestplate_mid11", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid11("ultra_magnus_leggings_mid11", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid11("ultra_magnus_boots_mid11", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid12("ultra_magnus_helmet_mid12", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid12("ultra_magnus_chestplate_mid12", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid12("ultra_magnus_leggings_mid12", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid12("ultra_magnus_boots_mid12", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid13("ultra_magnus_helmet_mid13", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid13("ultra_magnus_chestplate_mid13", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid13("ultra_magnus_leggings_mid13", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid13("ultra_magnus_boots_mid13", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid14("ultra_magnus_helmet_mid14", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid14("ultra_magnus_chestplate_mid14", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid14("ultra_magnus_leggings_mid14", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid14("ultra_magnus_boots_mid14", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid15("ultra_magnus_helmet_mid15", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid15("ultra_magnus_chestplate_mid15", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid15("ultra_magnus_leggings_mid15", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid15("ultra_magnus_boots_mid15", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid16("ultra_magnus_helmet_mid16", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid16("ultra_magnus_chestplate_mid16", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid16("ultra_magnus_leggings_mid16", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid16("ultra_magnus_boots_mid16", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid17("ultra_magnus_helmet_mid17", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid17("ultra_magnus_chestplate_mid17", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid17("ultra_magnus_leggings_mid17", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid17("ultra_magnus_boots_mid17", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid18("ultra_magnus_helmet_mid18", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid18("ultra_magnus_chestplate_mid18", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid18("ultra_magnus_leggings_mid18", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid18("ultra_magnus_boots_mid18", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid19("ultra_magnus_helmet_mid19", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid19("ultra_magnus_chestplate_mid19", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid19("ultra_magnus_leggings_mid19", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid19("ultra_magnus_boots_mid19", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid20("ultra_magnus_helmet_mid20", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid20("ultra_magnus_chestplate_mid20", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid20("ultra_magnus_leggings_mid20", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid20("ultra_magnus_boots_mid20", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid21("ultra_magnus_helmet_mid21", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid21("ultra_magnus_chestplate_mid21", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid21("ultra_magnus_leggings_mid21", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid21("ultra_magnus_boots_mid21", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		
+            	    		new TFPMagnusMid22("ultra_magnus_helmet_mid22", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusMid22("ultra_magnus_chestplate_mid22", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusMid22("ultra_magnus_leggings_mid22", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusMid22("ultra_magnus_boots_mid22", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
+            	    		//Altmode
+            	    		new TFPMagnusAltmode("ultra_magnus_helmet_altmode", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+            	    		new TFPMagnusAltmode("ultra_magnus_chestplate_altmode", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+            	    		new TFPMagnusAltmode("ultra_magnus_leggings_altmode", MAGNUS_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+            	    		new TFPMagnusAltmode("ultra_magnus_boots_altmode", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.FEET),
             	    
             	  //Tarn
             	    new Tarn2("tarn_helmet", TARN2_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),

@@ -5,6 +5,9 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.network.packets.motormaster.PacketMotormaster;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
+import com.marctron.transformersmod.network.packets.tfp.magnus.PacketTFPMagnus;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
@@ -30,9 +33,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TFPUltraMagnus extends ItemArmorTransformer {
 
-    
+	private long lastPress = 0;
+	private long cooldownTime = 100; // 2000 milliseconds	
+	private long time;
+	
+	private long lastPressTransform = 0;
+	private long cooldownTimeTransform = 3000; // 2000 milliseconds	
+	private long timeTransform;
 
     public TFPUltraMagnus(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    	
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -48,42 +58,47 @@ public class TFPUltraMagnus extends ItemArmorTransformer {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+    	Altmode(false);
+    	player.eyeHeight=1.9f;
 //			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0 ));
 //        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         super.onArmorTick(world, player, itemStack);
         
       
-        
+        if (world.isRemote)
+		{
+			
 
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_HELMET) {
-            if (world.isRemote) {
-                if (ClientProxy.ALT_MODE.isKeyDown()) {
-                    player.inventory.armorInventory.set(3, new ItemStack(RegistryHandler.ModItems.TARN_MID1_HELMET));
-                    //player.inventory.armorInventory.set(3, new ItemStack(ModItems.VEHICON_ALTMODE_HELMET));
-                    Minecraft.getMinecraft().player.playSound(SoundsHandler.TRANSFORMTWO, 0.3F, 1.9F);
-                }
-            }
-        }
+			
+			
+			
+			long timeTransform = System.currentTimeMillis();	
+			if (timeTransform > lastPressTransform + cooldownTimeTransform) {
+	
+			if (ClientProxy.ROBOT_MODE.isKeyDown()) {
+	 			
+				
+		
+				
+				{
+					TFNetworkManager.networkWrapper.sendToServer(new PacketTFPMagnus());
+					long time = System.currentTimeMillis();	
+					if (time > lastPress + cooldownTime) {
 
-
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_LEGGINGS) {
-            if (world.isRemote) {
-                if (ClientProxy.ALT_MODE.isKeyDown()) {
-                    player.inventory.armorInventory.set(1, new ItemStack(RegistryHandler.ModItems.TARN_MID1_LEGGINGS));
-                    //player.inventory.armorInventory.set(1, new ItemStack(ModItems.VEHICON_ALTMODE_LEGGINGS));
-
-                }
-            }
-        }
-        if (itemStack.getItem() == RegistryHandler.ModItems.TARN_BOOTS) {
-            if (world.isRemote) {
-                if (ClientProxy.ALT_MODE.isKeyDown()) {
-                    player.inventory.armorInventory.set(0, new ItemStack(RegistryHandler.ModItems.TARN_MID1_BOOTS));
-                    //player.inventory.armorInventory.set(0, new ItemStack(ModItems.VEHICON_ALTMODE_BOOTS));
-
-                }
-            }
-        }
+				        if (itemStack.getItem() == RegistryHandler.ModItems.ULTRA_MAGNUS_BOOTS) {
+				            if (world.isRemote) {
+				            	player.playSound(SoundsHandler.TFPTRANSFORM, 0.8F, 1.0F);	
+				            }
+				        }
+							
+//							System.out.println("ouch");
+				    	lastPress = time;
+				    } 
+				}
+				
+			}
+			}
+		}
     }
 
     @SideOnly(Side.CLIENT)

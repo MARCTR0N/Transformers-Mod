@@ -8,8 +8,14 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.network.packets.motormaster.PacketMotormaster;
+import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrime;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
+import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ArmorTypes;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
+import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
@@ -26,6 +32,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Motormaster extends ItemArmorTransformer{
+	
+	private long lastPress = 0;
+	private long cooldownTime = 100; // 2000 milliseconds	
+	private long time;
+	
+	private long lastPressTransform = 0;
+	private long cooldownTimeTransform = 3000; // 2000 milliseconds	
+	private long timeTransform;
 	
 	public Motormaster(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -46,7 +60,43 @@ public class Motormaster extends ItemArmorTransformer{
 			if(player.onGround){
 					player.motionX=player.motionX * 1.06F;
 					player.motionZ=player.motionZ * 1.06F;
+					Altmode(false);
+				
 		}
+			if (world.isRemote)
+			{
+				
+
+				
+				
+				
+				long timeTransform = System.currentTimeMillis();	
+				if (timeTransform > lastPressTransform + cooldownTimeTransform) {
+		
+				if (ClientProxy.ROBOT_MODE.isKeyDown()) {
+		 			
+					
+			
+					
+					{
+						TFNetworkManager.networkWrapper.sendToServer(new PacketMotormaster());
+						long time = System.currentTimeMillis();	
+						if (time > lastPress + cooldownTime) {
+							 if (itemStack.getItem() == RegistryHandler.ModItems.MOTORMASTER_BOOTS) {
+						            if (world.isRemote) {
+						            	player.playSound(SoundsHandler.WFCPRIMEROBOT, 2F, 1F);	
+						            }
+						        }
+//								player.playSound(SoundsHandler.TFPTRANSFORM, 0.5F, 1.0F);
+//								player.playSound(SoundsHandler.WFCPRIMEROBOT, 0.8F, 1.0F);	
+//								System.out.println("ouch");
+					    	lastPress = time;
+					    } 
+					}
+					
+				}
+				}
+			}
 	}
 	
 	@Override

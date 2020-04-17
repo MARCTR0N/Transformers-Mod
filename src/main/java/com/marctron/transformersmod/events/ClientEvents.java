@@ -13,6 +13,7 @@ import com.marctron.transformersmod.transformers.transformer.movieop.stealth.Mov
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid1;
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid2;
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid3;
+import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.TFPMagnusAltmode;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Menasor;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
 
@@ -165,6 +166,15 @@ public class ClientEvents {
     			
     			
     			if (stack.getItem() instanceof MovieOptimusPrimeAltmode) 
+    			{
+    				player.height= 0.8F;
+    				player.width= 0.6F;
+    				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.8F, player.getEntityBoundingBox().minZ + 0.6F));
+    				player.getEntityBoundingBox().shrink(4);
+    		
+    			}
+    			
+    			if (stack.getItem() instanceof TFPMagnusAltmode) 
     			{
     				player.height= 0.8F;
     				player.width= 0.6F;

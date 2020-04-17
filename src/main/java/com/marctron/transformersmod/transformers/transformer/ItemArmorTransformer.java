@@ -1,5 +1,6 @@
 package com.marctron.transformersmod.transformers.transformer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
@@ -43,6 +44,15 @@ public class ItemArmorTransformer extends ItemArmor {
     	this.renderer = renderer;
     }
 
+    public boolean Altmode(boolean isAltmode){
+    	if (isAltmode){
+    		Minecraft.getMinecraft().gameSettings.viewBobbing=false;
+    	}
+    	if (!isAltmode){
+    		Minecraft.getMinecraft().gameSettings.viewBobbing=true;
+    	}
+		return isAltmode;
+    }
 	
 
 }

@@ -23,6 +23,8 @@ public class SoundsHandler {
     public static SoundEvent WFCPRIMEROBOT;
     public static SoundEvent WFCPRIMEVEHICLE;
     
+    public static SoundEvent TFPTRANSFORM;
+    
     public static SoundEvent HAMMERPOUND;
     
     public static SoundEvent CARDRIVESTART;
@@ -36,6 +38,8 @@ public class SoundsHandler {
         
         WFCPRIMEROBOT = registerSound("transformation.wfcprimerobot");
         WFCPRIMEVEHICLE = registerSound("transformation.wfcprimevehicle");
+        
+        TFPTRANSFORM = registerSound("transformation.tfptransform");
         
         HAMMERPOUND = registerSound("misc.hammerpound");
         

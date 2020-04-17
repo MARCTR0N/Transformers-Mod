@@ -1,7 +1,10 @@
 package com.marctron.transformersmod.transformers.models.tfpmegatron;
 
+import com.marctron.transformersmod.capabilities.EntityAnimatorProvider;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+import com.marctron.transformersmod.util.handlers.CapabilityHandler;
 
+import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.client.model.ModelBiped;
@@ -15,11 +18,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ModelMegatron extends ModelMegatron3{
 	
+	private ModelAnimator animator = ModelAnimator.create();
+	
 	@Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
 		((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.RightHand;
-    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RightHand_1;
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RightHand_2;
 //        Left_Shoulder.render(f5);
 //        Right_Shoulder.render(f5);
     	if (!bipedLeftLeg.isHidden && !bipedRightLeg.isHidden && !bipedLeftArm.isHidden && !bipedRightArm.isHidden
@@ -40,6 +45,352 @@ public class ModelMegatron extends ModelMegatron3{
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
+    
+    
+    @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	
+    	if (this.bipedBody.showModel && entitylivingbaseIn.hasCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null)) {
+    		
+    		IAnimatedEntity animationState = entitylivingbaseIn.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
+    		this.animator.update(animationState);
+        	
+        	//do stuff with the animation info
+    		
+    		if (this.animator.setAnimation(CapabilityHandler.RELOAD_ANIMATION)) {
+    			//swing1
+    			this.animator.startKeyframe(5);
+    			this.animator.rotate(Right_Arm, -.4f, 0, 0.7f);
+
+    			this.animator.rotate(Left_Arm, -1.2f, 0, 0.2f);
+    			this.animator.rotate(RightLowerArm, -0.4f, 0, 0.2f);
+    			
+    			this.animator.endKeyframe();
+    			
+    			//hold1
+    			this.animator.startKeyframe(5);
+    			this.animator.rotate(Right_Arm, -.4f, 0, 0.7f);
+    			this.animator.rotate(Left_Arm, -0.9f, 0, 0.2f);
+    			this.animator.rotate(RightLowerArm, -0.1f, 0.2f, 0.2f);
+    			this.animator.endKeyframe();
+    			
+    			//hold1
+    			this.animator.startKeyframe(5);
+    			this.animator.rotate(Right_Arm, -.4f, 0, 0.7f);
+    			this.animator.rotate(Left_Arm, -0.9f, 0, 0.2f);
+    			this.animator.rotate(RightLowerArm, -0.1f, 0, 0.2f);
+    			this.animator.endKeyframe();
+    			
+    			//End
+    			this.animator.startKeyframe(10);
+    			this.animator.rotate(Right_Arm, 0f, 0, 0f);
+    			this.animator.endKeyframe();
+    		}
+    		
+        	if (this.animator.setAnimation(CapabilityHandler.PUNCH_ANIMATION)) {
+        		//swing
+	        	this.animator.startKeyframe(3);
+	        	this.animator.rotate(Right_Arm, -1.4f, 0, 0.3f);
+	        	this.animator.rotate(Right_Lower_Arm, -1.4f, 0.1f, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0.4f, 0, -0.1f);
+	        	this.animator.rotate(RightLowerArm, -0.8f, -0.1f, 0);
+	        	
+	        	this.animator.rotate(Chest, 0, -0.5f, 0);
+	        	this.animator.rotate(Head, 0, 0.4f, 0);
+	        	
+	        	this.animator.endKeyframe();
+	        	//hold
+	        	this.animator.startKeyframe(2);
+	        	this.animator.rotate(Right_Arm, -1.4f, 0, 0.3f);
+	        	this.animator.rotate(Right_Lower_Arm, -1.4f, 0.1f, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0.4f, 0, -0.1f);
+	        	this.animator.rotate(RightLowerArm, -0.8f, -0.1f, 0);
+	        	
+	        	this.animator.rotate(Chest, 0, -0.5f, 0);
+	        	this.animator.rotate(Head, 0, 0.4f, 0);
+	        	
+	        	this.animator.endKeyframe();
+	        	//END
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(Right_Arm, 0, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+        	}
+        	
+        	if (this.animator.setAnimation(CapabilityHandler.AXE_REVERSE_ANIMATION)) {
+        		//swing1
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(Right_Arm, 1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, 0.1f, 0, 0);
+	        	
+	        	
+	        	
+	        	this.animator.rotate(Chest, -0.1f, 0.3f, 0);
+	        	this.animator.rotate(Head, -0.1f, -0.2f, 0);
+	        	this.animator.endKeyframe();
+	        	//hold1
+	        	this.animator.startKeyframe(3);
+	           	this.animator.rotate(Right_Arm, 1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, 0.1f, 0, 0);
+	        	
+	        	
+	        	
+	        	this.animator.rotate(Chest, -0.1f, 0.3f, 0);
+	        	this.animator.rotate(Head, -0.1f, -0.2f, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//swing2
+	        	this.animator.startKeyframe(3);
+	           	this.animator.rotate(Right_Arm, -1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0.6f, 0, 0);
+	        	
+	        	this.animator.rotate(Chest, -0.1f, -0.3f, 0);
+	        	this.animator.rotate(Head, -0.1f, -0.2f, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//hold2
+	        	this.animator.startKeyframe(3);
+	        	this.animator.rotate(Right_Arm, -1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0.6f, 0, 0);
+	        	
+	        	this.animator.rotate(Chest, -0.1f, -0.3f, 0);
+	        	this.animator.rotate(Head, -0.1f, -0.2f, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//END
+	        	this.animator.startKeyframe(6);
+	        	this.animator.rotate(Right_Arm, -0f, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0, 0, 0);
+	        	this.animator.rotate(RightLowerArm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+        	}
+        	
+        	if (this.animator.setAnimation(CapabilityHandler.AXE_ANIMATION)) {
+        		//swing1
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(Right_Arm, -2, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -1f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, -1, 0, -1);
+	        	this.animator.rotate(RightLowerArm, -1f, 0, 0);
+	        	
+	        	this.animator.rotate(Chest, -0.1f, 0.7f, 0);
+	        	this.animator.rotate(Head, -0.1f, -0.3f, 0);
+	        	this.animator.endKeyframe();
+	        	//hold1
+	        	this.animator.startKeyframe(3);
+	        	this.animator.rotate(Right_Arm, -2, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0.5f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, -1, 0, -1);
+	        	this.animator.rotate(RightLowerArm, -1f, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//swing2
+	        	this.animator.startKeyframe(3);
+	        	this.animator.rotate(Right_Arm, -0.2f, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0.1f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0, 0, 0);
+	        	this.animator.rotate(RightLowerArm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//hold2
+	        	this.animator.startKeyframe(1);
+	        	this.animator.rotate(Right_Arm, -0.2f, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0.1f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0, 0, 0);
+	        	this.animator.rotate(RightLowerArm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//END
+	        	this.animator.startKeyframe(3);
+	        	this.animator.rotate(Right_Arm, -0f, 0, 0);
+	        	this.animator.rotate(Right_Lower_Arm, -0f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0, 0, 0);
+	        	this.animator.rotate(RightLowerArm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+        	}
+        	
+        	if (this.animator.setAnimation(CapabilityHandler.SWORD_REVERSE_ANIMATION)) {
+        		//swing1
+	        	this.animator.startKeyframe(4);
+	        	this.animator.rotate(Right_Arm, 0.5f, 0, 1.3f);
+	        	
+//	        	this.animator.rotate(RIGHT_HAND, 2f, 0, 0);
+//	        	this.animator.move(RIGHT_HAND, 0, 16, -7);
+	        	
+	        	this.animator.rotate(Left_Arm, 0.5f, 0, -0.7f);
+	        	this.animator.rotate(RightLowerArm, -0.5f, 0, 0);
+	        	
+	        	this.animator.rotate(Chest, 0.1f, 0.4f, 0);
+	        	this.animator.rotate(Head, 0, 0, 0);
+	        	
+	        	
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//swing2
+	        	this.animator.startKeyframe(4);
+	        	
+//	        	this.animator.rotate(RIGHT_HAND, 2f, 0, 0);
+//	        	this.animator.move(RIGHT_HAND, 0, 16, -7);
+	        	
+	        	this.animator.rotate(Right_Arm, -1, 0, 1.3f);
+	        	this.animator.rotate(Right_Lower_Arm, -0.4f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, -0.6f, 0, -1.f);
+	        	this.animator.rotate(RightLowerArm, -1.6f, 0, 0);
+	        	this.animator.rotate(Chest, 0.1f, -1, 0);
+	        	this.animator.rotate(Head, 0, 0.6f, 0);
+	        	
+	        	this.animator.move(Torso, 0, -8, 0);
+	        	
+	        	
+	        	this.animator.rotate(Right_Leg, -1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Leg, 1.3f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Leg, -0.5f, 0, 0);
+	        	this.animator.rotate(Left_Lower_Leg, 1.f, 0, 0);
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//hold1
+	        	this.animator.startKeyframe(2);
+	        	
+//	        	this.animator.rotate(RIGHT_HAND, 2f, 0, 0);
+//	        	this.animator.move(RIGHT_HAND, 0, 16, -7);
+	        	
+	        	this.animator.rotate(Right_Arm, -1, 0, 1.3f);
+	        	this.animator.rotate(Right_Lower_Arm, -0.4f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, -0.6f, 0, -1.f);
+	        	this.animator.rotate(RightLowerArm, -1.6f, 0, 0);
+	        	this.animator.rotate(Chest, 0.1f, -1, 0);
+	        	this.animator.rotate(Head, 0, 0.6f, 0);
+	        	
+	        	this.animator.rotate(Right_Leg, -1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Leg, 1.3f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Leg, -0.5f, 0, 0);
+	        	this.animator.rotate(Left_Lower_Leg, 1.f, 0, 0);
+	        	this.animator.move(Torso, 0, -3, 0);
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//Land
+	        	this.animator.startKeyframe(5);
+
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//hold2
+	           	this.animator.startKeyframe(2);
+
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//END
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(Right_Arm, 0, 0, 0);
+	        	this.animator.rotate(Chest, 0, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0, 0, 0);
+	        	this.animator.rotate(RightLowerArm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+        	}
+        	
+        	if (this.animator.setAnimation(CapabilityHandler.SWORD_ANIMATION)) {
+        		//swing1
+	        	this.animator.startKeyframe(4);
+	        	this.animator.rotate(Right_Arm, -1, 0, 1.3f);
+	        	this.animator.rotate(Right_Lower_Arm, -0.4f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, -0.6f, 0, -1.f);
+	        	this.animator.rotate(RightLowerArm, -1.6f, 0, 0);
+	        	this.animator.rotate(Chest, 0.1f, -1, 0);
+	        	this.animator.rotate(Head, 0, 0.6f, 0);
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//swing2
+	        	this.animator.startKeyframe(4);
+	        	this.animator.rotate(Right_Arm, 0.5f, 0, 1.3f);
+	        	
+	        	this.animator.rotate(Left_Arm, 0.5f, 0, -0.7f);
+	        	this.animator.rotate(RightLowerArm, -0.5f, 0, 0);
+	        	
+	        	this.animator.rotate(Chest, 0, 0, 0);
+	        	this.animator.rotate(Head, 0, 0, 0);
+	        	
+	        	this.animator.move(Torso, 0, -8, 0);
+	        	
+	        	
+	        	this.animator.rotate(Right_Leg, -1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Leg, 1.3f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Leg, -0.5f, 0, 0);
+	        	this.animator.rotate(Left_Lower_Leg, 1.f, 0, 0);
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//hold1
+	        	this.animator.startKeyframe(2);
+	        	this.animator.rotate(Right_Arm, 0.5f, 0, 1.3f);
+	        	
+	        	
+	        	
+	        	this.animator.rotate(Left_Arm, 0.5f, 0, -0.7f);
+	        	this.animator.rotate(RightLowerArm, -0.5f, 0, 0);
+	        	
+	        	this.animator.rotate(Chest, 0, 0, 0);
+	        	this.animator.rotate(Head, 0, 0, 0);
+	        	
+	        	this.animator.rotate(Right_Leg, -1, 0, 0);
+	        	this.animator.rotate(Right_Lower_Leg, 1.3f, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Leg, -0.5f, 0, 0);
+	        	this.animator.rotate(Left_Lower_Leg, 1.f, 0, 0);
+	        	this.animator.move(Torso, 0, -3, 0);
+	        	this.animator.endKeyframe();
+	        	
+	        	//Land
+	        	this.animator.startKeyframe(5);
+
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//hold2
+	           	this.animator.startKeyframe(2);
+
+	        	
+	        	this.animator.endKeyframe();
+	        	
+	        	//END
+	        	this.animator.startKeyframe(5);
+	        	this.animator.rotate(Right_Arm, 0, 0, 0);
+	        	this.animator.rotate(Chest, 0, 0, 0);
+	        	
+	        	this.animator.rotate(Left_Arm, 0, 0, 0);
+	        	this.animator.rotate(RightLowerArm, 0, 0, 0);
+	        	this.animator.endKeyframe();
+	        	
+        	}
+    	}
+    }
+    
+    
+    
     
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {

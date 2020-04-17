@@ -35,7 +35,7 @@ public class Vurp extends ItemArmorTransformer {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.tabDecepticon);
+        setCreativeTab(Main.tabFisk);
         setMaxStackSize(1);
        
 

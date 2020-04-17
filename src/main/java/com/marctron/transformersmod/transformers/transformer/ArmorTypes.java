@@ -57,7 +57,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ArmorTypes {
 
-//WFC Motormaster
+//WFC Menasor
 	public static ModelMenasor modelMenasor = new ModelMenasor();
 	    
 	public static ModelMenasor getModelMenasor() {
