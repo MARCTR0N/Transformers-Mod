@@ -40,7 +40,7 @@ public class EnergonEngineBlock extends MachineBlock{
 	/**
 	 * Initialise the furnace generator
 	 * 
-	 * @param unlocalizedName
+	 * @param name
 	 *            The unlocalized name of the furnace generator
 	 */
 	public EnergonEngineBlock(String name, Material material) {

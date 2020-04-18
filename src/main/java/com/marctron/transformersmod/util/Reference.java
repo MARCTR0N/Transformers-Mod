@@ -22,6 +22,7 @@ public class Reference {
     public static final int GUI_ENERGON_CRATE = 2;
     public static final int GUI_ENERGON_ENGINE = 3;
     public static final int GUI_ENERGON_STORAGE = 4;
+    public static final int GUI_LOCK = 6;
 
     public static final int ENTITY_LARGE_ROCKET = 70;
     public static final int ENTITY_BULLET = 69;

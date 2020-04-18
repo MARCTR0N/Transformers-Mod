@@ -4,16 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.blocks.BlockBase;
-import com.marctron.transformersmod.blocks.BlockEnergonCrate;
-import com.marctron.transformersmod.blocks.BlockGlassBase;
-import com.marctron.transformersmod.blocks.BlueEnergonoreBlock;
-import com.marctron.transformersmod.blocks.DarkEnergonoreBlock;
-import com.marctron.transformersmod.blocks.EnergoncubeBlock;
-import com.marctron.transformersmod.blocks.EnergonoreBlock;
-import com.marctron.transformersmod.blocks.ItemSpawner;
-import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
-import com.marctron.transformersmod.blocks.TransformiumoreBlock;
+import com.marctron.transformersmod.blocks.*;
 import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
@@ -937,6 +928,7 @@ public class RegistryHandler {
 //        public static final Block ENERGON_ENGINE = null;
 //        public static final Block ENERGON_STORAGE = null;
 //        public static final Block CREATIVE_GENERATOR = null;
+		public static final Block LOCK_BLOCK = null;
         
         public static final Block ENERGON_ENGINE = null;
 
@@ -1683,7 +1675,8 @@ public class RegistryHandler {
 //            	    new BlockCreativeGenerator("creative_engine", Material.IRON).setHardness(3),
             	   
 //            	   new EnergonEngineBlock("energon_engine", Material.IRON).setHardness(2),
-            	    
+            	    new LockBlock("lock_block", Material.IRON).setHardness(3),
+
             	    new BlockAssembler("assembler", Material.IRON).setHardness(3),
 
             	//Dyed Stuff

@@ -37,7 +37,7 @@ dependencies {
 	 compile "net.ilexiconn:llibrary:1.7.9-1.12:dev"
 	 compile 'com.github.CJMinecraft01:CJCore:1.12-SNAPSHOT'
 	 compile 'net.industrial-craft:industrialcraft-2:2.8.170-ex112:api'
-	 deobfCompile "cofh:RedstoneFlux:1.12-2.0.0.1:universal" 
+	 compile "cofh:RedstoneFlux:1.12-2.0.0.1:deobf" 
     }
 	
 	
