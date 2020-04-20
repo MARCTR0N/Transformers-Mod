@@ -10,12 +10,18 @@ import com.marctron.transformersmod.network.PacketSetMaxNumberOfItems;
 import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.util.Reference;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
+/**
+ * 
+ * @author grillo78
+ *
+ */
 public class GuiLock extends GuiContainer {
 
     private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/gui/lock_gui.png");
@@ -38,9 +44,12 @@ public class GuiLock extends GuiContainer {
         this.nameField = new GuiTextField(0, this.fontRenderer, i + 113, j + 38, 49, 15);
         this.nameField.setText(String.valueOf(tileEntity.getMaxNumberOfItems()));
         this.nameField.setTextColor(-1);
+        if(!Minecraft.getMinecraft().player.isCreative()) {
+        	this.nameField.setEnabled(false);
+        }
         this.nameField.setDisabledTextColour(-1);
         this.nameField.setEnableBackgroundDrawing(false);
-        this.nameField.setMaxStringLength(35);
+        this.nameField.setMaxStringLength(7);
     }
     
     @Override
