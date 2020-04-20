@@ -4,9 +4,9 @@ import javax.annotation.Nullable;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.blocks.LockBlock;
+import com.marctron.transformersmod.items.ItemFragment;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Items;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -38,23 +38,21 @@ public class TileEntityLock extends TileEntity implements ITickable {
 
 	@Override
 	public void update() {
-		if (handler.getStackInSlot(0).getItem() == Items.DIAMOND && numberOfItems != maxNumberOfItems) {
+		if (handler.getStackInSlot(0).getItem() instanceof ItemFragment && numberOfItems != maxNumberOfItems) {
+			IBlockState oldState = this.world.getBlockState(this.pos);
 			handler.getStackInSlot(0).shrink(1);
 			numberOfItems++;
 			if (numberOfItems == maxNumberOfItems) {
-//				int maxNumberOfItemsCopy = maxNumberOfItems;
 				world.setBlockState(pos,
 						world.getBlockState(pos).withProperty(LockBlock.FULLCONTENT, Boolean.valueOf(true)), 3);
-//				((TileEntityLock) world.getTileEntity(pos)).setMaxNumberOfItems(maxNumberOfItemsCopy);
-//				((TileEntityLock) world.getTileEntity(pos)).setNumberOfItems(maxNumberOfItemsCopy);
 			} else {
 				if (world.getBlockState(pos).getValue(LockBlock.FULLCONTENT)) {
 					world.setBlockState(pos,
 							world.getBlockState(pos).withProperty(LockBlock.FULLCONTENT, Boolean.valueOf(false)), 3);
 				}
 			}
-			this.world.notifyBlockUpdate(this.pos, this.world.getBlockState(this.pos),
-					this.world.getBlockState(this.pos), 3);
+			this.world.notifyBlockUpdate(this.pos, oldState,
+					this.world.getBlockState(this.pos), 1);
 			this.world.scheduleBlockUpdate(pos, blockType, 0, 0);
 			this.markDirty();
 
@@ -67,8 +65,8 @@ public class TileEntityLock extends TileEntity implements ITickable {
 	}
 
 	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
-		return true;
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+		return oldState.getBlock() != newState.getBlock();
 	}
 
 	@Override
@@ -96,7 +94,24 @@ public class TileEntityLock extends TileEntity implements ITickable {
 	}
 
 	public void setMaxNumberOfItems(int maxNumberOfItems) {
+		IBlockState oldState = this.world.getBlockState(this.pos);
+		if(numberOfItems > maxNumberOfItems) {
+			numberOfItems = maxNumberOfItems;
+		}
 		this.maxNumberOfItems = maxNumberOfItems;
+		if (numberOfItems == maxNumberOfItems) {
+			world.setBlockState(pos,
+					world.getBlockState(pos).withProperty(LockBlock.FULLCONTENT, Boolean.valueOf(true)), 3);
+		} else {
+			if (world.getBlockState(pos).getValue(LockBlock.FULLCONTENT)) {
+				world.setBlockState(pos,
+						world.getBlockState(pos).withProperty(LockBlock.FULLCONTENT, Boolean.valueOf(false)), 3);
+			}
+		}
+		this.world.notifyBlockUpdate(this.pos, oldState,
+				this.world.getBlockState(this.pos), 1);
+		this.world.scheduleBlockUpdate(pos, blockType, 0, 0);
+		this.markDirty();
 	}
 
 	public int getMaxNumberOfItems() {

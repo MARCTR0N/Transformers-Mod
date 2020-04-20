@@ -1,6 +1,8 @@
 package com.marctron.transformersmod.blocks.container;
 
 import com.marctron.transformersmod.blocks.tileentity.TileEntityLock;
+import com.marctron.transformersmod.items.ItemFragment;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -19,7 +21,12 @@ public class ContainerLock extends Container {
         this.te = te;
         this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 
-        this.addSlotToContainer(new SlotItemHandler(te.handler,0,81,35));
+        this.addSlotToContainer(new SlotItemHandler(te.handler,0,81,35) {
+        	@Override
+        	public boolean isItemValid(ItemStack stack) {
+        		return stack.getItem() instanceof ItemFragment;
+        	}
+        });
 
         for (int i = 0; i < 3; ++i)
         {
@@ -62,7 +69,7 @@ public class ContainerLock extends Container {
 
         return transferred;
     }
-
+    
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
         return true;

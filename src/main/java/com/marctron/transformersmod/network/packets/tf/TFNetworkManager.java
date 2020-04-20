@@ -1,5 +1,6 @@
 package com.marctron.transformersmod.network.packets.tf;
 
+import com.marctron.transformersmod.network.PacketSetMaxNumberOfItems;
 import com.marctron.transformersmod.network.packets.PacketDrivingSound;
 import com.marctron.transformersmod.network.packets.PacketShootRocket;
 import com.marctron.transformersmod.network.packets.motormaster.PacketMotormaster;
@@ -51,6 +52,7 @@ public static void registerPackets()
     registerPacket(PacketMovieOptimusPrimeStealth.Handler.class, PacketMovieOptimusPrimeStealth.class);
     registerPacket(PacketShootRocket.Handler.class, PacketShootRocket.class);
     registerPacket(PacketDrivingSound.Handler.class, PacketDrivingSound.class);
+    registerPacket(PacketSetMaxNumberOfItems.Handler.class, PacketSetMaxNumberOfItems.class);
    
 }
 

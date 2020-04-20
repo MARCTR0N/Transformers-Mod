@@ -1,20 +1,27 @@
 package com.marctron.transformersmod.blocks.gui;
 
+import java.io.IOException;
+
+import org.lwjgl.input.Keyboard;
+
 import com.marctron.transformersmod.blocks.container.ContainerLock;
 import com.marctron.transformersmod.blocks.tileentity.TileEntityLock;
+import com.marctron.transformersmod.network.PacketSetMaxNumberOfItems;
+import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.util.Reference;
 
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.items.CapabilityItemHandler;
 
 public class GuiLock extends GuiContainer {
 
     private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/gui/lock_gui.png");
     private TileEntityLock tileEntity;
     private EntityPlayer player;
+    private GuiTextField nameField;
 
     public GuiLock(EntityPlayer player, TileEntityLock tileEntity) {
         super(new ContainerLock(player.inventory,tileEntity));
@@ -25,6 +32,28 @@ public class GuiLock extends GuiContainer {
     @Override
     public void initGui() {
         super.initGui();
+        Keyboard.enableRepeatEvents(true);
+        int i = (this.width - this.xSize) / 2;
+        int j = (this.height - this.ySize) / 2;
+        this.nameField = new GuiTextField(0, this.fontRenderer, i + 113, j + 38, 49, 15);
+        this.nameField.setText(String.valueOf(tileEntity.getMaxNumberOfItems()));
+        this.nameField.setTextColor(-1);
+        this.nameField.setDisabledTextColour(-1);
+        this.nameField.setEnableBackgroundDrawing(false);
+        this.nameField.setMaxStringLength(35);
+    }
+    
+    @Override
+    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
+    {
+        super.mouseClicked(mouseX, mouseY, mouseButton);
+        this.nameField.mouseClicked(mouseX, mouseY, mouseButton);
+    }
+    
+    @Override
+    public void onGuiClosed() {
+    	super.onGuiClosed();
+        Keyboard.enableRepeatEvents(false);
     }
 
     @Override
@@ -32,6 +61,9 @@ public class GuiLock extends GuiContainer {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
+        GlStateManager.disableLighting();
+        GlStateManager.disableBlend();
+        this.nameField.drawTextBox();
     }
 
     @Override
@@ -63,4 +95,20 @@ public class GuiLock extends GuiContainer {
     	
     }
     
+    @Override
+    protected void keyTyped(char typedChar, int keyCode) throws IOException {
+    	if (this.nameField.textboxKeyTyped(typedChar, keyCode))
+        {
+    		try{
+    			tileEntity.setMaxNumberOfItems(Integer.valueOf(nameField.getText()));
+    			TFNetworkManager.sendToServer(new PacketSetMaxNumberOfItems(tileEntity.getPos(),Integer.valueOf(nameField.getText())));
+    		}catch(NumberFormatException e) {
+    			
+    		}
+        }
+        else
+        {
+            super.keyTyped(typedChar, keyCode);
+        }
+    }
 }
