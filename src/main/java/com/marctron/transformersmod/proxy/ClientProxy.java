@@ -42,6 +42,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderBlockOverlayEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -689,7 +690,7 @@ public class ClientProxy implements IProxy {
 	    renderItem.getItemModelMesher().register(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name, "inventory"));
 	    ModelLoader.setCustomModelResourceLocation(RegistryHandler.ModItems.DARKSTARSABER, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + DARKSTARSABER.name,"inventory"));
 
-	    
+//	    Render renderBlock =Minecraft.getMinecraft().getBlockRendererDispatcher();
 	    // Register player dummy entity
 //        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "PlayerDummy"), EntityPlayerDummy.class, "PlayerDummy", Reference.ENTITY_PLAYER_DUMMY, Reference.MOD_ID, 5, 100, false);
 
@@ -723,6 +724,8 @@ public class ClientProxy implements IProxy {
     {
         return mc.player;
     }
+    
+    
     
     @Override
 	@Nullable

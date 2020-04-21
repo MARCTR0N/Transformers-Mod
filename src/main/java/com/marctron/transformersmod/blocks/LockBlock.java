@@ -38,7 +38,7 @@ public class LockBlock extends BlockContainer {
 		setRegistryName(name);
 		this.setUnlocalizedName(name);
 		setCreativeTab(Main.tabTransformers);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FULLCONTENT, false));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(FULLCONTENT, Boolean.valueOf(false)));
 
 		RegistryHandler.Registry.registerItemBlock(this);
 	}

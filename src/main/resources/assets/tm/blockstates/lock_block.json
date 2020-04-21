@@ -1,12 +1,14 @@
 {
 	"forge_marker": 1,
 	"defaults": {
-		"custom": {
-			"flip-v": true
-		},
+		"custom": {"flip-v": true},
 		"model": "tm:lock.obj"
 	},
 	"variants": {
+	
+	"facing=north,fullcontent=false": {
+      "model": "tm:item_spawner"
+    },
 		"fullcontent": [
 			{
 				"true": {
@@ -23,18 +25,18 @@
 					"gui": {
 						"rotation": [
 							30,
-							225,
+							-35,
 							0
 						],
 						"translation": [
-							0,
-							0,
+							0.05,
+							0.05,
 							0
 						],
 						"scale": [
-							0.625,
-							0.625,
-							0.625
+							0.325,
+							0.325,
+							0.325
 						]
 					},
 					"ground": {
@@ -44,31 +46,31 @@
 							0
 						],
 						"translation": [
-							0,
-							3,
-							0
+							0.1,
+							0.5,
+							0.1
 						],
 						"scale": [
-							0.25,
-							0.25,
-							0.25
+							0.15,
+							0.15,
+							0.15
 						]
 					},
 					"fixed": {
 						"rotation": [
 							0,
-							0,
+							180,
 							0
 						],
 						"translation": [
-							0,
-							0,
-							0
+							-0.5,
+							0.45,
+							-5.1
 						],
 						"scale": [
-							0.5,
-							0.5,
-							0.5
+							0.75,
+							0.75,
+							0.75
 						]
 					},
 					"thirdperson_righthand": {

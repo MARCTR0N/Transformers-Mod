@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "facing=north,fullcontent=false": {
+      "model": "tm:lock6.obj",
+      "y": 180
+    },
+    "facing=west,fullcontent=false": {
+      "model": "tm:lock6.obj",
+      "y": 90
+    },
+    "facing=east,fullcontent=false": {
+      "model": "tm:lock6.obj",
+      "y": -90
+    },
+    "facing=south,fullcontent=false": {
+      "model": "tm:lock6.obj"
+      
+    }
+    
+  }
+}
