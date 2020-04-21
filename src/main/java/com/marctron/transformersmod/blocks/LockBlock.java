@@ -1,13 +1,10 @@
 package com.marctron.transformersmod.blocks;
 
-import javax.annotation.Nullable;
-
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.blocks.tileentity.TileEntityLock;
 import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -27,20 +24,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class LockBlock extends BlockContainer {
+public class LockBlock extends BlockBase {
 
 	public static final PropertyBool FULLCONTENT = PropertyBool.create("fullcontent");
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
 	public LockBlock(String name, Material mat) {
-		super(mat);
-
-		setRegistryName(name);
-		this.setUnlocalizedName(name);
-		setCreativeTab(Main.tabTransformers);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(FULLCONTENT, Boolean.valueOf(false)));
-
-		RegistryHandler.Registry.registerItemBlock(this);
+		super(name, mat);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH)
+				.withProperty(FULLCONTENT, Boolean.valueOf(false)));
 	}
 
 	@Override
@@ -64,7 +56,7 @@ public class LockBlock extends BlockContainer {
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		switch(meta) {
+		switch (meta) {
 		case 0:
 			return this.getDefaultState().withProperty(FULLCONTENT, false).withProperty(FACING, EnumFacing.NORTH);
 		case 1:
@@ -123,6 +115,26 @@ public class LockBlock extends BlockContainer {
 		return true;
 	}
 
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+
+	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	/**
+	 * Determines if an entity can path through this block
+	 */
+	public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
+		return true;
+	}
+
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
+	}
+
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate((EnumFacing) state.getValue(FACING)));
@@ -140,9 +152,8 @@ public class LockBlock extends BlockContainer {
 		worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 4);
 	}
 
-	@Nullable
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityLock();
 	}
 }

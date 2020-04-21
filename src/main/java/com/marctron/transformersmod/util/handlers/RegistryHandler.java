@@ -4,19 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.blocks.BlockBase;
-import com.marctron.transformersmod.blocks.BlockEnergonCrate;
-import com.marctron.transformersmod.blocks.BlockGlassBase;
-import com.marctron.transformersmod.blocks.BlueEnergonoreBlock;
-import com.marctron.transformersmod.blocks.DarkEnergonoreBlock;
-import com.marctron.transformersmod.blocks.EnergoncubeBlock;
-import com.marctron.transformersmod.blocks.EnergonoreBlock;
-import com.marctron.transformersmod.blocks.ItemSpawner;
-import com.marctron.transformersmod.blocks.LockBlock;
-import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
-import com.marctron.transformersmod.blocks.TransformiumoreBlock;
+import com.marctron.transformersmod.blocks.*;
 import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
-import com.marctron.transformersmod.blocks.obj.TestBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
@@ -968,7 +957,6 @@ public class RegistryHandler {
 //        public static final Block ENERGON_STORAGE = null;
 //        public static final Block CREATIVE_GENERATOR = null;
 		public static final Block LOCK_BLOCK = null;
-		public static final Block TESTBLOCK = null;
 
 		public static final Block ENERGON_ENGINE = null;
 
@@ -1802,8 +1790,7 @@ public class RegistryHandler {
 
 		@SubscribeEvent
 		public static void onBlockRegister(RegistryEvent.Register<Block> event) {
-					final Block[] blocks = { 
-					new ItemSpawner("item_spawner", Material.IRON, SoundType.METAL, MapColor.BLUE),
+			final Block[] blocks = { new ItemSpawner("item_spawner", Material.IRON, SoundType.METAL, MapColor.BLUE),
 
 					new EnergoncubeBlock("energon_cube_block", Material.IRON).setHardness(3),
 					new EnergoncubeBlock("red_energon_cube_block", Material.IRON).setHardness(3),
@@ -1832,8 +1819,6 @@ public class RegistryHandler {
 
 //            	   new EnergonEngineBlock("energon_engine", Material.IRON).setHardness(2),
 					new LockBlock("lock_block", Material.IRON).setHardness(3),
-					new TestBlock("test_block", Material.IRON).setHardness(3),
-					
 
 					new BlockAssembler("assembler", Material.IRON).setHardness(3),
 
@@ -1939,7 +1924,6 @@ public class RegistryHandler {
 						if(block.getUnlocalizedName().equals("tile.lock_block")) {
 							Main.logger.info("Registering model for " + block.getUnlocalizedName());
 						}
-						
 						ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0,
 								new ModelResourceLocation(block.getRegistryName(), "inventory"));
 					});
