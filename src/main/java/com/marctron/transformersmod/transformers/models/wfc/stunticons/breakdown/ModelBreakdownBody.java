@@ -1,13 +1,12 @@
 package com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown;
 
-import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
-public class ModelBreakdownBody extends AdvancedModelBiped
+public class ModelBreakdownBody extends ModelBreakdownLeftArm
 {
     public AdvancedModelBipedRenderer shape1212_13;
     public AdvancedModelBipedRenderer shape10_26;
@@ -3760,6 +3759,8 @@ public class ModelBreakdownBody extends AdvancedModelBiped
         shape1200_13.addChild(shape1205_5);
         
         updateDefaultPose();
+        
+        
     }
 
     @Override
@@ -3767,15 +3768,15 @@ public class ModelBreakdownBody extends AdvancedModelBiped
     {
     	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         
-        GlStateManager.pushMatrix();
-        GlStateManager.scale(0.45F, 0.45F, 0.45F);
-        GlStateManager.translate(-2.0F * f5, -1F * f5, -1);   
+//        GlStateManager.pushMatrix();
+//        GlStateManager.scale(0.45F, 0.45F, 0.45F);
+//        GlStateManager.translate(-2.0F * f5, -1F * f5, -1);   
         Torso.render(f5);
         Chest.render(f5);  
         
        
-        
-        GlStateManager.popMatrix();
+//        
+//        GlStateManager.popMatrix();
     }
 
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z)

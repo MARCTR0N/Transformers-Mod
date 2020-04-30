@@ -5648,6 +5648,7 @@ public class ModelDeadendpartB extends ModelDeadendpartA
         
       //Sneaking
         if (isSneak){
+        	RIGHT_HAND.rotationPointY=1;
         	Right_Arm.rotateAngleX = 0.3F;
 			Left_Arm.rotateAngleX = 0.3F;
 	
@@ -5864,10 +5865,21 @@ public class ModelDeadendpartB extends ModelDeadendpartA
                 		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 0.4F;
                 		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
                 		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-                		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 1F;
+                		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 1.3F;
+                		this.Right_Lower_Arm.scaleChildren=true;
+                		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
+                		RIGHT_HAND.rotationPointY=-10;
+                		if (isSneak){
+                			RIGHT_HAND.rotationPointZ=-2;
+                			RIGHT_HAND.rotationPointX=-0.5F;
+                		}
 //                	}
                 }
+                
         	}
+        	else
+//            	this.Right_Lower_Arm.scaleChildren=false;
+    			this.Right_Lower_Arm.setScale(1F, 1F, 1F);
         }
         
         else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)

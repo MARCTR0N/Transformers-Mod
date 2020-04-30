@@ -1,11 +1,9 @@
 package com.marctron.transformersmod.events;
 
-import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.items.ItemPhaseShifter;
 import com.marctron.transformersmod.network.packets.PacketDrivingSound;
 import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.ClientProxy;
-import com.marctron.transformersmod.transformers.models.wfc.stunticons.deadend.ModelDeadendpartB;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
@@ -15,6 +13,7 @@ import com.marctron.transformersmod.transformers.transformer.movieop.stealth.Mov
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid3;
 import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.TFPMagnusAltmode;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Menasor;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdownAltmode;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
 
 import net.minecraft.client.Minecraft;
@@ -175,6 +174,15 @@ public class ClientEvents {
     			}
     			
     			if (stack.getItem() instanceof TFPMagnusAltmode) 
+    			{
+    				player.height= 0.8F;
+    				player.width= 0.6F;
+    				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.8F, player.getEntityBoundingBox().minZ + 0.6F));
+    				player.getEntityBoundingBox().shrink(4);
+    		
+    			}
+    			
+    			if (stack.getItem() instanceof WFCBreakdownAltmode) 
     			{
     				player.height= 0.8F;
     				player.width= 0.6F;

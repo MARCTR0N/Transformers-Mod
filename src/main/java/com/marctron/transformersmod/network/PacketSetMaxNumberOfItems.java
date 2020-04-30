@@ -1,6 +1,6 @@
 package com.marctron.transformersmod.network;
 
-import com.marctron.transformersmod.blocks.tileentity.TileEntityLock;
+import com.marctron.transformersmod.blocks.wfc.lock.TileEntityLock;
 import com.marctron.transformersmod.init.ModCapabilities;
 import com.marctron.transformersmod.util.LogHelper;
 

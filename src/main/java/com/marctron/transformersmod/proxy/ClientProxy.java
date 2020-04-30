@@ -202,10 +202,10 @@ public class ClientProxy implements IProxy {
         	ModItems.MOTORMASTER_LEGGINGS_MID15.setRenderer(RENDERER_NO_ITEM);
         	ModItems.MOTORMASTER_BOOTS_MID15.setRenderer(RENDERER_NO_ITEM);
         	
-        	ModItems.MOTORMASTER_HELMET_ALTMODE.setRenderer(RENDERER_NO_ITEM);
-        	ModItems.MOTORMASTER_CHESTPLATE_ALTMODE.setRenderer(RENDERER_NO_ITEM);
-        	ModItems.MOTORMASTER_LEGGINGS_ALTMODE.setRenderer(RENDERER_NO_ITEM);
-        	ModItems.MOTORMASTER_BOOTS_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.MOTORMASTER_HELMET_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.MOTORMASTER_CHESTPLATE_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.MOTORMASTER_LEGGINGS_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.MOTORMASTER_BOOTS_ALTMODE.setRenderer(RENDERER_NO_ITEM);
         
     	
       //Breakdown
@@ -213,6 +213,137 @@ public class ClientProxy implements IProxy {
         ModItems.BREAKDOWN_CHESTPLATE.setRenderer(RENDERER);
         ModItems.BREAKDOWN_LEGGINGS.setRenderer(RENDERER);
         ModItems.BREAKDOWN_BOOTS.setRenderer(RENDERER);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID1.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID1.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID1.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID1.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID2.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID2.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID2.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID2.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID3.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID3.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID3.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID3.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID4.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID4.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID4.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID4.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID5.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID5.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID5.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID5.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID6.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID6.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID6.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID6.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID7.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID7.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID7.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID7.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID8.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID8.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID8.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID8.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID9.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID9.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID9.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID9.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID10.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID10.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID10.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID10.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID11.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID11.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID11.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID11.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID12.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID12.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID12.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID12.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID13.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID13.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID13.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID13.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID14.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID14.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID14.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID14.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID15.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID15.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID15.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID15.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID16.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID16.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID16.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID16.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID17.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID17.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID17.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID17.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID18.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID18.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID18.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID18.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID19.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID19.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID19.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID19.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID20.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID20.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID20.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID20.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID21.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID21.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID21.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID21.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID22.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID22.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID22.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID22.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID23.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID23.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID23.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID23.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID24.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID24.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID24.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID24.setRenderer(RENDERER_NO_ITEM);
+        	
+        	ModItems.BREAKDOWN_HELMET_MID25.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_CHESTPLATE_MID25.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_LEGGINGS_MID25.setRenderer(RENDERER_NO_ITEM);
+        	ModItems.BREAKDOWN_BOOTS_MID25.setRenderer(RENDERER_NO_ITEM);
+        	
+        		ModItems.BREAKDOWN_HELMET_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.BREAKDOWN_CHESTPLATE_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.BREAKDOWN_LEGGINGS_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        		ModItems.BREAKDOWN_BOOTS_ALTMODE.setRenderer(RENDERER_NO_ITEM);
+        
         
       //Dragstrip
         ModItems.DRAGSTRIP_HELMET.setRenderer(RENDERER);

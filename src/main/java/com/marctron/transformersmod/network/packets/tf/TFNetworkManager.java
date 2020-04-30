@@ -1,14 +1,17 @@
 package com.marctron.transformersmod.network.packets.tf;
 
 import com.marctron.transformersmod.network.PacketSetMaxNumberOfItems;
+import com.marctron.transformersmod.network.packets.MessageEntityPosVelUpdate;
 import com.marctron.transformersmod.network.packets.PacketDrivingSound;
 import com.marctron.transformersmod.network.packets.PacketShootRocket;
+import com.marctron.transformersmod.network.packets.breakdown.PacketBreakdown;
 import com.marctron.transformersmod.network.packets.motormaster.PacketMotormaster;
 import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrime;
 import com.marctron.transformersmod.network.packets.movieop.PacketMovieOptimusPrimeStealth;
 import com.marctron.transformersmod.network.packets.tfp.magnus.PacketTFPMagnus;
 import com.marctron.transformersmod.util.Reference;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
@@ -49,10 +52,12 @@ public static void registerPackets()
     registerPacket(PacketMovieOptimusPrime.Handler.class, PacketMovieOptimusPrime.class);
     registerPacket(PacketMotormaster.Handler.class, PacketMotormaster.class);
     registerPacket(PacketTFPMagnus.Handler.class, PacketTFPMagnus.class);
+    registerPacket(PacketBreakdown.Handler.class, PacketBreakdown.class);
     registerPacket(PacketMovieOptimusPrimeStealth.Handler.class, PacketMovieOptimusPrimeStealth.class);
     registerPacket(PacketShootRocket.Handler.class, PacketShootRocket.class);
     registerPacket(PacketDrivingSound.Handler.class, PacketDrivingSound.class);
     registerPacket(PacketSetMaxNumberOfItems.Handler.class, PacketSetMaxNumberOfItems.class);
+    registerPacket(MessageEntityPosVelUpdate.class, MessageEntityPosVelUpdate.class);
    
 }
 
@@ -91,6 +96,10 @@ public static void sendToAll(IMessage message){
 
 public static void sendToDimension(IMessage message, int dimensionId){
 	networkWrapper.sendToDimension(message, dimensionId);
+}
+
+public static void sendToAllTracking(IMessage message, Entity entity) {
+	networkWrapper.sendToAllTracking(message, entity);
 }
 
 public static void init()

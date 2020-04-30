@@ -4,8 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.marctron.transformersmod.Main;
-import com.marctron.transformersmod.blocks.*;
+import com.marctron.transformersmod.blocks.BlockBase;
+import com.marctron.transformersmod.blocks.BlockEnergonCrate;
+import com.marctron.transformersmod.blocks.BlockGlassBase;
+import com.marctron.transformersmod.blocks.BlueEnergonoreBlock;
+import com.marctron.transformersmod.blocks.DarkEnergonoreBlock;
+import com.marctron.transformersmod.blocks.EnergoncubeBlock;
+import com.marctron.transformersmod.blocks.EnergonoreBlock;
+import com.marctron.transformersmod.blocks.ItemSpawner;
+import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
+import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
+import com.marctron.transformersmod.blocks.wfc.HealthCrateBlock;
+import com.marctron.transformersmod.blocks.wfc.lock.LockBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
@@ -121,6 +132,33 @@ import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Mena
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownBody;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownLeftArm;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownRightArm;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdown;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdownAltmode;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid1;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid10;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid11;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid12;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid13;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid14;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid15;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid16;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid17;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid18;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid19;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid2;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid20;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid21;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid22;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid23;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid24;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid25;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid3;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid4;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid5;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid6;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid7;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid8;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid9;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.deadend.Deadend;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.dragstrip.Dragstrip;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
@@ -367,6 +405,136 @@ public class RegistryHandler {
 		public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE = null;
 		public static final ItemArmorTransformer BREAKDOWN_LEGGINGS = null;
 		public static final ItemArmorTransformer BREAKDOWN_BOOTS = null;
+			//transformation
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID1 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID1 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID1 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID1 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID2 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID2 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID2 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID2 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID3 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID3 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID3 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID3 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID4 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID4 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID4 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID4 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID5 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID5 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID5 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID5 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID6 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID6 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID6 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID6 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID7 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID7 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID7 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID7 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID8 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID8 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID8 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID8 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID9 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID9 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID9 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID9 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID10 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID10 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID10 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID10 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID11 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID11 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID11 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID11 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID12 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID12 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID12 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID12 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID13 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID13 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID13 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID13 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID14 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID14 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID14 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID14 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID15 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID15 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID15 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID15 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID16 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID16 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID16 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID16 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID17 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID17 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID17 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID17 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID18 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID18 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID18 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID18 = null;
+			
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID19 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID19 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID19 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID19 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID20 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID20 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID20 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID20 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID21 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID21 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID21 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID21 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID22 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID22 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID22 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID22 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID23 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID23 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID23 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID23 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID24 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID24 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID24 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID24 = null;
+		
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_MID25 = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_MID25 = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_MID25 = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_MID25 = null;
+			//altmode
+			public static final ItemArmorTransformer BREAKDOWN_HELMET_ALTMODE = null;
+			public static final ItemArmorTransformer BREAKDOWN_CHESTPLATE_ALTMODE = null;
+			public static final ItemArmorTransformer BREAKDOWN_LEGGINGS_ALTMODE = null;
+			public static final ItemArmorTransformer BREAKDOWN_BOOTS_ALTMODE = null;
 
 		// Dragstrip
 		public static final ItemArmorTransformer DRAGSTRIP_HELMET = null;
@@ -1017,7 +1185,7 @@ public class RegistryHandler {
 					new ItemBase("ammo"), new ItemBase("energon_crystal"),
 
 					// Consumables
-					new ItemMedkit("medkit", 3, 10, 100),
+					new ItemMedkit("medkit", 3, 20, 100),
 
 					// Recipe Components
 					new ItemBase("protoform"), new ItemBase("protoform_head"), new ItemBase("protoform_chest"),
@@ -1061,10 +1229,140 @@ public class RegistryHandler {
 					new TFPMegatron("tfpmegatron_boots", MEGATRON_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
 					// Breakdown
-					new BreakdownBody("breakdown_helmet", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new BreakdownRightArm("breakdown_chestplate", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
-					new BreakdownLeftArm("breakdown_leggings", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new BreakdownBody("breakdown_boots", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+					new WFCBreakdown("breakdown_helmet", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+					new WFCBreakdown("breakdown_chestplate", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+					new WFCBreakdown("breakdown_leggings", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+					new WFCBreakdown("breakdown_boots", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						//transformation
+						new WFCBreakdownMid1("breakdown_helmet_mid1", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid1("breakdown_chestplate_mid1", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid1("breakdown_leggings_mid1", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid1("breakdown_boots_mid1", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid2("breakdown_helmet_mid2", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid2("breakdown_chestplate_mid2", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid2("breakdown_leggings_mid2", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid2("breakdown_boots_mid2", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid3("breakdown_helmet_mid3", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid3("breakdown_chestplate_mid3", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid3("breakdown_leggings_mid3", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid3("breakdown_boots_mid3", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid4("breakdown_helmet_mid4", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid4("breakdown_chestplate_mid4", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid4("breakdown_leggings_mid4", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid4("breakdown_boots_mid4", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid5("breakdown_helmet_mid5", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid5("breakdown_chestplate_mid5", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid5("breakdown_leggings_mid5", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid5("breakdown_boots_mid5", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid6("breakdown_helmet_mid6", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid6("breakdown_chestplate_mid6", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid6("breakdown_leggings_mid6", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid6("breakdown_boots_mid6", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid7("breakdown_helmet_mid7", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid7("breakdown_chestplate_mid7", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid7("breakdown_leggings_mid7", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid7("breakdown_boots_mid7", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid8("breakdown_helmet_mid8", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid8("breakdown_chestplate_mid8", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid8("breakdown_leggings_mid8", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid8("breakdown_boots_mid8", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid9("breakdown_helmet_mid9", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid9("breakdown_chestplate_mid9", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid9("breakdown_leggings_mid9", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid9("breakdown_boots_mid9", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid10("breakdown_helmet_mid10", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid10("breakdown_chestplate_mid10", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid10("breakdown_leggings_mid10", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid10("breakdown_boots_mid10", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid11("breakdown_helmet_mid11", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid11("breakdown_chestplate_mid11", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid11("breakdown_leggings_mid11", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid11("breakdown_boots_mid11", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid12("breakdown_helmet_mid12", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid12("breakdown_chestplate_mid12", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid12("breakdown_leggings_mid12", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid12("breakdown_boots_mid12", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid13("breakdown_helmet_mid13", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid13("breakdown_chestplate_mid13", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid13("breakdown_leggings_mid13", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid13("breakdown_boots_mid13", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid14("breakdown_helmet_mid14", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid14("breakdown_chestplate_mid14", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid14("breakdown_leggings_mid14", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid14("breakdown_boots_mid14", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid15("breakdown_helmet_mid15", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid15("breakdown_chestplate_mid15", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid15("breakdown_leggings_mid15", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid15("breakdown_boots_mid15", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid16("breakdown_helmet_mid16", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid16("breakdown_chestplate_mid16", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid16("breakdown_leggings_mid16", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid16("breakdown_boots_mid16", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid17("breakdown_helmet_mid17", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid17("breakdown_chestplate_mid17", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid17("breakdown_leggings_mid17", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid17("breakdown_boots_mid17", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid18("breakdown_helmet_mid18", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid18("breakdown_chestplate_mid18", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid18("breakdown_leggings_mid18", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid18("breakdown_boots_mid18", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid19("breakdown_helmet_mid19", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid19("breakdown_chestplate_mid19", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid19("breakdown_leggings_mid19", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid19("breakdown_boots_mid19", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid20("breakdown_helmet_mid20", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid20("breakdown_chestplate_mid20", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid20("breakdown_leggings_mid20", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid20("breakdown_boots_mid20", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid21("breakdown_helmet_mid21", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid21("breakdown_chestplate_mid21", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid21("breakdown_leggings_mid21", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid21("breakdown_boots_mid21", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid22("breakdown_helmet_mid22", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid22("breakdown_chestplate_mid22", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid22("breakdown_leggings_mid22", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid22("breakdown_boots_mid22", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid23("breakdown_helmet_mid23", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid23("breakdown_chestplate_mid23", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid23("breakdown_leggings_mid23", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid23("breakdown_boots_mid23", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid24("breakdown_helmet_mid24", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid24("breakdown_chestplate_mid24", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid24("breakdown_leggings_mid24", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid24("breakdown_boots_mid24", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						
+						new WFCBreakdownMid25("breakdown_helmet_mid25", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownMid25("breakdown_chestplate_mid25", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownMid25("breakdown_leggings_mid25", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownMid25("breakdown_boots_mid25", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						//altmode
+						new WFCBreakdownAltmode("breakdown_helmet_altmode", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new WFCBreakdownAltmode("breakdown_chestplate_altmode", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new WFCBreakdownAltmode("breakdown_leggings_altmode", BREAKDOWN_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new WFCBreakdownAltmode("breakdown_boots_altmode", BREAKDOWN_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
 					// Dragstrip
 					new Dragstrip("dragstrip_helmet", DRAGSTRIP_MATERIAL, 1, EntityEquipmentSlot.HEAD),
@@ -1818,7 +2116,9 @@ public class RegistryHandler {
 //            	    new BlockCreativeGenerator("creative_engine", Material.IRON).setHardness(3),
 
 //            	   new EnergonEngineBlock("energon_engine", Material.IRON).setHardness(2),
+					//WFC props
 					new LockBlock("lock_block", Material.IRON).setHardness(3),
+					new HealthCrateBlock("health_crate_block", Material.IRON).setHardness(0),
 
 					new BlockAssembler("assembler", Material.IRON).setHardness(3),
 

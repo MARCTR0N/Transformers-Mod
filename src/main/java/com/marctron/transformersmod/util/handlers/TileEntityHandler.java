@@ -4,7 +4,7 @@ package com.marctron.transformersmod.util.handlers;
 import com.marctron.transformersmod.blocks.energonstorage.TileEntityEnergonStorage;
 import com.marctron.transformersmod.blocks.machinery.energonengine.EnergonEngineTile;
 import com.marctron.transformersmod.blocks.tileentity.TileEntityEnergonCrate;
-import com.marctron.transformersmod.blocks.tileentity.TileEntityLock;
+import com.marctron.transformersmod.blocks.wfc.lock.TileEntityLock;
 import com.marctron.transformersmod.util.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
