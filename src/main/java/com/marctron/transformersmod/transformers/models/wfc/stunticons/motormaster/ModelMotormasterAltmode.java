@@ -3328,11 +3328,14 @@ public class ModelMotormasterAltmode extends AdvancedModelBiped
         
         Trailer.rotateAngleX=0;
         
-        Trailer.rotateAngleY= 0.9f* ((float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick)));
-
-//        Trailer.rotateAngleX = (float) (Math.PI / 2 - TFRenderHelper.getMotionY(player) - (player == Minecraft.getMinecraft().player && player.onGround ? 0.0784000015258789 : 0));
-        Altmode.rotateAngleY = 0.8f* (-(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick)));
-//          }
+        if (entity instanceof EntityPlayer)
+        {
+        	Trailer.rotateAngleY= f3* -0.02f;
+        	Altmode.rotateAngleY= f3* 0.01f;
+//        Trailer.rotateAngleY= 0.9f* ((float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick)));
+//
+//        Altmode.rotateAngleY = 0.8f* (-(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick)));
+          }
     }
     
 }

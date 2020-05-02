@@ -2679,7 +2679,7 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
     	GlStateManager.scale(0.48F, 0.48F, 0.48F);
-        GlStateManager.translate(0.0F, 8F * f5, -0.5F);
+        GlStateManager.translate(0.0F, 9.5F * f5, -0.5F);
         
 
         float upwardPose = (float) (1 / (1 + Math.exp(-10 * (entity.motionY + 0.2))));
@@ -2728,7 +2728,7 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
 			Right_Lower_Leg.rotateAngleX= 1.2F;
 			Left_Lower_Leg.rotateAngleX= 1.2F;
 			
-			Torso.rotationPointY= -7F;
+			Torso.rotationPointY= -6F;
 			
         }
         //walking
@@ -2910,16 +2910,31 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
         	}
         	
         	if (stack.getItem() instanceof ItemGunBase) {
-                IGun nbt = ((IGun) stack.getItem());
-                if (nbt.getBoolean("Gun")) {
-        		
-            this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
-            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 0.4F;
-            swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
-            walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-            this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 1F;
-                }
-        	}
+        		  IGun nbt = ((IGun) stack.getItem());
+                  if (nbt.getBoolean("Gun")) {
+              		
+//                  	if (CapabilityHandler.isReloading){
+                  	this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+              		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.5F;
+              		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+              		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+              		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.1F;
+              		this.Right_Lower_Arm.scaleChildren=true;
+              		this.Right_Lower_Arm.setScale(0.01F, 0.01F, 0.01F);
+              		RIGHT_HAND.rotationPointY=-10;
+              		RIGHT_HAND.rotationPointX=1.5F;
+              		
+              		if (isSneak){
+              			RIGHT_HAND.rotationPointZ=-8;
+              			RIGHT_HAND.rotationPointY=-12;
+              			RIGHT_HAND.rotationPointX=-0.5F;
+                  		}
+//                  	}
+                  }
+	        	}
+	        	else
+//	            	this.Right_Lower_Arm.scaleChildren=false;
+	    			this.Right_Lower_Arm.setScale(1F, 1F, 1F);
         }
         
         else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)

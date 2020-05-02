@@ -63,6 +63,7 @@ public class Motormaster extends ItemArmorTransformer{
 					Altmode(false);
 				
 		}
+			player.eyeHeight= 2.7F;
 			if (world.isRemote)
 			{
 				

@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.transformers.models.tarn;
 
+import com.marctron.transformersmod.items.gun.IGun;
+import com.marctron.transformersmod.items.gun.ItemGunBase;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
@@ -11,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
@@ -2159,6 +2162,53 @@ public class ModelTarnLegs extends TarnChest {
         bob(Chestpiece,2* globalSpeed, 1*height, false, limbSwing, limbSwingAmount);
         bob(LEFT_LEG1,2* globalSpeed, 1*height, false, limbSwing, limbSwingAmount);
         bob(RIGHT_LEG1,2* globalSpeed, 1*height, false, limbSwing, limbSwingAmount);
+        
+        
+        if (entityIn instanceof EntityPlayer)
+        {
+        	ItemStack stack = ((EntityPlayer) entityIn).getHeldItemMainhand();
+        	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
+                IGun nbt = ((IGun) stack.getItem());
+                if (nbt.getBoolean("Gun")) {
+        		
+            this.RIGHT_ARM.rotateAngleY = this.HEAD.rotateAngleY;
+            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX*0.5F + 0.4F;
+            swing(Right_Lower_arm, 0.08F, 0.1F, true, 0, -0.1f, ageInTicks, 1);
+            walk(RIGHT_ARM, 0.08F, 0.1F, true, 0, 0.f, ageInTicks, 1);
+            this.Right_Lower_arm.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX*0.5F + 1F;
+
+                }
+        	}
+        	
+        	if (stack.getItem() instanceof ItemGunBase) {
+        		IGun nbt = ((IGun) stack.getItem());
+                if (nbt.getBoolean("Gun")) {
+            		
+//                	if (CapabilityHandler.isReloading){
+                	this.RIGHT_ARM.rotateAngleY = this.HEAD.rotateAngleY;
+            		this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX *1.2F + 0.5F;
+            		swing(Right_Lower_arm, 0.08F, 0.1F, true, 0, -0.1f, ageInTicks, 1);
+            		walk(RIGHT_ARM, 0.08F, 0.1F, true, 0, 0.f, ageInTicks, 1);
+            		this.Right_Lower_arm.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX*0.8F + 1.1F;
+            		this.Right_Lower_arm.scaleChildren=true;
+            		this.Right_Lower_arm.setScale(0.1F, 0.1F, 0.1F);
+            		Right_Lower_arm.rotationPointY=-8;
+            		Right_Lower_arm.rotationPointX=1F;
+            		
+            		if (isSneak){
+            			Right_Lower_arm.rotationPointZ=-2;
+            			Right_Lower_arm.rotationPointY=-12;
+            			Right_Lower_arm.rotationPointX=-0.5F;
+                		}
+//                	}
+                }
+        	}
+        	else
+//            	this.Right_Lower_Arm.scaleChildren=false;
+    			this.Right_Lower_arm.setScale(1F, 1F, 1F);
+        }
+        
+        
 	    }
     
 

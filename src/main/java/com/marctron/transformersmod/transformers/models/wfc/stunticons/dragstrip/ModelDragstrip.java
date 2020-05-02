@@ -5154,16 +5154,31 @@ public class ModelDragstrip extends AdvancedModelBiped
         	}
         	
         	if (stack.getItem() instanceof ItemGunBase) {
-                IGun nbt = ((IGun) stack.getItem());
+        		IGun nbt = ((IGun) stack.getItem());
                 if (nbt.getBoolean("Gun")) {
-        		
-            this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
-            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 0.4F;
-            swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
-            walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-            this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 1F;
+            		
+//                	if (CapabilityHandler.isReloading){
+                	this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+            		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.5F;
+            		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+            		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+            		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.1F;
+            		this.Right_Lower_Arm.scaleChildren=true;
+            		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
+            		RIGHT_HAND.rotationPointY=-8;
+            		RIGHT_HAND.rotationPointX=1F;
+            		
+            		if (isSneak){
+            			RIGHT_HAND.rotationPointZ=-2;
+            			RIGHT_HAND.rotationPointY=-12;
+            			RIGHT_HAND.rotationPointX=-0.5F;
+                		}
+//                	}
                 }
         	}
+        	else
+//            	this.Right_Lower_Arm.scaleChildren=false;
+    			this.Right_Lower_Arm.setScale(1F, 1F, 1F);
         }
         
         else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)

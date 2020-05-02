@@ -54,7 +54,7 @@ public class WFCBreakdown extends ItemArmorTransformer{
 			if(player.onGround){
 					player.motionX=player.motionX * 1.06F;
 					player.motionZ=player.motionZ * 1.06F;
-					Altmode(false);
+//					Altmode(false);
 				
 		}
 			if (world.isRemote)

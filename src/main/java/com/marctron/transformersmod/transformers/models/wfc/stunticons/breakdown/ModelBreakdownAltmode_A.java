@@ -1,7 +1,15 @@
 package com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown;
 
+import com.marctron.transformersmod.util.handlers.ClientTickHandler;
+import com.marctron.transformersmod.util.helper.TFData;
+import com.marctron.transformersmod.util.helper.TFHelper;
+import com.marctron.transformersmod.util.helper.TFRenderHelper;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class ModelBreakdownAltmode_A extends ModelBreakdownAltmode{
 
@@ -984,5 +992,28 @@ public class ModelBreakdownAltmode_A extends ModelBreakdownAltmode{
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         GlStateManager.scale(0.45F, 0.45F, 0.45F);
         GlStateManager.translate(-18.0F * f5, 45F * f5, -9* f5);
+        
+        if (entity instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer) entity;
+            double mx= player.posX - player.prevPosX;
+            double my= player.posY - player.prevPosY;
+            double mz= player.posZ - player.prevPosZ;
+            double speed =(Math.sqrt(mx*mx+my*my+mz*mz));
+            System.out.println(speed);
+            float wheelSpinSpeed = (speed < 0.1 ? -f1 : f2) * 0.7F;
+
+            for (ModelRenderer modelRenderer : new ModelRenderer[] {Wheel, Wheel_1, Wheel_2, Wheel_3})
+            {
+                modelRenderer.rotateAngleX = wheelSpinSpeed;
+            }
+
+           
+//            car.rotateAngleX =  (float) (f3/ (180F / Math.PI));
+//            car.rotateAngleZ = -bipedHead.rotateAngleY;
+            
+//            car.rotateAngleX = 2F* (float) (TFRenderHelper.getMotionY(player) + (player == Minecraft.getMinecraft().player && !player.onGround ? 0.0784000015258789 : 0));
+//            car.rotateAngleY = -(float) Math.toRadians(TFHelper.median(player.renderYawOffset - player.rotationYaw, player.prevRenderYawOffset - player.prevRotationYaw, ClientTickHandler.renderTick));
+        }
     }
 }

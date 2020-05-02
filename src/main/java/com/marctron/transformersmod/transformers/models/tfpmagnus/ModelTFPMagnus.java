@@ -301,6 +301,55 @@ public class ModelTFPMagnus extends ModelTFPUltraMagnuspart3{
 //	            this.Left_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX;
 //	        }
 	        
+	        if (entity instanceof EntityPlayer)
+	        {
+	        	ItemStack stack = ((EntityPlayer) entity).getHeldItemMainhand();
+//	        	if(((EntityPlayerSP) entity).inventory.getCurrentItem() instanceof IGun)
+	        	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
+                    IGun nbt = ((IGun) stack.getItem());
+                    if (nbt.getBoolean("Gun")) {
+	        		
+	            this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+	            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 0.4F;
+	            swing(Right_Arm, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
+	            walk(Right_Arm, 2* globalSpeed, 0.2F* globalDegree, true, 0, 0, f, f1);
+	            this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 1F;
+	            
+//		        walk(RIGHT_ARM, 0.08F, -0.05F, true, 1, 0, f2, 1F);
+//		        flap(RIGHT_ARM, 0.08F, -0.04F, true, 1, 0, f2, 1F);
+//		        walk(RIGHT_LOWER_ARM, 0.08F, -0.1F, true, 1, 0, f2, 1F);
+//	            this.CHEST.rotateAngleY = this.HEAD.rotateAngleY;
+                    }
+	        	}
+	        	
+	        	if (stack.getItem() instanceof ItemGunBase) {
+                    IGun nbt = ((IGun) stack.getItem());
+                    if (nbt.getBoolean("Gun")) {
+                		
+//                    	if (CapabilityHandler.isReloading){
+                    	this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+                		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.5F;
+                		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+                		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+                		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.1F;
+                		this.Right_Lower_Arm.scaleChildren=true;
+                		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
+                		RIGHT_HAND1.rotationPointY=-10;
+                		RIGHT_HAND1.rotationPointX=-1.5F;
+                		
+                		if (isSneak){
+                			RIGHT_HAND1.rotationPointZ=-2;
+                			RIGHT_HAND1.rotationPointY=-12;
+                			RIGHT_HAND1.rotationPointX=-0.5F;
+                    		}
+//                    	}
+                    }
+	        	}
+	        	else
+//	            	this.Right_Lower_Arm.scaleChildren=false;
+	    			this.Right_Lower_Arm.setScale(1F, 1F, 1F);
+	        }
+	        
 	        Left_Leg.rotationPointY=20;
 			Right_Leg.rotationPointY=20;
 	    

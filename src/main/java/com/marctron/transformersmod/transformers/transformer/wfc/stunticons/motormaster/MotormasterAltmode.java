@@ -59,6 +59,7 @@ public class MotormasterAltmode extends ItemArmorTransformer{
 	
 	@Override
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+		player.eyeHeight= 0.8F;
 			if(player.onGround){
 					player.motionX=player.motionX * 1.01F;
 					player.motionZ=player.motionZ * 1.01F;

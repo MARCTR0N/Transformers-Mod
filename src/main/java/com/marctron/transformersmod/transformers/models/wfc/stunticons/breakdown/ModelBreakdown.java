@@ -84,6 +84,68 @@ public class ModelBreakdown extends ModelBreakdownBody{
 	        
 	        walk(Right_Lower_Arm, 1 * globalSpeed,  .9F * globalDegree, true, -.6F, 0.6F, f, f1);
 	        
+	        //sneak
+	        if (isSneak){
+	        	RIGHT_HAND.rotationPointY=1;
+	        	Right_Arm.rotateAngleX = 0.3F;
+				Left_Arm.rotateAngleX = 0.3F;
+		
+				Right_Arm.rotateAngleZ = 0.4F;
+				Left_Arm.rotateAngleZ = -0.4F;
+
+				Right_Lower_Arm.rotateAngleX = -1.1F;
+				Left_Lower_Arm.rotateAngleX = -1.1F;
+
+				Right_Lower_Arm.rotateAngleY = -0.2F;
+				Left_Lower_Arm.rotateAngleY = 0.2F;
+				
+				Chest.rotationPointZ= 8F;
+				Chest.rotateAngleX= 0.3F;
+				Torso.rotateAngleX= 0.1F;
+				Head.rotateAngleX= -0.2F;
+				
+				Right_Leg.rotateAngleX= -1;
+				Left_Leg.rotateAngleX= -1;
+				
+				Right_Leg.rotateAngleY= 0.2F;
+				Left_Leg.rotateAngleY= -0.2F;
+				
+				Right_Foot.rotateAngleX= -0.3F;
+				Left_Foot.rotateAngleX= -0.3F;
+				
+				Right_Lower_Leg.rotateAngleX= 1.2F;
+				Left_Lower_Leg.rotateAngleX= 1.2F;
+				
+				Torso.rotationPointY= 22F;
+				
+	        }
+	        
+	        //idle
+	        flap(Right_Arm, 0.08F, 0.05F, true, 0, 0.f, f2, 1);
+	        flap(Left_Arm, 0.08F, 0.05F, false, 0, 0.f, f2, 1);
+	        walk(Chest, 0.08F, 0.05F, false, 0, 0.1f, f2, 1);
+	       
+	        
+	        walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+	        walk(Left_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+	        walk(Right_Lower_Arm, 0.08F, 0.2F, false, 0, -0.1f, f2, 1);
+	        walk(Left_Lower_Arm, 0.08F, 0.2F, false, 0, -0.1f, f2, 1);
+	        swing(Right_Lower_Arm, 0.08F, 0.1F, false, 0, -0.1f, f2, 1);
+	        swing(Left_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+	        
+	        
+	        if(!isSneak){
+	        walk(Torso, 0.08F, 0.05F, false, 0, 0.f, f2, 1);
+	        walk(Right_Leg, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+	        walk(Left_Leg, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+	        walk(Right_Lower_Leg, 0.08F, 0.1F, false, 0, 0.f, f2, 1);
+	        walk(Left_Lower_Leg, 0.08F, 0.1F, false, 0, 0.f, f2, 1);
+	        walk(Right_Foot, 0.08F, 0.05F, true, 0, 0.f, f2, 1);
+	        walk(Left_Foot, 0.08F, 0.05F, true, 0, 0.f, f2, 1);
+	        bob(Torso, 0.08F, 0.01F, false, f2, 1);}
+	        
+	        
+	        
 	        
 	        if (entity instanceof EntityPlayer)
 	        {
@@ -107,10 +169,10 @@ public class ModelBreakdown extends ModelBreakdownBody{
 	        		
 //	                	if (CapabilityHandler.isReloading){
 	                		this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
-	                		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 0.4F;
+	                		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.5F;
 	                		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
 	                		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-	                		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX + 1.3F;
+	                		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.3F;
 	                		this.Right_Lower_Arm.scaleChildren=true;
 	                		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
 	                		RIGHT_HAND.rotationPointY=-10;

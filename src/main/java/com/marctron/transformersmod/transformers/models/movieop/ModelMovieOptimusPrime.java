@@ -4767,14 +4767,29 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 	        	if (stack.getItem() instanceof ItemGunBase) {
                     IGun nbt = ((IGun) stack.getItem());
                     if (nbt.getBoolean("Gun")) {
-	        		
-	            this.RIGHT_ARM.rotateAngleY = this.HEAD.rotateAngleY;
-	            this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX + 0.4F;
-	            swing(RIGHT_ARM, 1F* globalSpeed, 0.3F* globalDegree, true, 0, 0, f, f1);
-	            walk(RIGHT_ARM, 2* globalSpeed, 0.2F* globalDegree, true, 0, 0, f, f1);
-	            this.RIGHT_LOWER_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX + 1F;
+                		
+//                    	if (CapabilityHandler.isReloading){
+                    	this.RIGHT_ARM.rotateAngleY = this.HEAD.rotateAngleY;
+                		this.RIGHT_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX *1.2F + 0.5F;
+                		swing(RIGHT_LOWER_ARM, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+                		walk(RIGHT_ARM, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+                		this.RIGHT_LOWER_ARM.rotateAngleX = -((float)Math.PI / 2F) + this.HEAD.rotateAngleX*0.8F + 1.1F;
+                		this.RIGHT_LOWER_ARM.scaleChildren=true;
+                		this.RIGHT_LOWER_ARM.setScale(0.1F, 0.1F, 0.1F);
+                		RIGHT_HAND.rotationPointY=-10;
+                		RIGHT_HAND.rotationPointX=1.5F;
+                		
+                		if (isSneak){
+                			RIGHT_HAND.rotationPointZ=-2;
+                			RIGHT_HAND.rotationPointY=-12;
+                			RIGHT_HAND.rotationPointX=-0.5F;
+                    		}
+//                    	}
                     }
 	        	}
+	        	else
+//	            	this.Right_Lower_Arm.scaleChildren=false;
+	    			this.RIGHT_LOWER_ARM.setScale(1F, 1F, 1F);
 	        }
 	        
 	        else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)

@@ -3799,50 +3799,50 @@ public class ModelBreakdownBody extends ModelBreakdownLeftArm
             float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
     		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
     		
-    		if(isSneak){
-//    			  Head.rotationPointY = -11F;
-//    		      Head.rotationPointZ = -10F;
-    		      Chest.rotationPointY = 0F;
-    		      Chest.rotationPointZ = -6F;
-    		        
-//    		      Torso.rotateAngleX = 0.1F;
-    		      Chest.rotateAngleX = 0.4F;
-//    		      Chestplate.rotateAngleX = 0.02F;
-    		        
-//    		      Right_Arm.rotateAngleX = 0.3F;
-//    		      Left_Arm.rotateAngleX = 0.3F;
+//    		if(isSneak){
+////    			  Head.rotationPointY = -11F;
+////    		      Head.rotationPointZ = -10F;
+//    		      Chest.rotationPointY = 0F;
+//    		      Chest.rotationPointZ = -6F;
 //    		        
-//    		      Right_Arm.rotateAngleZ = 0.2F;
-//    		      Left_Arm.rotateAngleZ = -0.2F;
+////    		      Torso.rotateAngleX = 0.1F;
+//    		      Chest.rotateAngleX = 0.4F;
+////    		      Chestplate.rotateAngleX = 0.02F;
 //    		        
-//    		      Right_Lower_Arm.rotateAngleX = -1.3F;
-//    		      Left_Lower_Arm.rotateAngleX = -1.3F;
-//    		        
-//    		      Right_Lower_Arm.rotateAngleY = -0.2F;
-//    		      Left_Lower_Arm.rotateAngleY = 0.2F;
-    		      
-//    		      Right_Leg_1.rotationPointY = -26.5F;
-    	    		
-    		      Right_Leg.rotateAngleX = -0.9F;
-    		      Right_Leg.rotateAngleZ = -0.25F;
-    		      Right_Leg.rotateAngleY = -0.25F;
-    	    		
-    		      Right_Lower_Leg.rotateAngleX = 1.3F;
-    	    		
-    		      Right_Foot.rotateAngleX = -0.71F;
-    		      Right_Foot.rotateAngleZ = 0.4F;
-    		      
-    		      
-    		      
-//    		      Right_Leg_1.rotateAngleX = -1.3F;
-//    		      Right_Leg_1.rotateAngleZ = 0.25F;
-//    		      Right_Leg_1.rotateAngleY = 0.05F;
+////    		      Right_Arm.rotateAngleX = 0.3F;
+////    		      Left_Arm.rotateAngleX = 0.3F;
+////    		        
+////    		      Right_Arm.rotateAngleZ = 0.2F;
+////    		      Left_Arm.rotateAngleZ = -0.2F;
+////    		        
+////    		      Right_Lower_Arm.rotateAngleX = -1.3F;
+////    		      Left_Lower_Arm.rotateAngleX = -1.3F;
+////    		        
+////    		      Right_Lower_Arm.rotateAngleY = -0.2F;
+////    		      Left_Lower_Arm.rotateAngleY = 0.2F;
+//    		      
+////    		      Right_Leg_1.rotationPointY = -26.5F;
 //    	    		
-//    		      Right_Lower_Leg_1.rotateAngleX = 1.3F;
+//    		      Right_Leg.rotateAngleX = -0.9F;
+//    		      Right_Leg.rotateAngleZ = -0.25F;
+//    		      Right_Leg.rotateAngleY = -0.25F;
 //    	    		
-//    		      Right_Foot_1.rotateAngleX = -0.4F;
-//    		      Right_Foot_1.rotateAngleZ = -0.25F;
-    		}
+//    		      Right_Lower_Leg.rotateAngleX = 1.3F;
+//    	    		
+//    		      Right_Foot.rotateAngleX = -0.71F;
+//    		      Right_Foot.rotateAngleZ = 0.4F;
+//    		      
+//    		      
+//    		      
+////    		      Right_Leg_1.rotateAngleX = -1.3F;
+////    		      Right_Leg_1.rotateAngleZ = 0.25F;
+////    		      Right_Leg_1.rotateAngleY = 0.05F;
+////    	    		
+////    		      Right_Lower_Leg_1.rotateAngleX = 1.3F;
+////    	    		
+////    		      Right_Foot_1.rotateAngleX = -0.4F;
+////    		      Right_Foot_1.rotateAngleZ = -0.25F;
+//    		}
     		
             if (!entity.onGround){
               	
