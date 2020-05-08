@@ -1,0 +1,6 @@
+{
+	"textures": {
+		"particle": "tm:blocks/door_particles"
+	},
+	"elements": []
+}
