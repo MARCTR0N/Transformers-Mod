@@ -831,6 +831,7 @@ public class ClientProxy implements IProxy {
     @Override
     public void postInit(FMLPostInitializationEvent e) {
 //    	RFP2.state = new State();
+    	ClientRegistry.bindTileEntitySpecialRenderer(AnimatedDoorTileEntity.class, new DoorTileEntitySpecialRenderer());
     }
 
     public static void registerEntityRenderers() {
