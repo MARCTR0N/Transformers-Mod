@@ -79,15 +79,16 @@ public class CapabilityHandler {
 			animator = entity.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
 			animator.setAnimationTick(animator.getAnimationTick() + 1);
 		}
-		
-		if (animator != null) {
+
+		if (entity.world.isRemote && animator != null) {
 		
 //			if (entity.isSwingInProgress && entity.swingProgressInt == 0) {
 //				entity.isSwingInProgress = false;
 			
 //			isReloading=true;
 			if (Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown() ){
-				
+
+				System.out.println(animator.getAnimation());
 				 if (entity instanceof EntityPlayer)
 			        {
 			        	ItemStack stack = ((EntityPlayer) entity).getHeldItemMainhand();
