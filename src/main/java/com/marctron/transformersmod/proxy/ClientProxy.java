@@ -2,6 +2,8 @@ package com.marctron.transformersmod.proxy;
 
 import javax.annotation.Nullable;
 
+import com.marctron.transformersmod.blocks.tileentity.AnimatedDoorTileEntity;
+import com.marctron.transformersmod.client.renderers.DoorTileEntitySpecialRenderer;
 import org.lwjgl.input.Keyboard;
 
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
