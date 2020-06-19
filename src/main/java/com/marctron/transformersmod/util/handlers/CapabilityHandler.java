@@ -77,7 +77,7 @@ public class CapabilityHandler {
         IAnimatedEntity animator = null;
 
 
-        if (entity.world.isRemote && animator != null && entity instanceof EntityPlayer) {
+        if (entity.world.isRemote && entity instanceof EntityPlayer) {
             if (entity.hasCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null)) {
                 animator = entity.getCapability(EntityAnimatorProvider.ANIMATED_ENTITY_CAP, null);
                 animator.setAnimationTick(animator.getAnimationTick() + 1);
