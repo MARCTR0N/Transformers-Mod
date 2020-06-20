@@ -47,6 +47,7 @@ public class CapabilityHandler {
     public static final Animation RELOAD_ANIMATION = Animation.create(130);
 
     public static boolean isReloading;
+    public static boolean isAttacking = false;
     public static boolean isAnimDone = false;
 
     private static int attacks;
@@ -95,7 +96,8 @@ public class CapabilityHandler {
                 }
             }
 
-            if (!playingAnimation && Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown()) {
+            if (!playingAnimation && Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown() && !isAttacking) {
+                isAttacking = true;
                 ItemStack stack = entity.getHeldItemMainhand();
 
                 //- - - - - - - - -
@@ -154,6 +156,10 @@ public class CapabilityHandler {
                 }
 
 
+            }
+
+            if (!Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown()){
+                isAttacking = false;
             }
 
             if (Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown() && Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
