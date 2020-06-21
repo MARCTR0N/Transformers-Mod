@@ -15,6 +15,7 @@ import com.marctron.transformersmod.transformers.transformer.tfp.ultramagnus.TFP
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Menasor;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdownAltmode;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
+import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.MotormasterAltmode;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -160,6 +161,22 @@ public class ClientEvents {
     				player.height= 5.4F;
     				player.width= 0.6F;
     				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 5.4F, player.getEntityBoundingBox().minZ + 0.6F));
+    			}
+    			
+    			if (stack.getItem() instanceof Motormaster) 
+    			{
+    				player.height= 2.9F;
+    				player.width= 0.6F;
+    				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 5.4F, player.getEntityBoundingBox().minZ + 0.6F));
+    			}
+    			
+    			if (stack.getItem() instanceof MotormasterAltmode) 
+    			{
+    				player.height= 0.8F;
+    				player.width= 0.6F;
+    				player.setEntityBoundingBox(new AxisAlignedBB(player.getEntityBoundingBox().minX, player.getEntityBoundingBox().minY, player.getEntityBoundingBox().minZ, player.getEntityBoundingBox().minX + 0.6F, player.getEntityBoundingBox().minY + 0.8F, player.getEntityBoundingBox().minZ + 0.6F));
+    				player.getEntityBoundingBox().shrink(4);
+    		
     			}
     			
     			

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.marctron.transformersmod.Main;
+import com.marctron.transformersmod.blocks.AnimatedDoorBlock;
 import com.marctron.transformersmod.blocks.BlockBase;
 import com.marctron.transformersmod.blocks.BlockEnergonCrate;
 import com.marctron.transformersmod.blocks.BlockGlassBase;
@@ -15,6 +16,7 @@ import com.marctron.transformersmod.blocks.ItemSpawner;
 import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
+import com.marctron.transformersmod.blocks.deco.BlockCybertron1;
 import com.marctron.transformersmod.blocks.wfc.HealthCrateBlock;
 import com.marctron.transformersmod.blocks.wfc.lock.LockBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
@@ -129,9 +131,6 @@ import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid;
 import com.marctron.transformersmod.transformers.transformer.vehicon.VehiconMid2;
 import com.marctron.transformersmod.transformers.transformer.vurp.Vurp;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Menasor;
-import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownBody;
-import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownLeftArm;
-import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.BreakdownRightArm;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdown;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdownAltmode;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.transformation.WFCBreakdownMid1;
@@ -2118,6 +2117,13 @@ public class RegistryHandler {
 //            	   new EnergonEngineBlock("energon_engine", Material.IRON).setHardness(2),
 					//WFC props
 					new LockBlock("lock_block", Material.IRON).setHardness(3),
+					new AnimatedDoorBlock("door_block", Material.IRON).setHardness(3),
+					new AnimatedDoorBlock("door_block_internal", Material.IRON).setHardness(3),
+					new AnimatedDoorBlock("door_block_external", Material.IRON).setHardness(3),
+					
+						//WFC Decorations
+						new BlockCybertron1("cybertron_block_1", Material.IRON).setHardness(3),
+					
 					new HealthCrateBlock("health_crate_block", Material.IRON).setHardness(0),
 
 					new BlockAssembler("assembler", Material.IRON).setHardness(3),

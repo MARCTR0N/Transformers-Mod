@@ -7,6 +7,7 @@ import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDecepticonVehiconVariant1 extends RenderLiving<EntityDecepticonVehiconVariant1> {
@@ -15,6 +16,7 @@ public class RenderDecepticonVehiconVariant1 extends RenderLiving<EntityDeceptic
 
     public RenderDecepticonVehiconVariant1(RenderManager manager) {
         super(manager, new ModelDecepticonVehiconVariant1(), 0.5F);
+        this.addLayer(new LayerHeldItem(this));
     }
 
     @Override

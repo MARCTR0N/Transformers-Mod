@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
+import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.network.packets.breakdown.PacketBreakdown;
 import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 import com.marctron.transformersmod.proxy.ClientProxy;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
@@ -54,6 +57,7 @@ public class WFCBreakdownAltmode extends ItemArmorTransformer{
 	@Override
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 		Altmode(true);
+		
 		
 			
 			

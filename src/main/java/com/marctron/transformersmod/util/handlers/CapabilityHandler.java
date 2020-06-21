@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.util.handlers;
 
 import java.util.Random;
+import java.util.concurrent.Delayed;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.capabilities.DefaultEntityAnimator;
@@ -26,6 +27,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import java.util.concurrent.TimeUnit;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.Capability.IStorage;
@@ -39,18 +41,19 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CapabilityHandler {
 
     public static final Animation PUNCH_ANIMATION = Animation.create(10);
-    public static final Animation AXE_ANIMATION = Animation.create(130);
-    public static final Animation SWORD_ANIMATION = Animation.create(130);
-    public static final Animation AXE_REVERSE_ANIMATION = Animation.create(130);
-    public static final Animation SWORD_REVERSE_ANIMATION = Animation.create(130);
+    public static final Animation AXE_ANIMATION = Animation.create(12);
+    public static final Animation SWORD_ANIMATION = Animation.create(12);
+    public static final Animation AXE_REVERSE_ANIMATION = Animation.create(12);
+    public static final Animation SWORD_REVERSE_ANIMATION = Animation.create(12);
 
-    public static final Animation RELOAD_ANIMATION = Animation.create(130);
+    public static final Animation RELOAD_ANIMATION = Animation.create(18);
 
     public static boolean isReloading;
     public static boolean isAttacking = false;
     public static boolean isAnimDone = false;
 
     private static int attacks;
+    private static int sword;
     protected static Random rand = new Random();
 
 
@@ -102,39 +105,35 @@ public class CapabilityHandler {
 
                 //- - - - - - - - -
                 if (stack.getItem() instanceof ItemHoe) {
-                    if (attacks >= 4 || rand.nextInt(4) == 0) {
+                	if(sword==0) {
+                        animator.setAnimation(SWORD_REVERSE_ANIMATION);
+                        sword ++;
+                    	}else
+                        if(sword >0) {
                         animator.setAnimation(SWORD_ANIMATION);
-                        attacks = 0;
-                    } else {
-                        if (rand.nextInt(2) == 0) {
-                            animator.setAnimation(AXE_REVERSE_ANIMATION);
-                            attacks += 3;
-                        } else if (rand.nextInt(2) == 0) {
-                            animator.setAnimation(SWORD_REVERSE_ANIMATION);
-                            attacks += 2;
-                        } else {
-                            animator.setAnimation(AXE_ANIMATION);
-                            attacks += 1;
+                        sword --;
                         }
-                    }
-//			        		attacks = 1;
 
 
                 } else {
                     //- - - - - - - - -
 
                     if (stack.getItem() instanceof ItemSword) {
+                    	if(sword==0) {
                         animator.setAnimation(SWORD_REVERSE_ANIMATION);
-//			        		entity.world.playSound((EntityPlayer) entity, entity.posX, entity.posY, entity.posZ , SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1, 1);
+                        sword ++;
+//                        System.out.println("sword = 0");
+                    	}else
+                        if(sword >0) {
+                        animator.setAnimation(SWORD_ANIMATION);
+                        sword --;
+//                        System.out.println("sword = 1");
+                        }
                     } else {
 
                         if (stack.getItem() instanceof ItemAxe) {
-
-//			        		if (AXE_ANIMATION.getDuration()<131)
-                            if (isAnimDone = true)
-//								
-                                animator.setAnimation(AXE_REVERSE_ANIMATION);
-                            isAnimDone = false;
+                                animator.setAnimation(AXE_ANIMATION);
+//                           
                         } else {
 
                             if (stack.getItem() instanceof ItemAir) {
@@ -143,15 +142,6 @@ public class CapabilityHandler {
                         }
                     }
 
-//			        	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
-//			        		animator.setAnimation(RELOAD_ANIMATION);
-//			        		isReloading=true;
-//			                }
-//			        	
-//			        	if (stack.getItem() instanceof IGun) {
-//			        		animator.setAnimation(RELOAD_ANIMATION);
-//			        		isReloading=true;
-//			                }
 
                 }
 

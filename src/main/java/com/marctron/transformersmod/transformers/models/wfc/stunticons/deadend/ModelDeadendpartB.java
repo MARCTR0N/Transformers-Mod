@@ -5258,9 +5258,14 @@ public class ModelDeadendpartB extends ModelDeadendpartA
         	//do stuff with the animation info
     		
     		if (this.animator.setAnimation(CapabilityHandler.RELOAD_ANIMATION)) {
+    			this.animator.startKeyframe(3);
+    			this.animator.rotate(Right_Arm, -.90f, -0.7f, 0.4f);
+    			this.animator.rotate(Right_Lower_Arm, -.60f, 0, 0);
+    			this.animator.endKeyframe();
     			//swing1
-    			this.animator.startKeyframe(5);
-    			this.animator.rotate(Right_Arm, -.4f, 0, 0.7f);
+    			this.animator.startKeyframe(4);
+    			this.animator.rotate(Right_Arm, -.90f, -0.7f, 0.4f);
+    			this.animator.rotate(Right_Lower_Arm, -.60f, 0, 0);
 
     			this.animator.rotate(Left_Arm, -1.2f, 0, 0.2f);
     			this.animator.rotate(Left_Lower_Arm, -0.4f, 0, 0.2f);
@@ -5269,14 +5274,16 @@ public class ModelDeadendpartB extends ModelDeadendpartA
     			
     			//hold1
     			this.animator.startKeyframe(5);
-    			this.animator.rotate(Right_Arm, -.4f, 0, 0.7f);
+    			this.animator.rotate(Right_Arm, -.90f, -0.7f, 0.4f);
+    			this.animator.rotate(Right_Lower_Arm, -.60f, 0, 0);
     			this.animator.rotate(Left_Arm, -0.9f, 0, 0.2f);
     			this.animator.rotate(Left_Lower_Arm, -0.1f, 0.2f, 0.2f);
     			this.animator.endKeyframe();
     			
     			//hold1
     			this.animator.startKeyframe(5);
-    			this.animator.rotate(Right_Arm, -.4f, 0, 0.7f);
+    			this.animator.rotate(Right_Arm, -.90f, -0.7f, 0.4f);
+    			this.animator.rotate(Right_Lower_Arm, -.60f, 0, 0);
     			this.animator.rotate(Left_Arm, -0.9f, 0, 0.2f);
     			this.animator.rotate(Left_Lower_Arm, -0.1f, 0, 0.2f);
     			this.animator.endKeyframe();
@@ -5284,6 +5291,7 @@ public class ModelDeadendpartB extends ModelDeadendpartA
     			//End
     			this.animator.startKeyframe(10);
     			this.animator.rotate(Right_Arm, 0f, 0, 0f);
+    			this.animator.rotate(Right_Lower_Arm, -.0f, 0, 0);
     			this.animator.endKeyframe();
     		}
     		
@@ -5860,12 +5868,13 @@ public class ModelDeadendpartB extends ModelDeadendpartA
                 IGun nbt = ((IGun) stack.getItem());
                 if (nbt.getBoolean("Gun")) {
         		
-//                	if (CapabilityHandler.isReloading){
+                	if (!this.animator.setAnimation(CapabilityHandler.RELOAD_ANIMATION)){
                 	this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
             		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.5F;
             		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
             		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
             		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.1F;
+                	}
             		this.Right_Lower_Arm.scaleChildren=true;
             		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
             		RIGHT_HAND.rotationPointY=-10;
@@ -5873,7 +5882,7 @@ public class ModelDeadendpartB extends ModelDeadendpartA
             			RIGHT_HAND.rotationPointZ=-2;
             			RIGHT_HAND.rotationPointX=-0.5F;
                 		}
-//                	}
+                	
                 }
                 
         	}

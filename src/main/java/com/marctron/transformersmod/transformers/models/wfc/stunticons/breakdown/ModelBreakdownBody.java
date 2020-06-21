@@ -3846,9 +3846,7 @@ public class ModelBreakdownBody extends ModelBreakdownLeftArm
     		
             if (!entity.onGround){
               	
-              	this.Chest.rotateAngleX = .5F *downwardPose;
-              	this.Chest.rotationPointZ = -6F *downwardPose + -1;
-              	this.Chest.rotationPointY = 2F *downwardPose + -2;
+         
 //              	this.Head.rotationPointZ = -15F *downwardPose + 3;
 //              	this.Head.rotationPointY = 3.5F *downwardPose +-16.5F;
               	 
@@ -3867,11 +3865,7 @@ public class ModelBreakdownBody extends ModelBreakdownLeftArm
               	
 //              	 this.Left_Lower_Leg.rotateAngleX = 2.F *downwardPose;
                 
-                
-                Right_Leg.rotateAngleX = -1.F *downwardPose;
-                Right_Leg.rotateAngleZ = -.2F *downwardPose;
-                Right_Leg.rotateAngleY = -.2F *downwardPose;
-                Right_Lower_Leg.rotateAngleX = 1.6F *downwardPose;
+            
 //                Right_Lower_Leg.rotateAngleZ = .5F *downwardPose;
                 
 //                Right_Leg_1.rotateAngleX = -1.7F *downwardPose;

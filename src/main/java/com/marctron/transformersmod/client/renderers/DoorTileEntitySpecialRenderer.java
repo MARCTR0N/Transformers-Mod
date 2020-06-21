@@ -46,7 +46,6 @@ public class DoorTileEntitySpecialRenderer extends TileEntitySpecialRenderer<Ani
 		model.bottomright1.offsetY = (20*te.getOpenedProgress()/90);
 		model.render();
 		GlStateManager.popMatrix();
-		super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 	}
 
 }

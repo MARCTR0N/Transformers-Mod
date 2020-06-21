@@ -3712,6 +3712,8 @@ public class ModelSubwoofer1 extends AdvancedModelBiped
         float globalDegree = 0.5F ;
         float height = 3.F;
         
+        Head.rotateAngleY= bipedHead.rotateAngleY;
+//      Head.rotateAngleX= bipedHead.rotateAngleX *0.9F;
         
         float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
 		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
@@ -3758,8 +3760,7 @@ public class ModelSubwoofer1 extends AdvancedModelBiped
         bob(Torso, 2 *globalSpeed, 1* height, false, f, f1);
         
         swing(Head, 1F* globalSpeed, 0.5F* globalDegree, false, 0, 0, f, f1);
-        Head.rotateAngleY= bipedHead.rotateAngleY;
-        Head.rotateAngleX= bipedHead.rotateAngleX *0.9F;
+       
         
       //idle
         flap(RightArm, 0.08F, 0.05F, true, 0, 0.f, f2, 1);

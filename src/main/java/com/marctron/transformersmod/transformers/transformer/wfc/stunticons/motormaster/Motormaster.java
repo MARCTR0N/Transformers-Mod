@@ -60,7 +60,7 @@ public class Motormaster extends ItemArmorTransformer{
 			if(player.onGround){
 					player.motionX=player.motionX * 1.06F;
 					player.motionZ=player.motionZ * 1.06F;
-					Altmode(false);
+//					Altmode(false);
 				
 		}
 			player.eyeHeight= 2.7F;
