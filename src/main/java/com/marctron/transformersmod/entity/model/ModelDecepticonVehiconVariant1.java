@@ -1,11 +1,12 @@
 package com.marctron.transformersmod.entity.model;
 
+import com.marctron.transformersmod.entity.EntityDecepticon;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
 import com.marctron.transformersmod.items.gun.IGun;
+import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
-import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.minecraft.client.model.ModelBiped;
@@ -13,7 +14,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
@@ -4802,13 +4802,12 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-//    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.Right_Arm;
-//    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
+    	((ModelBiped)((ItemArmorTransformer) entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.Right_Arm; 	
+    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
     	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     	animate(f, f1, f2, f3, f4, f5, entity);
     	GlStateManager.pushMatrix();
-        GlStateManager.scale(0.49F, 0.49F, 0.49F);
-        GlStateManager.translate(0.0F, 25.0F * f5, -0.15F);
+       
         Torso.render(f5);
         GlStateManager.popMatrix();
     }
@@ -4826,8 +4825,9 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
         this.leftArmPose = ModelBiped.ArmPose.EMPTY;
         ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);
 
-        if (itemstack.getItem() instanceof IGun)
+        if (itemstack.getItem() instanceof RocketLauncher)
         {
+//        	System.out.println("pew pew");
             if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT)
             {
                 this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
@@ -4845,6 +4845,9 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         resetToDefaultPose();
+        
+        GlStateManager.scale(0.7F, 0.7F, 0.7F);
+        GlStateManager.translate(0.0F, 10.0F * f5, -0.15F);
         
 //        float frame = entity.frame + LLibrary.PROXY.getPartialTicks();
 //        f = (float) ((4 * Math.PI * frame - 30 * MathHelper.sin((float) (0.1 * Math.PI * (frame - 9))) - 27 * Math.PI) / (4 * Math.PI)) + 5f;
@@ -4884,7 +4887,85 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
         
         walk(Foot, 1 * globalSpeed,  1F * globalDegree, true, -3F, -0.4F, f, f1);
         walk(Foot_2, 1 * globalSpeed,  1F * globalDegree, false, -3F, 0.4F, f, f1);
+        
+        ItemStack stack = ((EntityLivingBase) entity).getHeldItemMainhand();
+        
+    	
+    	
+    	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
+            IGun nbt = ((IGun) stack.getItem());
+            if (nbt.getBoolean("Gun")) {
+//            	if (CapabilityHandler.isReloading){
+            			this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+            			this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 0.4F;
+            			swing(LowerArm_1, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+            			walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+            			this.LowerArm_1.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 1F;
+            			this.LowerArm_1.scaleChildren=true;
+                		this.LowerArm_1.setScale(0.1F, 0.1F, 0.1F);
+//                		RIGHT_HAND.rotationPointY=-10;
+                		if (isSneak){
+//                			RIGHT_HAND.rotationPointZ=-2;
+//                			RIGHT_HAND.rotationPointX=-0.5F;
+                		}
+//            	}
+            }
+    	}
+    	
+    	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.EnergonBattlePistol) {
+            IGun nbt = ((IGun) stack.getItem());
+            if (nbt.getBoolean("Gun")) {
+    		
+//            	if (CapabilityHandler.isReloading){
+            		this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+            		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.5F;
+            		swing(LowerArm_1, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+            		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+            		this.LowerArm_1.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.3F;
+            		this.LowerArm_1.scaleChildren=true;
+            		this.LowerArm_1.setScale(0.1F, 0.1F, 0.1F);
+//            		RIGHT_HAND.rotationPointY=-10;
+            		if (isSneak){
+//            			RIGHT_HAND.rotationPointZ=-2;
+//            			RIGHT_HAND.rotationPointX=-0.5F;
+            		}
+//            	}
+            }
+            
+    	}
+    	
+    	else if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.RocketLauncher) {
+            IGun nbt = ((IGun) stack.getItem());
+            if (nbt.getBoolean("Gun")) {
+    		
+//            	if (CapabilityHandler.isReloading){
+//            		this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+//            		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.9F;
+            		swing(LowerArm_1, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+//            		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+            		this.LowerArm_1.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.2F + 1.0F;
+            		this.LowerArm_1.scaleChildren=true;
+            		this.LowerArm_1.setScale(0.1F, 0.1F, 0.1F);
+            		bipedRightArm.rotationPointY=-18;
+            		bipedRightArm.rotationPointX=-12;
+            		bipedRightArm.rotationPointZ=10;
+            		this.bipedRightArm.rotateAngleX = -1.3f;
+//            		RIGHT_HAND.rotationPointY=-10;
+            		if (isSneak){
+//            			RIGHT_HAND.rotationPointZ=-2;
+//            			RIGHT_HAND.rotationPointX=-0.5F;
+            		}
+//            	}
+            }
+            
+    	}
+    	else
+//        	this.Right_Lower_Arm.scaleChildren=false;
+			this.LowerArm_1.setScale(1F, 1F, 1F);
+//    	this.LowerArm.setScale(1F, 1F, 1F);
     }
+        
+    
     
     public void animate(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
         animator.update((EntityDecepticonVehiconVariant1) entity);
@@ -4898,4 +4979,5 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
         modelrenderer.postRender(scale);
         modelrenderer.rotationPointX -= f;
     }
+    
 }

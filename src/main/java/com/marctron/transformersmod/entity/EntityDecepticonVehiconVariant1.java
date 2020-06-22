@@ -10,6 +10,7 @@ import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.AnimationAI;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityBodyHelper;
 import net.minecraft.entity.IEntityLivingData;
@@ -33,7 +34,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class EntityDecepticonVehiconVariant1 extends EntityDecepticon implements IAnimatedEntity{
 
 	private static final DataParameter<Boolean> SWINGING_ARMS = EntityDataManager.<Boolean>createKey(AbstractSkeleton.class, DataSerializers.BOOLEAN);		
-				
+
+	private RenderLivingBase renderer;
 	
 //	    		public ControlledAnimation walkAnim = new ControlledAnimation(10);
 	
@@ -63,7 +65,7 @@ public class EntityDecepticonVehiconVariant1 extends EntityDecepticon implements
        
        
         
-        experienceValue = 30;
+        experienceValue = 0;
         setSize(0.6F, 1.8F);
         active = true;
         stepHeight = 1;
@@ -97,11 +99,12 @@ public class EntityDecepticonVehiconVariant1 extends EntityDecepticon implements
         super.onUpdate();
     
 	}
-
+	@Override
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
     {
 //        super.setEquipmentBasedOnDifficulty(difficulty);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.ModItems.RocketLauncher));
+//        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.ModItems.Energon_Battle_Pistol));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.EnergonBattlePistol));
     }
 	
 	@Override
@@ -119,7 +122,7 @@ public class EntityDecepticonVehiconVariant1 extends EntityDecepticon implements
             this.setEquipmentBasedOnDifficulty(difficulty);
             this.setEnchantmentBasedOnDifficulty(difficulty);
 //            this.setCombatTask();
-            this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * difficulty.getClampedAdditionalDifficulty());
+            this.setCanPickUpLoot(true);
 
             if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty())
             {
@@ -191,5 +194,14 @@ public class EntityDecepticonVehiconVariant1 extends EntityDecepticon implements
 	    }
 
 
+	    @SideOnly(Side.CLIENT)
+	    public RenderLivingBase getRenderer() {
+	    	return renderer;
+	    }
+	    
+	    @SideOnly(Side.CLIENT)
+	    public void setRenderer(RenderLivingBase renderer) {
+	    	this.renderer = renderer;
+	    }
 	
 }

@@ -357,7 +357,7 @@ public class RegistryHandler {
 		public static final Item BOTCOIN = null;
 
 		// Guns
-		public static final EnergonBattlePistol Energon_Battle_Pistol = null;
+//		public static final EnergonBattlePistol Energon_Battle_Pistol = null;
 		public static final AmmoClip Energon_Battle_Pistol_Clip = null;
 		public static final Scrapper Scrapper = null;
 		public static final AmmoClip Scrapper_Clip = null;
@@ -367,7 +367,7 @@ public class RegistryHandler {
 		public static final AmmoClip Scatter_Blaster_Shell = null;
 		public static final NeutronRepeater NeutronRepeater = null;
 		public static final AmmoClip Neutron_Repeater_Clip = null;
-		public static final RocketLauncher RocketLauncher = null;
+//		public static final RocketLauncher RocketLauncher = null;
 		public static final AmmoClip Rocket_Clip = null;
 
 		// Items
@@ -1152,6 +1152,9 @@ public class RegistryHandler {
 		public static final Block STAINED_HARDENED_CLAY_BEIGE = null;
 
 	}
+	
+	public static Item RocketLauncher;
+	public static Item EnergonBattlePistol;
 
 	@Mod.EventBusSubscriber
 	public static class Registry {
@@ -1200,11 +1203,11 @@ public class RegistryHandler {
 					new ItemBase("botcoin"),
 
 					// Guns
-					new EnergonBattlePistol(15), new AmmoClip("Energon_Battle_Pistol_Clip", 10), new Scrapper(),
+					EnergonBattlePistol = new EnergonBattlePistol(15), new AmmoClip("Energon_Battle_Pistol_Clip", 10), new Scrapper(),
 					new AmmoClip("Scrapper_Clip", 60), new EMPShotgun(10), new AmmoClip("EMP_Shotgun_Shell", 2),
 					new ScatterBlaster(5), new AmmoClip("Scatter_Blaster_Shell", 6), new NeutronRepeater(2),
-					new AmmoClip("Neutron_Repeater_Clip", 224), new RocketLauncher(50), new AmmoClip("Rocket_Clip", 4),
-
+					new AmmoClip("Neutron_Repeater_Clip", 224), RocketLauncher = new RocketLauncher(50), new AmmoClip("Rocket_Clip", 4),
+//					new RocketLauncher(50),
 					// Items
 					new ItemBase("energon_shard"), new ItemBase("blue_energon_shard"),
 					new ItemBase("red_energon_shard"), new ItemBase("dark_energon_shard"),
