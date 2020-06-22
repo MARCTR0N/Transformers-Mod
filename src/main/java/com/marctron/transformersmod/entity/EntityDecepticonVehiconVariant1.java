@@ -104,7 +104,7 @@ public class EntityDecepticonVehiconVariant1 extends EntityDecepticon implements
     {
 //        super.setEquipmentBasedOnDifficulty(difficulty);
 //        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.ModItems.Energon_Battle_Pistol));
-		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.EnergonBattlePistol));
+		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.RocketLauncher));
     }
 	
 	@Override

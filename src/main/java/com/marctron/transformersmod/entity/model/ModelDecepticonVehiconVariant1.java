@@ -14,6 +14,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
@@ -799,6 +800,7 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
     
     private ModelAnimator animator;
 
+    
     public ModelDecepticonVehiconVariant1()
     {
     	animator = ModelAnimator.create();
@@ -4796,14 +4798,27 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
         shape453_34.addChild(shape453_35);
         shape872_7.addChild(shape873_12);
         
+//        LowerArm_1.addChild(bipedRightArm);
+        
         updateDefaultPose();
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
-    	((ModelBiped)((ItemArmorTransformer) entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.Right_Arm; 	
-    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
+//    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.Right_Arm; 	
+//    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
+//    	Foot_1= this.Foot;
+//    	copyModelAngles(this.LowerArm_1, this.bipedRightArm);
+    	
+    	Item item = entity.getArmorInventoryList().iterator().next().getItem();
+    	if(item instanceof ItemArmorTransformer){
+    	        ((ModelBiped) ((ItemArmorTransformer) item).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
+    	}
+    	item = entity.getArmorInventoryList().iterator().next().getItem();
+    	if(item instanceof ItemArmorTransformer){
+    	        ((ModelBiped) ((ItemArmorTransformer) item).getRenderer().getMainModel()).bipedLeftArm = this.Right_Arm;
+    	}
     	setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     	animate(f, f1, f2, f3, f4, f5, entity);
     	GlStateManager.pushMatrix();
@@ -4856,8 +4871,8 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
         float globalSpeed = 0.2F;
         float globalDegree = 0.8F ;
         float height = 4F;
-//        f = f2;
-//        f1 = 0.5f;
+        f = f2;
+        f1 = 0.5f;
         
         walk(Head, 2 * globalSpeed, 0.15F * globalDegree, true, 0, 0.75F, f, f1);
         swing(Head, 1 * globalSpeed, 0.4F * globalDegree, false, 0, 0, f, f1);
