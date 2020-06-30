@@ -62,7 +62,7 @@ public class Deadend extends ItemArmorTransformer{
 					player.motionX=player.motionX * 1.05F;
 					player.motionZ=player.motionZ * 1.05F;
 		}
-			player.eyeHeight= 1.4F;
+			player.eyeHeight= 1.55F;
 //			if (Minecraft.getMinecraft().gameSettings.keyBindAttack.isKeyDown()){
 //				ModelDeadendpartB.attackTimer = 10;
 //			}

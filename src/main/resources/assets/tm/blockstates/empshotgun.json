@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "custom": { "flip-v": true },
-        "model": "tm:energon_battle_pistol.obj"
+        "model": "tm:emp_shotgun.obj"
     },
     "variants": {
         "inventory": 
@@ -15,8 +15,8 @@
                     "scale": 0.75
                 },
                 "thirdperson_righthand": {
-                    "rotation": [ { "x": 0 }, { "y": 90 }, { "z": 0 } ],
-                    "translation": [ 0.375, 0.4, -0.8],
+                    "rotation": [ { "x": 90 }, { "y": 0 }, { "z": -90 } ],
+                    "translation": [ 0.375, -0.3, -0.65],
                     "scale": 0.75
                 },
                 "gui": {
@@ -41,7 +41,7 @@
                 },
                 "fixed": {
                     "rotation": [ { "x": 0 }, { "y": 180 }, { "z": 0 } ],
-                    "translation": [ 0, 0.25, -0.5 ],
+                    "translation": [ 0.15, 0.25, -0.5 ],
                     "scale": 0.5
                 }
             }

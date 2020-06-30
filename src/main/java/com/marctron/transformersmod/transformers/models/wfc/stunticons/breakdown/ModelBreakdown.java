@@ -3,6 +3,7 @@ package com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdow
 import com.marctron.transformersmod.capabilities.EntityAnimatorProvider;
 import com.marctron.transformersmod.items.gun.IGun;
 import com.marctron.transformersmod.items.gun.ItemGunBase;
+import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
 import com.marctron.transformersmod.util.handlers.CapabilityHandler;
@@ -582,7 +583,8 @@ public class ModelBreakdown extends ModelBreakdownBody{
 	                }
 	        	}
 	        	
-	        	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.EnergonBattlePistol) {
+	        	if (stack.getItem() instanceof IGun && !(stack.getItem() instanceof RocketLauncher)) {
+	        		
 	                IGun nbt = ((IGun) stack.getItem());
 	                if (nbt.getBoolean("Gun")) {
 	        		

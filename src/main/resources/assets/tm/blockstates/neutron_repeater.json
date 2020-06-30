@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "custom": { "flip-v": true },
-        "model": "tm:energon_battle_pistol.obj"
+        "model": "tm:neutron_repeater.obj"
     },
     "variants": {
         "inventory": 
@@ -16,12 +16,12 @@
                 },
                 "thirdperson_righthand": {
                     "rotation": [ { "x": 0 }, { "y": 90 }, { "z": 0 } ],
-                    "translation": [ 0.375, 0.4, -0.8],
+                    "translation": [ 0.375, 0.2, -0.65],
                     "scale": 0.75
                 },
                 "gui": {
                     "rotation": [ { "x": 30 }, { "y": -45 }, { "z": 0 } ],
-                    "translation": [ -0.2, 0.1, 0 ],
+                    "translation": [ -0.3, 0.2, 0 ],
                     "scale": 0.45
                 },
                 "firstperson_righthand": {
@@ -41,7 +41,7 @@
                 },
                 "fixed": {
                     "rotation": [ { "x": 0 }, { "y": 180 }, { "z": 0 } ],
-                    "translation": [ 0, 0.25, -0.5 ],
+                    "translation": [ 0.2, 0.25, -0.5 ],
                     "scale": 0.5
                 }
             }

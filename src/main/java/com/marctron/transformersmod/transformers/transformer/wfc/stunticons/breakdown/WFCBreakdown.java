@@ -57,6 +57,7 @@ public class WFCBreakdown extends ItemArmorTransformer{
 //					Altmode(false);
 				
 		}
+			player.eyeHeight= 1.55F;
 			if (world.isRemote)
 			{
 				

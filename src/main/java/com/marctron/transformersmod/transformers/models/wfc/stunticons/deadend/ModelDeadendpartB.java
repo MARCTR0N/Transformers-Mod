@@ -5860,6 +5860,13 @@ public class ModelDeadendpartB extends ModelDeadendpartA
                 			swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
                 			walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
                 			this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 1F;
+                			this.Right_Lower_Arm.scaleChildren=true;
+	                		this.Right_Lower_Arm.setScale(0.001F, 0.001F, 0.001F);
+	                		RIGHT_HAND.rotationPointY=-10;
+	                		if (isSneak){
+	                			RIGHT_HAND.rotationPointZ=-2;
+	                			RIGHT_HAND.rotationPointX=-0.5F;
+	                		}
 //                	}
                 }
         	}

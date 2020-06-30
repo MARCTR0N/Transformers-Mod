@@ -322,7 +322,7 @@ public class ModelTFPMagnus extends ModelTFPUltraMagnuspart3{
                     }
 	        	}
 	        	
-	        	if (stack.getItem() instanceof ItemGunBase) {
+	        	if (stack.getItem() instanceof IGun) {
                     IGun nbt = ((IGun) stack.getItem());
                     if (nbt.getBoolean("Gun")) {
                 		
@@ -333,8 +333,8 @@ public class ModelTFPMagnus extends ModelTFPUltraMagnuspart3{
                 		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
                 		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 1.1F;
                 		this.Right_Lower_Arm.scaleChildren=true;
-                		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
-                		RIGHT_HAND1.rotationPointY=-10;
+                		this.Right_Lower_Arm.setScale(0.001F, 0.001F, 0.001F);
+                		RIGHT_HAND1.rotationPointY=-7;
                 		RIGHT_HAND1.rotationPointX=-1.5F;
                 		
                 		if (isSneak){

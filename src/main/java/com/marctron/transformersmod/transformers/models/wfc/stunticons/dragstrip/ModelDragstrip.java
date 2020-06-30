@@ -5140,16 +5140,24 @@ public class ModelDragstrip extends AdvancedModelBiped
         if (entity instanceof EntityPlayer)
         {
         	ItemStack stack = ((EntityPlayer) entity).getHeldItemMainhand();
+        	
         	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper) {
                 IGun nbt = ((IGun) stack.getItem());
                 if (nbt.getBoolean("Gun")) {
-        		
-            this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
-            this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 0.4F;
-            swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
-            walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-            this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 1F;
-
+//                	if (CapabilityHandler.isReloading){
+                			this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
+                			this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 0.4F;
+                			swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
+                			walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
+                			this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.5F + 1F;
+                			this.Right_Lower_Arm.scaleChildren=true;
+	                		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
+	                		RIGHT_HAND.rotationPointY=-10;
+	                		if (isSneak){
+	                			RIGHT_HAND.rotationPointZ=-2;
+	                			RIGHT_HAND.rotationPointX=-0.5F;
+	                		}
+//                	}
                 }
         	}
         	
