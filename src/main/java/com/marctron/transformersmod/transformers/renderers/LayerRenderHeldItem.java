@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.transformers.renderers;
 
+import com.marctron.transformersmod.entity.model.ModelDecepticonVehiconVariant1;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;

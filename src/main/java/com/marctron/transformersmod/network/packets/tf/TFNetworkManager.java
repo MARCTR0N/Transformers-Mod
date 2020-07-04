@@ -1,5 +1,7 @@
 package com.marctron.transformersmod.network.packets.tf;
 
+import com.marctron.transformersmod.network.PacketNotifyPlayerAnimationStart;
+import com.marctron.transformersmod.network.PacketSetClientAnimation;
 import com.marctron.transformersmod.network.PacketSetMaxNumberOfItems;
 import com.marctron.transformersmod.network.packets.MessageEntityPosVelUpdate;
 import com.marctron.transformersmod.network.packets.PacketDrivingSound;
@@ -58,6 +60,8 @@ public static void registerPackets()
     registerPacket(PacketDrivingSound.Handler.class, PacketDrivingSound.class);
     registerPacket(PacketSetMaxNumberOfItems.Handler.class, PacketSetMaxNumberOfItems.class);
     registerPacket(MessageEntityPosVelUpdate.class, MessageEntityPosVelUpdate.class);
+    registerClientPacket(PacketSetClientAnimation.Handler.class, PacketSetClientAnimation.class);
+    registerPacket(PacketNotifyPlayerAnimationStart.Handler.class, PacketNotifyPlayerAnimationStart.class);
    
 }
 
@@ -68,6 +72,12 @@ private static <REQ extends IMessage, REPLY extends IMessage> void registerPacke
 //    networkWrapper.registerMessage(messageHandler, requestMessageType, packetId++, Side.CLIENT);
     networkWrapper.registerMessage(messageHandler, requestMessageType, packetId++, Side.SERVER);
     
+}
+private static <REQ extends IMessage, REPLY extends IMessage> void registerClientPacket(Class<? extends IMessageHandler<REQ, REPLY>> messageHandler, Class<REQ> requestMessageType)
+{
+//  networkWrapper.registerMessage(messageHandler, requestMessageType, packetId++, Side.CLIENT);
+  networkWrapper.registerMessage(messageHandler, requestMessageType, packetId++, Side.CLIENT);
+  
 }
 
 
