@@ -2,7 +2,7 @@ package com.marctron.transformersmod.items.gun;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.entity.EntityBullet;
-
+import com.marctron.transformersmod.entity.EntityNewBullet;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.util.NBTHelper;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
@@ -72,8 +72,9 @@ public class Scrapper extends ItemBase implements IGun {
             if (!worldIn.isRemote && ammo < getMaxAmmo())
                 ItemGunBase.reloadAll(playerIn, stack);
         } else {
-            if (playerIn.capabilities.isCreativeMode && ammo == 0) {
+            if (!playerIn.capabilities.isCreativeMode && ammo == 0) {
                 //TODO: Play gun out of ammo sound
+            	playerIn.world.playSound(null, playerIn.getPosition(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
                 return new ActionResult<>(EnumActionResult.PASS, stack);
             }
             //Start shooting
@@ -117,7 +118,7 @@ public class Scrapper extends ItemBase implements IGun {
         if (ticksUsed >= lastShotTick + curSpeed) {
             //Shoot bullet
             //LogHelper.info("Pew");
-            player.world.spawnEntity(new EntityBullet(player.world, player, 5f));
+            player.world.spawnEntity(new EntityNewBullet(player.world, player, 5f));
             player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_FIREWORK_LARGE_BLAST, SoundCategory.NEUTRAL, 1.0f, 1.1F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
             player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.NEUTRAL, 0.06f, 1.1F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
             player.world.playSound(null, player.getPosition(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);

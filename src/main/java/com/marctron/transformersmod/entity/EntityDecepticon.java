@@ -4,37 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.swing.plaf.basic.BasicComboBoxUI.ItemHandler;
-
 import io.netty.buffer.ByteBuf;
 import net.ilexiconn.llibrary.client.model.tools.IntermittentAnimation;
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.AnimationAI;
-import net.ilexiconn.llibrary.server.animation.AnimationHandler;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class EntityDecepticon extends EntityCreature implements IEntityAdditionalSpawnData, IAnimatedEntity, IntermittentAnimatableEntity {
+public abstract class EntityDecepticon extends EntityMob implements IAnimatedEntity, IntermittentAnimatableEntity {
 	private static final byte START_IA_HEALTH_UPDATE_ID = 4;
 	
 	
@@ -82,7 +74,7 @@ public abstract class EntityDecepticon extends EntityCreature implements IEntity
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+//        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
     }
 
     @Override
@@ -112,15 +104,15 @@ public abstract class EntityDecepticon extends EntityCreature implements IEntity
 
     protected void onAnimationFinish(Animation animation) {}
 
-    @Override
-    public void writeSpawnData(ByteBuf buf) {
-    }
-
-    @Override
-    public void readSpawnData(ByteBuf buf) {
-        prevRotationYaw = rotationYaw;
-        prevRenderYawOffset = renderYawOffset = prevRotationYawHead = rotationYawHead;
-    }
+//    @Override
+//    public void writeSpawnData(ByteBuf buf) {
+//    }
+//
+//    @Override
+//    public void readSpawnData(ByteBuf buf) {
+//        prevRotationYaw = rotationYaw;
+//        prevRenderYawOffset = renderYawOffset = prevRotationYawHead = rotationYawHead;
+//    }
 
     public int getAttack() {
         return 0;

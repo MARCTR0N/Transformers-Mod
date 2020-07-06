@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.marctron.transformersmod.Main;
 import com.marctron.transformersmod.entity.EntityBullet;
+import com.marctron.transformersmod.entity.EntityNewBullet;
 import com.marctron.transformersmod.util.handlers.EnumGuiID;
 
 import net.minecraft.entity.Entity;
@@ -25,6 +26,12 @@ public class CommonUtils {
     public static DamageSource causeBulletDamage(EntityBullet bullet, Entity indirectEntity) {
         return new EntityDamageSourceIndirect(Reference.MOD_ID + ".bullet", bullet, indirectEntity).setProjectile();
     }
+    
+    public static DamageSource causeNewBulletDamage(EntityNewBullet bullet, Entity indirectEntity) {
+        return new EntityDamageSourceIndirect(Reference.MOD_ID + ".bullet", bullet, indirectEntity).setProjectile();
+	}
+    
+    
 
     public static void sortStringList(List<String> list) {
         Collections.sort(list);
@@ -86,4 +93,6 @@ public class CommonUtils {
                 return false;
         return true;
     }
+
+	
 }

@@ -45,23 +45,7 @@ public abstract class ItemGunBase extends ItemCooldown implements IGun {
             if (remaining == 0) return;
         }
 
-        //Check any ammo belts before any loose ones in inventory
-        for (int i = 0; i < player.inventory.mainInventory.size(); i++) {
-            //Find ammo belts
-            ItemStack stack = player.inventory.mainInventory.get(i);
-//	            if(stack.getItem() == ModItems.PRIMARY_AMMO)
-//	            {
-//	                //Find ammo clips within the ammo belt
-//	                ItemStackHandler ammoHandler = PrimaryAmmo.getInventoryHandler(stack);
-//	                for(int j = 0; j < ammoHandler.getSlots(); j++)
-//	                {
-//	                    ItemStack ammoClip = ammoHandler.getStackInSlot(j);
-//	                    int remaining = reloadWithStack(gunStack, ammoClip);
-//	                    if(ammoClip.getCount() == 0) ammoHandler.setStackInSlot(j, ItemStack.EMPTY);
-//	                    if(remaining == 0) return;
-//	                }
-//	            }
-        }
+    
 
         //Check main inventory
         for (int i = 0; i < player.inventory.mainInventory.size(); i++) {

@@ -5,19 +5,22 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Keyboard;
 
 import com.marctron.transformersmod.blocks.tileentity.AnimatedDoorTileEntity;
-import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.client.renderers.DoorTileEntitySpecialRenderer;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconShotgunner;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
+import com.marctron.transformersmod.entity.EntityNewBullet;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.entity.render.RenderBullet;
 import com.marctron.transformersmod.entity.render.RenderDecepticonBrute;
+import com.marctron.transformersmod.entity.render.RenderDecepticonVehiconShotgunner;
 import com.marctron.transformersmod.entity.render.RenderDecepticonVehiconVariant1;
 import com.marctron.transformersmod.entity.render.RenderDecepticonVehiconVariant2;
+import com.marctron.transformersmod.entity.render.RenderNewBullet;
 import com.marctron.transformersmod.entity.render.RenderRocket;
 import com.marctron.transformersmod.entity.render.RenderSwindle;
 import com.marctron.transformersmod.entity.render.RenderVehicon;
@@ -29,7 +32,6 @@ import com.marctron.transformersmod.events.ClientEvents;
 //import com.marctron.transformersmod.fpr.playerdummy.RenderPlayerDummy;
 import com.marctron.transformersmod.items.ACHILLESA4;
 import com.marctron.transformersmod.items.DARKSTARSABER;
-import com.marctron.transformersmod.items.M1_GARAND_FULL;
 import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
 import com.marctron.transformersmod.util.Reference;
@@ -43,8 +45,6 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.RenderBlockOverlayEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -55,7 +55,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 
 public class ClientProxy implements IProxy {
@@ -91,8 +90,11 @@ public class ClientProxy implements IProxy {
         RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant1.class, RenderDecepticonVehiconVariant1::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant2.class, RenderDecepticonVehiconVariant2::new);
         
+        RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconShotgunner.class, RenderDecepticonVehiconShotgunner::new);
+        
         RenderingRegistry.registerEntityRenderingHandler(EntityVehicon.class, RenderVehicon::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySwindle.class, RenderSwindle::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityNewBullet.class, RenderNewBullet::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBullet::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLargeRocket.class, RenderRocket::new);
         
