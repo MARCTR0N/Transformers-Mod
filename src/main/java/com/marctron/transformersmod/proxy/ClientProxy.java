@@ -78,7 +78,6 @@ public class ClientProxy implements IProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
-        MinecraftForge.EVENT_BUS.register(new CommonEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
         ClientRegistry.registerKeyBinding(ALT_MODE);
         ClientRegistry.registerKeyBinding(RELOAD);

@@ -2,6 +2,7 @@ package com.marctron.transformersmod.proxy;
 
 import javax.annotation.Nullable;
 
+import com.marctron.transformersmod.events.CommonEvents;
 import com.marctron.transformersmod.resize.attributes.AttachAttributes;
 import com.marctron.transformersmod.resize.compatibilities.Capabilities;
 import com.marctron.transformersmod.resize.compatibilities.CapabilitiesHandler;
@@ -22,6 +23,7 @@ public class ServerProxy implements IProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
     	Capabilities.init();
+        MinecraftForge.EVENT_BUS.register(new CommonEvents());
     }
 
     @Override
