@@ -4805,12 +4805,7 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
-//    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedLeftArm = this.Right_Arm; 	
-//    	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
-//    	Foot_1= this.Foot;
-//    	copyModelAngles(this.LowerArm_1, this.bipedRightArm);
-    	
+    {   	
     	Item item = entity.getArmorInventoryList().iterator().next().getItem();
     	if(item instanceof ItemArmorTransformer){
     	        ((ModelBiped) ((ItemArmorTransformer) item).getRenderer().getMainModel()).bipedRightArm = this.Right_Arm_1;
@@ -4960,7 +4955,7 @@ public class ModelDecepticonVehiconVariant1 extends AdvancedModelBiped
 //            		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
             		this.LowerArm_1.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.2F + 1.0F;
             		this.LowerArm_1.scaleChildren=true;
-//            		this.LowerArm_1.setScale(0.1F, 0.1F, 0.1F);
+            		this.LowerArm_1.setScale(0.1F, 0.1F, 0.1F);
             		bipedRightArm.rotationPointY=-18;
             		bipedRightArm.rotationPointX=-12;
             		bipedRightArm.rotationPointZ=10;

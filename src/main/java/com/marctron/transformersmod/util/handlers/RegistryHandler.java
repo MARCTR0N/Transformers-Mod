@@ -22,9 +22,11 @@ import com.marctron.transformersmod.blocks.wfc.lock.LockBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconShotgunner;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
+import com.marctron.transformersmod.entity.EntityNewBullet;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.init.ModPotionTypes;
@@ -358,6 +360,8 @@ public class RegistryHandler {
 
 		// Guns
 //		public static final EnergonBattlePistol Energon_Battle_Pistol = null;
+		public static final AmmoClip AMMUNITION = null;
+		
 		public static final AmmoClip Energon_Battle_Pistol_Clip = null;
 		public static final Scrapper Scrapper = null;
 		public static final AmmoClip Scrapper_Clip = null;
@@ -1208,6 +1212,8 @@ public class RegistryHandler {
 					new ScatterBlaster(5), new AmmoClip("Scatter_Blaster_Shell", 6), new NeutronRepeater(2),
 					new AmmoClip("Neutron_Repeater_Clip", 224), RocketLauncher = new RocketLauncher(50), new AmmoClip("Rocket_Clip", 4),
 //					new RocketLauncher(50),
+							new AmmoClip("ammunition", 1000),
+					
 					// Items
 					new ItemBase("energon_shard"), new ItemBase("blue_energon_shard"),
 					new ItemBase("red_energon_shard"), new ItemBase("dark_energon_shard"),
@@ -2166,6 +2172,7 @@ public class RegistryHandler {
 			final EntityEntry[] entry = {
 					registerProjectile("rocket", EntityLargeRocket.class, Reference.ENTITY_LARGE_ROCKET, 2, 1, true),
 					registerProjectile("bullet", EntityBullet.class, Reference.ENTITY_BULLET, 2, 1, true),
+					registerProjectile("newbullet", EntityNewBullet.class, Reference.ENTITY_BULLET, 4, 1, true),
 					registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 1, true, 000000, 660066),
 					registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 1, true, 8983288,
 							16043109),
@@ -2175,6 +2182,9 @@ public class RegistryHandler {
 							Reference.ENTITY_DECEPTICON_VEHICON_1, 1, true, 8983288, 16043109),
 					registerEntity("decepticon_vehicon_2", EntityDecepticonVehiconVariant2.class,
 							Reference.ENTITY_DECEPTICON_VEHICON_2, 1, true, 8983288, 16043109),
+					
+					registerEntity("decepticon_shotgunner", EntityDecepticonVehiconShotgunner.class,
+							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
 
 //            		registerEntity("playerdummy", EntityPlayerDummy.class, Reference.ENTITY_PLAYER_DUMMY, 1, true),
 

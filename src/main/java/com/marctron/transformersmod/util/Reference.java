@@ -17,6 +17,7 @@ public class Reference {
     public static final int ENTITY_DECEPTICON_BRUTE = 500;
     public static final int ENTITY_DECEPTICON_VEHICON_1 = 500;
     public static final int ENTITY_DECEPTICON_VEHICON_2 = 500;
+    public static final int ENTITY_DECEPTICON_VEHICON_SHOTGUNNER = 40;
 
     public static final int GUI_ASSEMBLER = 5;
     public static final int GUI_ENERGON_CRATE = 2;

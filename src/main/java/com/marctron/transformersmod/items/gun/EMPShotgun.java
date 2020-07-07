@@ -1,7 +1,10 @@
 package com.marctron.transformersmod.items.gun;
 
-import com.marctron.transformersmod.entity.EntityBullet;
+import java.util.List;
 
+import javax.annotation.Nullable;
+
+import com.marctron.transformersmod.entity.EntityNewBullet;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.resources.I18n;
@@ -10,9 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class EMPShotgun extends ItemGunBase {
     int Cooldown;
@@ -32,7 +32,7 @@ public class EMPShotgun extends ItemGunBase {
         player.getCooldownTracker().setCooldown(this, Cooldown);
 
         for (int i = 0; i < 6; i++)
-            world.spawnEntity(new EntityBullet(world, player, 10f).setDamage(2f));
+            world.spawnEntity(new EntityNewBullet(world, player, 10f).setDamage(2f));
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
