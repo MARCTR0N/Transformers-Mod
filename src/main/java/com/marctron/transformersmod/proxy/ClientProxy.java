@@ -22,6 +22,7 @@ import com.marctron.transformersmod.entity.render.RenderRocket;
 import com.marctron.transformersmod.entity.render.RenderSwindle;
 import com.marctron.transformersmod.entity.render.RenderVehicon;
 import com.marctron.transformersmod.events.ClientEvents;
+import com.marctron.transformersmod.events.CommonEvents;
 //import com.marctron.transformersmod.fpr.RFP2;
 //import com.marctron.transformersmod.fpr.RFP2Keybind;
 //import com.marctron.transformersmod.fpr.State;
@@ -78,6 +79,7 @@ public class ClientProxy implements IProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
+        MinecraftForge.EVENT_BUS.register(new CommonEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
         ClientRegistry.registerKeyBinding(ALT_MODE);
         ClientRegistry.registerKeyBinding(RELOAD);

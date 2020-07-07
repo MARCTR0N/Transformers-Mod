@@ -1,5 +1,9 @@
 package com.marctron.transformersmod.events;
 
+import java.util.ArrayList;
+
+import org.lwjgl.opengl.GL11;
+
 import com.marctron.transformersmod.capabilities.EntityAnimatorProvider;
 import com.marctron.transformersmod.items.ItemPhaseShifter;
 import com.marctron.transformersmod.items.gun.IGun;
@@ -20,12 +24,18 @@ import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.Mena
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.breakdown.WFCBreakdownAltmode;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.Motormaster;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.MotormasterAltmode;
+import com.marctron.transformersmod.util.DamageIndicator;
+import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.CapabilityHandler;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,8 +44,11 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -46,6 +59,8 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.MouseInputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ClientEvents {
+
+	public static final ArrayList<DamageIndicator> INDICATORS = new ArrayList<>();
 
 	private static int attacks;
 	private static int sword;
@@ -339,10 +354,12 @@ public class ClientEvents {
 				// - - - - - - - - -
 				if (stack.getItem() instanceof ItemHoe) {
 					if (sword == 0) {
-						TFNetworkManager.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.SWORD_REVERSE_ANIMATION));
+						TFNetworkManager.sendToServer(
+								new PacketNotifyPlayerAnimationStart(CapabilityHandler.SWORD_REVERSE_ANIMATION));
 						sword++;
 					} else if (sword > 0) {
-						TFNetworkManager.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.SWORD_ANIMATION));
+						TFNetworkManager
+								.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.SWORD_ANIMATION));
 						sword--;
 					}
 
@@ -356,19 +373,22 @@ public class ClientEvents {
 							sword++;
 //                        System.out.println("sword = 0");
 						} else if (sword > 0) {
-							TFNetworkManager.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.SWORD_ANIMATION));
+							TFNetworkManager.sendToServer(
+									new PacketNotifyPlayerAnimationStart(CapabilityHandler.SWORD_ANIMATION));
 							sword--;
 //                        System.out.println("sword = 1");
 						}
 					} else {
 
 						if (stack.getItem() instanceof ItemAxe) {
-							TFNetworkManager.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.AXE_ANIMATION));
+							TFNetworkManager.sendToServer(
+									new PacketNotifyPlayerAnimationStart(CapabilityHandler.AXE_ANIMATION));
 //                           
 						} else {
 
 							if (stack.getItem() instanceof ItemAir) {
-								TFNetworkManager.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.PUNCH_ANIMATION));
+								TFNetworkManager.sendToServer(
+										new PacketNotifyPlayerAnimationStart(CapabilityHandler.PUNCH_ANIMATION));
 							}
 						}
 					}
@@ -390,13 +410,15 @@ public class ClientEvents {
 
 					if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.Scrapper
 							|| stack.getItem() instanceof IGun) {
-						TFNetworkManager.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.RELOAD_ANIMATION));
+						TFNetworkManager
+								.sendToServer(new PacketNotifyPlayerAnimationStart(CapabilityHandler.RELOAD_ANIMATION));
 					}
 
 				}
 
 			}
-			if (!Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown() && !Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
+			if (!Minecraft.getMinecraft().gameSettings.keyBindUseItem.isKeyDown()
+					&& !Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown()) {
 				isReloading = false;
 			}
 
@@ -407,8 +429,23 @@ public class ClientEvents {
 	}
 
 	@SubscribeEvent
-	public void onAttack(PlayerTickEvent event) {
+	public void editHud(RenderGameOverlayEvent.Pre event) {
+		if (!Minecraft.getMinecraft().gameSettings.showDebugInfo) {
+			if (event.getType() == ElementType.VIGNETTE) {
+				for(int i = 0; i<INDICATORS.size(); i++){
+					if(INDICATORS.get(i).getAlpha()==0) {
+						INDICATORS.remove(i);
+					}else {
+						INDICATORS.get(i).draw(event.getResolution().getScaledWidth() / 2, event.getResolution().getScaledHeight() / 2,
+						Minecraft.getMinecraft().player.getRotationYawHead());
+					}
+				}
+			}
+		}
+	}
 
+	@SubscribeEvent
+	public void onAttack(PlayerTickEvent event) {
 		final EntityPlayer entity = event.player;
 //    	if (entity.world.isRemote)
 //    	{
