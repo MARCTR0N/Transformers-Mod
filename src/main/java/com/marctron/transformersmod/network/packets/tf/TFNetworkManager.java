@@ -1,9 +1,9 @@
 package com.marctron.transformersmod.network.packets.tf;
 
 import com.marctron.transformersmod.network.PacketNotifyPlayerAnimationStart;
+import com.marctron.transformersmod.network.PacketSyncAttackValues;
 import com.marctron.transformersmod.network.PacketSetClientAnimation;
 import com.marctron.transformersmod.network.PacketSetMaxNumberOfItems;
-import com.marctron.transformersmod.network.PacketSyncAttackValues;
 import com.marctron.transformersmod.network.packets.MessageEntityPosVelUpdate;
 import com.marctron.transformersmod.network.packets.PacketDrivingSound;
 import com.marctron.transformersmod.network.packets.PacketShootRocket;
@@ -64,8 +64,6 @@ public static void registerPackets()
     registerClientPacket(PacketSetClientAnimation.Handler.class, PacketSetClientAnimation.class);
     registerPacket(PacketNotifyPlayerAnimationStart.Handler.class, PacketNotifyPlayerAnimationStart.class);
     registerClientPacket(PacketSyncAttackValues.Handler.class, PacketSyncAttackValues.class);
-    
-   
 }
 
 

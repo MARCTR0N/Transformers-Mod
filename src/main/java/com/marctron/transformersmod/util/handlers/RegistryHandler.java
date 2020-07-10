@@ -22,7 +22,10 @@ import com.marctron.transformersmod.blocks.wfc.lock.LockBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
 import com.marctron.transformersmod.entity.EntityBullet;
 import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconRocketeer;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconShotgunner;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconTitan;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant2;
 import com.marctron.transformersmod.entity.EntityLargeRocket;
@@ -2176,7 +2179,7 @@ public class RegistryHandler {
 					registerEntity("vehicon", EntityVehicon.class, Reference.ENTITY_VEHICON, 1, true, 000000, 660066),
 					registerEntity("swindle", EntitySwindle.class, Reference.ENTITY_SWINDLE, 1, true, 8983288,
 							16043109),
-					registerEntity("decepticon_brute", EntityDecepticonBrute.class, Reference.ENTITY_DECEPTICON_BRUTE,
+					registerEntity("decepticon_old_brute", EntityDecepticonBrute.class, Reference.ENTITY_DECEPTICON_BRUTE,
 							1, true, 8983288, 16043109),
 					registerEntity("decepticon_vehicon_1", EntityDecepticonVehiconVariant1.class,
 							Reference.ENTITY_DECEPTICON_VEHICON_1, 1, true, 8983288, 16043109),
@@ -2184,6 +2187,12 @@ public class RegistryHandler {
 							Reference.ENTITY_DECEPTICON_VEHICON_2, 1, true, 8983288, 16043109),
 					
 					registerEntity("decepticon_shotgunner", EntityDecepticonVehiconShotgunner.class,
+							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
+					registerEntity("decepticon_brute", EntityDecepticonVehiconBrute.class,
+							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
+					registerEntity("decepticon_titan", EntityDecepticonVehiconTitan.class,
+							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
+					registerEntity("decepticon_rocketeer", EntityDecepticonVehiconRocketeer.class,
 							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
 
 //            		registerEntity("playerdummy", EntityPlayerDummy.class, Reference.ENTITY_PLAYER_DUMMY, 1, true),

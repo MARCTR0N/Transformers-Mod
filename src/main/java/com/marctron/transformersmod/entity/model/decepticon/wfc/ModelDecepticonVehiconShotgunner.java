@@ -4689,7 +4689,7 @@ public class ModelDecepticonVehiconShotgunner extends base
         resetToDefaultPose();
         
         GlStateManager.scale(0.5F, 0.5F, 0.5F);
-        GlStateManager.translate(0.0F, -4.0F * f5, -0.15F);
+        GlStateManager.translate(0.0F, -4.8F * f5, -0.15F);
         
         float upwardPose = (float) (1 / (1 + Math.exp(-20 * (entity.motionY + 0.01))));
 		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
@@ -4739,43 +4739,43 @@ public class ModelDecepticonVehiconShotgunner extends base
         walk(Right_Foot, 1 * globalSpeed,  0.6F * globalDegree, true, -0.6F, -0.8F, f, f1);
         walk(Left_Foot, 1 * globalSpeed,  0.6F * globalDegree, false, -0.6F, 0.8F, f, f1);
         
-    	if (!entity.onGround){
-			Right_Leg.rotateAngleX += 0.2 * upwardPose;
-			Left_Leg.rotateAngleX -= 0.8 * upwardPose;
-			Right_Lower_Leg.rotateAngleX += 0.3 * upwardPose;
-			Left_Lower_Leg.rotateAngleX += 1.5 * upwardPose;
-
-			walk(Right_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, 0, 0, f1, 1);
-			walk(Left_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, 0, 0, f1, 1);
-			walk(Right_Lower_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, -2.2F * backwardInverter, 0F, f1, 1);
-			walk(Left_Lower_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, -2.2F * backwardInverter, 0F, f1, 1);
-
-			Right_Leg.rotateAngleX -= 1.2 * downwardPose;
-			Left_Leg.rotateAngleX += 0.7 * downwardPose;
-			Right_Lower_Leg.rotateAngleX += 2 * downwardPose;
-			Left_Lower_Leg.rotateAngleX += 0.5 * downwardPose;
-
-			this.Right_Leg.rotateAngleX -= .5F *downwardPose;
-			this.Left_Leg.rotateAngleX -= .5F *downwardPose;
-
-
-			this.Chest.rotateAngleX = 0.4F *downwardPose;
-			this.Torso.rotateAngleX = -.2F *downwardPose;
-//			this.Torso2.rotateAngleX = 0.2F *downwardPose;
-
-	
-			Right_Arm.rotateAngleX = 0.6F*downwardPose;
-			Left_Arm.rotateAngleX = 0.6F*downwardPose;
-	
-			Right_Arm.rotateAngleZ = 0.4F *downwardPose;
-			Left_Arm.rotateAngleZ = -0.4F *downwardPose;
-
-			Right_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
-			Left_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
-
-			Right_Lower_Arm.rotateAngleY = -0.2F *downwardPose;
-			Left_Lower_Arm.rotateAngleY = 0.2F *downwardPose;
-		}
+//    	if (!entity.onGround){
+//			Right_Leg.rotateAngleX += 0.2 * upwardPose;
+//			Left_Leg.rotateAngleX -= 0.8 * upwardPose;
+//			Right_Lower_Leg.rotateAngleX += 0.3 * upwardPose;
+//			Left_Lower_Leg.rotateAngleX += 1.5 * upwardPose;
+//
+//			walk(Right_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, 0, 0, f1, 1);
+//			walk(Left_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, 0, 0, f1, 1);
+//			walk(Right_Lower_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, false, -2.2F * backwardInverter, 0F, f1, 1);
+//			walk(Left_Lower_Leg, 0.5F * globalSpeed, 0.2F * globalDegree * downwardPose, true, -2.2F * backwardInverter, 0F, f1, 1);
+//
+//			Right_Leg.rotateAngleX -= 1.2 * downwardPose;
+//			Left_Leg.rotateAngleX += 0.7 * downwardPose;
+//			Right_Lower_Leg.rotateAngleX += 2 * downwardPose;
+//			Left_Lower_Leg.rotateAngleX += 0.5 * downwardPose;
+//
+//			this.Right_Leg.rotateAngleX -= .5F *downwardPose;
+//			this.Left_Leg.rotateAngleX -= .5F *downwardPose;
+//
+//
+//			this.Chest.rotateAngleX = 0.4F *downwardPose;
+//			this.Torso.rotateAngleX = -.2F *downwardPose;
+////			this.Torso2.rotateAngleX = 0.2F *downwardPose;
+//
+//	
+//			Right_Arm.rotateAngleX = 0.6F*downwardPose;
+//			Left_Arm.rotateAngleX = 0.6F*downwardPose;
+//	
+//			Right_Arm.rotateAngleZ = 0.4F *downwardPose;
+//			Left_Arm.rotateAngleZ = -0.4F *downwardPose;
+//
+//			Right_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
+//			Left_Lower_Arm.rotateAngleX = -1.1F *downwardPose;
+//
+//			Right_Lower_Arm.rotateAngleY = -0.2F *downwardPose;
+//			Left_Lower_Arm.rotateAngleY = 0.2F *downwardPose;
+//		}
         
         
         
@@ -4807,7 +4807,7 @@ public class ModelDecepticonVehiconShotgunner extends base
 //            	}
             }
             
-    	}
+    	}else this.Right_Lower_Arm.setScale(1F, 1F, 1F);
     }
     
     
