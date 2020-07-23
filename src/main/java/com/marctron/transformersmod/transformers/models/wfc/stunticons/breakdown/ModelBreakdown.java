@@ -69,6 +69,38 @@ public class ModelBreakdown extends ModelBreakdownBody{
 	        	
 	        	//do stuff with the animation info
 	    		
+	    		//dab
+//	    		if (this.animator.setAnimation(CapabilityHandler.PUNCH_ANIMATION)){
+//	    			this.animator.startKeyframe(6);
+//	    		
+//	    			this.animator.rotate(Right_Arm, -1f, 0f, 0.7f);
+//	    			this.animator.rotate(Right_Lower_Arm, -0.75f, 0, 0);
+//	    		
+//	    			this.animator.rotate(Left_Arm, 0f, 0, -1f);
+//	    			this.animator.rotate(Left_Lower_Arm, -1f, 0, 0f);
+//	    			this.animator.rotate(Head, 0.5f, 0.5f, 0f);
+//	    			this.animator.endKeyframe();
+//	    			
+//	    			this.animator.startKeyframe(5);
+//	    			this.animator.rotate(Right_Arm, -2f, 0f, 1.4f);
+//	    			this.animator.rotate(Right_Lower_Arm, -1.5f, 0, 0);
+//	    			
+//	    			this.animator.rotate(Left_Arm, 0f, 0, -2f);
+//	    			this.animator.rotate(Head, 0.5f, 0.5f, 0f);
+//	    			this.animator.rotate(Left_Lower_Arm, 0f, 0, 0f);
+//	    			this.animator.endKeyframe();
+//	    			
+//	    			this.animator.startKeyframe(10);
+//	    			this.animator.rotate(Right_Arm, -2f, 0f, 1.4f);
+//	    			this.animator.rotate(Right_Lower_Arm, -1.5f, 0, 0);
+//	    			
+//	    			this.animator.rotate(Left_Arm, 0f, 0, -2f);
+//	    			this.animator.rotate(Head, 0.5f, 0.5f, 0f);
+//	    			this.animator.rotate(Left_Lower_Arm, 0f, 0, 0f);
+//	    			this.animator.endKeyframe();
+//	    		}	
+	    			
+	    		
 	    		if (this.animator.setAnimation(CapabilityHandler.RELOAD_ANIMATION)) {
 	    			this.animator.startKeyframe(3);
 	    			this.animator.rotate(Right_Arm, -.90f, -0.7f, 0.4f);

@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.entity.ai;
 
 import com.marctron.transformersmod.entity.EntityDecepticon;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
@@ -21,7 +22,12 @@ public class AnimationAI <T extends EntityDecepticon & IAnimatedEntity> extends 
         }
     }
 
-    @Override
+    public AnimationAI(EntityDecepticonVehiconBrute entity, Animation animation) {
+    	super((T) entity);
+        this.animation = animation;
+	}
+
+	@Override
     public Animation getAnimation() {
         return animation;
     }

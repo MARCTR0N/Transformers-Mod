@@ -1,6 +1,7 @@
 package com.marctron.transformersmod.entity.ai;
 
 import com.marctron.transformersmod.entity.EntityDecepticon;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.ilexiconn.llibrary.server.animation.IAnimatedEntity;
@@ -30,7 +31,22 @@ public class AnimationAttackAI <T extends EntityDecepticon & IAnimatedEntity> ex
         this.hitSound = hitSound;
     }
 
-    @Override
+//    public AnimationAttackAI(EntityDecepticonVehiconBrute entity, Animation animation, SoundEvent attackSound, SoundEvent hitSound, float knockback, float range, float damageMultiplier, int damageFrame) {
+//        super(entity, animation);
+//        setMutexBits(8);
+//        this.entity = (T) entity;
+//        this.entityTarget = null;
+//        this.attackSound = attackSound;
+//        this.knockback = knockback;
+//        this.range = range;
+//        this.damageMultiplier = damageMultiplier;
+//        this.damageFrame = damageFrame;
+//        this.hitSound = hitSound;
+//    }
+
+
+
+	@Override
     public void startExecuting() {
         super.startExecuting();
         entityTarget = entity.getAttackTarget();

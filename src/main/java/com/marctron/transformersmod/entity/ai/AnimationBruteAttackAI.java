@@ -2,7 +2,7 @@ package com.marctron.transformersmod.entity.ai;
 
 import java.util.List;
 
-import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,11 +11,11 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 
-public class AnimationBruteAttackAI extends AnimationAttackAI<EntityDecepticonBrute> {
+public class AnimationBruteAttackAI extends AnimationAttackAI<EntityDecepticonVehiconBrute> {
     private float arc;
     private int times;
 
-    public AnimationBruteAttackAI(EntityDecepticonBrute entity, Animation animation, SoundEvent sound, float knockback, float range, float arc, int times) {
+    public AnimationBruteAttackAI(EntityDecepticonVehiconBrute entity, Animation animation, SoundEvent sound, float knockback, float range, float arc, int times) {
         super(entity, animation, sound, null, knockback, range, 0, 0);
         this.arc = arc;
         this.times = times;

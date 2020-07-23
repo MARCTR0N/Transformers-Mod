@@ -5248,7 +5248,9 @@ public class ModelDecepticonBrute extends AdvancedModelBase
     else if (entityDecepticonBrute.getAnimation() == entityDecepticonBrute.DIE_ANIMATION) {
             animator.setAnimation(entityDecepticonBrute.DIE_ANIMATION);
             animator.startKeyframe(5);
-            animator.rotate(CHEST, -0.4F, 0, 0);
+            
+            animator.move(Torso, 40F, 40, 40);
+            animator.endKeyframe();
 
         } else if (entityDecepticonBrute.getAnimation() == EntityDecepticonBrute.ACTIVATE_ANIMATION) {
             animator.setAnimation(EntityDecepticonBrute.ACTIVATE_ANIMATION);

@@ -35,6 +35,7 @@ import com.marctron.transformersmod.entity.EntityVehicon;
 import com.marctron.transformersmod.init.ModPotionTypes;
 import com.marctron.transformersmod.items.ACHILLESA4;
 import com.marctron.transformersmod.items.DARKSTARSABER;
+import com.marctron.transformersmod.items.DecepticonBruteShield;
 import com.marctron.transformersmod.items.ItemBase;
 import com.marctron.transformersmod.items.ItemEnergonMug;
 import com.marctron.transformersmod.items.ItemEnergonMugDark;
@@ -49,6 +50,7 @@ import com.marctron.transformersmod.items.M1_GARAND_FULL;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
+import com.marctron.transformersmod.items.gun.IonDisplacer;
 import com.marctron.transformersmod.items.gun.NeutronRepeater;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
@@ -361,12 +363,15 @@ public class RegistryHandler {
 		public static final Item CREDIT500 = null;
 		public static final Item BOTCOIN = null;
 
+		
+//		public static final DecepticonBruteShield DECEPTICONBRUTESHIELD = null;
 		// Guns
 //		public static final EnergonBattlePistol Energon_Battle_Pistol = null;
 		public static final AmmoClip AMMUNITION = null;
 		
 		public static final AmmoClip Energon_Battle_Pistol_Clip = null;
 		public static final Scrapper Scrapper = null;
+		
 		public static final AmmoClip Scrapper_Clip = null;
 		public static final EMPShotgun EMPShotgun = null;
 		public static final AmmoClip EMP_Shotgun_Shell = null;
@@ -1160,7 +1165,9 @@ public class RegistryHandler {
 
 	}
 	
+	public static Item DecepticonBruteShield;
 	public static Item RocketLauncher;
+	public static Item IonDisplacer;
 	public static Item EnergonBattlePistol;
 
 	@Mod.EventBusSubscriber
@@ -1209,8 +1216,10 @@ public class RegistryHandler {
 					new ItemBase("credit50"), new ItemBase("credit100"), new ItemBase("credit500"),
 					new ItemBase("botcoin"),
 
+					DecepticonBruteShield = new DecepticonBruteShield("decepticon_brute_shield"),
 					// Guns
 					EnergonBattlePistol = new EnergonBattlePistol(15), new AmmoClip("Energon_Battle_Pistol_Clip", 10), new Scrapper(),
+					IonDisplacer = new IonDisplacer(),
 					new AmmoClip("Scrapper_Clip", 60), new EMPShotgun(10), new AmmoClip("EMP_Shotgun_Shell", 2),
 					new ScatterBlaster(5), new AmmoClip("Scatter_Blaster_Shell", 6), new NeutronRepeater(2),
 					new AmmoClip("Neutron_Repeater_Clip", 224), RocketLauncher = new RocketLauncher(50), new AmmoClip("Rocket_Clip", 4),

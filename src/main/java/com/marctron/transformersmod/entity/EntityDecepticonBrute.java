@@ -25,6 +25,7 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -115,11 +116,11 @@ public class EntityDecepticonBrute extends EntityDecepticon implements IAnimated
     public EntityDecepticonBrute(World world) {
         super(world);
         setPathPriority(PathNodeType.WATER, 0);
-        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 1));
-        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_TWICE_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 2));
-        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_THRICE_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 3));
-        tasks.addTask(1, new AnimationBruteVerticalAttackAI(this, VERTICAL_ATTACK_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 1F, 5.5F, 40F));
-        tasks.addTask(1, new AnimationBrutePoundAttackAI(this, STOMP_ATTACK_ANIMATION));
+//        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 1));
+//        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_TWICE_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 2));
+//        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_THRICE_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 3));
+//        tasks.addTask(1, new AnimationBruteVerticalAttackAI(this, VERTICAL_ATTACK_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 1F, 5.5F, 40F));
+//        tasks.addTask(1, new AnimationBrutePoundAttackAI(this, STOMP_ATTACK_ANIMATION));
 //        tasks.addTask(1, new AnimationTakeDamage<>(this));
 //        tasks.addTask(1, new AnimationDieAI<>(this));
         tasks.addTask(1, new AnimationActivateAI<>(this, ACTIVATE_ANIMATION));
@@ -142,6 +143,7 @@ public class EntityDecepticonBrute extends EntityDecepticon implements IAnimated
 			}
         });
         tasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 0, true, false, null));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
         tasks.addTask(2, new EntityAIAttackMelee(this, 1, true));
         experienceValue = 30;
         setSize(1F, 2.3F);
@@ -531,7 +533,7 @@ public class EntityDecepticonBrute extends EntityDecepticon implements IAnimated
     @Override
     protected void dropLoot() {
         super.dropLoot();
-        dropItem(RegistryHandler.ModItems.Hammer, 1);
+//        dropItem(RegistryHandler.ModItems.Hammer, 1);
     }
 
     @Override
@@ -548,8 +550,8 @@ public class EntityDecepticonBrute extends EntityDecepticon implements IAnimated
         
         getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(300);
         getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1);
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40 );
-        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.5 );
+        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(4);
+        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.2 );
         getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(6 );
     }
 }

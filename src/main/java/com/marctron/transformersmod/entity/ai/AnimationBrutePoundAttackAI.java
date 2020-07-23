@@ -2,7 +2,8 @@ package com.marctron.transformersmod.entity.ai;
 
 import java.util.List;
 
-import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
@@ -23,13 +24,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.WorldServer;
 
-public class AnimationBrutePoundAttackAI extends AnimationAI<EntityDecepticonBrute> {
-    public AnimationBrutePoundAttackAI(EntityDecepticonBrute entity, Animation animation) {
-        super(entity, animation);
+public class AnimationBrutePoundAttackAI extends AnimationAI<EntityDecepticonVehiconBrute> {
+    public AnimationBrutePoundAttackAI(EntityDecepticonVehiconBrute entity, Animation animation) {
+        super(entity, animation, true);
         setMutexBits(8);
     }
 
-    @Override
+ 
+	@Override
     public void updateTask() {
         if (entity.getAnimation() == getAnimation()) {
             entity.motionX = 0;

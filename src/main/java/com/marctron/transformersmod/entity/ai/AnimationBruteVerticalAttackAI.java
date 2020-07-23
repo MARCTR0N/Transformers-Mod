@@ -2,7 +2,7 @@ package com.marctron.transformersmod.entity.ai;
 
 import java.util.List;
 
-import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,10 +10,10 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 
-public class AnimationBruteVerticalAttackAI extends AnimationAttackAI<EntityDecepticonBrute> {
+public class AnimationBruteVerticalAttackAI extends AnimationAttackAI<EntityDecepticonVehiconBrute> {
     private float arc;
 
-    public AnimationBruteVerticalAttackAI(EntityDecepticonBrute entity, Animation animation, SoundEvent sound, float knockback, float range, float arc) {
+    public AnimationBruteVerticalAttackAI(EntityDecepticonVehiconBrute entity, Animation animation, SoundEvent sound, float knockback, float range, float arc) {
         super(entity, animation, sound, null, knockback, range, 0, 0);
         this.arc = arc;
     }
@@ -71,14 +71,10 @@ public class AnimationBruteVerticalAttackAI extends AnimationAttackAI<EntityDece
 //                entity.playSound(SoundEvents.ENTITY_BAT_TAKEOFF, 1, 1F);
             }
             if (entity.getAnimationTick() > 26 && entity.getAnimationTick() < 40) {
-                entity.vulnerable = true;
+                
                 entity.rotationYaw = entity.prevRotationYaw;
                 entity.renderYawOffset = entity.prevRenderYawOffset;
-            } else {
-                entity.vulnerable = false;
             }
-        } else {
-            entity.vulnerable = false;
-        }
+        } 
     }
 }

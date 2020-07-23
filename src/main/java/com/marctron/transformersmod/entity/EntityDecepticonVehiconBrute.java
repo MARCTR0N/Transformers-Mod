@@ -2,8 +2,9 @@ package com.marctron.transformersmod.entity;
 
 import java.util.Calendar;
 
-import javax.annotation.Nullable;
-
+import com.marctron.transformersmod.entity.ai.AnimationBruteAttackAI;
+import com.marctron.transformersmod.entity.ai.AnimationBrutePoundAttackAI;
+import com.marctron.transformersmod.entity.ai.AnimationBruteVerticalAttackAI;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.ilexiconn.llibrary.server.animation.Animation;
@@ -17,12 +18,16 @@ import net.minecraft.entity.EntityBodyHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.monster.AbstractSkeleton;
+import net.minecraft.entity.monster.EntityIronGolem;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -31,8 +36,10 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNavigateGround;
 import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -44,12 +51,47 @@ public class EntityDecepticonVehiconBrute extends EntityDecepticon implements IA
 
 	private RenderLivingBase renderer;
 	
+	public boolean swingDirection;
+	
+	private int attacksWithoutVertical;
+
+	private int ticksSinceLastSmash;
+	
 //	    		public ControlledAnimation walkAnim = new ControlledAnimation(10);
+	
+	public static final Animation DIE_ANIMATION = Animation.create(130);
+
+    public static final Animation HURT_ANIMATION = Animation.create(15);
+
+    public static final Animation ATTACK_ANIMATION = Animation.create(50);
+
+    public static final Animation ATTACK_TWICE_ANIMATION = Animation.create(76);
+
+    public static final Animation ATTACK_THRICE_ANIMATION = Animation.create(125);
+
+    public static final Animation VERTICAL_ATTACK_ANIMATION = Animation.create(105);
+
+    public static final Animation SMASH_ATTACK_ANIMATION = Animation.create(40);
+    
+    
+    private static final Animation[] ANIMATIONS = {
+            DIE_ANIMATION,
+            HURT_ANIMATION,
+            ATTACK_ANIMATION,
+            ATTACK_TWICE_ANIMATION,
+            ATTACK_THRICE_ANIMATION,
+            VERTICAL_ATTACK_ANIMATION,
+            SMASH_ATTACK_ANIMATION,
+            
+        };
 	
 	public EntityDecepticonVehiconBrute(World world) {
 		super(world);
 		setPathPriority(PathNodeType.WATER, 0);
 		
+		
+        
+	
 		
         this.initEntityAI();
 		
@@ -83,6 +125,15 @@ public class EntityDecepticonVehiconBrute extends EntityDecepticon implements IA
 	{
 		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));	
 		this.tasks.addTask(5, new EntityAIWanderAvoidWater(this, 0.8D));
+		tasks.addTask(2, new EntityAIAttackMelee(this, 1, true));
+	    this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityVillager.class, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
+        this.tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 1));
+        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_TWICE_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 2));
+        tasks.addTask(1, new AnimationBruteAttackAI(this, ATTACK_THRICE_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 4F, 5.5F, 100F, 3));
+        tasks.addTask(1, new AnimationBruteVerticalAttackAI(this, VERTICAL_ATTACK_ANIMATION, SoundEvents.BLOCK_ANVIL_HIT, 1F, 5.5F, 40F));
+        tasks.addTask(1, new AnimationBrutePoundAttackAI(this, SMASH_ATTACK_ANIMATION));
 	}
 	
 	
@@ -105,13 +156,97 @@ public class EntityDecepticonVehiconBrute extends EntityDecepticon implements IA
 	@Override
     public void onUpdate() {
         super.onUpdate();
-    
-	}
+
+
+      if (getAttackTarget() != null && (getAttackTarget().isDead || getAttackTarget().getHealth() <= 0)) setAttackTarget(null);
+
+      if (!world.isRemote) {
+          if (getAnimation() == NO_ANIMATION && !isAIDisabled()) {
+              
+          }
+          ticksSinceLastSmash++;
+      }
+
+
+      else if (world.isRemote) {
+//          MMParticle.ORB.spawn(world, leftEyePos.x, leftEyePos.y, leftEyePos.z, ParticleFactory.ParticleArgs.get().withData(0d, 0d, 0d, 247d / 256d, 94d / 256d, 74d / 256d, 1d, 25));
+//          MMParticle.ORB.spawn(world, rightEyePos.x, rightEyePos.y, rightEyePos.z, ParticleFactory.ParticleArgs.get().withData(0d, 0d, 0d, 247d / 256d, 94d / 256d, 74d / 256d, 1d, 25));
+      }
+      renderYawOffset = rotationYaw;
+
+      if (getAttackTarget() != null) {
+          if (getAnimation() == NO_ANIMATION) {
+              getNavigator().tryMoveToEntityLiving(getAttackTarget(), 0.2);
+          } else {
+              getNavigator().clearPath();
+          }
+          if (getAttackTarget().posY - posY >= -1 && getAttackTarget().posY - posY <= 3 && getAnimation() == NO_ANIMATION && !isAIDisabled()) {
+              boolean couldStomp = targetDistance < 6 && ticksSinceLastSmash > 600;
+              if (targetDistance < 3.5 && Math.abs(MathHelper.wrapDegrees(getAngleBetweenEntities(getAttackTarget(), this) - rotationYaw)) < 35 && (!couldStomp || rand.nextInt(3) > 0)) {
+                  if (attacksWithoutVertical >= 4 || rand.nextInt(4) == 0) {
+                      AnimationHandler.INSTANCE.sendAnimationMessage(this, VERTICAL_ATTACK_ANIMATION);
+                      attacksWithoutVertical = 0;
+                  } else {
+                      if (getHealth()/getMaxHealth() <= 0.6 && rand.nextInt(2) == 0) {
+                          AnimationHandler.INSTANCE.sendAnimationMessage(this, ATTACK_THRICE_ANIMATION);
+                          attacksWithoutVertical += 3;
+                      }
+                      else if (getHealth()/getMaxHealth() <= 0.9 && rand.nextInt(2) == 0) {
+                          AnimationHandler.INSTANCE.sendAnimationMessage(this, ATTACK_TWICE_ANIMATION);
+                          attacksWithoutVertical += 2;
+                      }
+                      else {
+                          AnimationHandler.INSTANCE.sendAnimationMessage(this, ATTACK_ANIMATION);
+                          attacksWithoutVertical += 1;
+                      }
+                  }
+              } else if (couldStomp) {
+                  AnimationHandler.INSTANCE.sendAnimationMessage(this, SMASH_ATTACK_ANIMATION);
+                  ticksSinceLastSmash = 0;
+                  attacksWithoutVertical++;
+              }
+          }
+      } 
+
+      if (getAnimation() == ATTACK_ANIMATION && getAnimationTick() == 1) {
+          swingDirection = rand.nextBoolean();
+      } 
+      else if (getAnimation() == VERTICAL_ATTACK_ANIMATION && getAnimationTick() == 29) {
+//          doVerticalAttackHitFX();
+      }
+
+      float moveX = (float) (posX - prevPosX)*2F;
+      float moveZ = (float) (posZ - prevPosZ)*2F;
+      float speed = MathHelper.sqrt(moveX * moveX + moveZ * moveZ);
+      if (speed > 0.01) {
+          if (getAnimation() == NO_ANIMATION) {
+//              walkAnim.increaseTimer();
+          }
+      } else {
+//          walkAnim.decreaseTimer();
+      }
+      if (getAnimation() != NO_ANIMATION) {
+//          walkAnim.decreaseTimer(2);
+      }
+
+      if (frame % 14 == 5 && speed > 0.03 && getAnimation() == NO_ANIMATION && active) {
+          playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 0.5F, 0.5F);
+      }
+
+      repelEntities(1.1F, 2, 1.1F, 1.1F);
+
+      if (!active) {
+          addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 2, true, true));
+      }
+
+     
+  }
 	@Override
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
     {
 //        super.setEquipmentBasedOnDifficulty(difficulty);
         this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.ModItems.Hammer));
+        this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(RegistryHandler.DecepticonBruteShield));
 //		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.RocketLauncher));
     }
 	
@@ -159,20 +294,17 @@ public class EntityDecepticonVehiconBrute extends EntityDecepticon implements IA
 	
 	@Override
 	public Animation[] getAnimations() {
-		// TODO Auto-generated method stub
-		return null;
+		return ANIMATIONS;
 	}
 
 	@Override
 	public Animation getDeathAnimation() {
-		// TODO Auto-generated method stub
-		return null;
+		 return DIE_ANIMATION;	    
 	}
 
 	@Override
 	public Animation getHurtAnimation() {
-		// TODO Auto-generated method stub
-		return null;
+		 return HURT_ANIMATION;
 	}
 	 @Override
 	    protected void playStepSound(BlockPos pos, Block block) {}

@@ -2,7 +2,9 @@ package com.marctron.transformersmod.entity.model.decepticon.wfc;
 
 
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
+import com.marctron.transformersmod.items.DecepticonBruteShield;
 import com.marctron.transformersmod.items.gun.IGun;
+import com.marctron.transformersmod.items.gun.IonDisplacer;
 import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
@@ -2076,11 +2078,11 @@ public class ModelDecepticonVehiconTitan extends TitanBase
 		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
 		int backwardInverter = 1;
         
-        float globalSpeed = 0.6F;
+        float globalSpeed = 0.4F;
         float globalDegree = 0.8F ;
         float height = 6F;
-        f = f*1.f;
-        f1 = f1*1.f;
+//        f = f2;
+//        f1 = 0.5F;
         
         Head.rotateAngleX= bipedHead.rotateAngleX;
         Head.rotateAngleY= bipedHead.rotateAngleY/4;
@@ -2102,23 +2104,23 @@ public class ModelDecepticonVehiconTitan extends TitanBase
         
         swing(Right_Lower_Arm, 1 * globalSpeed, 0.5F * globalDegree, true, 0, 0, f, f1);
         
-        flap(Right_Arm, 2 * globalSpeed, 0.2F * globalDegree, false, 0.5F, 0, f, f1);
+        flap(Right_Arm, 2 * globalSpeed, 0.2F * globalDegree, true, 0.5F, 0, f, f1);
 //        flap(Left_Arm, 2 * globalSpeed, 0.2F * globalDegree, true, 0.5F, 0, f, f1);
         
-        walk(Right_Arm, 1 * globalSpeed,  1.5F * globalDegree, false, 0.6F, 0.F, f, f1);
+        walk(Right_Arm, 1 * globalSpeed,  1.5F * globalDegree, true, 0.6F, 0.F, f, f1);
 //        walk(Left_Arm, 1 * globalSpeed,  1.5F * globalDegree, true, 0.6F, 0.F, f, f1);
         
-        walk(Right_Lower_Arm, 1 * globalSpeed,  0.8F * globalDegree, true, -1.4F, 1F, f, f1);
+//        walk(Right_Lower_Arm, 1 * globalSpeed,  0.8F * globalDegree, false, -1.4F, 1F, f, f1);
 //        walk(Left_Lower_Arm, 1 * globalSpeed,  0.8F * globalDegree, false, -2F, -0.6F, f, f1);
         
         walk(Right_Leg, 1 * globalSpeed,  1.F * globalDegree, true, 0.5F, 0.2F, f, f1);
-//        walk(Left_Leg, 1 * globalSpeed,  1.F * globalDegree, false, 0.5F, -0.2F, f, f1);
+        walk(Right_Leg_1, 1 * globalSpeed,  1.F * globalDegree, false, 0.5F, -0.2F, f, f1);
         
         walk(Right_Lower_Leg, 1 * globalSpeed,  .8F * globalDegree, true, -0.6F, -0.5F, f, f1);
-//        walk(Left_Lower_Leg, 1 * globalSpeed,  .8F * globalDegree, false, -0.6F, 0.5F, f, f1);
+        walk(Right_Lower_Leg_1, 1 * globalSpeed,  .8F * globalDegree, false, -0.6F, 0.5F, f, f1);
         
         walk(Right_Foot, 1 * globalSpeed,  0.6F * globalDegree, true, -0.6F, -0.8F, f, f1);
-//        walk(Left_Foot, 1 * globalSpeed,  0.6F * globalDegree, false, -0.6F, 0.8F, f, f1);
+        walk(Right_Lower_Leg_1, 1 * globalSpeed,  0.6F * globalDegree, false, -0.6F, 0.8F, f, f1);
         
 //    	if (!entity.onGround){
 //			Right_Leg.rotateAngleX += 0.2 * upwardPose;
@@ -2163,32 +2165,29 @@ public class ModelDecepticonVehiconTitan extends TitanBase
         
         
         
-        ItemStack stack = ((EntityLivingBase) entity).getHeldItemMainhand();
         
-    	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.EMPShotgun) {
-            IGun nbt = ((IGun) stack.getItem());
-            if (nbt.getBoolean("Gun")) {
+        ItemStack itemstack = ((EntityLivingBase) entity).getHeldItem(EnumHand.MAIN_HAND);
+        ItemStack itemstack2 = ((EntityLivingBase) entity).getHeldItem(EnumHand.OFF_HAND);
+        
+        
+    	
+    	if (itemstack.getItem() instanceof IonDisplacer) {
+    		Head.rotateAngleY=-0.5F;
+    		Right_Arm_1.rotateAngleY= -0.4F;
+    		Right_Arm_1.rotateAngleX= -0.25F;
+    		Right_Lower_Arm_1.rotateAngleY= -0.25F;
+    		Right_Lower_Arm_1.rotateAngleX= -1.5F;
+    		Right_Lower_Arm_1.rotateAngleZ= 0.F;
+    		Left_Hand.rotateAngleY= 0.25F;
     		
-//            	if (CapabilityHandler.isReloading){
-            		this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
-            		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.8F;
-//            		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
-//            		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-//            		 walk(Right_Lower_Arm, 4 * globalSpeed, 0.2F * globalDegree, false, 0, 0, f, f1);
-            		 swing(Right_Lower_Arm, 1 * globalSpeed, 0.2F * globalDegree, false, 0, 0, f, f1);
-            		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 0.7F;
-            		this.Right_Lower_Arm.scaleChildren=true;
-            		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
-            		Right_Hand.rotationPointY=-12;
-            		Right_Hand.rotationPointZ=1;
-            		if (isSneak){
-//            			RIGHT_HAND.rotationPointZ=-2;
-//            			RIGHT_HAND.rotationPointX=-0.5F;
-            		}
-//            	}
-            }
-            
+    		Right_Arm.rotateAngleY= 0.5F;
+    		Right_Arm.rotateAngleX= -0.7F;
+    		Right_Lower_Arm.rotateAngleY= 0.5F;
+    		Right_Lower_Arm.rotateAngleX= -1F;
+    		Chest.rotateAngleY= 0.5F;
     	}
+    	
+    	
     }
     
     
@@ -2199,7 +2198,7 @@ public class ModelDecepticonVehiconTitan extends TitanBase
     public void postRenderArm(float scale, EnumHandSide side)
     {
         float f = side == EnumHandSide.RIGHT ? -.5F : .5F;
-        AdvancedModelBipedRenderer modelrenderer = side == EnumHandSide.RIGHT ? Right_Hand : Left_Hand;
+        AdvancedModelBipedRenderer modelrenderer = side == EnumHandSide.RIGHT ? Left_Hand : Right_Hand;
         modelrenderer.parentedPostRender(scale);
     }
 }

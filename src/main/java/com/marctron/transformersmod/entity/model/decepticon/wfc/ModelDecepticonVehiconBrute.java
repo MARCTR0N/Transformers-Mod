@@ -1,8 +1,11 @@
 package com.marctron.transformersmod.entity.model.decepticon.wfc;
 
+import com.marctron.transformersmod.entity.EntityDecepticonBrute;
+import com.marctron.transformersmod.entity.EntityDecepticonVehiconBrute;
 import com.marctron.transformersmod.entity.EntityDecepticonVehiconVariant1;
+import com.marctron.transformersmod.items.DecepticonBruteShield;
+import com.marctron.transformersmod.items.ItemHammer;
 import com.marctron.transformersmod.items.gun.IGun;
-import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
 
@@ -22,6 +25,8 @@ public class ModelDecepticonVehiconBrute extends BruteBase
 	 public AdvancedModelBipedRenderer Right_Hand;
 	 public AdvancedModelBipedRenderer Left_Hand;
 
+	 
+	 
     public ModelDecepticonVehiconBrute()
     {
     	 Right_Hand = new AdvancedModelBipedRenderer(this, "Right_Hand").setTextureOffset(0, 0);
@@ -2483,18 +2488,25 @@ public class ModelDecepticonVehiconBrute extends BruteBase
         this.rightArmPose = ModelBiped.ArmPose.EMPTY;
         this.leftArmPose = ModelBiped.ArmPose.EMPTY;
         ItemStack itemstack = entitylivingbaseIn.getHeldItem(EnumHand.MAIN_HAND);
+        ItemStack itemstack2 = entitylivingbaseIn.getHeldItem(EnumHand.OFF_HAND);
 
-        if (itemstack.getItem() instanceof RocketLauncher)
+        if (itemstack.getItem() instanceof ItemHammer)
         {
+        	Right_Lower_Arm_1.rotateAngleX+= 1F;
+        }
+        
+        if (itemstack2.getItem() instanceof DecepticonBruteShield)
+        {
+        	Right_Lower_Arm_1.rotateAngleX+= 1F;
 //        	System.out.println("pew pew");
             if (entitylivingbaseIn.getPrimaryHand() == EnumHandSide.RIGHT)
             {
-                this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+//                this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
                
             }
             else
             {
-                this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
+//                this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
             }
         }
 
@@ -2512,11 +2524,11 @@ public class ModelDecepticonVehiconBrute extends BruteBase
 		float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
 		int backwardInverter = 1;
         
-        float globalSpeed = 0.6F;
+        float globalSpeed = 0.55F;
         float globalDegree = 0.8F ;
         float height = 6F;
-        f = f*1.f;
-        f1 = f1*1.f;
+//        f = f2;
+//        f1 = 0.5F;
         
         Head.rotateAngleX= bipedHead.rotateAngleX;
         Head.rotateAngleY= bipedHead.rotateAngleY/2;
@@ -2596,40 +2608,136 @@ public class ModelDecepticonVehiconBrute extends BruteBase
         
         
         
+        ItemStack itemstack = ((EntityLivingBase) entity).getHeldItem(EnumHand.MAIN_HAND);
+        ItemStack itemstack2 = ((EntityLivingBase) entity).getHeldItem(EnumHand.OFF_HAND);
         
         
-        
-        ItemStack stack = ((EntityLivingBase) entity).getHeldItemMainhand();
-        
-    	if (stack.getItem() instanceof com.marctron.transformersmod.items.gun.EMPShotgun) {
-            IGun nbt = ((IGun) stack.getItem());
-            if (nbt.getBoolean("Gun")) {
+    	
+    	if (itemstack2.getItem() instanceof DecepticonBruteShield) {
+    		Right_Lower_Arm_1.rotateAngleX= -1.2F;
+    		Right_Arm_1.rotateAngleX= -0.5F;
+    		Right_Lower_Arm_1.rotateAngleY= 0.4F;
+    		Right_Lower_Arm_1.rotateAngleZ= 0.6F;
+    		Right_Arm_1.rotateAngleY= 0.1F;
+    		Left_Hand.rotateAngleX=0.9F;
+    		Left_Hand.rotateAngleZ=-0.3F;
+    		Left_Hand.rotateAngleY=0.1F;
+    		Left_Hand.rotationPointY=3F;
+    		Left_Hand.rotationPointX=5.3F;
+    		Left_Hand.rotationPointZ=-4F;
+    		Left_Hand.setScale(0.01F, 0.01F, 0.01F);
     		
-//            	if (CapabilityHandler.isReloading){
-            		this.Right_Arm.rotateAngleY = this.Head.rotateAngleY;
-            		this.Right_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX *1.2F + 0.8F;
-//            		swing(Right_Lower_Arm, 0.08F, 0.1F, true, 0, -0.1f, f2, 1);
-//            		walk(Right_Arm, 0.08F, 0.1F, true, 0, 0.f, f2, 1);
-//            		 walk(Right_Lower_Arm, 4 * globalSpeed, 0.2F * globalDegree, false, 0, 0, f, f1);
-            		 swing(Right_Lower_Arm, 1 * globalSpeed, 0.2F * globalDegree, false, 0, 0, f, f1);
-            		this.Right_Lower_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX*0.8F + 0.7F;
-            		this.Right_Lower_Arm.scaleChildren=true;
-            		this.Right_Lower_Arm.setScale(0.1F, 0.1F, 0.1F);
-            		Right_Hand.rotationPointY=-12;
-            		Right_Hand.rotationPointZ=1;
-            		if (isSneak){
-//            			RIGHT_HAND.rotationPointZ=-2;
-//            			RIGHT_HAND.rotationPointX=-0.5F;
-            		}
-//            	}
-            }
+    		walk(Right_Arm_1, 1 * globalSpeed,  .5F * globalDegree, true, 0.6F, 0.4F, f, f1);
+    		walk(Right_Lower_Arm_1, 1 * globalSpeed,  0.5F * globalDegree, false, 0.6F, 0.F, f, f1);
+    		flap(Right_Lower_Arm_1, 1 * globalSpeed,  -0.F * globalDegree, false, 0.6F, 0.F, f, f1);
+    		swing(Right_Lower_Arm_1, 1 * globalSpeed,  -0.5F * globalDegree, false, 0.0F, 0.F, f, f1);
+//    		Left_Hand.setScale(1F, 1F, 1F);
             
+    	} else Left_Hand.setScale(1F, 1F, 1F);
+    	if(itemstack.getItem() instanceof ItemHammer){
+    		Right_Lower_Arm.rotateAngleX= -0.5F;
+    		Right_Arm.rotateAngleX= -0.3F;
+    		walk(Right_Arm, 1 * globalSpeed,  .5F * globalDegree, false, 0.6F, 0.F, f, f1);
+    		walk(Right_Lower_Arm, 1 * globalSpeed,  0.4F * globalDegree, true, -1.4F, 1F, f, f1);
+    		flap(Right_Lower_Arm, 1 * globalSpeed,  -0.2F * globalDegree, true, 0F, 0.75F, f, f1);
     	}
     }
     
     
     public void animate(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        animator.update((EntityDecepticonVehiconVariant1) entity);
+        animator.update((EntityDecepticonVehiconBrute) entity);
+        EntityDecepticonVehiconBrute entityDecepticonVehiconBrute = (EntityDecepticonVehiconBrute) entity;
+        setRotationAngles(f, f1, f2, f3, f4, f5, entityDecepticonVehiconBrute);
+
+        if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonVehiconBrute.ATTACK_ANIMATION) {
+            if (!entityDecepticonVehiconBrute.swingDirection) {
+                animator.setAnimation(EntityDecepticonVehiconBrute.ATTACK_ANIMATION);
+                animator.startKeyframe(15);
+                animator.move(Chest, 4, 4, 4);
+                animator.endKeyframe();
+                
+                animator.resetKeyframe(10);
+
+            }else {
+                animator.setAnimation(EntityDecepticonVehiconBrute.ATTACK_ANIMATION);
+                animator.startKeyframe(15);
+                animator.move(Chest, 4, 4, 4);
+                animator.endKeyframe();
+
+                animator.resetKeyframe(10);
+
+                }
+            }
+
+        else if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonVehiconBrute.ATTACK_TWICE_ANIMATION) {
+            if (!entityDecepticonVehiconBrute.swingDirection) {
+                animator.setAnimation(EntityDecepticonVehiconBrute.ATTACK_TWICE_ANIMATION);
+                animator.startKeyframe(15);
+                animator.move(Chest, 4, 4, 4);
+                animator.endKeyframe();
+
+                animator.resetKeyframe(10);
+                }
+            }
+        else {
+                animator.setAnimation(EntityDecepticonVehiconBrute.ATTACK_TWICE_ANIMATION);
+                animator.startKeyframe(15);
+                animator.move(Chest, 4, 4, 4);
+                animator.endKeyframe();
+
+                animator.resetKeyframe(10);
+               
+        }
+         if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonVehiconBrute.ATTACK_THRICE_ANIMATION) {
+            animator.setAnimation(EntityDecepticonVehiconBrute.ATTACK_THRICE_ANIMATION);
+            animator.startKeyframe(15);
+            animator.move(Chest, 4, 4, 4);
+            animator.endKeyframe();
+
+            animator.resetKeyframe(10);
+        }
+        else if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonVehiconBrute.VERTICAL_ATTACK_ANIMATION) {
+            animator.setAnimation(EntityDecepticonVehiconBrute.VERTICAL_ATTACK_ANIMATION);
+            animator.startKeyframe(15);
+            animator.move(Chest, 4, 4, 4);
+            animator.endKeyframe();
+
+            animator.resetKeyframe(10);
+        }
+
+
+else if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonBrute.HURT_ANIMATION) {
+            animator.setAnimation(EntityDecepticonBrute.HURT_ANIMATION);
+            animator.startKeyframe(0);
+            animator.move(Chest, 4, 4, 4);
+            animator.endKeyframe();
+        } 
+    else if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonVehiconBrute.DIE_ANIMATION) {
+            animator.setAnimation(EntityDecepticonVehiconBrute.DIE_ANIMATION);
+            animator.startKeyframe(5);
+            animator.rotate(Torso, -0.4F, 0, 0);
+            animator.rotate(Head, -0.4F, 0, 0);
+
+            
+
+            animator.rotate(Right_Arm, 0, -0.5F, -0.75F);
+            animator.rotate(Right_Arm, 0, -1F, -0.3F);
+            animator.rotate(Right_Lower_Arm, 0, 0.9F, -0.2F);
+            animator.rotate(Right_Lower_Arm, 0, 0F, -0.3F);
+            animator.rotate(Right_Hand, -1F, 0, -0.5F);
+            animator.rotate(Right_Hand, -0.2F, 0, 0.3F);
+            animator.endKeyframe();
+
+
+        } 
+        else if (entityDecepticonVehiconBrute.getAnimation() == EntityDecepticonVehiconBrute.SMASH_ATTACK_ANIMATION) {
+            animator.setAnimation(EntityDecepticonVehiconBrute.SMASH_ATTACK_ANIMATION);
+            animator.startKeyframe(15);
+           
+            animator.endKeyframe();
+
+            animator.resetKeyframe(10);
+        } 
     }
 
     public void postRenderArm(float scale, EnumHandSide side)

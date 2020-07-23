@@ -29,7 +29,7 @@ public class ItemPhaseShifter extends Item {
     private PotionEffect[] effects;
 
     public ItemPhaseShifter(String name) {
-        
+    	 setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.tabTransformers);
 

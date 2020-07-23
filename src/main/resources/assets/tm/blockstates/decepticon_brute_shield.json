@@ -1,0 +1,59 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "custom": { "flip-v": true },
+        "model": "tm:decepticon_brute_shield.obj"
+    },
+    "variants": {
+        "inventory": 
+        [
+        {
+            "transform": {
+                "thirdperson_lefthand": {
+                    "rotation": [ { "x": 40 }, { "y": -120 }, { "z": 0 } ],
+                    "translation": [ -0.45, 0.0, -0.5 ],
+                    "scale": 0.65
+                },
+                "thirdperson_righthand": {
+                    "rotation": [ { "x": 0 }, { "y": 160 }, { "z": 0 } ],
+                    "translation": [ -0.45, 0.0, -0.5],
+                    "scale": 0.65
+                },
+                "gui": {
+                    "rotation": [ { "x": 30 }, { "y": -45 }, { "z": 0 } ],
+                    "translation": [ 0.8, 0.2, 0 ],
+                    "scale": 0.45
+                },
+                "firstperson_righthand": {
+                    "rotation": [ { "x": 0 }, { "y": 90 }, { "z": 0} ],
+                    "translation": [ 0, 0.25, -0 ],
+                    "scale": 0.3
+                },
+                "firstperson_lefthand": {
+                   "rotation": [ { "x": 0 }, { "y": -90 }, { "z": 0} ],
+                    "translation": [ -0.25, -0.25, -0.5 ],
+                    "scale": 0.3
+                },
+                "ground": {
+                    "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 0 } ],
+                    "translation": [ 0.5, 0.5, 0.5 ],
+                    "scale": 0.25
+                },
+                "fixed": {
+                    "rotation": [ { "x": 0 }, { "y": 180 }, { "z": 0 } ],
+                    "translation": [ 0.2, 0.25, -0.5 ],
+                    "scale": 0.5
+                }
+            },
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "item/shield_blocking"
+        }
+    ]
+        }
+        ]
+    }
+}

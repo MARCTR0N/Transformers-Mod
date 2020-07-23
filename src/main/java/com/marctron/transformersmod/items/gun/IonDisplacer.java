@@ -26,8 +26,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Scrapper extends ItemBase implements IGun {
-    private final int minSpeed = 30;
+public class IonDisplacer extends ItemBase implements IGun {
+    private final int minSpeed = 2;
     private final int maxSpeed = 2;
     private final float acceleration = -0.2f;
     private final float deceleration = acceleration * -2;
@@ -39,8 +39,8 @@ public class Scrapper extends ItemBase implements IGun {
     private int ammoCache;
     private boolean isInUse = false;
 
-    public Scrapper() {
-        super("scrapper");
+    public IonDisplacer() {
+        super("ion_displacer");
         setMaxStackSize(1);
         setCreativeTab(Main.tabWeapons);
     }
@@ -118,7 +118,7 @@ public class Scrapper extends ItemBase implements IGun {
         if (ticksUsed >= lastShotTick + curSpeed) {
             //Shoot bullet
             //LogHelper.info("Pew");
-            player.world.spawnEntity(new EntityNewBullet(player.world, player, 5f));
+            player.world.spawnEntity(new EntityNewBullet(player.world, player, 5f).setDamage(2f));
             player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_FIREWORK_LARGE_BLAST, SoundCategory.NEUTRAL, 1.0f, 1.1F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
             player.world.playSound(null, player.getPosition(), SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.NEUTRAL, 0.06f, 1.1F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
             player.world.playSound(null, player.getPosition(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.NEUTRAL, 1f, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
