@@ -59,7 +59,7 @@ public class TFPUltraMagnus extends ItemArmorTransformer {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
     	Altmode(false);
-    	player.eyeHeight=1.9f;
+    	player.eyeHeight=2.25f;
 //			((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0 ));
 //        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         super.onArmorTick(world, player, itemStack);

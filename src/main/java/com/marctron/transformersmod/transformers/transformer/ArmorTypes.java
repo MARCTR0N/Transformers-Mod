@@ -2,6 +2,7 @@ package com.marctron.transformersmod.transformers.transformer;
 
 
 import com.marctron.transformersmod.transformers.models.ModelDecepticonVehicon;
+import com.marctron.transformersmod.transformers.models.g1.optimusprime.ModelG1OptimusPrime;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrime;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.models.movieop.ModelMovieOptimusPrimeMid1;
@@ -43,6 +44,8 @@ import com.marctron.transformersmod.transformers.models.tfpmegatron.ModelMegatro
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconAltmode;
 import com.marctron.transformersmod.transformers.models.vehicon.ModelVehiconMid;
 import com.marctron.transformersmod.transformers.models.vurp.ModelVurp;
+import com.marctron.transformersmod.transformers.models.wfc.autobots.sideswipe.ModelWFCSideswipe;
+import com.marctron.transformersmod.transformers.models.wfc.decepticons.starscream.ModelWFCStarscream;
 import com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown.ModelBreakdownBody;
 import com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown.ModelBreakdownLeftArm;
 import com.marctron.transformersmod.transformers.models.wfc.stunticons.breakdown.ModelBreakdownRightArm;
@@ -57,6 +60,29 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ArmorTypes {
 
+//G1 Optimus Prime 
+	public static ModelG1OptimusPrime modelG1OptimusPrime = new ModelG1OptimusPrime();
+				    
+	public static ModelG1OptimusPrime getModelG1OptimusPrime() {
+		return modelG1OptimusPrime;
+	}
+	
+	
+//WFC Starscream
+	public static ModelWFCStarscream modelWFCStarscream = new ModelWFCStarscream();
+			    
+	public static ModelWFCStarscream getModelWFCStarscream() {
+		return modelWFCStarscream;
+	}
+
+//WFC Sideswipe
+	public static ModelWFCSideswipe modelWFCSideswipe = new ModelWFCSideswipe();
+		    
+	public static ModelWFCSideswipe getModelWFCSideswipe() {
+		return modelWFCSideswipe;
+	}	
+	
+	
 //WFC Menasor
 	public static ModelMenasor modelMenasor = new ModelMenasor();
 	    

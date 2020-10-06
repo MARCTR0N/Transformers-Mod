@@ -2678,10 +2678,14 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
     
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-    	GlStateManager.scale(0.48F, 0.48F, 0.48F);
+    	GlStateManager.scale(0.6F, 0.6F, 0.6F);
         GlStateManager.translate(0.0F, 9.5F * f5, -0.5F);
         
-
+        Torso.scaleChildren=true;
+        Torso.setScale(0.8F, 0.8F, 0.8F);
+        this.RIGHT_HAND.setScale(0.01F, 0.01F, 0.01F);
+        this.LEFT_HAND.setScale(0.01F, 0.01F, 0.01F);
+        
         float upwardPose = (float) (1 / (1 + Math.exp(-10 * (entity.motionY + 0.2))));
         float downwardPose = (float) (1 / (1 + Math.exp(10 * (entity.motionY + 0.2))));
         int backwardInverter = 1;
@@ -2922,7 +2926,8 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
               		this.Right_Lower_Arm.scaleChildren=true;
               		this.Right_Lower_Arm.setScale(0.01F, 0.01F, 0.01F);
               		RIGHT_HAND.rotationPointY=-10;
-              		RIGHT_HAND.rotationPointX=1.5F;
+              		this.RIGHT_HAND.rotationPointX=6F;
+              		this.RIGHT_HAND.rotationPointZ=0F;
               		
               		if (isSneak){
               			RIGHT_HAND.rotationPointZ=-8;
@@ -2932,9 +2937,14 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
 //                  	}
                   }
 	        	}
-	        	else
+	        	else if (!(stack.getItem() instanceof ItemGunBase)){
 //	            	this.Right_Lower_Arm.scaleChildren=false;
 	    			this.Right_Lower_Arm.setScale(1F, 1F, 1F);
+        			this.RIGHT_HAND.rotationPointX=7.5F;
+        			this.RIGHT_HAND.rotationPointY=13F;
+        			this.RIGHT_HAND.rotationPointZ=-4.5F;
+        			
+	        	}
         }
         
         else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
@@ -2942,6 +2952,11 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
             this.Left_Arm.rotateAngleY = 0.1F + this.Head.rotateAngleY;
             this.Left_Arm.rotateAngleX = -((float)Math.PI / 2F) + this.Head.rotateAngleX;
         }
+        this.LEFT_HAND.rotationPointX=-7.5F;
+        this.LEFT_HAND.rotationPointY=13F;
+        this.LEFT_HAND.rotationPointZ=-4.5F;
+      
+        
     }
 
 

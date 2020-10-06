@@ -12,6 +12,8 @@ item.energon_mug.name=Energon Mug
 item.synthetic_energon_mug.name=Synthetic Energon Mug
 item.red_energon_mug.name=Red Energon Mug
 
+item.hammer.name=Halberd Axe
+
 tile.energon_cube_block.name=Energon Cube
 tile.red_energon_cube_block.name=Red Energon Cube
 tile.dark_energon_cube_block.name=Dark Energon Cube

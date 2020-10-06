@@ -30,9 +30,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ArmorModelSideswipe extends ItemArmorTransformer {
+public class WFCSideswipe extends ItemArmorTransformer {
 
-    public ArmorModelSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+    public WFCSideswipe(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -41,7 +41,7 @@ public class ArmorModelSideswipe extends ItemArmorTransformer {
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {
-        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("G1")));
+        list.add(TextFormatting.GRAY + I18n.format(TextFormatting.BOLD + I18n.format("WFC")));
     }
 
 //			if (itemStack.getItem() == ModItems.SIDESWIPE_CHESTPLATE) 
@@ -61,7 +61,11 @@ public class ArmorModelSideswipe extends ItemArmorTransformer {
         //player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
 
 
-        player.eyeHeight = 1.65F;
+        player.eyeHeight = 1.55F;
+        
+//        if (player.onGround && !player.isAirBorne)
+//				player.motionX=player.motionX * 1.06F;
+//				player.motionZ=player.motionZ * 1.06F;
 
         if (itemStack.getItem() == RegistryHandler.ModItems.SIDESWIPE_HELMET) {
             if (world.isRemote) {
@@ -112,24 +116,23 @@ public class ArmorModelSideswipe extends ItemArmorTransformer {
 
             if (itemStack.getItem() instanceof ItemArmor) {
 
-
-            	ArmorTypes.modelSideswipe.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-            	ArmorTypes.modelSideswipe.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-            	ArmorTypes.modelSideswipe.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
-            	ArmorTypes.modelSideswipe.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-            	ArmorTypes.modelSideswipe.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-            	ArmorTypes.modelSideswipe.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
-            	ArmorTypes.modelSideswipe.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
-
-
-            	ArmorTypes.modelSideswipe.isSneak = _default.isSneak;
-            	ArmorTypes.modelSideswipe.isRiding = _default.isRiding;
-            	ArmorTypes.modelSideswipe.isChild = _default.isChild;
-                ArmorTypes.modelSideswipe.rightArmPose = _default.rightArmPose;
-                ArmorTypes.modelSideswipe.leftArmPose = _default.leftArmPose;
+            	ArmorTypes.modelWFCSideswipe.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelWFCSideswipe.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+            	ArmorTypes.modelWFCSideswipe.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST);
+            	ArmorTypes.modelWFCSideswipe.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelWFCSideswipe.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+            	ArmorTypes.modelWFCSideswipe.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
+            	ArmorTypes.modelWFCSideswipe.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.FEET);
 
 
-                return ArmorTypes.modelSideswipe;
+            	ArmorTypes.modelWFCSideswipe.isSneak = _default.isSneak;
+            	ArmorTypes.modelWFCSideswipe.isRiding = _default.isRiding;
+            	ArmorTypes.modelWFCSideswipe.isChild = _default.isChild;
+                ArmorTypes.modelWFCSideswipe.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelWFCSideswipe.leftArmPose = _default.leftArmPose;
+
+
+                return ArmorTypes.modelWFCSideswipe;
             }
         }
         return null;

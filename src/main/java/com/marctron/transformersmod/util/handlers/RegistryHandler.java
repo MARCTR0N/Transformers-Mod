@@ -56,6 +56,7 @@ import com.marctron.transformersmod.items.gun.RocketLauncher;
 import com.marctron.transformersmod.items.gun.ScatterBlaster;
 import com.marctron.transformersmod.items.gun.Scrapper;
 import com.marctron.transformersmod.transformers.transformer.ItemArmorTransformer;
+import com.marctron.transformersmod.transformers.transformer.g1.optimusprime.G1OptimusPrime;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeAltmode2;
 import com.marctron.transformersmod.transformers.transformer.movieop.MovieOptimusPrimeBack1;
@@ -80,7 +81,7 @@ import com.marctron.transformersmod.transformers.transformer.movieop.stealth.Mov
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid1;
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid2;
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid3;
-import com.marctron.transformersmod.transformers.transformer.sideswipe.ArmorModelSideswipe;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.WFCSideswipe;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid2;
@@ -218,9 +219,13 @@ public class RegistryHandler {
 	// Tools
 	public static final ToolMaterial GUN_MATERIAL = EnumHelper.addToolMaterial("gun", 0, 1000, 2.0F, 0, 0);
 	public static final ToolMaterial SWORD_MATERIAL = EnumHelper.addToolMaterial("sword", 0, 1000, 2.0F, 4, 0);
+// Armor
 
-	// Armor
-
+	//G1
+	public static final ArmorMaterial G1PRIME = EnumHelper.addArmorMaterial("g1_optimus_prime_model",
+			Reference.MOD_ID + ":g1_optimus_prime_model", 10, new int[] { 3, 3, 3, 3 }, 0,
+			SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0F);
+	
 	// WFC
 	public static final ArmorMaterial BREAKDOWN_MATERIAL = EnumHelper.addArmorMaterial("breakdown_model",
 			Reference.MOD_ID + ":breakdown_model", 10, new int[] { 3, 3, 3, 3 }, 0,
@@ -1098,6 +1103,11 @@ public class RegistryHandler {
 		public static final ItemArmorTransformer TARN_MID8_CHESTPLATE = null;
 		public static final ItemArmorTransformer TARN_MID8_LEGGINGS = null;
 		public static final ItemArmorTransformer TARN_MID8_BOOTS = null;
+		
+		public static final ItemArmorTransformer G1_OPTIMUS_PRIME_HELMET = null;
+		public static final ItemArmorTransformer G1_OPTIMUS_PRIME_CHESTPLATE = null;
+		public static final ItemArmorTransformer G1_OPTIMUS_PRIME_LEGGINGS = null;
+		public static final ItemArmorTransformer G1_OPTIMUS_PRIME_BOOTS = null;
 
 		// Machinery
 		public static final Item CHIP = null;
@@ -1241,6 +1251,12 @@ public class RegistryHandler {
 					// Dyes
 					new ItemBase("pale_green_dye"), new ItemBase("pale_brown_dye"), new ItemBase("dark_red_dye"),
 					new ItemBase("dark_gray_dye"), new ItemBase("beige_dye"),
+					
+					// G1 Optimus Prime
+					new G1OptimusPrime("g1_optimus_prime_helmet", G1PRIME, 1, EntityEquipmentSlot.HEAD),
+					new G1OptimusPrime("g1_optimus_prime_chestplate", G1PRIME, 1, EntityEquipmentSlot.CHEST),
+					new G1OptimusPrime("g1_optimus_prime_leggings", G1PRIME, 2, EntityEquipmentSlot.LEGS),
+					new G1OptimusPrime("g1_optimus_prime_boots", G1PRIME, 1, EntityEquipmentSlot.FEET),
 
 					// TFP Megatron
 					new TFPMegatron("tfpmegatron_helmet", MEGATRON_MATERIAL, 1, EntityEquipmentSlot.HEAD),
@@ -1407,111 +1423,86 @@ public class RegistryHandler {
 					new Motormaster("motormaster_chestplate", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
 					new Motormaster("motormaster_leggings", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
 					new Motormaster("motormaster_boots", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
-					// transformation
-					new MotormasterMid1("motormaster_helmet_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid1("motormaster_chestplate_mid1", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid1("motormaster_leggings_mid1", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid1("motormaster_boots_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						// transformation
+						new MotormasterMid1("motormaster_helmet_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid1("motormaster_chestplate_mid1", MOTORMASTER_MATERIAL, 1,	EntityEquipmentSlot.CHEST),
+						new MotormasterMid1("motormaster_leggings_mid1", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid1("motormaster_boots_mid1", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid2("motormaster_helmet_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid2("motormaster_chestplate_mid2", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid2("motormaster_leggings_mid2", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid2("motormaster_boots_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid2("motormaster_helmet_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid2("motormaster_chestplate_mid2", MOTORMASTER_MATERIAL, 1,	EntityEquipmentSlot.CHEST),
+						new MotormasterMid2("motormaster_leggings_mid2", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid2("motormaster_boots_mid2", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid3("motormaster_helmet_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid3("motormaster_chestplate_mid3", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid3("motormaster_leggings_mid3", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid3("motormaster_boots_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid3("motormaster_helmet_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid3("motormaster_chestplate_mid3", MOTORMASTER_MATERIAL, 1,	EntityEquipmentSlot.CHEST),
+						new MotormasterMid3("motormaster_leggings_mid3", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid3("motormaster_boots_mid3", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid4("motormaster_helmet_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid4("motormaster_chestplate_mid4", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid4("motormaster_leggings_mid4", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid4("motormaster_boots_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid4("motormaster_helmet_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid4("motormaster_chestplate_mid4", MOTORMASTER_MATERIAL, 1,	EntityEquipmentSlot.CHEST),
+						new MotormasterMid4("motormaster_leggings_mid4", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid4("motormaster_boots_mid4", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid5("motormaster_helmet_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid5("motormaster_chestplate_mid5", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid5("motormaster_leggings_mid5", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid5("motormaster_boots_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid5("motormaster_helmet_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid5("motormaster_chestplate_mid5", MOTORMASTER_MATERIAL, 1,	EntityEquipmentSlot.CHEST),
+						new MotormasterMid5("motormaster_leggings_mid5", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid5("motormaster_boots_mid5", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid6("motormaster_helmet_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid6("motormaster_chestplate_mid6", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid6("motormaster_leggings_mid6", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid6("motormaster_boots_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid6("motormaster_helmet_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid6("motormaster_chestplate_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid6("motormaster_leggings_mid6", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid6("motormaster_boots_mid6", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid7("motormaster_helmet_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid7("motormaster_chestplate_mid7", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid7("motormaster_leggings_mid7", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid7("motormaster_boots_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid7("motormaster_helmet_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid7("motormaster_chestplate_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid7("motormaster_leggings_mid7", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid7("motormaster_boots_mid7", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid8("motormaster_helmet_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid8("motormaster_chestplate_mid8", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid8("motormaster_leggings_mid8", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid8("motormaster_boots_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid8("motormaster_helmet_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid8("motormaster_chestplate_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid8("motormaster_leggings_mid8", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid8("motormaster_boots_mid8", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid9("motormaster_helmet_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid9("motormaster_chestplate_mid9", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid9("motormaster_leggings_mid9", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
-					new MotormasterMid9("motormaster_boots_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid9("motormaster_helmet_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid9("motormaster_chestplate_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid9("motormaster_leggings_mid9", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid9("motormaster_boots_mid9", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid10("motormaster_helmet_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid10("motormaster_chestplate_mid10", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid10("motormaster_leggings_mid10", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterMid10("motormaster_boots_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid10("motormaster_helmet_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid10("motormaster_chestplate_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid10("motormaster_leggings_mid10", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid10("motormaster_boots_mid10", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid11("motormaster_helmet_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid11("motormaster_chestplate_mid11", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid11("motormaster_leggings_mid11", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterMid11("motormaster_boots_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid11("motormaster_helmet_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid11("motormaster_chestplate_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid11("motormaster_leggings_mid11", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid11("motormaster_boots_mid11", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid12("motormaster_helmet_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid12("motormaster_chestplate_mid12", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid12("motormaster_leggings_mid12", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterMid12("motormaster_boots_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid12("motormaster_helmet_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid12("motormaster_chestplate_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid12("motormaster_leggings_mid12", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid12("motormaster_boots_mid12", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid13("motormaster_helmet_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid13("motormaster_chestplate_mid13", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid13("motormaster_leggings_mid13", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterMid13("motormaster_boots_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid13("motormaster_helmet_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid13("motormaster_chestplate_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid13("motormaster_leggings_mid13", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid13("motormaster_boots_mid13", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid14("motormaster_helmet_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid14("motormaster_chestplate_mid14", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid14("motormaster_leggings_mid14", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterMid14("motormaster_boots_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						new MotormasterMid14("motormaster_helmet_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid14("motormaster_chestplate_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid14("motormaster_leggings_mid14", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid14("motormaster_boots_mid14", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
-					new MotormasterMid15("motormaster_helmet_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new MotormasterMid15("motormaster_chestplate_mid15", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterMid15("motormaster_leggings_mid15", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterMid15("motormaster_boots_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
-					// Altmode
-					new MotormasterAltmode("motormaster_helmet_altmode", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.HEAD),
-					new MotormasterAltmode("motormaster_chestplate_altmode", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.CHEST),
-					new MotormasterAltmode("motormaster_leggings_altmode", MOTORMASTER_MATERIAL, 2,
-							EntityEquipmentSlot.LEGS),
-					new MotormasterAltmode("motormaster_boots_altmode", MOTORMASTER_MATERIAL, 1,
-							EntityEquipmentSlot.FEET),
+						new MotormasterMid15("motormaster_helmet_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterMid15("motormaster_chestplate_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterMid15("motormaster_leggings_mid15", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterMid15("motormaster_boots_mid15", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
+						// Altmode
+						new MotormasterAltmode("motormaster_helmet_altmode", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+						new MotormasterAltmode("motormaster_chestplate_altmode", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.CHEST),
+						new MotormasterAltmode("motormaster_leggings_altmode", MOTORMASTER_MATERIAL, 2, EntityEquipmentSlot.LEGS),
+						new MotormasterAltmode("motormaster_boots_altmode", MOTORMASTER_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
 					// TFP Ultra Magnus
 					new TFPUltraMagnus("ultra_magnus_helmet", MAGNUS_MATERIAL, 1, EntityEquipmentSlot.HEAD),
@@ -1711,12 +1702,12 @@ public class RegistryHandler {
 					new VehiconAltmode("vehicon_altmode_boots", VEHICON_ALTMODE_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
 					// Sideswipe
-					new ArmorModelSideswipe("sideswipe_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
-					new ArmorModelSideswipe("sideswipe_chestplate", SIDESWIPE_MODEL_MATERIAL, 1,
+					new WFCSideswipe("sideswipe_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
+					new WFCSideswipe("sideswipe_chestplate", SIDESWIPE_MODEL_MATERIAL, 1,
 							EntityEquipmentSlot.CHEST),
-					new ArmorModelSideswipe("sideswipe_leggings", SIDESWIPE_MODEL_MATERIAL, 2,
+					new WFCSideswipe("sideswipe_leggings", SIDESWIPE_MODEL_MATERIAL, 2,
 							EntityEquipmentSlot.LEGS),
-					new ArmorModelSideswipe("sideswipe_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
+					new WFCSideswipe("sideswipe_boots", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.FEET),
 
 					new SideswipeMid("sideswipe_mid_helmet", SIDESWIPE_MODEL_MATERIAL, 1, EntityEquipmentSlot.HEAD),
 					new SideswipeMid("sideswipe_mid_chestplate", SIDESWIPE_MODEL_MATERIAL, 1,

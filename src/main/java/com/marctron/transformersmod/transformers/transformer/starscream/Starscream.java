@@ -52,10 +52,10 @@ public class Starscream extends ItemArmorTransformer {
     @Override
     @SubscribeEvent
     public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
+//        player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 10, 0, bFull3D, false));
         player.fallDistance = 0;
         //player.capabilities.allowFlying = true;
-
+        player.eyeHeight=1.6F;
 
         if (world.isRemote) {
 
@@ -250,21 +250,21 @@ public class Starscream extends ItemArmorTransformer {
             if (itemStack.getItem() instanceof ItemArmor) {
 
 
-                ArmorTypes.modelStarscream.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelStarscream.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-                ArmorTypes.modelStarscream.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-                ArmorTypes.modelStarscream.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelStarscream.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-                ArmorTypes.modelStarscream.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
-                ArmorTypes.modelStarscream.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+                ArmorTypes.modelWFCStarscream.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelWFCStarscream.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+                ArmorTypes.modelWFCStarscream.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+                ArmorTypes.modelWFCStarscream.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelWFCStarscream.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+                ArmorTypes.modelWFCStarscream.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
+                ArmorTypes.modelWFCStarscream.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS);
 
-                ArmorTypes.modelStarscream.isSneak = _default.isSneak;
-                ArmorTypes.modelStarscream.isRiding = _default.isRiding;
-                ArmorTypes.modelStarscream.isChild = _default.isChild;
-                ArmorTypes.modelStarscream.rightArmPose = _default.rightArmPose;
-                ArmorTypes.modelStarscream.leftArmPose = _default.leftArmPose;
+                ArmorTypes.modelWFCStarscream.isSneak = _default.isSneak;
+                ArmorTypes.modelWFCStarscream.isRiding = _default.isRiding;
+                ArmorTypes.modelWFCStarscream.isChild = _default.isChild;
+                ArmorTypes.modelWFCStarscream.rightArmPose = _default.rightArmPose;
+                ArmorTypes.modelWFCStarscream.leftArmPose = _default.leftArmPose;
 
-                return ArmorTypes.modelStarscream;
+                return ArmorTypes.modelWFCStarscream;
             }
         }
 

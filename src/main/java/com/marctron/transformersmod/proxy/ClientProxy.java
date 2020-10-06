@@ -122,6 +122,12 @@ public class ClientProxy implements IProxy {
     	RENDERER = new RenderArmor(Minecraft.getMinecraft().getRenderManager(), false);
     	RENDERER_NO_ITEM = new RenderArmorNoItem(Minecraft.getMinecraft().getRenderManager(), false);
     
+      //G1 Optimus Prime
+    	ModItems.G1_OPTIMUS_PRIME_HELMET.setRenderer(RENDERER);
+        ModItems.G1_OPTIMUS_PRIME_CHESTPLATE.setRenderer(RENDERER);
+        ModItems.G1_OPTIMUS_PRIME_LEGGINGS.setRenderer(RENDERER);
+        ModItems.G1_OPTIMUS_PRIME_BOOTS.setRenderer(RENDERER);
+    	
       //Megatron
     	ModItems.TFPMEGATRON_HELMET.setRenderer(RENDERER);
         ModItems.TFPMEGATRON_CHESTPLATE.setRenderer(RENDERER);

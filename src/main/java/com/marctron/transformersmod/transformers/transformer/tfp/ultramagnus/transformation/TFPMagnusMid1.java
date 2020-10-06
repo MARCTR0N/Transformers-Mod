@@ -41,7 +41,9 @@ public class TFPMagnusMid1 extends ItemArmorTransformer{
 	
 	@Override
 	public final void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+		player.eyeHeight=2.f;
 			if(player.onGround){
+				
 					player.motionX=player.motionX * 1.06F;
 					player.motionZ=player.motionZ * 1.06F;
 		}
