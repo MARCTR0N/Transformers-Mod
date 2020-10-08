@@ -431,8 +431,8 @@ public class ClientEvents {
 	@SubscribeEvent
 	public void editHud(RenderGameOverlayEvent.Pre event) {
 		if (!Minecraft.getMinecraft().gameSettings.showDebugInfo) {
-			if (event.getType() == ElementType.VIGNETTE) {
-				for(int i = 0; i<INDICATORS.size(); i++){
+			if (event.getType() == ElementType.ALL) {
+				for(int i = 0; i<INDICATORS.size(); i++){					
 					if(INDICATORS.get(i).getTimeLeft()==0) {
 						INDICATORS.remove(i);
 					}else {

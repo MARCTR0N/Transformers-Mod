@@ -1,25 +1,19 @@
 package com.marctron.transformersmod.util;
-
 import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-
 public class DamageIndicator {
-
 	private int width = 73;
 	private int height = 21;
-
-	private int timeLeft = 255;
+	private int timeLeft = 100;
 	private float attackYaw;
-
 	public DamageIndicator(float attackYaw) {
 		this.attackYaw = attackYaw;
 	}
-
+	
 	public int getTimeLeft() {
 		return timeLeft;
 	}
@@ -36,9 +30,9 @@ public class DamageIndicator {
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder buffer = tessellator.getBuffer();
 		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
-		buffer.pos((double) (centerX), (double) (height), 0.0D).color(255, 0, 0, 255).endVertex();
-		buffer.pos((double) (width), (double) (0), 0.0D).color(255, 0, 0, 255).endVertex();
-		buffer.pos((double) (0), (double) (0), 0.0D).color(255, 0, 0, 255).endVertex();
+		buffer.pos((double) (centerX), (double) (height), 0.0D).color(255, 0, 0, timeLeft*255/100).endVertex();
+		buffer.pos((double) (width), (double) (0), 0.0D).color(255, 0, 0, timeLeft*255/100).endVertex();
+		buffer.pos((double) (0), (double) (0), 0.0D).color(255, 0, 0, timeLeft*255/100).endVertex();
 		tessellator.draw();
 		GlStateManager.disableBlend();
 		GlStateManager.popAttrib();
