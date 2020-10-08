@@ -433,7 +433,7 @@ public class ClientEvents {
 		if (!Minecraft.getMinecraft().gameSettings.showDebugInfo) {
 			if (event.getType() == ElementType.VIGNETTE) {
 				for(int i = 0; i<INDICATORS.size(); i++){
-					if(INDICATORS.get(i).getAlpha()==0) {
+					if(INDICATORS.get(i).getTimeLeft()==0) {
 						INDICATORS.remove(i);
 					}else {
 						INDICATORS.get(i).draw(event.getResolution().getScaledWidth() / 2, event.getResolution().getScaledHeight() / 2,
