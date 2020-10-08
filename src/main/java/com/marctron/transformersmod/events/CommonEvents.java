@@ -5,13 +5,13 @@ import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class CommonEvents {
 
 	@SubscribeEvent
-	public void onEntityAttacked(LivingAttackEvent event) {
+	public void onEntityDamaged(LivingDamageEvent event) {
 		if (event.getEntity() instanceof EntityPlayerMP) {
 			if (event.getSource().getDamageLocation() != null) {
 				Vec3d damagePosition = event.getEntity().getPositionVector()
