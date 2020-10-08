@@ -63,7 +63,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 
-public class ClientProxy implements IProxy {
+public class ClientProxy extends ServerProxy {
 
     public static final KeyBinding ALT_MODE = new KeyBinding("key.transform", Keyboard.KEY_X, "category.transformers");
     public static final KeyBinding ROBOT_MODE = new KeyBinding("key.robotmode", Keyboard.KEY_Y, "category.transformers");
@@ -82,6 +82,7 @@ public class ClientProxy implements IProxy {
 	
     @Override
     public void preInit(FMLPreInitializationEvent e) {
+    	super.preInit(e);
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
         ClientRegistry.registerKeyBinding(ALT_MODE);
@@ -114,7 +115,7 @@ public class ClientProxy implements IProxy {
 
     @Override
     public void init(FMLInitializationEvent e) {
-    	
+    	super.init(e);
 //    	MinecraftForge.EVENT_BUS.register(new DetectDriving());
 
     	
@@ -849,6 +850,7 @@ public class ClientProxy implements IProxy {
 
     @Override
     public void postInit(FMLPostInitializationEvent e) {
+    	super.postInit(e);
 //    	RFP2.state = new State();
     	ClientRegistry.bindTileEntitySpecialRenderer(AnimatedDoorTileEntity.class, new DoorTileEntitySpecialRenderer());
     }
