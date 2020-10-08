@@ -13,7 +13,7 @@ public class DamageIndicator {
 	private int width = 73;
 	private int height = 21;
 
-	private int alpha = 255;
+	private int timeLeft = 255;
 	private float attackYaw;
 
 	public DamageIndicator(float attackYaw) {
@@ -21,7 +21,7 @@ public class DamageIndicator {
 	}
 
 	public int getAlpha() {
-		return alpha;
+		return timeLeft;
 	}
 
 	public void draw(int x, int y, float angle) {
@@ -36,14 +36,14 @@ public class DamageIndicator {
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder buffer = tessellator.getBuffer();
 		buffer.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
-		buffer.pos((double) (centerX), (double) (height), 0.0D).color(255, 0, 0, alpha).endVertex();
-		buffer.pos((double) (width), (double) (0), 0.0D).color(255, 0, 0, alpha).endVertex();
-		buffer.pos((double) (0), (double) (0), 0.0D).color(255, 0, 0, alpha).endVertex();
+		buffer.pos((double) (centerX), (double) (height), 0.0D).color(255, 0, 0, 255).endVertex();
+		buffer.pos((double) (width), (double) (0), 0.0D).color(255, 0, 0, 255).endVertex();
+		buffer.pos((double) (0), (double) (0), 0.0D).color(255, 0, 0, 255).endVertex();
 		tessellator.draw();
 		GlStateManager.disableBlend();
 		GlStateManager.popAttrib();
 		GlStateManager.popMatrix();
 		if (!Minecraft.getMinecraft().isGamePaused())
-			alpha--;
+			timeLeft--;
 	}
 }
