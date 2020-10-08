@@ -20,7 +20,7 @@ public class DamageIndicator {
 		this.attackYaw = attackYaw;
 	}
 
-	public int getAlpha() {
+	public int getTimeLeft() {
 		return timeLeft;
 	}
 
