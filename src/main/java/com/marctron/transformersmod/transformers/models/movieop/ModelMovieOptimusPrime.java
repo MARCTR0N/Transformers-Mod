@@ -22,6 +22,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
@@ -4398,6 +4399,8 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
         
     }
     
+  
+    
     @Override
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
     	
@@ -4439,6 +4442,13 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 	        	this.animator.endKeyframe();
         	}
     	}
+    	
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    		float f5=0.066F;
+    		GlStateManager.scale(0.73F, 0.73F, 0.73F);
+    	    GlStateManager.translate(0.0F, 1F * f5, -0.15F);   	  
+    	    resetToDefaultPose();
+        }
     }
     
     public void setRotateAngle(ModelRenderer ModelRenderer, float x, float y, float z) {
@@ -4463,13 +4473,15 @@ public class ModelMovieOptimusPrime extends AdvancedModelBiped
 //	        }
 		
 	}
+    
+    
 
     
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
     	
     	
-        GlStateManager.scale(0.73F, 0.7F, 0.7F);
+        GlStateManager.scale(0.73F, 0.73F, 0.73F);
         GlStateManager.translate(0.0F, 2F * f5, -0.15F);
        
         

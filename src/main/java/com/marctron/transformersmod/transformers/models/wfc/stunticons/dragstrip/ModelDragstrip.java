@@ -11,6 +11,8 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 //import net.minecraft.client.model.AdvancedModelBipedRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -4922,6 +4924,16 @@ public class ModelDragstrip extends AdvancedModelBiped
         AdvancedModelBipedRenderer.rotateAngleX = x;
         AdvancedModelBipedRenderer.rotateAngleY = y;
         AdvancedModelBipedRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    	float f5=0.066F;	
+    	GlStateManager.scale(0.42F, 0.42F, 0.42F);
+        GlStateManager.translate(0.0F, -1.5F * f5, -0.25F);
+	    resetToDefaultPose();
+    	}
     }
     
     @Override

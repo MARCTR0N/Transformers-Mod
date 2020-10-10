@@ -17,6 +17,9 @@ import com.marctron.transformersmod.blocks.RedEnergonoreBlock;
 import com.marctron.transformersmod.blocks.TransformiumoreBlock;
 import com.marctron.transformersmod.blocks.assembler.BlockAssembler;
 import com.marctron.transformersmod.blocks.deco.BlockCybertron1;
+import com.marctron.transformersmod.blocks.deco.BlockCybertronStair1x3part1;
+import com.marctron.transformersmod.blocks.deco.BlockCybertronStair1x3part2;
+import com.marctron.transformersmod.blocks.deco.BlockCybertronStair1x3part3;
 import com.marctron.transformersmod.blocks.wfc.HealthCrateBlock;
 import com.marctron.transformersmod.blocks.wfc.lock.LockBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
@@ -47,6 +50,8 @@ import com.marctron.transformersmod.items.ItemMedkit;
 import com.marctron.transformersmod.items.ItemPhaseShifter;
 import com.marctron.transformersmod.items.ItemStarSaber;
 import com.marctron.transformersmod.items.M1_GARAND_FULL;
+import com.marctron.transformersmod.items.displaystand.DisplayStand;
+import com.marctron.transformersmod.items.displaystand.EntityDisplayStand;
 import com.marctron.transformersmod.items.gun.AmmoClip;
 import com.marctron.transformersmod.items.gun.EMPShotgun;
 import com.marctron.transformersmod.items.gun.EnergonBattlePistol;
@@ -81,12 +86,12 @@ import com.marctron.transformersmod.transformers.transformer.movieop.stealth.Mov
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid1;
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid2;
 import com.marctron.transformersmod.transformers.transformer.movieop.stealth.MovieOptimusPrimeAltmodeWeaponizedMid3;
-import com.marctron.transformersmod.transformers.transformer.sideswipe.WFCSideswipe;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeAltmode;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid2;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid3;
 import com.marctron.transformersmod.transformers.transformer.sideswipe.SideswipeMid4;
+import com.marctron.transformersmod.transformers.transformer.sideswipe.WFCSideswipe;
 import com.marctron.transformersmod.transformers.transformer.starscream.Starscream;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamAltmode;
 import com.marctron.transformersmod.transformers.transformer.starscream.StarscreamMid1;
@@ -315,6 +320,9 @@ public class RegistryHandler {
 
 	@GameRegistry.ObjectHolder(Reference.MOD_ID)
 	public static final class ModItems {
+		
+		//Props
+		public static final Item DISPLAYSTAND = null;
 
 		// BB
 		public static final Item M1_GARAND_FULL = null;
@@ -1189,8 +1197,11 @@ public class RegistryHandler {
 		public static void onItemRegister(RegistryEvent.Register<Item> event) {
 
 			final Item[] items = {
+					
+					//Props
+					new DisplayStand("displaystand"),
 
-					// Unknow
+					// Unknown
 					new ItemFragment("fragement"),
 					
 					// OBJ
@@ -2135,6 +2146,40 @@ public class RegistryHandler {
 					
 						//WFC Decorations
 						new BlockCybertron1("cybertron_block_1", Material.IRON).setHardness(3),
+						
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_1", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_2", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_3", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_4", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_5", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_6", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_7", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_8", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_9", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_10", Material.IRON).setHardness(3),
+						
+						
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_1", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_2", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_3", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_4", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_5", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_6", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_7", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_8", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_9", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part2("cybertron_stair_1x3_2_10", Material.IRON).setHardness(3),
+						
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_1", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_2", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_3", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_4", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_5", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_6", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_7", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_8", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_9", Material.IRON).setHardness(3),
+						new BlockCybertronStair1x3part3("cybertron_stair_1x3_3_10", Material.IRON).setHardness(3),
 					
 					new HealthCrateBlock("health_crate_block", Material.IRON).setHardness(0),
 
@@ -2194,6 +2239,8 @@ public class RegistryHandler {
 							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
 					registerEntity("decepticon_rocketeer", EntityDecepticonVehiconRocketeer.class,
 							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true, 3750968, 2960679),
+					registerEntity("displaystand", EntityDisplayStand.class,
+							Reference.ENTITY_DECEPTICON_VEHICON_SHOTGUNNER, 1, true),
 
 //            		registerEntity("playerdummy", EntityPlayerDummy.class, Reference.ENTITY_PLAYER_DUMMY, 1, true),
 

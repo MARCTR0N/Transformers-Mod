@@ -9,6 +9,8 @@ import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -46,6 +48,24 @@ public class ModelWFCSideswipe extends ModelWFCSideswipeA{
        
         Waist.render(f5);
     }
+	
+	@Override
+	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount,float partialTickTime) {
+		if(entitylivingbaseIn instanceof EntityArmorStand){
+    		float f5=0.066F;
+    		 GlStateManager.scale(0.32F, 0.32F, 0.32F);
+    	     GlStateManager.translate(0F * f5, 12.5F * f5, 4 * f5);  	  
+    	    resetToDefaultPose();
+    	    
+    	    RIGHT_HAND.rotationPointX=0;
+   	     	RIGHT_HAND.rotationPointZ=-3;
+   	     	RIGHT_HAND.rotationPointY=8;
+   	     
+   	     	LEFT_HAND.rotationPointX=0;
+   	     	LEFT_HAND.rotationPointZ=-3;
+   	     	LEFT_HAND.rotationPointY=8;
+        }
+	}
 	
 	 @Override
 	 public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 

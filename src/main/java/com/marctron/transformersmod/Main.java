@@ -103,6 +103,20 @@ public class Main {
 
     };
     
+    public static CreativeTabs tabTFBlocks = new CreativeTabs("tabTFBlocks") {
+
+        @Override
+        public ItemStack getTabIconItem() {
+            return new ItemStack(RegistryHandler.ModBlocks.LOCK_BLOCK);
+        };
+
+        @Override
+        public boolean hasSearchBar() {
+            return false;
+        }
+
+    };
+    
     public static Logger logger;
     
     public static CreativeTabs tabAutobot = new CreativeTabs("tabAutobot") {

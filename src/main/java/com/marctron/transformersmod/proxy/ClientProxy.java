@@ -38,6 +38,8 @@ import com.marctron.transformersmod.events.ClientEvents;
 //import com.marctron.transformersmod.fpr.playerdummy.RenderPlayerDummy;
 import com.marctron.transformersmod.items.ACHILLESA4;
 import com.marctron.transformersmod.items.DARKSTARSABER;
+import com.marctron.transformersmod.items.displaystand.EntityDisplayStand;
+import com.marctron.transformersmod.items.displaystand.RenderDisplayStand;
 import com.marctron.transformersmod.transformers.renderers.RenderArmor;
 import com.marctron.transformersmod.transformers.renderers.RenderArmorNoItem;
 import com.marctron.transformersmod.util.Reference;
@@ -92,6 +94,8 @@ public class ClientProxy extends ServerProxy {
         registerEntityRenderers();
         
         OBJLoader.INSTANCE.addDomain(Reference.MOD_ID);
+        
+        RenderingRegistry.registerEntityRenderingHandler(EntityDisplayStand.class, RenderDisplayStand::new);
         
         RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonBrute.class, RenderDecepticonBrute::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDecepticonVehiconVariant1.class, RenderDecepticonVehiconVariant1::new);

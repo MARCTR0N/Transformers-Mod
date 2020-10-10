@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tm:stair1_5.obj",
+      "y": 180,
+      "x": 0
+    },
+    "facing=south": {
+      "model": "tm:stair1_5.obj",
+      "y": 0,
+      "x": 0
+    },
+    "facing=west": {
+      "model": "tm:stair1_5.obj",
+      "y": 90,
+      "x": 0
+    },
+    "facing=east": {
+      "model": "tm:stair1_5.obj",
+      "y": 270,
+      "x": 0
+    }
+  }
+}

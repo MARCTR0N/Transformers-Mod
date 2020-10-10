@@ -17,6 +17,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
@@ -5595,6 +5596,13 @@ public class ModelDeadendpartB extends ModelDeadendpartA
 	        	
         	}
     	}
+    	
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    		float f5=0.066F;
+    		GlStateManager.scale(0.45F, 0.45F, 0.45F);
+            GlStateManager.translate(0.0F, 0F * f5, -0.5F); 	  
+    	    resetToDefaultPose();
+        }
     }
     
     public void animate(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 

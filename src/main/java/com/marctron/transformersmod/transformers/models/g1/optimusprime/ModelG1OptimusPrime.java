@@ -2,9 +2,13 @@ package com.marctron.transformersmod.transformers.models.g1.optimusprime;
 
 import com.marctron.transformersmod.transformers.models.AdvancedModelBiped;
 import com.marctron.transformersmod.transformers.models.AdvancedModelBipedRenderer;
+import com.marctron.transformersmod.util.handlers.RegistryHandler;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 
 public class ModelG1OptimusPrime extends AdvancedModelBiped
 {
@@ -4894,10 +4898,23 @@ public class ModelG1OptimusPrime extends AdvancedModelBiped
     }
     
     @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    	GlStateManager.scale(0.25F, 0.25F, 0.25F);
+    	GlStateManager.translate(0F *0.066F, -54F *0.066F, -8 *0.066F); 
+    	Head.scaleChildren=true;
+	    Head.setScale(1.25F, 1.25F, 1.35F);
+	    
+	  
+	    resetToDefaultPose();
+    	}
+    }
+    
+    @Override
 	 public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 
 	 {
     	 GlStateManager.scale(0.25F, 0.25F, 0.25F);
-	     GlStateManager.translate(0F * f5, -56.5F * f5, -2 * f5); 
+	     GlStateManager.translate(0F * f5, -56.5F * f5, -8 * f5); 
 	     
 	     resetToDefaultPose();
 	     
@@ -4941,5 +4958,15 @@ public class ModelG1OptimusPrime extends AdvancedModelBiped
 	     
 	     walk(Left_Leg, globalSpeed, globalDegree*1.5F, true, 0, 0.2F, f, f1);
 	     walk(Left_Lower_Leg, globalSpeed, globalDegree*1.2F, false, 0.8F, 0.5F, f, f1);
+	     
+	    
+	     if(entity instanceof EntityArmorStand){
+	    	 System.out.println("on armor stand");
+	    	 
+	    	
+	     } 
+	     if (!(entity instanceof EntityArmorStand)){
+//	    	 System.out.println("on player");
+	     }
 	 }
 }

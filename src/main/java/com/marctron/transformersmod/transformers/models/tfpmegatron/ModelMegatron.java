@@ -12,6 +12,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -45,6 +46,7 @@ public class ModelMegatron extends ModelMegatron3{
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
+    
     
     
     @Override
@@ -387,6 +389,13 @@ public class ModelMegatron extends ModelMegatron3{
 	        	
         	}
     	}
+    	
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    		float f5=0.066F;
+    		GlStateManager.scale(0.52F, 0.52F, 0.52F);
+    	    GlStateManager.translate(0.0F, 0.50F * f5, -2F*f5);    	  
+    	    resetToDefaultPose();
+        	}
     }
     
     
@@ -395,7 +404,7 @@ public class ModelMegatron extends ModelMegatron3{
     @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
     	GlStateManager.scale(0.52F, 0.52F, 0.52F);
-	    GlStateManager.translate(0.0F, 0.50F * f5, -0.35F);
+	    GlStateManager.translate(0.0F, 0.50F * f5, -2F*f5);
 		resetToDefaultPose();
 		
 	    float upwardPose = (float) (1 / (1 + Math.exp(-10 * (entity.motionY + 0.2))));

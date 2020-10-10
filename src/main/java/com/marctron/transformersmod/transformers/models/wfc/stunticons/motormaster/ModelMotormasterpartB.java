@@ -9,6 +9,8 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -2674,6 +2676,20 @@ public class ModelMotormasterpartB extends ModelMotormasterpartA
         AdvancedModelBipedRenderer.rotateAngleX = x;
         AdvancedModelBipedRenderer.rotateAngleY = y;
         AdvancedModelBipedRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    	float f5=0.066F;	
+    	GlStateManager.scale(0.6F, 0.6F, 0.6F);
+        GlStateManager.translate(0.0F, 9.5F * f5, -0.5F);
+    	resetToDefaultPose();
+    	Torso.scaleChildren=true;
+        Torso.setScale(0.8F, 0.8F, 0.8F);
+        this.RIGHT_HAND.setScale(0.01F, 0.01F, 0.01F);
+        this.LEFT_HAND.setScale(0.01F, 0.01F, 0.01F);
+    	}
     }
     
     @Override

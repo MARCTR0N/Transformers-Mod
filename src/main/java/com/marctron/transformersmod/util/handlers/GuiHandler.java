@@ -14,6 +14,9 @@ import com.marctron.transformersmod.blocks.tileentity.TileEntityEnergonCrate;
 import com.marctron.transformersmod.blocks.wfc.lock.ContainerLock;
 import com.marctron.transformersmod.blocks.wfc.lock.GuiLock;
 import com.marctron.transformersmod.blocks.wfc.lock.TileEntityLock;
+import com.marctron.transformersmod.items.displaystand.ContainerDisplayStand;
+import com.marctron.transformersmod.items.displaystand.EntityDisplayStand;
+import com.marctron.transformersmod.items.displaystand.TileEntityDisplayStand;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -35,6 +38,8 @@ public class GuiHandler implements IGuiHandler {
             return new ContainerEnergonStorage(player.inventory, (TileEntityEnergonStorage) world.getTileEntity(new BlockPos(x, y, z)));
         if (ID == Reference.GUI_LOCK)
             return new ContainerLock(player.inventory, (TileEntityLock) world.getTileEntity(new BlockPos(x, y, z)));
+        if (ID == Reference.GUI_DISPLAYSTAND)
+            return new ContainerDisplayStand(player.inventory, (TileEntityDisplayStand) world.getTileEntity(new BlockPos(x, y, z)), player);
         return null;
     }
 
@@ -51,6 +56,8 @@ public class GuiHandler implements IGuiHandler {
             return new GuiEnergonStorage(player.inventory, (TileEntityEnergonStorage) world.getTileEntity(new BlockPos(x, y, z)));
         if (ID == Reference.GUI_LOCK)
             return new GuiLock(player, (TileEntityLock) world.getTileEntity(new BlockPos(x, y, z)));
+        if (ID == Reference.GUI_DISPLAYSTAND)
+            return new ContainerDisplayStand(player.inventory, (TileEntityDisplayStand) world.getTileEntity(new BlockPos(x, y, z)), player);
         return null;
     }
 

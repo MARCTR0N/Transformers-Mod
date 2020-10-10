@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -50,6 +51,18 @@ public class ModelMenasor extends ModelMenasorTorso2 {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    	float f5=0.066F;	
+    	GlStateManager.scale(0.6F, 0.6F, 0.6F);
+        GlStateManager.translate(0.0F, 10.5F * f5, -0.25F);        
+        resetToDefaultPose();        
+        Left_Foot.rotationPointY=34.0F ;
+        Left_Foot.rotationPointX=1.5F ;
+    	}
     }
     
     @Override

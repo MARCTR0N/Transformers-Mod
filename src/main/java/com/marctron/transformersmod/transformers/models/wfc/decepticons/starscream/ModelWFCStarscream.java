@@ -7,6 +7,8 @@ import net.ilexiconn.llibrary.client.model.ModelAnimator;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemAir;
 import net.minecraft.item.ItemStack;
@@ -1605,6 +1607,21 @@ public class ModelWFCStarscream extends ModelWFCStarscreamB{
     	((ModelBiped)((ItemArmorTransformer)entity.getArmorInventoryList().iterator().next().getItem()).getRenderer().getMainModel()).bipedRightArm = this.RIGHT_HAND;
                
         Waist.render(f5);
+    }
+	
+	@Override
+    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+    	if(entitylivingbaseIn instanceof EntityArmorStand){
+    	float f5=0.066F;	
+    	GlStateManager.scale(0.41F, 0.41F, 0.41F);
+	    GlStateManager.translate(0F * f5, -5.5F * f5, -2 * f5); 
+    	resetToDefaultPose();
+    	
+    	 RIGHT_HAND.setScale(0, 0, 0);
+	     RIGHT_HAND.rotationPointZ=-2;
+	     RIGHT_HAND.rotationPointY=5;
+	     RIGHT_HAND.rotationPointX=1;
+    	}
     }
 	
 	 @Override

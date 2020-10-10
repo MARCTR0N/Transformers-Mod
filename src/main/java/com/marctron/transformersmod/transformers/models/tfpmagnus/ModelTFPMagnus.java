@@ -9,6 +9,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -76,6 +77,19 @@ public class ModelTFPMagnus extends ModelTFPUltraMagnuspart3{
 	    	ModelRenderer.rotateAngleX = x;
 	        ModelRenderer.rotateAngleY = y;
 	        ModelRenderer.rotateAngleZ = z;
+	    }
+	 
+	 @Override
+	    public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+	    	if(entitylivingbaseIn instanceof EntityArmorStand){
+	    	float f5=0.066F;	
+	    	GlStateManager.scale(0.4F, 0.4F, 0.4F);
+		    GlStateManager.translate(0.0F, -14.50F * f5, -0.35F);
+		    resetToDefaultPose();
+		    Head.rotationPointY=-17;
+			Left_Leg.rotationPointY=20;
+			Right_Leg.rotationPointY=20;
+	    	}
 	    }
 	 @Override
 	 public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {

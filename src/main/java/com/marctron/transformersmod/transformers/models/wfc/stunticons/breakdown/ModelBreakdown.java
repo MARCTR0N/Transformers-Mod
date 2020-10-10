@@ -14,6 +14,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityArmorStand;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -445,6 +446,25 @@ public class ModelBreakdown extends ModelBreakdownBody{
 		        	
 	        	}
 	    	}
+	    	
+	    	if(entitylivingbaseIn instanceof EntityArmorStand){
+	    		float f5=0.066F;
+		        GlStateManager.scale(0.45F, 0.45F, 0.45F);
+		        GlStateManager.translate(-2.0F * f5, -1F * f5, -1);    
+	    	    resetToDefaultPose();
+	    	    
+	    	    Left_Arm.rotationPointZ=50*f5;
+		        Left_Arm.rotationPointY=-3*f5;
+		        
+		        Right_Arm.rotationPointZ=50*f5;
+		        Right_Arm.rotationPointY=-3*f5;
+		        
+		        RIGHT_HAND.rotationPointY=4;
+		        RIGHT_HAND.rotationPointX=1;
+		        
+		        LEFT_HAND.rotationPointY=4;
+		        LEFT_HAND.rotationPointX=-1;
+	        }
 	    }
 	 
 	 @Override

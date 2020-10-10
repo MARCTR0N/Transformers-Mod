@@ -2093,6 +2093,43 @@ public class ModelTarnLegs extends TarnChest {
         this.Chestpiece.render(f5);
        
     }
+    
+    @Override
+	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount,float partialTickTime) {
+		if(entitylivingbaseIn instanceof EntityArmorStand){
+    		float f5=0.066F;
+    		GlStateManager.scale(0.6F, 0.6F, 0.6F);
+            GlStateManager.translate(0.0F, -2.0F * f5, 0.0F); 	  
+    	    resetToDefaultPose();
+    	    
+    	    this.CHEST.rotationPointY=-7;
+            this.CHEST.rotationPointZ=3;
+            
+            this.HEAD.rotationPointY=-14;
+            this.HEAD.rotationPointZ=1.5F;
+            this.HEAD.defaultRotationX=(float) (-0.5/Math.PI);
+            
+            this.LEFT_LEG1.rotationPointY=-2;
+            this.RIGHT_LEG1.rotationPointY=-2;
+            
+            this.Chestpiece.rotationPointY=-20;
+            this.Chestpiece.rotationPointZ=-2;
+            
+            this.RIGHT_ARM.rotationPointX=-11;
+            this.LEFT_ARM.rotationPointX=11;
+            
+            this.RIGHT_ARM.rotationPointY=-2;
+            this.LEFT_ARM.rotationPointY=-2;
+            
+            this.RIGHT_ARM.rotationPointZ=2;
+            this.LEFT_ARM.rotationPointZ=2;
+            
+            this.TREAD.rotationPointY=0;
+            this.TREAD_1.rotationPointY=0;
+            this.TREAD.rotationPointZ=-3;
+            this.TREAD_1.rotationPointZ=-3;
+    	}
+	}
 
     @Override
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) 
