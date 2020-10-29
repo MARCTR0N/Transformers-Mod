@@ -30,7 +30,7 @@ public class EnergonBattlePistol extends ItemGunBase {
     @Override
     protected void spawnBullet(World world, EntityPlayer player) {
         player.getCooldownTracker().setCooldown(this, Cooldown);
-        world.spawnEntity(new EntityBullet(world, player).setDamage(5f));
+        world.spawnEntity(new EntityBullet(world, player).setDamage(5f).setExplosionDamage(1.9f));
     }
 
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag flag) {

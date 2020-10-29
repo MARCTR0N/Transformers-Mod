@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tm:cybertron_plated",
+      "z": 0,
+      "y": 0,
+      "x": 0
+    },
+    "facing=south": {
+      "model": "tm:cybertron_plated2",
+      "z": 0,
+      "y": 180,
+      "x": 0
+    },
+    "facing=west": {
+      "model": "tm:cybertron_plated",
+      "y": 270,
+      "x": 0
+    },
+    "facing=east": {
+      "model": "tm:cybertron_plated2",
+      "y": 90,
+      "x": 0
+    }
+  }
+}

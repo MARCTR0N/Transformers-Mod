@@ -1,0 +1,11 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "down": "tm:blocks/p5",
+    "up": "tm:blocks/p6",
+    "north": "tm:blocks/p2",
+    "east": "tm:blocks/p4",
+    "south": "tm:blocks/p1",
+    "west": "tm:blocks/p3"
+  }
+}

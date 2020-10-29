@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.marctron.transformersmod.commands.CommandDimensionTeleport;
 import com.marctron.transformersmod.init.CybertronWorldGen;
+import com.marctron.transformersmod.init.FluidInit;
 import com.marctron.transformersmod.init.GunEntities;
 import com.marctron.transformersmod.init.ModRecipes;
 import com.marctron.transformersmod.network.packets.tf.TFNetworkManager;
@@ -17,6 +18,7 @@ import com.marctron.transformersmod.util.Reference;
 import com.marctron.transformersmod.util.handlers.CapabilityHandler;
 import com.marctron.transformersmod.util.handlers.GuiHandler;
 import com.marctron.transformersmod.util.handlers.RegistryHandler;
+import com.marctron.transformersmod.util.handlers.RenderHandler;
 import com.marctron.transformersmod.util.handlers.SoundsHandler;
 import com.marctron.transformersmod.world.generators.ModWorldGen;
 import com.marctron.transformersmod.world.generators.WorldGenCustomStructures;
@@ -29,6 +31,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidRegistry.FluidRegisterEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -48,6 +52,8 @@ public class Main {
 	
 	public static final Potion SHRINKING = new PotionShrinking("shrinking", entity);
 	public static final Potion GROWTH = new PotionGrowth("growth");
+	
+	static { FluidRegistry.enableUniversalBucket(); }
 
     @Instance
     public static Main instance;
@@ -151,7 +157,9 @@ public class Main {
     
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
+    	FluidInit.registerFluids();
     	proxy.preInit(event);
+    	
     	
     	CapabilityHandler.registerCaps();
        
@@ -201,7 +209,8 @@ public class Main {
     }
 
     @EventHandler
-    public static void preInitRegistries() {
+    public static void preInitRegistries(FMLPreInitializationEvent event) {
+    	
 //        EntityInit.registerEntities();
     }
 

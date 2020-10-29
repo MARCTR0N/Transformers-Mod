@@ -20,6 +20,7 @@ import com.marctron.transformersmod.blocks.deco.BlockCybertron1;
 import com.marctron.transformersmod.blocks.deco.BlockCybertronStair1x3part1;
 import com.marctron.transformersmod.blocks.deco.BlockCybertronStair1x3part2;
 import com.marctron.transformersmod.blocks.deco.BlockCybertronStair1x3part3;
+import com.marctron.transformersmod.blocks.deco.BlockHorizontalBase;
 import com.marctron.transformersmod.blocks.wfc.HealthCrateBlock;
 import com.marctron.transformersmod.blocks.wfc.lock.LockBlock;
 import com.marctron.transformersmod.client.modelloaders.bbmodel.BBGunLoader;
@@ -35,6 +36,8 @@ import com.marctron.transformersmod.entity.EntityLargeRocket;
 import com.marctron.transformersmod.entity.EntityNewBullet;
 import com.marctron.transformersmod.entity.EntitySwindle;
 import com.marctron.transformersmod.entity.EntityVehicon;
+import com.marctron.transformersmod.fluids.BlockFluid;
+import com.marctron.transformersmod.init.FluidInit;
 import com.marctron.transformersmod.init.ModPotionTypes;
 import com.marctron.transformersmod.items.ACHILLESA4;
 import com.marctron.transformersmod.items.DARKSTARSABER;
@@ -190,6 +193,7 @@ import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.moto
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid7;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid8;
 import com.marctron.transformersmod.transformers.transformer.wfc.stunticons.motormaster.transformation.MotormasterMid9;
+import com.marctron.transformersmod.util.ModMaterials;
 import com.marctron.transformersmod.util.Reference;
 
 import net.minecraft.block.Block;
@@ -1127,6 +1131,8 @@ public class RegistryHandler {
 
 	@GameRegistry.ObjectHolder(Reference.MOD_ID)
 	public static final class ModBlocks {
+		
+		public static final Block ENERGON_FLUID_BLOCK = null;
 
 		public static final Block ITEM_SPAWNER = null;
 		public static final Block ENERGON_CUBE_BLOCK = null;
@@ -2107,6 +2113,8 @@ public class RegistryHandler {
 
 //            event.getRegistry().registerAll(com.marctron.transformersmod.init.ModItems.ITEMS.toArray(new Item[0]));
 		}
+		
+		
 
 		@SubscribeEvent
 		public static void onBlockRegister(RegistryEvent.Register<Block> event) {
@@ -2145,6 +2153,10 @@ public class RegistryHandler {
 					new AnimatedDoorBlock("door_block_external", Material.IRON).setHardness(3),
 					
 						//WFC Decorations
+						new BlockFluid("energon_fluid", FluidInit.ENERGON_FLUID, ModMaterials.SLIME),
+					
+						new BlockHorizontalBase("cybertron_plated", Material.IRON).setHardness(3),
+					
 						new BlockCybertron1("cybertron_block_1", Material.IRON).setHardness(3),
 						
 						new BlockCybertronStair1x3part1("cybertron_stair_1x3_1_1", Material.IRON).setHardness(3),

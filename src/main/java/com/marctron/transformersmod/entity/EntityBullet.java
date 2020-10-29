@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAreaEffectCloud;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -13,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketChangeGameState;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
@@ -22,6 +24,7 @@ import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -32,6 +35,9 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
     private float damage = 4f;
     private int knockbackStrength = 1;
     private int ticksInAir = 0;
+    
+    private float explosionRadius;
+    public boolean explosive;
 
     public EntityBullet(World world) {
         super(world);
@@ -55,6 +61,11 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
 
     public EntityBullet setDamage(float amount) {
         damage = amount;
+        return this;
+    }
+    
+    public EntityBullet setExplosionDamage(float amount) {
+    	explosionRadius = amount;
         return this;
     }
 
@@ -153,6 +164,9 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
 
                 //Play hit sound
                 playSound(SoundEvents.BLOCK_ANVIL_BREAK, 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));
+                if(explosionRadius>=0){
+                	this.explode();
+                }
 
                 if (!(entityHit instanceof EntityEnderman))
                     setDead();
@@ -167,6 +181,9 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
             IBlockState state = world.getBlockState(pos);
             if (state.getMaterial() != Material.AIR)
                 state.getBlock().onEntityCollidedWithBlock(world, pos, state, this);
+            if(explosionRadius>=0){
+            	this.explode();
+            }            
             setDead();
         }
     }
@@ -186,6 +203,21 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
 
         //Increase time bullet has been in the air
         ticksInAir++;
+        
+        if(!(ticksInAir==0))
+        {
+        	for (int k = 0; k < 4; ++k)
+            {
+        		this.world.spawnParticle(EnumParticleTypes.CRIT, this.posX + this.motionX * k / 4.0D, this.posY + this.motionY * k / 4.0D, this.posZ + this.motionZ * k / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+        	//Soundwave
+//        		this.world.spawnParticle(EnumParticleTypes.SWEEP_ATTACK, this.posX + this.motionX * k / 4.0D, this.posY + this.motionY * k / 4.0D, this.posZ + this.motionZ * k / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+//        		this.world.spawnParticle(EnumParticleTypes.NOTE, this.posX + this.motionX * k / 4.0D, this.posY + this.motionY * k / 4.0D, this.posZ + this.motionZ * k / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+        		
+//        		this.world.spawnParticle(EnumParticleTypes.SNOW_SHOVEL, this.posX + this.motionX * k / 4.0D, this.posY + this.motionY * k / 4.0D, this.posZ + this.motionZ * k / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+
+//        		this.world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX + this.motionX * k / 4.0D, this.posY + this.motionY * k / 4.0D, this.posZ + this.motionZ * k / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+            }        
+        }
 
         //Ray trace in front of the bullet between its current and next position
         Vec3d posNow = new Vec3d(posX, posY, posZ);
@@ -349,5 +381,39 @@ public class EntityBullet extends Entity implements IProjectile, IThrowableEntit
     public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
         // TODO Auto-generated method stub
 
+    }
+    
+    private void explode()
+    {
+        if (!this.world.isRemote)
+        {
+//            boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this);
+            float f= 1;
+            this.world.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius * f, false);
+            this.setDead();
+//            this.spawnLingeringCloud();
+        }
+    }
+    
+    private void spawnLingeringCloud()
+    {
+//        Collection<PotionEffect> collection = this.getActivePotionEffects();
+
+//        if (!collection.isEmpty())
+        {
+            EntityAreaEffectCloud entityareaeffectcloud = new EntityAreaEffectCloud(this.world, this.posX, this.posY, this.posZ);
+            entityareaeffectcloud.setRadius(2.5F);
+            entityareaeffectcloud.setRadiusOnUse(-0.5F);
+            entityareaeffectcloud.setWaitTime(10);
+            entityareaeffectcloud.setDuration(entityareaeffectcloud.getDuration() / 2);
+            entityareaeffectcloud.setRadiusPerTick(-entityareaeffectcloud.getRadius() / (float)entityareaeffectcloud.getDuration());
+
+//            for (PotionEffect potioneffect : collection)
+//            {
+//                entityareaeffectcloud.addEffect(new PotionEffect(potioneffect));
+//            }
+
+            this.world.spawnEntity(entityareaeffectcloud);
+        }
     }
 }

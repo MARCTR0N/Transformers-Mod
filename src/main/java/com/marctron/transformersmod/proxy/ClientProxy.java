@@ -31,6 +31,7 @@ import com.marctron.transformersmod.entity.render.RenderRocket;
 import com.marctron.transformersmod.entity.render.RenderSwindle;
 import com.marctron.transformersmod.entity.render.RenderVehicon;
 import com.marctron.transformersmod.events.ClientEvents;
+import com.marctron.transformersmod.init.FluidInit;
 //import com.marctron.transformersmod.fpr.RFP2;
 //import com.marctron.transformersmod.fpr.RFP2Keybind;
 //import com.marctron.transformersmod.fpr.State;
@@ -85,6 +86,7 @@ public class ClientProxy extends ServerProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
     	super.preInit(e);
+//    	FluidInit.registerFluids();
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
         ClientRegistry.registerKeyBinding(ROBOT_MODE);
         ClientRegistry.registerKeyBinding(ALT_MODE);

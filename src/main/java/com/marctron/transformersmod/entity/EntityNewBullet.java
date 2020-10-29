@@ -61,7 +61,10 @@ private Block inTile;
 private int inData;
 private int ticksInGround;
 private double damage;
+private double explosiondamage;
 private int life = 0;
+private int explosionRadius;
+public boolean explosive;
 
 private int lastupdate = 21;
 
@@ -150,6 +153,13 @@ protected ItemStack getArrowStack() {
 }
 
 //@Override
+public EntityNewBullet setExplosion(boolean canexplode) {
+	if(canexplode==true){
+    	this.explode();
+    }
+    return this;
+}
+
 public EntityNewBullet setDamage(float amount) {
     damage = amount;
     return this;
@@ -169,6 +179,18 @@ public void setVelocity(double x, double y, double z) {
 	z=v;
 }
 
+private void explode()
+{
+    if (!this.world.isRemote)
+    {
+//        boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this);
+        float f= 1;
+        this.world.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius * f, false);
+        this.setDead();
+//        this.spawnLingeringCloud();
+    }
+}
+
 @Override
 protected void onHit(RayTraceResult raytraceResultIn) {
 			
@@ -184,6 +206,9 @@ protected void onHit(RayTraceResult raytraceResultIn) {
     	
         float i = (float) this.damage;
 
+        if(explosive==true){
+        	this.explode();
+        }
         DamageSource damagesource;
 
         if (this.shootingEntity == null)
